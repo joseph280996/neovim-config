@@ -1,0 +1,11 @@
+source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/fzf.vim
+source $HOME/.config/nvim/nerdtree.vim
+source $HOME/.config/nvim/settings.vim
+source $HOME/.config/nvim/ultisnip.vim
+source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/dev-icons.vim
+source $HOME/.config/nvim/key-mappings.vim
+source $HOME/.config/nvim/startify.vim
+source $HOME/.config/nvim/airline.vim
+source $HOME/.config/nvim/bufferline.vim
