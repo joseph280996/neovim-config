@@ -21,7 +21,6 @@ call plug#begin()
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
 
-
   " {{ Themes }}
   "Plug 'cocopon/iceberg.vim'
   "Plug 'casonadams/nord.vim'
@@ -40,4 +39,5 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'         "Git changes on the gutter
   Plug 'Xuyuanp/nerdtree-git-plugin'    "Nerdtree git changes
 
+  Plug 'tpop/vim-commentary'
 call plug#end()

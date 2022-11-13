@@ -1,6 +1,7 @@
 "{{ Configuring Neovim }}
 syntax on                               "Enable syntax highlighting
 set number                              "Enable line number
+set relativenumber                      "Enable relative line number
 set nocompatible
 set termguicolors                       "Enable colors for color scheme
 set encoding=utf-8                      "Set files encoding to display icons

@@ -1,2 +1,2 @@
-nmap <leader>gd :Gdiffsplit
-nmap <leader>gb :Git blame
+nmap <leader>sd :Gdiffsplit
+nmap <leader>bl :Git blame
