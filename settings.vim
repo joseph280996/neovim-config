@@ -1,7 +1,7 @@
 "{{ Configuring Neovim }}
 syntax on                               "Enable syntax highlighting
 set number                              "Enable line number
-set relativenumber                      "Enable relative line number
+set relativenumber                      "Enable relative number from current line
 set nocompatible
 set termguicolors                       "Enable colors for color scheme
 set encoding=utf-8                      "Set files encoding to display icons
@@ -19,5 +19,5 @@ set ffs=unix,dos,mac                    "Use Unix as the standard file type
 "{{ <Tab> Configuring }}
 set expandtab
 set smarttab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
