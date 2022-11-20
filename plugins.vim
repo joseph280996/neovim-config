@@ -10,8 +10,10 @@ call plug#begin()
   "{{ Fuzzy Finder }}
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim',
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'airblade/vim-rooter',     "Use to detect work space
+
+  "{{ Code completion }}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   "{{ Buffer Packages }}
   Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
@@ -37,11 +39,13 @@ call plug#begin()
 
   "{{ Git integration }}
   Plug 'tpope/vim-fugitive'             "Git commands within vim
-  Plug 'airblade/vim-gitgutter'         "Git changes on the gutter
+  "Plug 'airblade/vim-gitgutter'         "Git changes on the gutter
   Plug 'Xuyuanp/nerdtree-git-plugin'    "Nerdtree git changes
-
 
   "{{ Smart Comment }}
   Plug 'tpope/vim-commentary'
+
+  "{{ Markdown preview }}
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'}   "Require node.js and yarn installed
 
 call plug#end()

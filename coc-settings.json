@@ -1,3 +1,19 @@
 {
-	"coc.preferences.formatOnSaveFiletypes": ["*"]
+    "coc.preferences.formatOnSaveFiletypes": [
+        "*"
+    ],
+    "languageserver": {
+        "csharp-ls": {
+            "command": "csharp-ls.exe",
+            "filetypes": [
+                "cs"
+            ],
+            "rootPatterns": [
+                "*.csprof",
+                ".vim/",
+                ".git",
+                ".hg/"
+            ]
+        }
+    }
 }

@@ -1,2 +1,3 @@
- " {{ Buffer Line Config }}
+" {{ Buffer Line Config }}
 lua require"bufferline".setup()
+
