@@ -1,5 +1,5 @@
 call plug#begin()
-  Plug 'leafgarland/typescript-vim'
+
   "{{ List Recent Projects On Open }}
   Plug 'mhinz/vim-startify'
 
@@ -22,9 +22,10 @@ call plug#begin()
   Plug 'honza/vim-snippets'
 
   " {{ Themes }}
-  "Plug 'cocopon/iceberg.vim'
+  Plug 'cocopon/iceberg.vim'
   "Plug 'casonadams/nord.vim'
-  Plug 'stillwwater/vim-nebula'
+  "Plug 'elianiva/icy.nvim
+  "Plug 'stillwwater/vim-nebula'
   "Plug 'EdenEast/nightfox.nvim'
   Plug 'ryanoasis/vim-devicons'         "Files icons
   Plug 'nvim-tree/nvim-web-devicons'     "Files icons specific to Neovim
@@ -39,5 +40,8 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'         "Git changes on the gutter
   Plug 'Xuyuanp/nerdtree-git-plugin'    "Nerdtree git changes
 
-  Plug 'tpop/vim-commentary'
+
+  "{{ Smart Comment }}
+  Plug 'tpope/vim-commentary'
+
 call plug#end()

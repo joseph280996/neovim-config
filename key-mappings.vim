@@ -13,11 +13,13 @@ au TabLeave * let g:lasttab = tabpagenr()
 
 " {{ Split And Tabs }}
 set splitbelow splitright
+
 " ---> Remapping split navigation to Ctrl + <h,j,k,l>
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+
 " ---> Friendly Adjusting split size
 nmap <silent> <c-left> :vert res -3<CR>
 nmap <silent> <c-right> :vert res +3<CR>
