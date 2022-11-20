@@ -1,5 +1,5 @@
 source $HOME/.config/nvim/plugins.vim
-source $HOME/.config/nvim/airline.vim
+source $HOME/.config/nvim/lualine.vim
 source $HOME/.config/nvim/bufferline.vim
 source $HOME/.config/nvim/coc.vim
 source $HOME/.config/nvim/fzf.vim

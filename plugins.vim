@@ -32,10 +32,8 @@ call plug#begin()
   Plug 'ryanoasis/vim-devicons'         "Files icons
   Plug 'nvim-tree/nvim-web-devicons'     "Files icons specific to Neovim
 
-  "{{ Airline }}
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-
+  "{{ Lualine }}
+  Plug 'nvim-lualine/lualine.nvim'
 
   "{{ Git integration }}
   Plug 'tpope/vim-fugitive'             "Git commands within vim
