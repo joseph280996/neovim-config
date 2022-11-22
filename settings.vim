@@ -5,6 +5,7 @@ set relativenumber                      "Enable relative number from current lin
 set nocompatible
 set termguicolors                       "Enable colors for color scheme
 set encoding=utf-8                      "Set files encoding to display icons
+set fileencoding=utf-8                  "Set encoding written to files
 set nowrap                              "Prevent vim from breaking a long line into multiple lines
 colorscheme iceberg                      "Set color scheme
 set smartcase

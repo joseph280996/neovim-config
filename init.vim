@@ -12,3 +12,6 @@ source $HOME/.config/nvim/markdown.vim
 source $HOME/.config/nvim/xclip.vim
 source $HOME/.config/nvim/vim-rooter.vim
 source $HOME/.config/nvim/git.vim
+source $HOME/.config/nvim/xclip.vim
+source $HOME/.config/nvim/start-screen.vim
+source $HOME/.config/nvim/dev-icons.vim
