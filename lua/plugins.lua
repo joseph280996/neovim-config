@@ -44,7 +44,7 @@ return require('packer').startup(function(use)
   -- Fuzzy Finder/Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
-  use "nviim-telescope/telescope-fzf-native.nvim"
+  use "nvim-telescope/telescope-fzf-native.nvim"
   use "tom-anders/telescope-vim-bookmarks.nvim"
 
   -- Markdown
