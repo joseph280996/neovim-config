@@ -15,6 +15,9 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- LSP and Code Completion
+  use {'neoclide/coc.nvim', branch = 'release'}
+  
   -- Lua Development
   use "nvim-lua/plenary.nvim"
 
@@ -42,17 +45,17 @@ return require('packer').startup(function(use)
   use "rmagatti/session-lens"
 
   -- Fuzzy Finder/Telescope
-  use "nvim-telescope/telescope.nvim"
+  use {
+      "nvim-telescope/telescope.nvim",
+      tag = '0.1.0',
+      requires = {{ 'nvim-lua/plenary.nvim' }}
+  }
   use "nvim-telescope/telescope-media-files.nvim"
-  use "nvim-telescope/telescope-fzf-native.nvim"
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   use "tom-anders/telescope-vim-bookmarks.nvim"
 
   -- Markdown
-  use {
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    ft = "markdown",
-  }
+  --  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
   -- Notification
   use "rcarriga/nvim-notify"

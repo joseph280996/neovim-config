@@ -6,9 +6,10 @@ end
 
 -- Configurations
 
-local actiosn = require 'telescope.actions'
+local actions = require 'telescope.actions'
 telescope.load_extension 'media_files'
 local icons = require "user.icons"
+
 
 telescope.setup {
     defaults = {
@@ -90,4 +91,7 @@ telescope.setup {
     }
 }
 
+require("telescope").load_extension 'fzf'
+
 vim.keymap.set("n", "<c-p>", "<cmd>Telescope find_files<cr>")
+vim.keymap.set('n', '<leader>f', '<cmd>Telescope live_grep<cr>')
