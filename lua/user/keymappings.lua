@@ -1,12 +1,5 @@
 local opts = { silent = true, noremap = true }
 
--- {{ Tabs management }}
---- Tab friendly commands to start with <t+(n,o,c,m)>
-vim.api.nvim_set_keymap('', '<leader>tn', ':tabnew<cr>', opts)
-vim.api.nvim_set_keymap('', '<leader>to', ':tabonly<cr>', opts)
-vim.api.nvim_set_keymap('', '<leader>tc', ':tabclose<cr>', opts)
-vim.api.nvim_set_keymap('', '<leader>tm', ':tabmove', opts)
-
 -- Let 'tl' toggle between this and the last accessed tab
 vim.g.lasttab = 1
 vim.api.nvim_set_keymap('n', '<Leader>tl', ':exe "tabn ".g:lasttab<CR>', opts)
