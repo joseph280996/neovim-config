@@ -37,8 +37,6 @@ telescope.setup {
     pickers = {
         find_files = {
             theme = "dropdown",
-            hidden = true,
-            previewer = false,
         },
         live_grep = {
             --@usage don't include the filename in the search results
@@ -94,4 +92,4 @@ telescope.setup {
 require("telescope").load_extension 'fzf'
 
 vim.keymap.set("n", "<c-p>", "<cmd>Telescope find_files<cr>")
-vim.keymap.set('n', '<leader>f', '<cmd>Telescope live_grep<cr>')
+vim.keymap.set('n', '<c-F>', '<cmd>Telescope live_grep<cr>')

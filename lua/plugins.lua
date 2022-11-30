@@ -9,17 +9,52 @@ local ensure_packer = function()
   return false
 end
 
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
+
+local status_ok, packer = pcall(require, 'packer')
+if not status_ok then
+    return
+end
+
+packer.init({
+    display = {
+        open_fn = function()
+            return require('packer.util').float({ border = 'rounded' })
+        end,
+    },
+})
+
 local packer_bootstrap = ensure_packer()
 
-return require('packer').startup(function(use)
+return packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- LSP and Code Completion
-  use {'neoclide/coc.nvim', branch = 'release'}
+  -- LSP
+  use 'neovim/nvim-lspconfig' -- Native LSP
+  use 'williamboman/mason.nvim' -- Simple to use LSP installer
+  use 'williamboman/mason-lspconfig.nvim' -- Simple to use LSP installer
+
+  -- Code Completion
+  use 'hrsh7th/nvim-cmp' -- Completion Plugin
+  use 'hrsh7th/cmp-buffer' -- Buffer Completion
+  use 'hrsh7th/cmp-path' -- Path Completion
+  use 'hrsh7th/cmp-cmdline' -- CMD Completion
+  use 'saadparwaiz1/cmp_luasnip' -- Snippet Completion
+  use 'hrsh7th/cmp-nvim-lsp' -- Buffer Completion
   
   -- Lua Development
   use "nvim-lua/plenary.nvim"
+
+  -- Snippets
+  use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
+  use 'rafamadriz/friendly-snippets' -- Snippets extension to use
 
   -- Tree
   use 'kyazdani42/nvim-tree.lua'
@@ -55,7 +90,10 @@ return require('packer').startup(function(use)
   use "tom-anders/telescope-vim-bookmarks.nvim"
 
   -- Markdown
-  --  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
+  })
 
   -- Notification
   use "rcarriga/nvim-notify"
@@ -69,6 +107,18 @@ return require('packer').startup(function(use)
   use 'sindrets/diffview.nvim'
   use 'tpope/vim-fugitive'
 
+  -- Treesitter
+  use { 
+      'nvim-treesitter/nvim-treesitter',
+      run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+  }
+
+  -- Useful Utilities
+  use 'folke/which-key.nvim'
+    
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
