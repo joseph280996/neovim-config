@@ -30,7 +30,7 @@ cybu.setup {
   },
 }
 
-vim.keymap.set("n", "<c-tab>", "<Plug>(CybuNext)")
-vim.keymap.set("n", "<c-s-tab>", "<Plug>(CybuPrev)")
+vim.keymap.set("n", "]b", "<Plug>(CybuNext)")
+vim.keymap.set("n", "[b", "<Plug>(CybuPrev)")
 vim.keymap.set("n", "[b", "<Plug>(CybuLastusedPrev)")
 vim.keymap.set("n", "[b", "<Plug>(CybuLastusedNext)")

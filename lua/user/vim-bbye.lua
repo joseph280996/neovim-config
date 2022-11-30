@@ -1,2 +1,2 @@
 -- Friendly Buffers keymaps
-vim.keymap.set('n', '<c-w>', '<cmd>bdelete<cr>')
+vim.keymap.set('n', '<c-x>', '<cmd>bdelete<cr>')

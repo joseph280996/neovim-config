@@ -91,5 +91,3 @@ telescope.setup {
 
 require("telescope").load_extension 'fzf'
 
-vim.keymap.set("n", "<c-p>", "<cmd>Telescope find_files<cr>")
-vim.keymap.set('n', '<c-F>', '<cmd>Telescope live_grep<cr>')
