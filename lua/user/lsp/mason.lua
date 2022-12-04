@@ -5,7 +5,6 @@ local servers = {
     'tsserver',
     'html',
     'jsonls',
-    'yamlls',
 }
 
 local settings = {

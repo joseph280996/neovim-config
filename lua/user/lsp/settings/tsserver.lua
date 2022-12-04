@@ -9,6 +9,17 @@ return {
                 includeInlayParameterNameHintsWhenArgumentMatchesName = true,
                 includeInlayPropertyDeclarationTypeHints = true,
                 includeInlayVariableTypeHints = true,
+            },
+            format = {
+                insertSpaceAfterConstructor = true,
+                insertSpaceAfterKeywordsInControlFlowStatements = true,
+                insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
+                insertSpaceAfterOpeninAndBeforeClosingTemplateStringBraces = true,
+                insertSpaceAfterSemicolonInForStatements = true,
+                insertSpaceBeforeTypeAnnotation = true,
+                insertSpaceBeforeFunctionParenthesis = true,
+                semicolons = 'insert',
+                trimTrailingWhitespace = true,
             }
         },
         typescript = {
@@ -20,6 +31,17 @@ return {
                 includeInlayParameterNameHintsWhenArgumentMatchesName = true,
                 includeInlayPropertyDeclarationTypeHints = true,
                 includeInlayVariableTypeHints = true,
+            },
+            format = {
+                insertSpaceAfterConstructor = true,
+                insertSpaceAfterKeywordsInControlFlowStatements = true,
+                insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
+                insertSpaceAfterOpeninAndBeforeClosingTemplateStringBraces = true,
+                insertSpaceAfterSemicolonInForStatements = true,
+                insertSpaceBeforeTypeAnnotation = true,
+                insertSpaceBeforeFunctionParenthesis = true,
+                semicolons = 'insert',
+                trimTrailingWhitespace = true,
             }
         }
     }
