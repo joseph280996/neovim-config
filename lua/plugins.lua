@@ -33,95 +33,100 @@ packer.init({
 local packer_bootstrap = ensure_packer()
 
 return packer.startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  -- LSP
-  use 'neovim/nvim-lspconfig' -- Native LSP
-  use 'williamboman/mason.nvim' -- Simple to use LSP installer
-  use 'williamboman/mason-lspconfig.nvim' -- Simple to use LSP installer
+    -- LSP
+    use 'neovim/nvim-lspconfig' -- Native LSP
+    use 'williamboman/mason.nvim' -- Simple to use LSP installer
+    use 'williamboman/mason-lspconfig.nvim' -- Simple to use LSP installer
+    use "jose-elias-alvarez/null-ls.nvim"
 
-  -- Code Completion
-  use 'hrsh7th/nvim-cmp' -- Completion Plugin
-  use 'hrsh7th/cmp-buffer' -- Buffer Completion
-  use 'hrsh7th/cmp-path' -- Path Completion
-  use 'hrsh7th/cmp-cmdline' -- CMD Completion
-  use 'saadparwaiz1/cmp_luasnip' -- Snippet Completion
-  use 'hrsh7th/cmp-nvim-lsp' -- Buffer Completion
-  
-  -- Lua Development
-  use "nvim-lua/plenary.nvim"
+    -- Code Completion
+    use 'hrsh7th/nvim-cmp' -- Completion Plugin
+    use 'hrsh7th/cmp-buffer' -- Buffer Completion
+    use 'hrsh7th/cmp-path' -- Path Completion
+    use 'hrsh7th/cmp-cmdline' -- CMD Completion
+    use 'saadparwaiz1/cmp_luasnip' -- Snippet Completion
+    use 'hrsh7th/cmp-nvim-lsp' -- Buffer Completion
 
-  -- Snippets
-  use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
-  use 'rafamadriz/friendly-snippets' -- Snippets extension to use
+    -- Development Utilities
+    use 'windwp/nvim-autopairs' -- Autopairs, integrates with both cmp and treesitter
+    use 'numToStr/Comment.nvim' -- Easily comment stuff
 
-  -- Tree
-  use 'kyazdani42/nvim-tree.lua'
+    -- Lua Development
+    use "nvim-lua/plenary.nvim"
 
-  -- Icon
-  use 'kyazdani42/nvim-web-devicons'
+    -- Snippets
+    use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
+    use 'rafamadriz/friendly-snippets' -- Snippets extension to use
 
-  -- Statusline
-  use 'christianchiarulli/lualine.nvim'
-  use "akinsho/bufferline.nvim"
+    -- Tree
+    use 'kyazdani42/nvim-tree.lua'
 
-  -- Themes
-  use 'cocopon/iceberg.vim'
+    -- Icon
+    use 'kyazdani42/nvim-web-devicons'
 
-  -- Start Screen
-  use "goolord/alpha-nvim"
-  
-  -- Project
-  use "ahmedkhalf/project.nvim"
+    -- Statusline
+    use 'christianchiarulli/lualine.nvim'
+    use "akinsho/bufferline.nvim"
 
-  -- Session
-  use "rmagatti/auto-session"
-  use "rmagatti/session-lens"
+    -- Themes
+    use 'cocopon/iceberg.vim'
 
-  -- Fuzzy Finder/Telescope
-  use {
-      "nvim-telescope/telescope.nvim",
-      tag = '0.1.0',
-      requires = {{ 'nvim-lua/plenary.nvim' }}
-  }
-  use "nvim-telescope/telescope-media-files.nvim"
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-  use "tom-anders/telescope-vim-bookmarks.nvim"
+    -- Start Screen
+    use "goolord/alpha-nvim"
 
-  -- Markdown
-  use({
-      "iamcco/markdown-preview.nvim",
-      run = function() vim.fn["mkdp#util#install"]() end,
-  })
+    -- Project
+    use "ahmedkhalf/project.nvim"
 
-  -- Notification
-  use "rcarriga/nvim-notify"
+    -- Session
+    use "rmagatti/auto-session"
+    use "rmagatti/session-lens"
 
-  -- Buffers Utilities
-  use({ "ghillb/cybu.nvim", branch = "main", requires = { "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" }})
-  use "moll/vim-bbye"
-  use "lewis6991/impatient.nvim"
+    -- Fuzzy Finder/Telescope
+    use {
+        "nvim-telescope/telescope.nvim",
+        tag = '0.1.0',
+        requires = {{ 'nvim-lua/plenary.nvim' }}
+    }
+    use "nvim-telescope/telescope-media-files.nvim"
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    use "tom-anders/telescope-vim-bookmarks.nvim"
 
-  -- Git
-  use 'sindrets/diffview.nvim'
-  use 'tpope/vim-fugitive'
+    -- Markdown
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 
-  -- Treesitter
-  use { 
-      'nvim-treesitter/nvim-treesitter',
-      run = function()
+    -- Notification
+    use "rcarriga/nvim-notify"
+
+    -- Buffers Utilities
+    use({ "ghillb/cybu.nvim", branch = "main", requires = { "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" }})
+    use "moll/vim-bbye"
+    use "lewis6991/impatient.nvim"
+
+    -- Git
+    use 'sindrets/diffview.nvim'
+    use 'tpope/vim-fugitive'
+
+    -- Treesitter
+    use { 
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end,
-  }
+    }
 
-  -- Useful Utilities
-  use 'folke/which-key.nvim'
-    
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
+    -- Useful Utilities
+    use 'folke/which-key.nvim'
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 end)
