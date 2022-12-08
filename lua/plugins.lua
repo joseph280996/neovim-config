@@ -121,6 +121,9 @@ return packer.startup(function(use)
         end,
     }
 
+    -- LaTex
+    use 'lervag/vimtex'
+
     -- Useful Utilities
     use 'folke/which-key.nvim'
 
