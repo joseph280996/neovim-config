@@ -21,7 +21,7 @@ return {
                 semicolons = 'insert',
                 trimTrailingWhitespace = true,
             }
-        },
+        }
         typescript = {
             inlayHints = {
                 includeInlayEnumMemberValueHints = true,
@@ -43,6 +43,6 @@ return {
                 semicolons = 'insert',
                 trimTrailingWhitespace = true,
             }
-        }
-    }
+        },
+    },
 }
