@@ -1,5 +1,6 @@
 return {
     settings = {
+        quotePreference = "double",
         javascript = {
             inlayHints = {
                 includeInlayEnumMemberValueHints = true,
@@ -11,17 +12,18 @@ return {
                 includeInlayVariableTypeHints = true,
             },
             format = {
-                insertSpaceAfterConstructor = true,
+                convertTabsToSpaces = false,
+                insertSpaceAfterCommaDelimiter = true,
+                insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
                 insertSpaceAfterKeywordsInControlFlowStatements = true,
+                insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces = true,
                 insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
-                insertSpaceAfterOpeninAndBeforeClosingTemplateStringBraces = true,
                 insertSpaceAfterSemicolonInForStatements = true,
-                insertSpaceBeforeTypeAnnotation = true,
-                insertSpaceBeforeFunctionParenthesis = true,
+                insertSpaceBeforeAndAfterBinaryOperators = true,
                 semicolons = 'insert',
                 trimTrailingWhitespace = true,
             }
-        }
+        },
         typescript = {
             inlayHints = {
                 includeInlayEnumMemberValueHints = true,
@@ -33,13 +35,14 @@ return {
                 includeInlayVariableTypeHints = true,
             },
             format = {
-                insertSpaceAfterConstructor = true,
+                convertTabsToSpaces = false,
+                insertSpaceAfterCommaDelimiter = true,
+                insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
                 insertSpaceAfterKeywordsInControlFlowStatements = true,
+                insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces = true,
                 insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
-                insertSpaceAfterOpeninAndBeforeClosingTemplateStringBraces = true,
                 insertSpaceAfterSemicolonInForStatements = true,
-                insertSpaceBeforeTypeAnnotation = true,
-                insertSpaceBeforeFunctionParenthesis = true,
+                insertSpaceBeforeAndAfterBinaryOperators = true,
                 semicolons = 'insert',
                 trimTrailingWhitespace = true,
             }
