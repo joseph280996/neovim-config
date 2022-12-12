@@ -5,6 +5,7 @@ local servers = {
     'tsserver',
     'html',
     'jsonls',
+    'ltex'
 }
 
 local settings = {
