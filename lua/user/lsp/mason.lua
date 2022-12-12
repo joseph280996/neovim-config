@@ -5,7 +5,7 @@ local servers = {
     'tsserver',
     'html',
     'jsonls',
-    'ltex'
+    'ltex',
     'omnisharp'
 }
 
