@@ -1,5 +1,6 @@
 return {
     settings = {
+        quotePreference = "double",
         javascript = {
             inlayHints = {
                 includeInlayEnumMemberValueHints = true,
@@ -11,10 +12,18 @@ return {
                 includeInlayVariableTypeHints = true,
             },
             format = {
-                semicolons = 'insert',
+                convertTabsToSpaces = false,
+                insertSpaceAfterCommaDelimiter = true,
                 insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
+                insertSpaceAfterKeywordsInControlFlowStatements = true,
+                insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces = true,
+                insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
+                insertSpaceAfterSemicolonInForStatements = true,
+                insertSpaceBeforeAndAfterBinaryOperators = true,
+                semicolons = 'insert',
+                trimTrailingWhitespace = true,
             }
-        }
+        },
         typescript = {
             inlayHints = {
                 includeInlayEnumMemberValueHints = true,
@@ -26,8 +35,16 @@ return {
                 includeInlayVariableTypeHints = true,
             },
             format = {
-                semicolons = 'insert',
+                convertTabsToSpaces = false,
+                insertSpaceAfterCommaDelimiter = true,
                 insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
+                insertSpaceAfterKeywordsInControlFlowStatements = true,
+                insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces = true,
+                insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
+                insertSpaceAfterSemicolonInForStatements = true,
+                insertSpaceBeforeAndAfterBinaryOperators = true,
+                semicolons = 'insert',
+                trimTrailingWhitespace = true,
             }
         },
     },

@@ -113,16 +113,23 @@ return packer.startup(function(use)
     use 'tpope/vim-fugitive'
 
     -- Treesitter
-    use { 
+    use ({ 
         'nvim-treesitter/nvim-treesitter',
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end,
-    }
+    })
 
     -- Useful Utilities
-    use 'folke/which-key.nvim'
+    use 'folke/which-key.nvim' -- Centralized list of all commands UI
+    use ({
+        'kylechui/nvim-surround',
+        tag = "*"
+    })
+
+    -- LaTex
+    use 'lervag/vimtex'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

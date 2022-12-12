@@ -10,7 +10,16 @@ null_ls.setup({
     debug = false,
     source = {
         formatting.eslint,
-        formatting.prettier_d_slim.with({ extra_args = { "--arrow_parens avoid", "--end-of-line auto" } }),
+        formatting.prettier_d_slim.with(
+            {
+                extra_args = {
+                    "--trailing-comma none",
+                    "--no-semi true",
+                    "--use-tabs",
+                    "--arrow_parens avoid",
+                    "--end-of-line auto"
+                }
+            }),
         formatting.black.with({ extra_args = { "--fast" } }),
         formatting.stylua,
     },
