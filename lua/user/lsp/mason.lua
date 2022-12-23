@@ -6,7 +6,8 @@ local servers = {
     'html',
     'jsonls',
     'ltex',
-    'omnisharp'
+    'omnisharp',
+    'sqlls',
 }
 
 local settings = {

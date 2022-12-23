@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "Buf
 
 configs.setup({
 	ensure_installed = {
+		"java",
 		"c_sharp",
 		"bash",
 		"javascript",

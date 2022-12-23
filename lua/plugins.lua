@@ -72,7 +72,8 @@ return packer.startup(function(use)
     use "akinsho/bufferline.nvim"
 
     -- Themes
-    use 'cocopon/iceberg.vim'
+    -- use 'cocopon/iceberg.vim'
+    use 'arcticicestudio/nord-vim'
 
     -- Start Screen
     use "goolord/alpha-nvim"
@@ -121,15 +122,10 @@ return packer.startup(function(use)
         end,
     })
 
-    -- LaTex
-    use 'lervag/vimtex'
-
     -- Useful Utilities
     use 'folke/which-key.nvim' -- Centralized list of all commands UI
-    use ({
-        'kylechui/nvim-surround',
-        tag = "*"
-    })
+    use ({ 'kylechui/nvim-surround', tag = "*" }) -- Surround with quotes, brackets and paranthesis
+    use 'folke/todo-comments.nvim' -- Highlight todo comments
 
     -- LaTex
     use 'lervag/vimtex'

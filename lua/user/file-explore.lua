@@ -6,15 +6,13 @@ if not status_ok then
     return
 end
 
-vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true, noremap = true })
-
 nvim_tree.setup({
     hijack_directories = {
         enable = false,
     },
     filters = {
         custom = { ".git" },
-        exclude = { ".gitignore" },
+        exclude = { ".gitignore", ".env" },
     },
     ignore_ft_on_setup = {
         "startify",

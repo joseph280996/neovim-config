@@ -7,21 +7,13 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
-    debug = false,
-    sources = {
-        formatting.eslint,
-        formatting.prettier_d_slim.with(
-            {
-                extra_args = {
-                    "--trailing-comma none",
-                    "--no-semi true",
-                    "--use-tabs",
-                    "--arrow_parens avoid",
-                    "--end-of-line auto"
-                }
-            }),
-        formatting.black.with({ extra_args = { "--fast" } }),
-        formatting.stylua,
+	debug = true,
+	sources = {
+		formatting.eslint,
+		formatting.prettier,
+		formatting.black.with({ extra_args = { "--fast" } }),
+        formatting.sqlfluff.with({ extra_args = { "--dialect", "mysql" }}),
+		formatting.stylua,
 		formatting.latexindent,
-    },
+	},
 })
