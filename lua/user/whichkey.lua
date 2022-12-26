@@ -115,6 +115,7 @@ local mappings = {
 	},
 	g = {
 		name = "Git",
+        g = {"<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit"},
 		j = { "", "Next Hunk" },
 		k = { "", "Prev Hunk" },
 		l = { "", "Blame" },
@@ -130,7 +131,7 @@ local mappings = {
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 		d = {
-			"<cmd>Diffview<cr>",
+			"<cmd>DiffviewOpen<cr>",
 			"Git Diffview",
 		},
 	},

@@ -130,6 +130,9 @@ return packer.startup(function(use)
     -- LaTex
     use 'lervag/vimtex'
 
+    -- Terminals
+    use ({"akinsho/toggleterm.nvim", tag = '*'})
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
