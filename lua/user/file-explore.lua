@@ -7,12 +7,14 @@ if not status_ok then
 end
 
 nvim_tree.setup({
+    git = {
+        ignore = false
+    },
     hijack_directories = {
         enable = false,
     },
     filters = {
         custom = { ".git" },
-        exclude = { ".gitignore", ".env" },
     },
     ignore_ft_on_setup = {
         "startify",

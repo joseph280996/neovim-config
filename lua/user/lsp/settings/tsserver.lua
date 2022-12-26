@@ -22,7 +22,7 @@ return {
                 insertSpaceBeforeAndAfterBinaryOperators = true,
                 semicolons = 'insert',
                 trimTrailingWhitespace = true,
-                newLineCharacter = 'LF'
+                newLineCharacter = '\n'
             }
         },
         typescript = {
@@ -46,7 +46,7 @@ return {
                 insertSpaceBeforeAndAfterBinaryOperators = true,
                 semicolons = 'insert',
                 trimTrailingWhitespace = true,
-                newLineCharacter = 'LF'
+                newLineCharacter = '\n'
             }
         },
     },
