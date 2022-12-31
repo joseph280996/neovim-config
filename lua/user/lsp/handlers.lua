@@ -84,7 +84,7 @@ end
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-local function format_filter(client)
+function M.format_filter(client)
     local filetype = vim.bo.filetype
     local method = null_ls.methods.FORMATTING
     local available_formatters = null_ls_sources.get_available(filetype, method)
@@ -100,8 +100,8 @@ end
 
 M.lsp_formatting = function()
     vim.lsp.buf.format({
-        filter = format_filter,
-        timeout_ms = 5000
+        filter = M.format_filter,
+        timeout_ms = 2000
     })
 end
 
