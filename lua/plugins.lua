@@ -40,7 +40,8 @@ return packer.startup(function(use)
     use 'neovim/nvim-lspconfig' -- Native LSP
     use 'williamboman/mason.nvim' -- Simple to use LSP installer
     use 'williamboman/mason-lspconfig.nvim' -- Simple to use LSP installer
-    use "jose-elias-alvarez/null-ls.nvim"
+    use 'jose-elias-alvarez/null-ls.nvim'
+    use 'tamago324/nlsp-settings.nvim'
 
     -- Code Completion
     use 'hrsh7th/nvim-cmp' -- Completion Plugin

@@ -180,9 +180,9 @@ local mappings = {
 		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
 		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
 		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+		f = { "<cmd>lua _PS_FLOAT_TOGGLE()<cr>", "Float" },
+		h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
+		v = { "<cmd>lua _PS_VERTICAL_TOGGLE()<cr>", "Vertical" },
 	},
 }
 

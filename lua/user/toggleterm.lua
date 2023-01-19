@@ -68,3 +68,21 @@ local python = Terminal:new({ cmd = "python", hidden = true })
 function _PYTHON_TOGGLE()
 	python:toggle()
 end
+
+local powershell_horizontal = Terminal:new({ cmd = "pwsh", direction = "horizontal", size = 10 })
+
+function _PS_HORIZONTAL_TOGGLE()
+	powershell_horizontal:toggle()
+end
+
+local powershell_vertical = Terminal:new({ cmd = "pwsh", direction = "vertical", size = 80 })
+
+function _PS_VERTICAL_TOGGLE()
+	powershell_vertical:toggle()
+end
+
+local powershell_float = Terminal:new({ cmd = "pwsh", direction = "float" })
+
+function _PS_FLOAT_TOGGLE()
+	powershell_float:toggle()
+end
