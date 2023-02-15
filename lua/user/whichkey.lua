@@ -105,6 +105,7 @@ local mappings = {
 	},
 	e = {
 		name = "Explorer",
+        f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer"},
 		o = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 		c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
 	},
