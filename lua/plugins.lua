@@ -74,7 +74,11 @@ return packer.startup(function(use)
 
     -- Themes
     -- use 'cocopon/iceberg.vim'
-    use 'arcticicestudio/nord-vim'
+    -- use "shaunsingh/nord.nvim"
+    -- use { "olivercederborg/poimandres.nvim", config = function() require('poimandres').setup {} end }
+    -- use 'folke/tokyonight.nvim'
+    use { "bluz71/vim-nightfly-colors", as = "nightfly" }
+    use "norcalli/nvim-colorizer.lua"
 
     -- Start Screen
     use "goolord/alpha-nvim"
@@ -122,6 +126,7 @@ return packer.startup(function(use)
             ts_update()
         end,
     })
+    use "windwp/nvim-ts-autotag"
 
     -- Useful Utilities
     use 'folke/which-key.nvim' -- Centralized list of all commands UI
