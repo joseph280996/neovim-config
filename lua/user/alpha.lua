@@ -54,5 +54,3 @@ dashboard.opts.opts.noautocmd = true
 -- vim.cmd([[autocmd User AlphaReady echo 'ready']])
 alpha.setup(dashboard.opts)
 
--- Keymaps
-vim.api.nvim_set_keymap('n', '<leader>;', ':Alpha<CR>', { silent = true, noremap = true })
