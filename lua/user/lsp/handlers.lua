@@ -101,7 +101,7 @@ end
 M.lsp_formatting = function()
     vim.lsp.buf.format({
         filter = M.format_filter,
-        timeout_ms = 2000
+        timeout_ms = 8000
     })
 end
 
