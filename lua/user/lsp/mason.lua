@@ -22,6 +22,8 @@ local settings = {
     max_concurrent_installers = 4,
 }
 
+reuire("lsp-file-operations").setup()
+
 require("mason").setup(settings)
 require("mason-lspconfig").setup({
     ensure_installed = servers,

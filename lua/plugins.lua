@@ -42,6 +42,7 @@ return packer.startup(function(use)
     use 'williamboman/mason-lspconfig.nvim' -- Simple to use LSP installer
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'tamago324/nlsp-settings.nvim'
+    use 'antosha417/nvim-lsp-file-operations'
 
     -- Code Completion
     use 'hrsh7th/nvim-cmp' -- Completion Plugin

@@ -22,8 +22,8 @@ local options = {
 	-- {{ Tab Config }}
 	expandtab = true,
 	smarttab = true,
-	tabstop = 4,
-	shiftwidth = 4,
+	tabstop = 2,
+	shiftwidth = 2,
 }
 
 for setting, value in pairs(options) do
