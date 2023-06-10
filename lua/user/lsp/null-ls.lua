@@ -10,9 +10,8 @@ local codeaction = null_ls.builtins.code_actions
 null_ls.setup({
 	debug = false,
 	sources = {
-        codeaction.eslint,
+    codeaction.eslint,
 		formatting.eslint,
-		formatting.prettier,
 		formatting.black.with({ extra_args = { "--fast" } }),
         formatting.sqlfluff.with({ extra_args = { "--dialect", "mysql" }}),
 		formatting.stylua,

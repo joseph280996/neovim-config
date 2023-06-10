@@ -71,7 +71,6 @@ return packer.startup(function(use)
 
     -- Statusline
     use 'christianchiarulli/lualine.nvim'
-    use "akinsho/bufferline.nvim"
 
     -- Themes
     -- use 'cocopon/iceberg.vim'

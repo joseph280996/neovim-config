@@ -80,13 +80,13 @@ local opts = {
 
 local mappings = {
 	[";"] = { "<cmd>Alpha<cr>", "Alpha" },
-	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Buffers",
+	b = {
+		name = "Buffers",
+		l = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "List Open Buffers" },
+	  c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	},
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["f"] = {
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -131,7 +131,6 @@ local mappings = {
 			"Git Diffview",
 		},
 	},
-
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -174,8 +173,19 @@ local mappings = {
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
-
-	t = {
+  S = {
+    name = "Session",
+    f = { "<cmd>Autosession search<cr>", "Find Session"},
+    s = { "<cmd>SessionSave<cr>", "Save session" },
+    r = { "<cmd>SessionRestore<cr>", "Restore session" },
+    d = { "<cmd>SessionDelete<cr>", "Delete session"},
+  },
+  t = {
+    name = "Tabs",
+    n = { "<cmd>tabnew<cr>", "New Tab" },
+    c = { "<cmd>tabclose<cr>", "Close Tab" },
+  },
+	T = {
 		name = "Terminal",
 		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
 		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },

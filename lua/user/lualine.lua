@@ -1,8 +1,22 @@
-
 local status_ok, lualine = pcall(require, 'lualine')
 if not status_ok then
     return
 end
+
+-- HELPERS
+local function contains(t, value)
+  for _, v in pairs(t) do
+    if v == value then
+      return true
+    end
+  end
+  return false
+end
+
+local function hl_str(str, hl)
+  return "%#" .. hl .. "#" .. str .. "%*"
+end
+
 local left_pad = {
   function()
     return " "
@@ -295,7 +309,7 @@ local lanuage_server = {
 local location = {
     'location',
     fmt = function(str)
-        return return hl_str(" ", "SLSep") .. hl_str(str, "SLLocation") .. hl_str(" ", "SLSep")
+        return hl_str(" ", "SLSep") .. hl_str(str, "SLLocation") .. hl_str(" ", "SLSep")
     end,
     padding = 0
 }
@@ -309,12 +323,12 @@ lualine.setup {
         disabled_filetypes = { 'alpha', 'dashboard' },
     },
     sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostic' },
+        lualine_a = { mode },
+        lualine_b = { branch, diff, 'diagnostic' },
         lualine_c = { 'filename' },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { location, }
+        lualine_x = { 'encoding', 'fileformat', filetype },
+        lualine_y = { progress },
+        lualine_z = { location }
     },
     inactive_sections = {
         lualine_a = {},

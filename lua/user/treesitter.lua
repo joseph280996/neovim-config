@@ -8,9 +8,9 @@ if not status_ok_install then
 	return
 end
 
-local status_ok_parsers, parsers = pcall(require, 'nvim-treesitter.parsers')
+local status_ok_parsers, parsers = pcall(require, "nvim-treesitter.parsers")
 if not status_ok_parsers then
-    return
+	return
 end
 
 install.prefer_git = false
@@ -25,8 +25,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "Buf
 })
 
 configs.setup({
-    auto_install = true,
+	auto_install = true,
 	ensure_installed = {
+    "vimdoc",
+		"sql",
 		"java",
 		"c_sharp",
 		"bash",
@@ -37,18 +39,18 @@ configs.setup({
 		"typescript",
 		"css",
 		"markdown",
-        "html"
+		"html",
 	}, -- one of "all" or a list of languages
 	ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		disable = { "latex" },
-        additional_vim_regex_highlighting = false
+		additional_vim_regex_highlighting = false,
 	},
-    autotag = {
-        enable = true,
-        filetypes = { 'html', 'javascript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'markdown' },
-    },
+	autotag = {
+		enable = true,
+		filetypes = { "html", "javascript", "javascriptreact", "typescriptreact", "svelte", "vue", "markdown", "sql" },
+	},
 	autopairs = {
 		enable = true,
 	},

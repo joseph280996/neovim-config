@@ -30,4 +30,4 @@ for setting, value in pairs(options) do
 	vim.opt[setting] = value
 end
 
-vim.g.python3_host_prog = "~/AppData/Local/Programs/Python/Python310/python3.exe"
+vim.g.python3_host_prog = "~/AppData/Local/Programs/Python/Python311/python.exe"
