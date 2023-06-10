@@ -15,7 +15,7 @@ local options = {
 
 	-- {{ Fold Config }}
 	foldmethod = "syntax",
-	foldlevel = 99, -- Unfold on open
+	foldlevel = 1, -- Unfold on open
 	foldcolumn = "1",
 	foldenable = true,
 
