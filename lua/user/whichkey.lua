@@ -15,8 +15,8 @@ local setup = {
 		-- No actual key bindings are created
 		presets = {
 			operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-			motions = true, -- adds help for motions
-			text_objects = true, -- help for text objects triggered after entering an operator
+			motions = false, -- adds help for motions
+			text_objects = false, -- help for text objects triggered after entering an operator
 			windows = true, -- default bindings on <c-w>
 			nav = true, -- misc bindings to work with windows
 			z = true, -- bindings for folds, spelling and others prefixed with z
@@ -25,7 +25,7 @@ local setup = {
 	},
 	-- add operators that will trigger motion and text object completion
 	-- to enable all native operators, set the preset / operators plugin above
-	operators = { gc = "Comments" },
+	operators = { gc = "Comments", ys = "Surround" },
 	key_labels = {
 		-- override the label used to display some keys. It doesn't effect WK in any other way.
 		-- For example:
@@ -58,7 +58,7 @@ local setup = {
 	ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
 	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
 	show_help = true, -- show help message on the command line when the popup is visible
-	triggers = "auto", -- automatically setup triggers
+	-- triggers = "auto", -- automatically setup triggers
 	-- triggers = {"<leader>"} -- or specify a list manually
 	triggers_blacklist = {
 		-- list of mode / prefixes that should never be hooked by WhichKey
@@ -82,54 +82,67 @@ local mappings = {
 	[";"] = { "<cmd>Alpha<cr>", "Alpha" },
 	b = {
 		name = "Buffers",
-		l = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "List Open Buffers" },
-	  c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	},
-	["w"] = { "<cmd>w!<CR>", "Save" },
-	["q"] = { "<cmd>q!<CR>", "Quit" },
-	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["f"] = {
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Find files",
-	},
-	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-
-	p = {
-		name = "Packer",
-		c = { "<cmd>PackerCompile<cr>", "Compile" },
-		i = { "<cmd>PackerInstall<cr>", "Install" },
-		s = { "<cmd>PackerSync<cr>", "Sync" },
-		S = { "<cmd>PackerStatus<cr>", "Status" },
-		u = { "<cmd>PackerUpdate<cr>", "Update" },
+		l = {
+			"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			"List Open Buffers",
+		},
+		c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	},
 	e = {
 		name = "Explorer",
-        f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer"},
+		f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
 		o = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 		c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
 	},
+	f = {
+		name = "Find",
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		f = {
+			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			"Files",
+		},
+		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+		m = { "<cmd>lua require('notify').history()<cr>", "Find Noti" },
+		p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Find Projects" },
+		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+		s = { "<cmd>SearchSession<cr>", "Find Session" },
+		t = {
+			"<cmd>Telescope live_grep theme=ivy<cr>",
+			"Find Text",
+		},
+
+		C = { "<cmd>Telescope commands<cr>", "Commands" },
+		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+		R = { "<cmd>Telescope registers<cr>", "Registers" },
+		T = {
+			name = "Trouble",
+			o = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
+			w = { "cmd>TroubleToggle workspace_diagnostic<cr>", "Troubles in Workspace" },
+			w = { "cmd>TroubleToggle document_diagnostic<cr>", "Troubles in Buffer" },
+			w = { "cmd>TroubleToggle document_diagnostic<cr>", "Trouble in LocList" },
+		},
+	},
 	g = {
 		name = "Git",
-        g = {"<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit"},
-		j = { "", "Next Hunk" },
-		k = { "", "Prev Hunk" },
-		l = { "", "Blame" },
-		p = { "", "Preview Hunk" },
-		r = { "", "Reset Hunk" },
-		R = { "", "Reset Buffer" },
-		s = { "", "Stage Hunk" },
-		u = {
-			"",
-			"Undo Stage Hunk",
-		},
-		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 		d = {
 			"<cmd>DiffviewOpen<cr>",
 			"Git Diffview",
 		},
+		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+		l = { "<cmd>GitBlameToggle<cr>", "Blame" },
+		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+		u = {
+			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+			"Undo Stage Hunk",
+		},
+		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
 	},
 	l = {
 		name = "LSP",
@@ -138,13 +151,8 @@ local mappings = {
 			"<cmd>Telescope diagnostics bufnr=0<cr>",
 			"Document Diagnostics",
 		},
-		w = {
-			"<cmd>Telescope diagnostics<cr>",
-			"Workspace Diagnostics",
-		},
 		f = { require("user.lsp.handlers").lsp_formatting, "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
-		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {
 			"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
 			"Next Diagnostic",
@@ -157,34 +165,35 @@ local mappings = {
 		q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+		w = {
+			"<cmd>Telescope diagnostics<cr>",
+			"Workspace Diagnostics",
+		},
+		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
 		},
 	},
-	s = {
-		name = "Search",
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-		R = { "<cmd>Telescope registers<cr>", "Registers" },
-		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-		C = { "<cmd>Telescope commands<cr>", "Commands" },
+	p = {
+		name = "Packer",
+		c = { "<cmd>PackerCompile<cr>", "Compile" },
+		i = { "<cmd>PackerInstall<cr>", "Install" },
+		s = { "<cmd>PackerSync<cr>", "Sync" },
+		S = { "<cmd>PackerStatus<cr>", "Status" },
+		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
-  S = {
-    name = "Session",
-    f = { "<cmd>Autosession search<cr>", "Find Session"},
-    s = { "<cmd>SessionSave<cr>", "Save session" },
-    r = { "<cmd>SessionRestore<cr>", "Restore session" },
-    d = { "<cmd>SessionDelete<cr>", "Delete session"},
-  },
-  t = {
-    name = "Tabs",
-    n = { "<cmd>tabnew<cr>", "New Tab" },
-    c = { "<cmd>tabclose<cr>", "Close Tab" },
-  },
+	t = {
+		name = "Tabs",
+		c = { "<cmd>tabclose<cr>", "Close Tab" },
+		n = { "<cmd>tabnew<cr>", "New Tab" },
+	},
+	S = {
+		name = "Session",
+		d = { "<cmd>SessionDelete<cr>", "Delete session" },
+		r = { "<cmd>SessionRestore<cr>", "Restore session" },
+		s = { "<cmd>SessionSave<cr>", "Save session" },
+	},
 	T = {
 		name = "Terminal",
 		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
@@ -195,6 +204,7 @@ local mappings = {
 		h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
 		v = { "<cmd>lua _PS_VERTICAL_TOGGLE()<cr>", "Vertical" },
 	},
+	P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 }
 
 which_key.setup(setup)

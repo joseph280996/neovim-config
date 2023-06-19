@@ -89,5 +89,5 @@ telescope.setup {
     }
 }
 
-require("telescope").load_extension 'fzf'
+telescope.load_extension('fzf')
 

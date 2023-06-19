@@ -38,20 +38,42 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- Native LSP
-	use("williamboman/mason.nvim") -- Simple to use LSP installer
+	use({
+		"williamboman/mason.nvim", -- Simple to use LSP installer
+		build = ":MasonUpdate",
+	})
 	use("williamboman/mason-lspconfig.nvim") -- Simple to use LSP installer
-	use("jose-elias-alvarez/null-ls.nvim")
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
 	use("tamago324/nlsp-settings.nvim")
-	use("antosha417/nvim-lsp-file-operations")
+	use({
+		"antosha417/nvim-lsp-file-operations",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"kyazdani42/nvim-tree.lua",
+		},
+	})
+
+  -- Diagnosis
+  use({
+    "folke/trouble.nvim",
+    requires = {
+      "nvim-tree/nvim-web-devicons"
+    }
+  })
 
 	-- DAP
 	use("mfussenegger/nvim-dap")
-  use { 
-    "rcarriga/nvim-dap-ui",
-    requires = {
-      "mfussenegger/nvim-dap"
-    } 
-  }
+	use({
+		"rcarriga/nvim-dap-ui",
+		requires = {
+			"mfussenegger/nvim-dap",
+		},
+	})
 	use({
 		"nvim-neotest/neotest",
 		requires = {
@@ -68,6 +90,11 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-cmdline") -- CMD Completion
 	use("saadparwaiz1/cmp_luasnip") -- Snippet Completion
 	use("hrsh7th/cmp-nvim-lsp") -- Buffer Completion
+	use({
+		"tzachar/cmp-tabnine", -- Tabnine
+		run = "pwsh ./install.ps1",
+		requires = "hrsh7th/nvim-cmp",
+	})
 
 	-- Development Utilities
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
@@ -77,17 +104,31 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 
 	-- Snippets
-	use({ "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" })
+	use({
+		"L3MON4D3/LuaSnip",
+		tag = "v<CurrentMajor>.*",
+	})
 	use("rafamadriz/friendly-snippets") -- Snippets extension to use
 
 	-- Tree
-	use("kyazdani42/nvim-tree.lua")
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+		},
+	})
 
 	-- Icon
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Statusline
-	use("christianchiarulli/lualine.nvim")
+	use({
+		"christianchiarulli/lualine.nvim",
+		requires = {
+			"nvim-tree/nvim-web-devicons",
+			opt = true,
+		},
+	})
 
 	-- Themes
 	-- use 'cocopon/iceberg.vim'
@@ -98,19 +139,30 @@ return packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 
 	-- Start Screen
-	use("goolord/alpha-nvim")
+	use({
+		"goolord/alpha-nvim",
+		requires = {
+			"nvim-tree/nvim-web-devicons",
+		},
+	})
 
 	-- Project
 	use("ahmedkhalf/project.nvim")
 
 	-- Session
 	use("rmagatti/auto-session")
-	use("rmagatti/session-lens")
+	use({
+		"rmagatti/session-lens",
+		requires = {
+			"rmagatti/auto-session",
+			"nvim-telescope/telescope.nvim",
+		},
+	})
 
 	-- Fuzzy Finder/Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
+		branch = "0.1.x",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
@@ -138,7 +190,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use("sindrets/diffview.nvim")
-	use("tpope/vim-fugitive")
+  use("lewis6991/gitsigns.nvim")
 
 	-- Treesitter
 	use({
@@ -148,7 +200,12 @@ return packer.startup(function(use)
 			ts_update()
 		end,
 	})
-	use("windwp/nvim-ts-autotag")
+	use({
+    "windwp/nvim-ts-autotag",
+    requires = {
+      "nvim-treesitter/nvim-treesitter"
+    }
+  })
 
 	-- Useful Utilities
 	use("folke/which-key.nvim") -- Centralized list of all commands UI
