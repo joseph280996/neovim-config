@@ -71,7 +71,7 @@ local function tab_win_closed(winnr)
   if buf_info.name:match(".*NvimTree_%d*$") then            -- close buffer was nvim tree
     -- Close all nvim tree on :q
     if not vim.tbl_isempty(tab_bufs) then                      -- and was not the last window (not closed automatically by code below)
-      api.tree.close()
+      require("nvim-tree.api").tree.close()
     end
   else                                                      -- else closed buffer was normal buffer
     if #tab_bufs == 1 then                                    -- if there is only 1 buffer left in the tab
