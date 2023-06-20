@@ -58,13 +58,13 @@ return packer.startup(function(use)
 		},
 	})
 
-  -- Diagnosis
-  use({
-    "folke/trouble.nvim",
-    requires = {
-      "nvim-tree/nvim-web-devicons"
-    }
-  })
+	-- Diagnosis
+	use({
+		"folke/trouble.nvim",
+		requires = {
+			"nvim-tree/nvim-web-devicons",
+		},
+	})
 
 	-- DAP
 	use("mfussenegger/nvim-dap")
@@ -74,12 +74,13 @@ return packer.startup(function(use)
 			"mfussenegger/nvim-dap",
 		},
 	})
+	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 	use({
 		"nvim-neotest/neotest",
 		requires = {
 			"nvim-lua/plenary.nvim",
-		  "nvim-neotest/neotest-python",
-      "Issafalcon/neotest-dotnet",
+			"nvim-neotest/neotest-python",
+			"Issafalcon/neotest-dotnet",
 			"nvim-treesitter/nvim-treesitter",
 			"antoinemadec/FixCursorHold.nvim",
 		},
@@ -192,7 +193,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use("sindrets/diffview.nvim")
-  use("lewis6991/gitsigns.nvim")
+	use("lewis6991/gitsigns.nvim")
 
 	-- Treesitter
 	use({
@@ -203,11 +204,11 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-    "windwp/nvim-ts-autotag",
-    requires = {
-      "nvim-treesitter/nvim-treesitter"
-    }
-  })
+		"windwp/nvim-ts-autotag",
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+	})
 
 	-- Useful Utilities
 	use("folke/which-key.nvim") -- Centralized list of all commands UI
