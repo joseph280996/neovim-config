@@ -87,12 +87,30 @@ local mappings = {
 			"List Open Buffers",
 		},
 		c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+		t = {
+			name = "Terminal",
+			n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+			u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
+			t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+			p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+			f = { "<cmd>lua _PS_FLOAT_TOGGLE()<cr>", "Float" },
+			h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
+			v = { "<cmd>lua _PS_VERTICAL_TOGGLE()<cr>", "Vertical" },
+		},
 	},
 	e = {
 		name = "Explorer",
 		f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
 		o = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 		c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
+	},
+	d = {
+		name = "Debug",
+		b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+		l = { "<cmd>lua require('dap').run_last()<cr>", "Run Last" },
+		u = { "<cmd>lua require('dapui').toggle()<cr>", "UI" },
+		r = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle Repl" },
+		x = { "<cmd>lua require('dap').terminate()<cr>", "Exit" },
 	},
 	f = {
 		name = "Find",
@@ -118,10 +136,12 @@ local mappings = {
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		T = {
 			name = "Trouble",
+			d = { "<cmd>TroubleToggle document_diagnostic<cr>", "Troubles in Buffer" },
+			f = { "<cmd>TroubleToggle quickfix<cr>", "Trouble Quickfix" },
+			l = { "<cmd>TroubleToggle loclist<cr>", "Trouble in LocList" },
 			o = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
-			w = { "cmd>TroubleToggle workspace_diagnostic<cr>", "Troubles in Workspace" },
-			w = { "cmd>TroubleToggle document_diagnostic<cr>", "Troubles in Buffer" },
-			w = { "cmd>TroubleToggle document_diagnostic<cr>", "Trouble in LocList" },
+			r = { "<cmd>TroubleToggle lsp_references<cr>", "Trouble LSP refs" },
+			w = { "<cmd>TroubleToggle workspace_diagnostic<cr>", "Troubles in Workspace" },
 		},
 	},
 	g = {
@@ -130,7 +150,7 @@ local mappings = {
 			"<cmd>DiffviewOpen<cr>",
 			"Git Diffview",
 		},
-		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+		g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 		l = { "<cmd>GitBlameToggle<cr>", "Blame" },
@@ -144,6 +164,7 @@ local mappings = {
 		},
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
 	},
+
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -195,16 +216,15 @@ local mappings = {
 		s = { "<cmd>SessionSave<cr>", "Save session" },
 	},
 	T = {
-		name = "Terminal",
-		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-		f = { "<cmd>lua _PS_FLOAT_TOGGLE()<cr>", "Float" },
-		h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
-		v = { "<cmd>lua _PS_VERTICAL_TOGGLE()<cr>", "Vertical" },
+		name = "Unit Testing",
+		d = { require("user.neotest").debug_nearest_test, "Debug Tests" },
+		r = {
+			name = "Run",
+			a = { "<cmd>lua require('neotest').run.run()<cr>", "All Tests" },
+			f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", "Current File" },
+		},
+		s = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop Test Run" },
 	},
-	P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 }
 
 which_key.setup(setup)

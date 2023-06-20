@@ -78,6 +78,8 @@ return packer.startup(function(use)
 		"nvim-neotest/neotest",
 		requires = {
 			"nvim-lua/plenary.nvim",
+		  "nvim-neotest/neotest-python",
+      "Issafalcon/neotest-dotnet",
 			"nvim-treesitter/nvim-treesitter",
 			"antoinemadec/FixCursorHold.nvim",
 		},
