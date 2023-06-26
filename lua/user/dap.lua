@@ -1,3 +1,4 @@
+local M = {}
 local dap_status_ok, dap = pcall(require, "dap")
 if not dap_status_ok then
 	return
@@ -8,22 +9,66 @@ if not dapui_status_ok then
 	return
 end
 
-local install_dir = path.concat({ vim.fn.stdpath("data"), "mason" })
+local install_dir = vim.fn.stdpath("data")
+
+require("dap-vscode-js").setup({
+	adapters = { "pwa-node" },
+	debugger_cmd = { "js-debug-adapter" },
+})
 
 -- DAP ADAPTERS CONFIG
 dap.adapters.netcoredbg = {
-  type = "executable",
-  command = install_dir .. "/package/netcoredbg/netcoredbg",
-  args = { "--interpreter=vscode" }
+	type = "executable",
+	command = install_dir .. "/mason/package/netcoredbg/netcoredbg",
+	args = { "--interpreter=vscode" },
 }
-dap.adapters["pwa-node"] = {
-  type = "server",
+dap.adapters.chrome = dap.adapters["pwa-chrome"]
+dap.adapters.node = dap.adapters["pwa-node"]
 
+-- DAP LANG CONFIG
+for _, language in ipairs({ "typescript", "javascript" }) do
+	require("dap").configurations[language] = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+		},
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "Attach",
+			processId = require("dap.utils").pick_process,
+			cwd = "${workspaceFolder}",
+		},
+	}
+end
+
+local mappings = {
+	chrome = { "typescript", "javascript" },
+	["pwa-chrome"] = { "typescript", "javascript" },
+	node = { "typescript", "javascript" },
+	["pwa-node"] = { "typescript", "javascript" },
 }
+require("dap.ext.vscode").load_launchjs(nil, mappings)
 
+vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+vim.fn.sign_define(
+	"DapBreakpointCondition",
+	{ text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
+)
+vim.fn.sign_define("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
 
--- DAP CONFIG
-require('dap.ext.vscode').load_launchjs()
+dap.listeners.after.event_initialized["dapui_config"] = function()
+	dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+	dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+	dapui.close()
+end
 
 -- UI CONFIG
 dapui.setup({
@@ -47,7 +92,7 @@ dapui.setup({
 				-- "watches",
 			},
 			size = 40, -- 40 columns
-			position = "right",
+			position = "left",
 		},
 		{
 			elements = {
@@ -72,26 +117,4 @@ dapui.setup({
 	},
 })
 
-dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-	dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-	dapui.close()
-end
-
--- MAPPINGS
-vim.keymap.set("n", "<F5>", function()
-	require("dap").continue()
-end)
-vim.keymap.set("n", "<F10>", function()
-	require("dap").step_over()
-end)
-vim.keymap.set("n", "<F11>", function()
-	require("dap").step_into()
-end)
-vim.keymap.set("n", "<F12>", function()
-	require("dap").step_out()
-end)
+return M

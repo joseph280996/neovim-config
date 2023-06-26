@@ -104,12 +104,17 @@ local mappings = {
 		o = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 		c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
 	},
+	["<F5>"] = { "<cmd>lua require('dap').continue()<cr>", "Debug Start/continue" },
+	["<F10>"] = { "<cmd>lua require('dap').step_over()<cr>", "Debug Step Over" },
+	["<F11>"] = { "<cmd>lua require('dap').step_into()<cr>", "Debug Step Into" },
+	["<F12>"] = { "<cmd>lua require('dap').step_out()<cr>", "Debug Step Out" },
 	d = {
 		name = "Debug",
 		b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
 		l = { "<cmd>lua require('dap').run_last()<cr>", "Run Last" },
 		u = { "<cmd>lua require('dapui').toggle()<cr>", "UI" },
-		r = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle Repl" },
+		r = { "<cmd>lua require('dap').run()<cr>", "Run" },
+		R = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle Repl" },
 		x = { "<cmd>lua require('dap').terminate()<cr>", "Exit" },
 	},
 	f = {
@@ -217,13 +222,20 @@ local mappings = {
 	},
 	T = {
 		name = "Unit Testing",
-		d = { require("user.neotest").debug_nearest_test, "Debug Tests" },
-		r = {
+		D = { require("user.neotest").debug_nearest_test, "Debug Tests" },
+		R = {
 			name = "Run",
-			a = { "<cmd>lua require('neotest').run.run()<cr>", "All Tests" },
-			f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", "Current File" },
+			R = { "<cmd>lua require('neotest').run.run()<cr>", "Test Under Cursor" },
+			F = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", "Current File" },
+			A = { "<cmd>lua require('neotest').run.run({ suite = true })<cr>", "All Tests" },
 		},
-		s = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop Test Run" },
+		W = {
+			name = "Watch",
+			R = { "<cmd>lua require('neotest').watch.toggle(vim.fn.expand('%'))<cr>", "Start File" },
+			S = { "<cmd>lua require('neotest').watch.stop()<cr>", "Stop" },
+		},
+		E = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Toggle" },
+		S = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop Test Run" },
 	},
 }
 

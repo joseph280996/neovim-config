@@ -76,6 +76,11 @@ return packer.startup(function(use)
 	})
 	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 	use({
+		"microsoft/vscode-js-debug",
+		opt = true,
+		run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+	})
+	use({
 		"nvim-neotest/neotest",
 		requires = {
 			"nvim-lua/plenary.nvim",
@@ -109,7 +114,7 @@ return packer.startup(function(use)
 	-- Snippets
 	use({
 		"L3MON4D3/LuaSnip",
-		tag = "v<CurrentMajor>.*",
+		tag = "v1.*",
 	})
 	use("rafamadriz/friendly-snippets") -- Snippets extension to use
 
