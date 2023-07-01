@@ -6,7 +6,6 @@ end
 
 -- Configurations
 
-local actions = require 'telescope.actions'
 telescope.load_extension 'media_files'
 local icons = require "user.icons"
 
@@ -90,4 +89,5 @@ telescope.setup {
 }
 
 telescope.load_extension('fzf')
-
+telescope.load_extension('projects')
+telescope.load_extension('session-lens')

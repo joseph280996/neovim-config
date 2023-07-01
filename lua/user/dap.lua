@@ -1,4 +1,3 @@
-local M = {}
 local dap_status_ok, dap = pcall(require, "dap")
 if not dap_status_ok then
 	return
@@ -51,6 +50,7 @@ local mappings = {
 	node = { "typescript", "javascript" },
 	["pwa-node"] = { "typescript", "javascript" },
 }
+
 require("dap.ext.vscode").load_launchjs(nil, mappings)
 
 vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
@@ -116,5 +116,3 @@ dapui.setup({
 		max_type_length = nil, -- Can be integer or nil.
 	},
 })
-
-return M

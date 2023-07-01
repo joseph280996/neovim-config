@@ -1,17 +1,18 @@
 local options = {
 	-- {{ Neovim Config }}
-	number = true, -- Enable line number
+	number = true,       -- Enable line number
 	relativenumber = true, -- Enable relative number from current line
 	termguicolors = true, -- Enable colors for color scheme
-	encoding = "utf-8", -- Set files encoding to display icons
+	encoding = "utf-8",  -- Set files encoding to display icons
 	fileencoding = "utf-8", -- Set encoding written to a file
-	wrap = false, -- Prevent vim from breakign a long line into multiple lines
+	wrap = false,        -- Prevent vim from breakign a long line into multiple lines
 	smartcase = true,
-	exrc = true, -- Allows loading local rc files
-	secure = true, -- Disallow the use of :autocmd
-	swapfile = false, -- Disable creation of swap file
-	cursorline = true, -- Highlighting current line
+	exrc = true,         -- Allows loading local rc files
+	secure = true,       -- Disallow the use of :autocmd
+	swapfile = false,    -- Disable creation of swap file
+	cursorline = true,   -- Highlighting current line
 	compatible = false,
+	timeoutlen = 1000,
 
 	-- {{ Fold Config }}
 	foldmethod = "syntax",
@@ -24,6 +25,7 @@ local options = {
 	smarttab = true,
 	tabstop = 2,
 	shiftwidth = 2,
+
 }
 
 for setting, value in pairs(options) do
@@ -31,3 +33,6 @@ for setting, value in pairs(options) do
 end
 
 vim.g.python3_host_prog = "~/AppData/Local/Programs/Python/Python311/python.exe"
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.lasttab = 1

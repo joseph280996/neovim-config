@@ -1,7 +1,6 @@
 local opts = { silent = true, noremap = true }
 
 -- Let 'tl' toggle between this and the last accessed tab
-vim.g.lasttab = 1
 vim.api.nvim_set_keymap('n', '<Leader>tl', ':exe "tabn ".g:lasttab<CR>', opts)
 vim.cmd [[ au TabLeave * let g:lasttab = tabpagenr() ]]
 
@@ -17,6 +16,11 @@ vim.api.nvim_set_keymap('n', '<c-h>', ':wincmd h<CR>', opts)
 vim.api.nvim_set_keymap('n', '<c-l>', ':wincmd l<CR>', opts)
 
 -- Friendly Adjusting split size
-vim.api.nvim_set_keymap('n' , '<c-left>' , ':vert res -3<CR>', opts)
-vim.api.nvim_set_keymap('n' , '<c-right>', ':vert res +3<CR>', opts)
+vim.api.nvim_set_keymap('n', '<c-left>', ':vert res -3<CR>', opts)
+vim.api.nvim_set_keymap('n', '<c-right>', ':vert res +3<CR>', opts)
 
+-- Buffer keymappings
+vim.keymap.set("n", "]b", "<Plug>(CybuNext)")
+vim.keymap.set("n", "[b", "<Plug>(CybuPrev)")
+vim.keymap.set("n", "[b", "<Plug>(CybuLastusedPrev)")
+vim.keymap.set("n", "[b", "<Plug>(CybuLastusedNext)")
