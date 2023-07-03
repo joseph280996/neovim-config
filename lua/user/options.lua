@@ -32,7 +32,7 @@ for setting, value in pairs(options) do
 	vim.opt[setting] = value
 end
 
-vim.g.python3_host_prog = "~/AppData/Local/Programs/Python/Python311/python.exe"
+vim.g.python3_host_prog = "C://Python311/python.exe"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.lasttab = 1
