@@ -5,7 +5,7 @@ return {
 		"kyazdani42/nvim-web-devicons",
 		lazy = true,
 	},
-	config = {
+	opts = {
 		options = {
 			icon_enabled = true,
 			theme = "iceberg_dark",

@@ -1,7 +1,7 @@
 return {
 	-- Development Utilities
 	"numToStr/Comment.nvim", -- Easily comment stuff
-	config = {
+	opts = {
 		pre_hook = function(ctx)
 			local U = require("Comment.utils")
 

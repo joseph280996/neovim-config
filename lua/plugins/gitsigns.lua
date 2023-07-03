@@ -1,6 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  config = {
+  opts = {
     preview_config = {
       border = "rounded",
       style = "minimal",

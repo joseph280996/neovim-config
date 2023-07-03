@@ -5,7 +5,7 @@ return {
     "kyazdani42/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
   },
-  config = {
+  opts = {
     position = {
       relative_to = "win", -- win, editor, cursor
       anchor = "topright", -- topleft, topcenter, topright,

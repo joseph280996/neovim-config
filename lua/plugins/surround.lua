@@ -2,7 +2,7 @@
 return {
     "kylechui/nvim-surround",
     version = "*",
-    config = {
+    opts = {
         keymaps = {
             insert = "<C-g>s",
             insert_line = "<C-g>S",

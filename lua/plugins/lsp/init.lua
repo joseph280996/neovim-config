@@ -49,7 +49,7 @@ return {
 
 	{
 		"williamboman/mason.nvim", -- Simple to use LSP installer
-		config = {
+		opts = {
 			ui = {
 				border = "none",
 				icons = {
@@ -64,7 +64,7 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
-		config = {
+		opts = {
 			ensure_installed = servers,
 			automatic_installation = true,
 		},
@@ -76,11 +76,13 @@ return {
 			"nvim-lua/plenary.nvim",
 			"kyazdani42/nvim-tree.lua",
 		},
-		config = function() end,
+		config = function() 
+      require('lsp-file-operations').setup()
+    end,
 	},
 	{
 		"tamago324/nlsp-settings.nvim",
-		config = {
+		opts = {
 			config_home = vim.fn.stdpath("config") .. "/lua/plugins/lsp/settings",
 			local_settings_dir = ".nlsp-settings",
 			local_settings_root_markers_fallback = { ".git" },
