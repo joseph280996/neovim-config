@@ -1,26 +1,4 @@
 return {
-	-- LSP
-	"neovim/nvim-lspconfig", -- Native LSP
-	{
-		"williamboman/mason.nvim", -- Simple to use LSP installer
-		build = ":MasonUpdate",
-	},
-	"williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
-	"tamago324/nlsp-settings.nvim",
-	{
-		"antosha417/nvim-lsp-file-operations",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"kyazdani42/nvim-tree.lua",
-		},
-	},
-
 	-- Diagnosis
 	{
 		"folke/trouble.nvim",
