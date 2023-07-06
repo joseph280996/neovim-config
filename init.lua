@@ -1,7 +1,6 @@
 require('user.options')
 require('user.keymappings')
 require('plugins')
-require('user.notify')
 require('user.cmp')
 require('user.treesitter')
 require('user.vimtex')
