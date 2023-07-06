@@ -83,13 +83,6 @@ return {
         },
       },
     },
-    config = function(_, opts)
-      require('telescope').setup(opts)
-
-      -- Because session.lua is loaded before telescope, we need 
-      -- this here so that the loading order is correct
-      require("telescope").load_extension("session-lens")
-    end,
   },
   {
     "nvim-telescope/telescope-media-files.nvim",

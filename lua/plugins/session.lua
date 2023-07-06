@@ -7,6 +7,9 @@ return {
       "rmagatti/auto-session",
       "nvim-telescope/telescope.nvim",
     },
+    config = function()
+      require("telescope").load_extension("session-lens")
+    end
   },
   {
     "rmagatti/auto-session",
