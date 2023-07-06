@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		"kyazdani42/nvim-web-devicons",
 	},
-  	cmd = "Alpha",
+  cmd = "Alpha",
 	config = function()
 		local status_ok, alpha = pcall(require, "alpha")
 		if not status_ok then
