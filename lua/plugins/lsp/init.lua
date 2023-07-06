@@ -111,7 +111,7 @@ return {
 					formatting.eslint,
 					formatting.black.with({ extra_args = { "--fast" } }),
 					formatting.sqlfluff.with({ extra_args = { "--dialect", "mysql" } }),
-					formatting.stylua.with({ extra_args = { "--indent-style"}}),
+					formatting.stylua,
 					formatting.latexindent,
 				},
 			})
