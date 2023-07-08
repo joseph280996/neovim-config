@@ -17,18 +17,24 @@ return {
       -- max_win_width = 0.5, -- integer for absolute in columns
       -- float for relative to win/editor width
     },
-    display_time = 1750,  -- time the cybu window is displayed
+    display_time = 1750, -- time the cybu window is displayed
     style = {
-      path = "relative",  -- absolute, relative, tail (filename only)
+      path = "relative", -- absolute, relative, tail (filename only)
       border = "rounded", -- single, double, rounded, none
-      separator = " ",    -- string used as separator
-      prefix = "…",     -- string used as prefix for truncated paths
-      padding = 1,        -- left & right padding in number of spaces
+      separator = " ", -- string used as separator
+      prefix = "…", -- string used as prefix for truncated paths
+      padding = 1, -- left & right padding in number of spaces
       hide_buffer_id = true,
       devicons = {
         enabled = true, -- enable or disable web dev icons
         colored = true, -- enable color for web dev icons
       },
+      highlights = {
+        current_buffer = "CybuFocus", -- current / selected buffer
+        adjacent_buffers = "CybuAdjacent", -- buffers not in focus
+        background = "CybuBackground", -- window background
+        border = "CybuBorder", -- border of the window
+      },
     },
-  }
+  },
 }

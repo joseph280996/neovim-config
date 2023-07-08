@@ -70,20 +70,6 @@ return {
 		},
 	},
 
-	-- Fuzzy Finder/Telescope
-	{
-		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		dependencies = { { "nvim-lua/plenary.nvim" } },
-	},
-	"nvim-telescope/telescope-media-files.nvim",
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build =
-		"cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-	},
-	"tom-anders/telescope-vim-bookmarks.nvim",
-
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
