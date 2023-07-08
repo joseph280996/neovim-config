@@ -7,6 +7,7 @@ local servers = {
   "omnisharp",
   "sqlls",
   "lua_ls",
+  "black"
 }
 
 return {
