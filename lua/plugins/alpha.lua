@@ -40,7 +40,7 @@ return {
 			button("r", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
 			button("t", icons.ui.List .. " Find text", ":Telescope live_grep <CR>"),
 			button("s", icons.ui.SignIn .. " Find Session", ":SearchSession<CR>"),
-			button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
+			button("c", icons.ui.Gear .. " Config", ":e ~/AppData/Local/nvim/init.lua <CR>"),
 			button("P", icons.ui.Package .. " Packages", "<cmd>Lazy<cr>"),
 			button("q", icons.ui.SignOut .. " Quit", ":qa<CR>"),
 		}
