@@ -34,7 +34,7 @@ return {
       enable = false,
     },
     filters = {
-      custom = { ".git" },
+      dotfiles = false,
     },
     update_focused_file = {
       enable = true,
