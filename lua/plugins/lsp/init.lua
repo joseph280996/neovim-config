@@ -7,9 +7,13 @@ local servers = {
   "omnisharp",
   "sqlls",
   "lua_ls",
-  "stylua",
-  "black"
 }
+
+--[[
+-- Others Mason Package Installed
+-- 1. stylua 
+-- 2. black
+--]]
 
 return {
   {
