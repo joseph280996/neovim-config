@@ -80,9 +80,13 @@ return {
       [";"] = { "<cmd>Alpha<cr>", "Alpha" },
       b = {
         name = "Buffers",
-        l = {
+        h = { "<cmd>FocusSplitLeft<cr>", "Focus Left" },
+        j = { "<cmd>FocusSplitDown<cr>", "Focus Down" },
+        k = { "<cmd>FocusSplitUp<cr>", "Focus Up" },
+        l = { "<cmd>FocusSplitRight<cr>", "Focus Right" },
+        e = {
           "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-          "List Open Buffers",
+          "Explore Opened Buffers",
         },
         c = { "<cmd>bdelete!<CR>", "Close Buffer" },
         t = {
