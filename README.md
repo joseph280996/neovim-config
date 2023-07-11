@@ -2,28 +2,15 @@
 This is my Neovim setup on Window.
 
 ## Forewords
-Most of my set up are basing on [Chris@Machine Neovim setup](https://github.com/ChristianChiarulli/nvim).__
-The only difference is that I don't do code completion and native lsp but instead I'm relying on Coc.nvim __
-since I'm pretty new to Neovim and coding everything in Lua is taking up a lot of my time. I'll eventually __
-move back to native lsp setup when I got the chance.
+Most of my set up are basing on [Chris@Machine Neovim setup](https://github.com/ChristianChiarulli/nvim). However, with current archiving notice from null-ls, I'm still undecided on what to use and will figure it out soon.
 
 ## Requirements
-In this Lua setup, I'm using Packer to manage all of my plugins. You can install Packer [here](https://github.com/wbthomason/packer.nvim#quickstart)
+In this Lua setup, I'm using [lazy.nvim](https://github.com/folke/lazy.nvim) to manage all of my plugins.
 
-Also make sure that you have Visual CMake and also Microsoft Visual C++ build tools install since I'm using [telescoe-fzf-native plugins.](https://github.com/nvim-telescope/telescope-fzf-native.nvim)__
+Also make sure that you have Visual CMake and also Microsoft Visual C++ build tools install since I'm using [telescope-fzf-native plugins.](https://github.com/nvim-telescope/telescope-fzf-native.nvim).
 Without it, the installation of this package will failed.
 
 To install Microsoft Visual C++, this can be through Visual Studio if you have it. To install CMake, this can be downloaded at CMake's [download site](https://cmake.org/download/)
-
-## Setup
-Once you've made sure that all requirements are installed, you can go ahead and run this command:
-
-    :PackerInstall
-
-After running install, you can run this command to check the health of all installed packages:
-    
-    :checkhealth
-
 
 ## FAQ
 ### Q: Why do I see telescope require fd after running checkhealth?
@@ -31,3 +18,6 @@ This is because telescope requires fd for some of its operation but this is not 
 
 ### Q: Why do I see error for tree-sitter cannot find cc or gcc or clang after running checkhealth?
 You will need to follow [this instruction](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support) on nvim-treesitter to have Window supported 
+
+## P.S:
+This is the README after I put everything together so I can't recall most of it up top of my head but feel free to reach out or create issue for question and I'll update the README for further clarification.
