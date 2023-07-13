@@ -163,21 +163,11 @@ return {
       },
       diff1 = {
         -- Mappings in single window diff layouts
-        {
-          "n",
-          "g?",
-          actions.help({ "view", "file_history_panel", "diff1" }),
-          { desc = "Open the help panel" },
-        },
+        { "n", "g?", actions.help({ "view", "diff1" }), { desc = "Open the help panel" } },
       },
       diff2 = {
         -- Mappings in 2-way diff layouts
-        {
-          "n",
-          "g?",
-          actions.help({ "view", "file_history_panel", "diff2" }),
-          { desc = "Open the help panel" },
-        },
+        { "n", "g?", actions.help({ "view", "diff2" }), { desc = "Open the help panel" } },
       },
       diff3 = {
         -- Mappings in 3-way diff layouts
@@ -215,12 +205,7 @@ return {
           actions.diffget("theirs"),
           { desc = "Obtain the diff hunk from the THEIRS version of the file" },
         },
-        {
-          "n",
-          "g?",
-          actions.help({ "view", "file_history_panel", "diff4" }),
-          { desc = "Open the help panel" },
-        },
+        { "n", "g?", actions.help({ "view", "diff4" }), { desc = "Open the help panel" } },
       },
       file_panel = {
         {
