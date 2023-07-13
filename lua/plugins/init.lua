@@ -5,6 +5,7 @@ return {
 		dependencies = {
 			"kyazdani42/nvim-web-devicons",
 		},
+    opts = {}
 	},
 
 	-- DAP
