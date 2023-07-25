@@ -7,20 +7,20 @@ neotest.setup({
   adapters = {
     require("neotest-python")({
       dap = { justMyCode = false },
-      runner = "pytest"
+      runner = "pytest",
     }),
     require("neotest-dotnet")({
       dap = { justMyCode = false },
-      discovery_root = 'solution'
-    })
-  }
+      discovery_root = "solution",
+    }),
+  },
 })
 
 local M = {}
-M.debug_nearest_test = function ()
-    neotest.run.run({
-      strategy = 'dap'
-    })
+M.debug_nearest_test = function()
+  neotest.run.run({
+    strategy = "dap",
+  })
 end
 
 return M
