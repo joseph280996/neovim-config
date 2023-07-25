@@ -18,16 +18,9 @@ neotest.setup({
 
 local M = {}
 M.debug_nearest_test = function ()
-  if vim.bo.filetype == 'cs' then
-    neotest.run.run({ 
-      strategy = require('neotest-dotnet.strategies.netcoredbg'),
-      is_custom_dotnet_debug = true
-    })
-  else
     neotest.run.run({
       strategy = 'dap'
     })
-  end
 end
 
 return M

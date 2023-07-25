@@ -8,7 +8,7 @@ return {
 	opts = {
 		options = {
 			icon_enabled = true,
-			theme = "iceberg_dark",
+			theme = "nord",
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			disabled_filetypes = { "alpha", "dashboard" },

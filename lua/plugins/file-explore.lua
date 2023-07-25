@@ -40,6 +40,7 @@ return {
       enable = true,
       ignore_list = {},
     },
+    sync_root_with_cwd = true,
     actions = {
       expand_all = {
         max_folder_discovery = 300,
