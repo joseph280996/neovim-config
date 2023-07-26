@@ -91,13 +91,46 @@ return {
         c = { "<cmd>bdelete!<CR>", "Close Buffer" },
         t = {
           name = "Terminal",
-          n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-          u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-          t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-          p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-          f = { "<cmd>lua _PS_FLOAT_TOGGLE()<cr>", "Float" },
-          h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
-          v = { "<cmd>lua _PS_VERTICAL_TOGGLE()<cr>", "Vertical" },
+          o = {
+            name = "Open",
+            n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+            t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+            u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
+            P = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+            f = { "<cmd>lua _PS_FLOAT_TOGGLE()<cr>", "Float" },
+            h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
+            v = { "<cmd>lua _PS_VERTICAL_TOGGLE()<cr>", "Vertical" },
+            p = {
+              name = "Powershell",
+              f = { "<cmd>lua _PS_FLOAT_TOGGLE()<cr>", "Float" },
+              h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
+              v = { "<cmd>lua _PS_VERTICAL_TOGGLE()<cr>", "Vertical" },
+            },
+            b = {
+              name = "Bash",
+              f = { "<cmd>lua _GB_FLOAT_TOGGLE()<cr>", "Float" },
+              h = { "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
+              v = { "<cmd>lua _GB_VERTICAL_TOGGLE()<cr>", "Vertical" },
+            }
+          },
+          n = {
+            name = "New",
+            f = { "<cmd>lua _PS_FLOAT_TOGGLE_NEW_SESSION()<cr>", "Float" },
+            h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE_NEW_SESSION()<cr>", "Horizontal" },
+            v = { "<cmd>lua _PS_VERTICAL_TOGGLE_NEW_SESSION()<cr>", "Vertical" },
+            p = {
+              name = "Powershell",
+              f = { "<cmd>lua _PS_FLOAT_TOGGLE_NEW_SESSION()<cr>", "Float" },
+              h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE_NEW_SESSION()<cr>", "Horizontal" },
+              v = { "<cmd>lua _PS_VERTICAL_TOGGLE_NEW_SESSION()<cr>", "Vertical" },
+            },
+            b = {
+              name = "Bash",
+              f = { "<cmd>lua _GB_FLOAT_TOGGLE()<cr>", "Float" },
+              h = { "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
+              v = { "<cmd>lua _GB_VERTICAL_TOGGLE()<cr>", "Vertical" },
+            }
+          },
         },
       },
       e = {
