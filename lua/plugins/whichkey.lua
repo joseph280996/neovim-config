@@ -189,6 +189,10 @@ return {
           "<cmd>DiffviewOpen<cr>",
           "Git Diffview",
         },
+        h = {
+          name = "History",
+          f = "<cmd>DiffviewFileHistory", "File",
+        },
         g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
         j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
         k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
