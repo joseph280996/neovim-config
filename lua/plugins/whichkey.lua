@@ -111,7 +111,7 @@ return {
               f = { "<cmd>lua _GB_FLOAT_TOGGLE()<cr>", "Float" },
               h = { "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
               v = { "<cmd>lua _GB_VERTICAL_TOGGLE()<cr>", "Vertical" },
-            }
+            },
           },
           n = {
             name = "New",
@@ -129,7 +129,7 @@ return {
               f = { "<cmd>lua _GB_FLOAT_TOGGLE()<cr>", "Float" },
               h = { "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
               v = { "<cmd>lua _GB_VERTICAL_TOGGLE()<cr>", "Vertical" },
-            }
+            },
           },
         },
       },
@@ -191,7 +191,7 @@ return {
         },
         h = {
           name = "History",
-          f = "<cmd>DiffviewFileHistory", "File",
+          f = { "<cmd>DiffviewFileHistory<cr>", "File" },
         },
         g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
         j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
@@ -205,6 +205,7 @@ return {
           "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
           "Undo Stage Hunk",
         },
+        S = { "<cmd>lua require 'gitsigns'.stage_buffer()<cr>", "Stage Buffer" },
         R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
       },
 
@@ -272,6 +273,10 @@ return {
         },
         E = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Toggle" },
         S = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop Test Run" },
+        O = {
+          "<cmd>lua require('neotest').output_panel.toggle()<cr>",
+          "Output",
+        },
       },
     }, keymap_opts)
   end,

@@ -44,7 +44,7 @@ configs.setup({
 	},
 	autotag = {
 		enable = true,
-		filetypes = { "html", "javascript", "javascriptreact", "typescriptreact", "svelte", "vue", "markdown", "sql" },
+		filetypes = { "html", "javascript", "javascriptreact", "typescriptreact", "svelte", "vue", "markdown", "sql", "cs" },
 	},
 	autopairs = {
 		enable = true,
