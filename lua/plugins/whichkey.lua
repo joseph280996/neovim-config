@@ -242,9 +242,9 @@ return {
       },
       m = { "<cmd>MarkdownPreview<cr>", "Preview Markdown" },
       p = {
-        name = "Packager Manager",
+        name = "Packages Manager",
         o = { "<cmd>Lazy<cr>", "Open Lazy Screen" },
-        h = { "<cmd>Lazy health<cr>", "Sync" },
+        h = { "<cmd>Lazy health<cr>", "Health" },
       },
       t = {
         name = "Tabs",
