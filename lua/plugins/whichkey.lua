@@ -135,9 +135,10 @@ return {
       },
       e = {
         name = "Explorer",
-        f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
-        o = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
         c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
+        f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
+        t = { "<cmd>NvimTreeToggle<cr>", "Tree" },
+        o = { "<cmd>AerialToggle!<cr>", "Outline"},
       },
       ["<F5>"] = { "<cmd>lua require('dap').continue()<cr>", "Debug Start/continue" },
       ["<F10>"] = { "<cmd>lua require('dap').step_over()<cr>", "Debug Step Over" },
