@@ -138,7 +138,7 @@ return {
         c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
         f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
         t = { "<cmd>NvimTreeToggle<cr>", "Tree" },
-        o = { "<cmd>AerialToggle!<cr>", "Outline"},
+        o = { "<cmd>AerialToggle!<cr>", "Outline" },
       },
       ["<F5>"] = { "<cmd>lua require('dap').continue()<cr>", "Debug Start/continue" },
       ["<F10>"] = { "<cmd>lua require('dap').step_over()<cr>", "Debug Step Over" },
@@ -224,7 +224,7 @@ return {
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
         t = {
           name = "Trouble",
-          d = { "<cmd>TroubleToggle document_diagnostic<cr>", "Troubles in Buffer" },
+          d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Troubles in Buffer" },
           f = { "<cmd>TroubleToggle quickfix<cr>", "Trouble Quickfix" },
           l = { "<cmd>TroubleToggle loclist<cr>", "Trouble in LocList" },
           o = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },

@@ -21,6 +21,7 @@ return {
         formatting.sqlfluff.with({ extra_args = { "--dialect", "mysql" } }),
         formatting.stylua,
         formatting.latexindent,
+        formatting.markdownlint
       },
     })
   end,
