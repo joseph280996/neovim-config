@@ -43,10 +43,7 @@ return {
       },
     },
     config = function()
-      local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-      if not lspconfig_status_ok then
-        return
-      end
+      local lspconfig = require("lspconfig")
 
       local opts = {}
       local language_specific_opts = {}

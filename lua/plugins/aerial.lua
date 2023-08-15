@@ -2,12 +2,16 @@ return {
   {
     "stevearc/aerial.nvim",
     opts = {
-      default-direction: "prefer-left"
+      backends = { "treesitter", "lsp", "markdown", "man" },
+      show_guides = true,
+      layout = {
+        default_direction = "prefer_left",
+      },
     },
     -- Optional dependencies
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
+      "kyazdani42/nvim-web-devicons",
     },
   },
 }

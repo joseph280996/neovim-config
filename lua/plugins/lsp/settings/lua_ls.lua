@@ -11,7 +11,9 @@ return {
           'vim',
           'require',
           'on',
-          'enable'
+          'enable',
+          'pairs',
+          'ipairs'
         }
       },
       workspace = {

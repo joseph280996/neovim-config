@@ -17,7 +17,7 @@ return {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostic" },
 			lualine_c = { "filename" },
-			lualine_x = { "encoding", "fileformat", "filetype" },
+			lualine_x = { "encoding", "fileformat", "filetype", "aerial" },
 			lualine_y = { "progress" },
 			lualine_z = { "location" },
 		},
