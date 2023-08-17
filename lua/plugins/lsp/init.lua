@@ -1,46 +1,14 @@
-local servers = {
-  "pyright",
-  "tsserver",
-  "html",
-  "jsonls",
-  "ltex",
-  "omnisharp",
-  "sqlls",
-  "lua_ls",
-}
-
---[[
--- Others Mason Package Installed
--- 1. stylua 
--- 2. black
---]]
+local servers = require("plugins.lsp.mason-ensured-servers")
 
 return {
+  require("plugins.lsp.mason"),
+  require("plugins.lsp.mason-lsp"),
+  require("plugins.lsp.mason-null-ls"),
   {
     "neovim/nvim-lspconfig", -- Native LSP
     dependencies = {
-      {
-        "williamboman/mason.nvim", -- Simple to use LSP installer
-        opts = {
-          ui = {
-            border = "none",
-            icons = {
-              package_installed = "✓",
-              package_pending = "➜",
-              package_uninstalled = "✗",
-            },
-          },
-          log_level = vim.log.levels.INFO,
-          max_concurrent_installers = 4,
-        },
-      },
-      {
-        "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
-        opts = {
-          ensure_installed = servers,
-          automatic_installation = true,
-        },
-      },
+      "williamboman/mason.nvim", -- Simple to use LSP installer
+      "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
     },
     config = function()
       local lspconfig = require("lspconfig")

@@ -10,6 +10,7 @@ return {
     end
 
     local formatting = null_ls.builtins.formatting
+    local diagnostic = null_ls.builtins.diagnostics
     local codeaction = null_ls.builtins.code_actions
 
     null_ls.setup({
@@ -21,6 +22,7 @@ return {
         formatting.sqlfluff.with({ extra_args = { "--dialect", "mysql" } }),
         formatting.stylua,
         formatting.latexindent,
+        diagnostic.markdownlint,
         formatting.markdownlint
       },
     })
