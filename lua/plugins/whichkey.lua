@@ -78,6 +78,20 @@ return {
     }
     whichkey.register({
       [";"] = { "<cmd>Alpha<cr>", "Alpha" },
+      ["<F5>"] = { "<cmd>lua require('dap').continue()<cr>", "Debug Start/continue" },
+      ["<F10>"] = { "<cmd>lua require('dap').step_over()<cr>", "Debug Step Over" },
+      ["<F11>"] = { "<cmd>lua require('dap').step_into()<cr>", "Debug Step Into" },
+      ["<F12>"] = { "<cmd>lua require('dap').step_out()<cr>", "Debug Step Out" },
+      q = {
+        name = "Quick Access",
+        t = {
+          "Terminal",
+          b = { "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>", "Bash Horizontal" },
+          p = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Powershell Horizontal" },
+        },
+        e = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
+        m = { "<cmd>MarkdownPreview<cr>", "Preview Markdown" },
+      },
       b = {
         name = "Buffers",
         h = { "<cmd>FocusSplitLeft<cr>", "Focus Left" },
@@ -137,13 +151,9 @@ return {
         name = "Explorer",
         c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
         f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
-        t = { "<cmd>NvimTreeToggle<cr>", "Tree" },
-        o = { "<cmd>AerialToggle!<cr>", "Outline"},
+        x = { "<cmd>NvimTreeClose<cr>", "Close the Explorer" },
+        o = { "<cmd>AerialToggle!<cr>", "Outline" },
       },
-      ["<F5>"] = { "<cmd>lua require('dap').continue()<cr>", "Debug Start/continue" },
-      ["<F10>"] = { "<cmd>lua require('dap').step_over()<cr>", "Debug Step Over" },
-      ["<F11>"] = { "<cmd>lua require('dap').step_into()<cr>", "Debug Step Into" },
-      ["<F12>"] = { "<cmd>lua require('dap').step_out()<cr>", "Debug Step Out" },
       d = {
         name = "Debug",
         b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
@@ -241,7 +251,6 @@ return {
           "Workspace Symbols",
         },
       },
-      m = { "<cmd>MarkdownPreview<cr>", "Preview Markdown" },
       p = {
         name = "Packages Manager",
         o = { "<cmd>Lazy<cr>", "Open Lazy Screen" },
