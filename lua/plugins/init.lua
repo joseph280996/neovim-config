@@ -42,11 +42,6 @@ return {
 	"hrsh7th/cmp-cmdline",   -- CMD Completion
 	"saadparwaiz1/cmp_luasnip", -- Snippet Completion
 	"hrsh7th/cmp-nvim-lsp",  -- Buffer Completion
-	{
-		"tzachar/cmp-tabnine", -- Tabnine
-		build = "pwsh ./install.ps1",
-		dependencies = "hrsh7th/nvim-cmp",
-	},
 
 	-- Snippets
 	{
