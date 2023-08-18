@@ -1,0 +1,11 @@
+cmake
+fd
+fzf
+gcc
+neovim
+node
+python@3.11
+ripgrep
+tmux
+font-caskaydia-cove-nerd-font
+font-fira-code-nerd-font
