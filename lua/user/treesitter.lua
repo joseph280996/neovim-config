@@ -8,8 +8,7 @@ if not status_ok_install then
 	return
 end
 
-install.prefer_git = false
-install.compilers = { "clang" }
+install.compilers = { "gcc" }
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
 	group = vim.api.nvim_create_augroup("TS_FOLD_WORKAROUND", {}),
@@ -22,6 +21,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "Buf
 configs.setup({
 	auto_install = true,
 	ensure_installed = {
+    "c",
 		"vimdoc",
 		"sql",
 		"java",
