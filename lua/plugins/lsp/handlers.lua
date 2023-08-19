@@ -1,10 +1,5 @@
 local M = {}
 
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
-	return
-end
-
 local status_nullls_ok, null_ls = pcall(require, "null-ls")
 if not status_nullls_ok then
 	return
@@ -15,9 +10,19 @@ if not status_nullls_sources_ok then
 	return
 end
 
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
+M.get_capabilities = function()
+local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if status_cmp_ok then
+return cmp_nvim_lsp.default_capabilities(M.capabilities)
+end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+  return capabilities
+
+end
+
 
 M.setup = function()
 	local signs = {

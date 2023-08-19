@@ -35,19 +35,6 @@ return {
 		},
 	},
 
-	-- Code Completion
-	"hrsh7th/nvim-cmp",      -- Completion Plugin
-	"hrsh7th/cmp-buffer",    -- Buffer Completion
-	"hrsh7th/cmp-path",      -- Path Completion
-	"hrsh7th/cmp-cmdline",   -- CMD Completion
-	"saadparwaiz1/cmp_luasnip", -- Snippet Completion
-	"hrsh7th/cmp-nvim-lsp",  -- Buffer Completion
-	{
-		"tzachar/cmp-tabnine", -- Tabnine
-		build = "pwsh ./install.ps1",
-		dependencies = "hrsh7th/nvim-cmp",
-	},
-
 	-- Snippets
 	{
 		"L3MON4D3/LuaSnip",
