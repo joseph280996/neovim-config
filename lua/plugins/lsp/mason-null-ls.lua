@@ -6,7 +6,7 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
   },
   opts = {
-    ensure_installed = { "stylelua", "eslint", "prettier", "markdownlint" },
+    ensure_installed = { "stylelua", "eslint", "prettier", "markdownlint", "black" },
     automatic_installation = true,
     handlers = {},
   },

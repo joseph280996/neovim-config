@@ -13,7 +13,8 @@ return {
           'on',
           'enable',
           'pairs',
-          'ipairs'
+          'ipairs',
+          'pcall'
         }
       },
       workspace = {

@@ -16,14 +16,43 @@ return {
     null_ls.setup({
       debug = true,
       sources = {
+        --[[Code Actions]]
+        -- JavaScript
         codeaction.eslint,
-        formatting.eslint,
-        formatting.black.with({ extra_args = { "--fast" } }),
-        formatting.sqlfluff.with({ extra_args = { "--dialect", "mysql" } }),
-        formatting.stylua,
-        formatting.latexindent,
+
+        --[[Diagnostics]]
+        -- Markdown
         diagnostic.markdownlint,
-        formatting.markdownlint
+
+        -- SQL
+        diagnostic.sqlfluff.with({
+          extra_args = {
+            "--config",
+            "~/AppData/Local/nvim/lua/plugins/lsp/formatter_conf/.sqlfluff",
+          },
+        }),
+
+        --[[Formatting]]
+        -- Python
+        formatting.black.with({ extra_args = { "--fast" } }),
+
+        -- JavaScript
+        formatting.eslint,
+
+        -- SQL
+        formatting.sqlfluff.with({
+          extra_args = {
+            "--config",
+            "~/AppData/Local/nvim/lua/plugins/lsp/formatter_conf/.sqlfluff",
+          },
+        }),
+
+        -- Lua
+        formatting.stylua,
+
+        -- LaTex and Markdown
+        formatting.latexindent,
+        formatting.markdownlint,
       },
     })
   end,
