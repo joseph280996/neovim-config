@@ -1,46 +1,14 @@
-local servers = {
-  "pyright",
-  "tsserver",
-  "html",
-  "jsonls",
-  "ltex",
-  "omnisharp",
-  "sqlls",
-  "lua_ls",
-}
-
---[[
--- Others Mason Package Installed
--- 1. stylua 
--- 2. black
---]]
+local servers = require("plugins.lsp.mason-ensured-servers")
 
 return {
+  require("plugins.lsp.mason"),
+  require("plugins.lsp.mason-lsp"),
+  require("plugins.lsp.mason-null-ls"),
   {
     "neovim/nvim-lspconfig", -- Native LSP
     dependencies = {
-      {
-        "williamboman/mason.nvim", -- Simple to use LSP installer
-        opts = {
-          ui = {
-            border = "none",
-            icons = {
-              package_installed = "✓",
-              package_pending = "➜",
-              package_uninstalled = "✗",
-            },
-          },
-          log_level = vim.log.levels.INFO,
-          max_concurrent_installers = 4,
-        },
-      },
-      {
-        "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
-        opts = {
-          ensure_installed = servers,
-          automatic_installation = true,
-        },
-      },
+      "williamboman/mason.nvim", -- Simple to use LSP installer
+      "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
     },
     config = function()
       local lspconfig = require("lspconfig")
@@ -72,59 +40,8 @@ return {
       end
     end,
   },
-  {
-    "antosha417/nvim-lsp-file-operations",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-tree.lua",
-    },
-    config = function()
-      require("lsp-file-operations").setup()
-    end,
-  },
-  {
-    "tamago324/nlsp-settings.nvim",
-    opts = {
-      config_home = vim.fn.stdpath("config") .. "/lua/plugins/lsp/settings",
-      local_settings_dir = ".nlsp-settings",
-      local_settings_root_markers_fallback = { ".git" },
-      append_default_schemas = true,
-      loader = "json",
-    },
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      local status_ok, null_ls = pcall(require, "null-ls")
-      if not status_ok then
-        return
-      end
-
-      local formatting = null_ls.builtins.formatting
-      local codeaction = null_ls.builtins.code_actions
-
-      null_ls.setup({
-        debug = true,
-        sources = {
-          codeaction.eslint,
-          formatting.eslint,
-          formatting.black.with({ extra_args = { "--fast" } }),
-          formatting.sqlfluff.with({ extra_args = { "--dialect", "mysql" } }),
-          formatting.stylua,
-          formatting.latexindent,
-        },
-      })
-    end,
-  },
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-    opts = {},
-    config = function(_, opts)
-      require("lsp_signature").setup(opts)
-    end,
-  },
+  require("plugins.lsp.lsp-file-operations"),
+  require("plugins.lsp.nlsp-settings"),
+  require("plugins.lsp.null-ls"),
+  require("plugins.lsp.lsp-signature"),
 }

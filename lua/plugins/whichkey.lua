@@ -152,6 +152,7 @@ return {
         c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
         f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
         x = { "<cmd>NvimTreeClose<cr>", "Close the Explorer" },
+        t = { "<cmd>NvimTreeToggle<cr>", "Tree" },
         o = { "<cmd>AerialToggle!<cr>", "Outline" },
       },
       d = {
@@ -184,15 +185,6 @@ return {
         C = { "<cmd>Telescope commands<cr>", "Commands" },
         M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         R = { "<cmd>Telescope registers<cr>", "Registers" },
-        T = {
-          name = "Trouble",
-          d = { "<cmd>TroubleToggle document_diagnostic<cr>", "Troubles in Buffer" },
-          f = { "<cmd>TroubleToggle quickfix<cr>", "Trouble Quickfix" },
-          l = { "<cmd>TroubleToggle loclist<cr>", "Trouble in LocList" },
-          o = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
-          r = { "<cmd>TroubleToggle lsp_references<cr>", "Trouble LSP refs" },
-          w = { "<cmd>TroubleToggle workspace_diagnostic<cr>", "Troubles in Workspace" },
-        },
       },
       g = {
         name = "Git",
@@ -241,6 +233,15 @@ return {
         q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+        t = {
+          name = "Trouble",
+          d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Troubles in Buffer" },
+          f = { "<cmd>TroubleToggle quickfix<cr>", "Trouble Quickfix" },
+          l = { "<cmd>TroubleToggle loclist<cr>", "Trouble in LocList" },
+          o = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
+          r = { "<cmd>TroubleToggle lsp_references<cr>", "Trouble LSP refs" },
+          w = { "<cmd>TroubleToggle workspace_diagnostic<cr>", "Troubles in Workspace" },
+        },
         w = {
           "<cmd>Telescope diagnostics<cr>",
           "Workspace Diagnostics",

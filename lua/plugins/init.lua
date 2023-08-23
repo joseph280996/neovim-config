@@ -48,9 +48,6 @@ return {
 		dependencies = "hrsh7th/nvim-cmp",
 	},
 
-	-- Lua Development
-	"nvim-lua/plenary.nvim",
-
 	-- Snippets
 	{
 		"L3MON4D3/LuaSnip",
