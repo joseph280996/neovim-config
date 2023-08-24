@@ -7,5 +7,6 @@ return {
   "omnisharp",
   "sqlls",
   "lua_ls",
+  "marksman"
 }
 

@@ -14,7 +14,6 @@ return {
       local lspconfig = require("lspconfig")
 
       local opts = {}
-      local language_specific_opts = {}
 
       for _, server in pairs(servers) do
         opts = {
@@ -23,13 +22,6 @@ return {
         }
 
         server = vim.split(server, "@")[1]
-
-        if server == "tsserver" then
-          language_specific_opts = {
-            filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-          }
-          opts = vim.tbl_deep_extend("keep", language_specific_opts, opts)
-        end
 
         local require_ok, conf_opts = pcall(require, "plugins.lsp.settings." .. server)
         if require_ok then

@@ -84,6 +84,10 @@ return {
       ["<F12>"] = { "<cmd>lua require('dap').step_out()<cr>", "Debug Step Out" },
       q = {
         name = "Quick Access",
+        r = {
+          "Redo",
+          s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions"}
+        },
         t = {
           "Terminal",
           b = { "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>", "Bash Horizontal" },
@@ -166,6 +170,7 @@ return {
       },
       f = {
         name = "Find",
+        a = { "<cmd>Telescope pickers<cr>", "Telescope Actions"},
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = {

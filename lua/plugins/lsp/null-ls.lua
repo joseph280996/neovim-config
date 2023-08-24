@@ -22,7 +22,7 @@ return {
 
         --[[Diagnostics]]
         -- Markdown
-        diagnostic.markdownlint,
+        diagnostic.markdownlint.with({ extra_args = {"-r", "~MD013"}}),
 
         -- SQL
         diagnostic.sqlfluff.with({
@@ -52,7 +52,6 @@ return {
 
         -- LaTex and Markdown
         formatting.latexindent,
-        formatting.markdownlint,
       },
     })
   end,

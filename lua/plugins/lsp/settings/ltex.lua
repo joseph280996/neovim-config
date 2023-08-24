@@ -1,8 +1,8 @@
 return {
-  filetypes = { "tex", "bib", "markdown" },
+  filetypes = { "tex", "bib" },
   settings = {
     ltex = {
-      enabled = { "tex", "markdown" },
+      enabled = { "tex" },
       language = "auto",
       diagnositcSeverity = "information",
       additionalRules = {

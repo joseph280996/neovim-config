@@ -25,7 +25,6 @@ local options = {
 	smarttab = true,
 	tabstop = 2,
 	shiftwidth = 2,
-
 }
 
 for setting, value in pairs(options) do
