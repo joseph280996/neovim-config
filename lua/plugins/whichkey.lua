@@ -86,7 +86,7 @@ return {
         name = "Quick Access",
         r = {
           "Redo",
-          s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions"}
+          s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions" },
         },
         t = {
           "Terminal",
@@ -169,7 +169,7 @@ return {
       },
       f = {
         name = "Find",
-        a = { "<cmd>Telescope pickers<cr>", "Telescope Actions"},
+        a = { "<cmd>Telescope pickers<cr>", "Telescope Actions" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = {
@@ -192,6 +192,7 @@ return {
       },
       g = {
         name = "Git",
+        g = { "<cmd>Neogit<cr>", "Open Git UI" },
         d = {
           "<cmd>DiffviewOpen<cr>",
           "Git Diffview",
@@ -200,7 +201,6 @@ return {
           name = "History",
           f = { "<cmd>DiffviewFileHistory<cr>", "File" },
         },
-        g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
         j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
         k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
         l = { "<cmd>GitBlameToggle<cr>", "Blame" },
