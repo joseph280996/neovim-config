@@ -93,7 +93,6 @@ return {
           b = { "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>", "Bash Horizontal" },
           p = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Powershell Horizontal" },
         },
-        e = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
         m = { "<cmd>MarkdownPreview<cr>", "Preview Markdown" },
       },
       b = {
@@ -156,7 +155,7 @@ return {
         c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
         f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
         x = { "<cmd>NvimTreeClose<cr>", "Close the Explorer" },
-        t = { "<cmd>NvimTreeToggle<cr>", "Tree" },
+        t = { "<cmd>NvimTreeOpen<cr>", "Tree" },
         o = { "<cmd>AerialToggle!<cr>", "Outline" },
       },
       d = {
