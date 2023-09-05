@@ -86,14 +86,14 @@ return {
         name = "Quick Access",
         r = {
           "Redo",
-          s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions"}
+          s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions" },
         },
         t = {
           "Terminal",
           b = { "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>", "Bash Horizontal" },
           p = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Powershell Horizontal" },
         },
-        e = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
+        e = { "<cmd>Neotree<cr>", "Focus on the Explorer" },
         m = { "<cmd>MarkdownPreview<cr>", "Preview Markdown" },
       },
       b = {
@@ -102,10 +102,10 @@ return {
         j = { "<cmd>FocusSplitDown<cr>", "Focus Down" },
         k = { "<cmd>FocusSplitUp<cr>", "Focus Up" },
         l = { "<cmd>FocusSplitRight<cr>", "Focus Right" },
-        e = {
+        --[[e = {
           "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
           "Explore Opened Buffers",
-        },
+        },]]
         c = { "<cmd>bdelete!<CR>", "Close Buffer" },
         t = {
           name = "Terminal",
@@ -153,10 +153,12 @@ return {
       },
       e = {
         name = "Explorer",
-        c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
+        --[[c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
         f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
         x = { "<cmd>NvimTreeClose<cr>", "Close the Explorer" },
-        t = { "<cmd>NvimTreeToggle<cr>", "Tree" },
+        t = { "<cmd>NvimTreeToggle<cr>", "Tree" },]]
+        f = { "<cmd>Neotree<cr>", "Focus on the Explorer" },
+        x = { "<cmd>Neotree close<cr>", "Close the Explorer" },
         o = { "<cmd>AerialToggle!<cr>", "Outline" },
       },
       d = {
@@ -170,7 +172,7 @@ return {
       },
       f = {
         name = "Find",
-        a = { "<cmd>Telescope pickers<cr>", "Telescope Actions"},
+        a = { "<cmd>Telescope pickers<cr>", "Telescope Actions" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = {
@@ -202,21 +204,20 @@ return {
           f = { "<cmd>DiffviewFileHistory<cr>", "File" },
         },
         g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
-        j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-        k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+        j = { "<cmd>lua require('gitsigns').next_hunk()<cr>", "Next Hunk" },
+        k = { "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Prev Hunk" },
         l = { "<cmd>GitBlameToggle<cr>", "Blame" },
         o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-        p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-        r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-        s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+        p = { "<cmd>lua require('gitsigns').preview_hunk()<cr>", "Preview Hunk" },
+        r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Hunk" },
+        s = { "<cmd>lua require('gitsigns').stage_hunk()<cr>", "Stage Hunk" },
         u = {
-          "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+          "<cmd>lua require('gitsigns').undo_stage_hunk()<cr>",
           "Undo Stage Hunk",
         },
-        S = { "<cmd>lua require 'gitsigns'.stage_buffer()<cr>", "Stage Buffer" },
-        R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+        S = { "<cmd>lua require('gitsigns').stage_buffer()<cr>", "Stage Buffer" },
+        R = { "<cmd>lua require('gitsigns').reset_buffer()<cr>", "Reset Buffer" },
       },
-
       l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -245,7 +246,7 @@ return {
           l = { "<cmd>TroubleToggle loclist<cr>", "Trouble in LocList" },
           o = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
           r = { "<cmd>TroubleToggle lsp_references<cr>", "Trouble LSP refs" },
-          w = { "<cmd>TroubleToggle workspace_diagnostic<cr>", "Troubles in Workspace" },
+          w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Troubles in Workspace" },
         },
         w = {
           "<cmd>Telescope diagnostics<cr>",
