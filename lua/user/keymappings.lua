@@ -17,6 +17,8 @@ vim.api.nvim_set_keymap("n", "<c-l>", ":wincmd l<CR>", opts)
 -- Friendly Adjusting split size
 vim.api.nvim_set_keymap("n", "<c-left>", ":vert res -3<CR>", opts)
 vim.api.nvim_set_keymap("n", "<c-right>", ":vert res +3<CR>", opts)
+vim.api.nvim_set_keymap("n", "<c-up>", ":hor res -3<CR>", opts)
+vim.api.nvim_set_keymap("n", "<c-down>", ":hor res +3<CR>", opts)
 
 -- Buffer keymappings
 vim.keymap.set("n", "<c-tab>", "<Plug>(CybuNext)")

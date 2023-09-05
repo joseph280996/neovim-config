@@ -69,19 +69,6 @@ return {
 	},
 
 	-- Treesitter
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
-		end,
-	},
-	{
-		"windwp/nvim-ts-autotag",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-	},
 
 	-- LaTex
 	"lervag/vimtex",
