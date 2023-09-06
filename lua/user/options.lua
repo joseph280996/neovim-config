@@ -21,6 +21,7 @@ local options = {
   foldlevel = 99, -- Unfold on open
   foldlevelstart = 99,
   foldenable = true,
+  signcolumn = "yes",
 
   -- {{ Tab Config }}
   expandtab = true,
