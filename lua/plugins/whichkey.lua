@@ -98,7 +98,7 @@ return {
       },
       b = {
         name = "Buffers",
-        e = { "<cmd>Neotree show buffers reveal<cr>", "Explorer Opened Buffers"}
+        e = { "<cmd>Neotree show buffers reveal<cr>", "Explorer Opened Buffers"},
         h = { "<cmd>FocusSplitLeft<cr>", "Focus Left" },
         j = { "<cmd>FocusSplitDown<cr>", "Focus Down" },
         k = { "<cmd>FocusSplitUp<cr>", "Focus Up" },
