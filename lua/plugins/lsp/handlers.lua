@@ -84,8 +84,6 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
 function M.format_filter(client)
   local filetype = vim.bo.filetype
   local method = null_ls.methods.FORMATTING
