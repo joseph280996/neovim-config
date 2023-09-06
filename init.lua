@@ -1,7 +1,6 @@
 require('user.options')
 require('user.keymappings')
 require('plugins')
-require('user.cmp')
 require('user.vimtex')
 require('user.toggleterm')
 require('user.neotest')

@@ -2,11 +2,12 @@ return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
     "windwp/nvim-ts-autotag",
-    "kevinhwang91/nvim-ufo"
+    "kevinhwang91/nvim-ufo",
   },
   opts = {
     auto_install = true,
     ensure_installed = {
+      "c",
       "vimdoc",
       "sql",
       "java",
@@ -41,8 +42,9 @@ return {
   config = function(_, opts)
     local ts_configs = require("nvim-treesitter.configs")
     local ts_install = require("nvim-treesitter.install")
-    ts_install.prefer_git = false
-    ts_install.compilers = { "clang" }
+    local get_values_on_os = require("user.utils.get-values-on-os").get_values_on_os
+    ts_install.prefer_git = get_values_on_os({ Window = false, Linux = false }, true)
+    ts_install.compilers = { "clang", "gcc" }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
       group = vim.api.nvim_create_augroup("TS_FOLD_WORKAROUND", {}),
