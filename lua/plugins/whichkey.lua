@@ -98,14 +98,11 @@ return {
       },
       b = {
         name = "Buffers",
+        e = { "<cmd>Neotree show buffers reveal<cr>", "Explorer Opened Buffers"}
         h = { "<cmd>FocusSplitLeft<cr>", "Focus Left" },
         j = { "<cmd>FocusSplitDown<cr>", "Focus Down" },
         k = { "<cmd>FocusSplitUp<cr>", "Focus Up" },
         l = { "<cmd>FocusSplitRight<cr>", "Focus Right" },
-        --[[e = {
-          "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-          "Explore Opened Buffers",
-        },]]
         c = { "<cmd>bdelete!<CR>", "Close Buffer" },
         t = {
           name = "Terminal",
@@ -153,11 +150,8 @@ return {
       },
       e = {
         name = "Explorer",
-        --[[c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse Keep Buffers" },
-        f = { "<cmd>NvimTreeFocus<cr>", "Focus on the Explorer" },
-        x = { "<cmd>NvimTreeClose<cr>", "Close the Explorer" },
-        t = { "<cmd>NvimTreeToggle<cr>", "Tree" },]]
-        f = { "<cmd>Neotree<cr>", "Focus on the Explorer" },
+        e = { "<cmd>Neotree show filesystem reveal<cr>", "Open Explorer" },
+        f = { "<cmd>Neotree focus<cr>", "Focus on the Explorer" },
         x = { "<cmd>Neotree close<cr>", "Close the Explorer" },
         o = { "<cmd>AerialToggle!<cr>", "Outline" },
       },
