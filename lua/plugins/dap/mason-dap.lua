@@ -3,7 +3,9 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
   },
-  opts = {
-    ensure_installed = { "python" },
-  },
+  config = function()
+    require("mason-nvim-dap").setup({
+      ensure_installed = { "python", "js" },
+    })
+  end,
 }
