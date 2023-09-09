@@ -8,13 +8,12 @@ return {
   },
   config = function()
     local debugpy_path = require("mason-registry").get_package("debugpy"):get_install_path()
-
-    local debugpy_py_path = {
+    local debugpy_py_path = get_values_on_os({
       Window = "/venv/Scripts/python",
       Linux = "/venv/bin/python",
-    }
+    }, true)
 
-    require("dap-python").setup(debugpy_path .. get_values_on_os(debugpy_py_path, true))
+    require("dap-python").setup(debugpy_path .. debugpy_py_path)
 
     local dap = require("dap")
 

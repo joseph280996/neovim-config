@@ -1,5 +1,5 @@
 return {
-  Window = "Window_NT",
+  Window = "Windows_NT",
   Linux = "Linux",
   MacOS = "Darwin"
 }
