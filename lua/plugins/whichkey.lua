@@ -68,7 +68,7 @@ return {
   config = function(_, opts)
     local whichkey = require("which-key")
     whichkey.setup(opts)
-    local keymap_opts = {
+    local normal_keymap_opts = {
       mode = "n", -- NORMAL mode
       prefix = "<leader>",
       buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -88,17 +88,11 @@ return {
           "Redo",
           s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions" },
         },
-        t = {
-          "Terminal",
-          b = { "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>", "Bash Horizontal" },
-          p = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Powershell Horizontal" },
-        },
-        e = { "<cmd>Neotree<cr>", "Focus on the Explorer" },
         m = { "<cmd>MarkdownPreview<cr>", "Preview Markdown" },
       },
       b = {
         name = "Buffers",
-        e = { "<cmd>Neotree show buffers reveal<cr>", "Explorer Opened Buffers"},
+        e = { "<cmd>Neotree show buffers reveal<cr>", "Explorer Opened Buffers" },
         h = { "<cmd>FocusSplitLeft<cr>", "Focus Left" },
         j = { "<cmd>FocusSplitDown<cr>", "Focus Down" },
         k = { "<cmd>FocusSplitUp<cr>", "Focus Up" },
@@ -150,8 +144,7 @@ return {
       },
       e = {
         name = "Explorer",
-        e = { "<cmd>Neotree show filesystem reveal<cr>", "Open Explorer" },
-        f = { "<cmd>Neotree focus<cr>", "Focus on the Explorer" },
+        f = { "<cmd>Neotree focus filesystem reveal<cr>", "Open/Focus on the Explorer" },
         x = { "<cmd>Neotree close<cr>", "Close the Explorer" },
         o = { "<cmd>AerialToggle!<cr>", "Outline" },
       },
@@ -160,7 +153,7 @@ return {
         b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
         l = { "<cmd>lua require('dap').run_last()<cr>", "Run Last" },
         u = { "<cmd>lua require('dapui').toggle()<cr>", "UI" },
-        r = { "<cmd>lua require('dap').run()<cr>", "Run" },
+        r = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Run" },
         R = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle Repl" },
         x = { "<cmd>lua require('dap').terminate()<cr>", "Exit" },
       },
@@ -215,6 +208,10 @@ return {
       l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+        c = {
+          "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>",
+          "Linewise Toggle Commenting",
+        },
         d = {
           "<cmd>Telescope diagnostics bufnr=0<cr>",
           "Document Diagnostics",
@@ -289,6 +286,24 @@ return {
           "Output",
         },
       },
-    }, keymap_opts)
+    }, normal_keymap_opts)
+
+    local visual_keymap_opts = {
+      mode = "v", -- NORMAL mode
+      prefix = "<leader>",
+      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    }
+    whichkey.register({
+      l = {
+        name = "LSP",
+        c = {
+          "<cmd>lua require('Comment.api').toggle.blockwise.current()<cr>",
+          "Blockwise Toggle",
+        },
+      },
+    }, visual_keymap_opts)
   end,
 }

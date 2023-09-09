@@ -2,7 +2,6 @@ return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
     "windwp/nvim-ts-autotag",
-    "kevinhwang91/nvim-ufo",
   },
   opts = {
     auto_install = true,
@@ -30,6 +29,9 @@ return {
     },
     autotag = {
       enable = true,
+      enable_close = true,
+      enable_close_on_slash = true,
+      filetypes = { "html", "xml", "cs", "javascript", "typescript", "typescriptreact", "javascriptreact"}
     },
     autopairs = {
       enable = true,

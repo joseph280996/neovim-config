@@ -44,14 +44,14 @@ return {
             hide_hidden = true,
             hide_by_name = {
               "package-lock.json",
-              "lazy-lock.json.json"
-            }
+              "lazy-lock.json",
+            },
           },
           follow_current_file = {
             enabled = true,
             leaves_dirs_open = false,
           },
-          use_libuv_file_watcher = true
+          use_libuv_file_watcher = true,
         },
         buffers = {
           follow_current_file = {
@@ -64,4 +64,3 @@ return {
     })
   end,
 }
-

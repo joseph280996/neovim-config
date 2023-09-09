@@ -11,6 +11,11 @@ return {
       "hrsh7th/cmp-nvim-lsp", -- Buffer Completion
       "tzachar/cmp-tabnine",
       "onsails/lspkind.nvim",
+      {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jsregexp",
+      },
     },
     config = function()
       local cmp = require("cmp")
