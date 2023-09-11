@@ -1,3 +1,4 @@
+local get_values_on_os = require("user.utils.get-values-on-os").get_values_on_os
 return {
   "goolord/alpha-nvim",
   dependencies = {
@@ -44,7 +45,17 @@ return {
       button("r", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
       button("t", icons.ui.List .. " Find text", ":Telescope live_grep <CR>"),
       button("s", icons.ui.SignIn .. " Find Session", ":SearchSession<CR>"),
-      button("c", icons.ui.Gear .. " Config", ":e ~/AppData/Local/nvim/init.lua <CR>"),
+      button(
+        "c",
+        icons.ui.Gear .. " Config",
+        get_values_on_os(
+          {
+            Window = ":e ~/AppData/Local/nvim/init.lua <CR>",
+            Linux = ":e ~/.config/nvim/init.lua <CR>",
+          },
+          true
+        )
+      ),
       button("P", icons.ui.Package .. " Packages", "<cmd>Lazy<cr>"),
       button("q", icons.ui.SignOut .. " Quit", ":qa<CR>"),
     }
