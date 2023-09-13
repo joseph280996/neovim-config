@@ -1,23 +1,35 @@
 # My Neovim Configurations in Lua
-This is my Neovim setup on Window.
+
+This is my Neovim setup on both Window, Linux and MacOS.
 
 ## Forewords
-Most of my set up are basing on [Chris@Machine Neovim setup](https://github.com/ChristianChiarulli/nvim). However, with current archiving notice from null-ls, I'm still undecided on what to use and will figure it out soon.
 
-## Requirements
-In this Lua setup, I'm using [lazy.nvim](https://github.com/folke/lazy.nvim) to manage all of my plugins.
+Most of my set up are basing on [Chris@Machine Neovim setup](https://github.com/ChristianChiarulli/nvim) with a little of extension in plugins that I use for better dev experience.
+I used VSCode prior to this and enjoy the layout of VSCode so you'll see a lot of similarity in the UI that I have here.
+However, I like the keymapping + ease of access of Neovim better and that result in the switch.
 
-Also make sure that you have Visual CMake and also Microsoft Visual C++ build tools install since I'm using [telescope-fzf-native plugins.](https://github.com/nvim-telescope/telescope-fzf-native.nvim).
-Without it, the installation of this package will failed.
+## Installation
 
-To install Microsoft Visual C++, this can be through Visual Studio if you have it. To install CMake, this can be downloaded at CMake's [download site](https://cmake.org/download/)
+Some packages have other package dependencies that can't be installed using Mason or Lazy.nvim and need manual installation using your system package manager
+
+If you're using Linux, you can install these using Brew:
+
+```bash
+brew bundle
+```
+
+For Window, you can use
 
 ## FAQ
+
 ### Q: Why do I see telescope require fd after running checkhealth?
+
 This is because telescope requires fd for some of its operation but this is not require for the existing functionality used in this repo as far as I know. You can however install fd on Window through [this page](https://github.com/sharkdp/fd#installation)
 
 ### Q: Why do I see error for tree-sitter cannot find cc or gcc or clang after running checkhealth?
-You will need to follow [this instruction](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support) on nvim-treesitter to have Window supported 
+
+You will need to follow [this instruction](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support) on nvim-treesitter to have Window supported
 
 ## P.S:
+
 This is the README after I put everything together so I can't recall most of it up top of my head but feel free to reach out or create issue for question and I'll update the README for further clarification.

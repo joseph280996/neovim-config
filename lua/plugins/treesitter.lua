@@ -20,6 +20,7 @@ return {
       "css",
       "markdown",
       "html",
+      "java",
     },
     ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
     highlight = {
@@ -31,7 +32,15 @@ return {
       enable = true,
       enable_close = true,
       enable_close_on_slash = true,
-      filetypes = { "html", "xml", "cs", "javascript", "typescript", "typescriptreact", "javascriptreact"}
+      filetypes = {
+        "html",
+        "xml",
+        "cs",
+        "javascript",
+        "typescript",
+        "typescriptreact",
+        "javascriptreact",
+      },
     },
     autopairs = {
       enable = true,
@@ -47,14 +56,6 @@ return {
     local get_values_on_os = require("user.utils.get-values-on-os").get_values_on_os
     ts_install.prefer_git = get_values_on_os({ Window = false, Linux = false }, true)
     ts_install.compilers = { "clang", "gcc" }
-
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
-      group = vim.api.nvim_create_augroup("TS_FOLD_WORKAROUND", {}),
-      callback = function()
-        vim.opt.foldmethod = "expr"
-        vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-      end,
-    })
 
     ts_configs.setup(opts)
   end,
