@@ -31,7 +31,6 @@ return {
         lspconfig[server].setup(opts)
       end
 
-      lspconfig.jdtls.setup({})
     end,
   },
   require("plugins.lsp.java-lsp-setup"),
