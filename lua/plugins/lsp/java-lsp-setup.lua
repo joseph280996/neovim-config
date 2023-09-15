@@ -10,10 +10,11 @@ end
 return {
   "mfussenegger/nvim-jdtls",
   opts = function()
+    local jdtls_path = require("mason-registry").get_package("jdtls"):get_install_path()
     return {
       -- How to find the root dir for a given filename. The default comes from
       -- lspconfig which provides a function specifically for java projects.
-      root_dir = require("lspconfig.server_configurations.jdtls").default_config.root_dir,
+      root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
 
       -- How to find the project name for a given root dir.
       project_name = function(root_dir)
@@ -30,7 +31,9 @@ return {
 
       -- How to run jdtls. This can be overridden to a full java command-line
       -- if the Python wrapper script doesn't suffice.
-      cmd = { "jdtls" },
+      cmd = {
+        jdtls_path .. "/bin/jdtls.bat",
+      },
       full_cmd = function(opts)
         local fname = vim.api.nvim_buf_get_name(0)
         local root_dir = opts.root_dir(fname)
@@ -52,11 +55,9 @@ return {
       test = true,
     }
   end,
-  config = function()
-    local jdtls_path = require("mason-registry").get_package("jdtls"):get_install_path()
+  config = function(_, opts)
     local java_debug_adapter_path =
       require("mason-registry").get_package("java-debug-adapter"):get_install_path()
-    local opts = {}
 
     -- Find the extra bundles that should be passed on the jdtls command-line
     -- if nvim-dap is enabled with java debug/test.
@@ -83,30 +84,6 @@ return {
       end
     end
 
-    local opts = {
-      cmd = {
-        jdtls_path .. "/bin/jdtls.bat",
-      },
-      settings = {
-        java = {
-          inlayHints = {
-            parameterNames = {
-              enabled = "all",
-            },
-          },
-        },
-      },
-      init_options = {
-        bundles = vim.fn.glob(
-          java_debug_adapter_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar"
-        ),
-      },
-
-      on_attach = require("plugins.lsp.handlers").on_attach,
-      capabilities = require("plugins.lsp.handlers").capabilities,
-
-      root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
-    }
     local function attach_jdtls()
       local fname = vim.api.nvim_buf_get_name(0)
 
