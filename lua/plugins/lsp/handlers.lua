@@ -111,11 +111,6 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.semanticTokensProvider = nil
   end
 
-  if filetype == "java" then
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
-  end
-
   lsp_keymaps(bufnr)
 end
 

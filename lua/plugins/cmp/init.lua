@@ -4,18 +4,10 @@ return {
     version = "v2.*",
     build = "make install_jsregexp",
   },
-  "hrsh7th/cmp-buffer", -- Buffer Completion
-  "hrsh7th/cmp-path", -- Path Completion
-  "hrsh7th/cmp-cmdline", -- CMD Completion
-  "saadparwaiz1/cmp_luasnip", -- Snippet Completion
-  "hrsh7th/cmp-nvim-lsp", -- Buffer Completion
-  "tzachar/cmp-tabnine",
-  "onsails/lspkind.nvim",
-  "L3MON4D3/LuaSnip",
   -- Code Completion
   {
     "hrsh7th/nvim-cmp", -- Completion Plugin
-    {
+    dependencies = {
       "hrsh7th/cmp-buffer", -- Buffer Completion
       "hrsh7th/cmp-path", -- Path Completion
       "hrsh7th/cmp-cmdline", -- CMD Completion
@@ -36,7 +28,7 @@ return {
         return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
       end
 
-      cmp.setup({
+      require("cmp").setup({
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body) -- For `luasnip` users.
