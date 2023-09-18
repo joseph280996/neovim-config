@@ -7,7 +7,7 @@ local jdtls_path = require("mason-registry").get_package("jdtls"):get_install_pa
 local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 local java_path = get_value_on_os({
   Window = "C:/Program Files/Common Files/Oracle/Java/javapath/java",
-  Linux = "usr/bin/java",
+  Linux = "java",
 }, true)
 
 local function get_config_dir()
