@@ -36,6 +36,7 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = "java",
   },
+  require("plugins.lsp.java-lsp-config"),
   require("plugins.lsp.lsp-file-operations"),
   require("plugins.lsp.nlsp-settings"),
   require("plugins.lsp.null-ls"),

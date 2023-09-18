@@ -38,6 +38,9 @@ return {
         created = { enabled = false },
         symlink_target = { enabled = false },
         filesystem = {
+          window = {
+            async_directory_scan = "always"
+          },
           filtered_items = {
             hide_dotfiles = true,
             hide_gitignored = true,
@@ -51,6 +54,7 @@ return {
             enabled = true,
             leaves_dirs_open = false,
           },
+          hijack_netrw_behavior = "open_default",
           use_libuv_file_watcher = true,
         },
         buffers = {
