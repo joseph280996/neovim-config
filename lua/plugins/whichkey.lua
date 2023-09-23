@@ -82,14 +82,6 @@ return {
       ["<F10>"] = { "<cmd>lua require('dap').step_over()<cr>", "Debug Step Over" },
       ["<F11>"] = { "<cmd>lua require('dap').step_into()<cr>", "Debug Step Into" },
       ["<F12>"] = { "<cmd>lua require('dap').step_out()<cr>", "Debug Step Out" },
-      q = {
-        name = "Quick Access",
-        r = {
-          "Redo",
-          s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions" },
-        },
-        m = { "<cmd>MarkdownPreview<cr>", "Preview Markdown" },
-      },
       b = {
         name = "Buffers",
         e = { "<cmd>Neotree show buffers reveal<cr>", "Explorer Opened Buffers" },
@@ -142,12 +134,6 @@ return {
           },
         },
       },
-      e = {
-        name = "Explorer",
-        f = { "<cmd>Neotree focus filesystem reveal<cr>", "Open/Focus on the Explorer" },
-        x = { "<cmd>Neotree close<cr>", "Close the Explorer" },
-        o = { "<cmd>AerialToggle!<cr>", "Outline" },
-      },
       d = {
         name = "Debug",
         b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
@@ -156,6 +142,12 @@ return {
         r = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Run" },
         R = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle Repl" },
         x = { "<cmd>lua require('dap').terminate()<cr>", "Exit" },
+      },
+      e = {
+        name = "Explorer",
+        f = { "<cmd>Neotree focus filesystem reveal<cr>", "Open/Focus on the Explorer" },
+        x = { "<cmd>Neotree close<cr>", "Close the Explorer" },
+        o = { "<cmd>AerialToggle!<cr>", "Outline" },
       },
       f = {
         name = "Find",
@@ -249,10 +241,28 @@ return {
           "Workspace Symbols",
         },
       },
+      n = {
+        name = "Notes",
+        w = {
+          name = "Workspace",
+          w = { "<cmd>Neorg workspace work<cr>", "Work" },
+          s = { "<cmd>Neorg workspace school<cr>", "School" },
+          p = { "<cmd>Neorg workspace personal<cr>", "Personal" },
+        },
+
+      },
       p = {
         name = "Packages Manager",
         o = { "<cmd>Lazy<cr>", "Open Lazy Screen" },
         h = { "<cmd>Lazy health<cr>", "Health" },
+      },
+      q = {
+        name = "Quick Access",
+        r = {
+          "Redo",
+          s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions" },
+        },
+        m = { "<cmd>MarkdownPreview<cr>", "Preview Markdown" },
       },
       t = {
         name = "Tabs",
