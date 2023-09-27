@@ -21,8 +21,6 @@ end
 -- vim.g.vimtex_view_method = 'zathura'
 
 -- Or with a generic interface:
-vim.g.vimtex_view_general_viewer =
-  get_values_on_os({ Window = "SumatraPDF", Linux = "texshop" }, true)
 vim.g.vimtex_view_general_options = get_values_on_os(
   { Window = "-reuse-instance -forward-search @tex @line @pdf", Linux = nil },
   true

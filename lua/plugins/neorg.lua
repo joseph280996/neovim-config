@@ -28,6 +28,7 @@ return {
             },
           },
         },
+        ["core.esupports.indent"] = {},
       },
     })
   end,
