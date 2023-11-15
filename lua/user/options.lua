@@ -35,7 +35,7 @@ for setting, value in pairs(options) do
 end
 
 vim.g.python3_host_prog = get_values_on_os(
-  { Windows = "C://Python311/python.exe", Linux = "/opt/homebrew/bin/python3" },
+  { Window = "C:/Python312/python.exe", Linux = "/opt/homebrew/bin/python3" },
   true
 )
 vim.g.loaded_netrw = 1

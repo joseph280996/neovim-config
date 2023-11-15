@@ -3,6 +3,7 @@ local system_name = require("user.utils.os-name")
 -- @tparam tab system_values
 -- @tparam bool is_macOS_same_as_Linux
 local function get_values_on_os(system_values, is_macOS_same_as_Linux)
+  print()
   local os_name = vim.loop.os_uname().sysname
 
   if os_name == system_name.Window then

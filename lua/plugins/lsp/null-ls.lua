@@ -1,5 +1,5 @@
 return {
-  "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
@@ -22,7 +22,7 @@ return {
 
         --[[Diagnostics]]
         -- Markdown
-        diagnostic.markdownlint.with({ extra_args = {"-r", "~MD013"}}),
+        diagnostic.markdownlint.with({ extra_args = { "-r", "~MD013" } }),
 
         -- SQL
         diagnostic.sqlfluff.with({
@@ -34,7 +34,9 @@ return {
 
         --[[Formatting]]
         -- Python
-        formatting.black.with({ extra_args = { "--fast" } }),
+        formatting.yapf.with({
+          extra_args = { "style", "{based_on_style: google, indent_width: 2}" },
+        }),
 
         -- JavaScript
         formatting.eslint,

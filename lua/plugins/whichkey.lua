@@ -66,6 +66,7 @@ return {
     },
   },
   config = function(_, opts)
+    local comment_cmd = require("user.comment")
     local whichkey = require("which-key")
     whichkey.setup(opts)
     local normal_keymap_opts = {
@@ -249,7 +250,6 @@ return {
           s = { "<cmd>Neorg workspace school<cr>", "School" },
           p = { "<cmd>Neorg workspace personal<cr>", "Personal" },
         },
-
       },
       p = {
         name = "Packages Manager",
@@ -268,6 +268,13 @@ return {
         name = "Tabs",
         c = { "<cmd>tabclose<cr>", "Close Tab" },
         n = { "<cmd>tabnew<cr>", "New Tab" },
+      },
+      v = {
+        name = "Vim packages",
+        t = {
+          name = "Vimtex",
+          c = { "<cmd>VimtexCompile<cr>", "Compile toggle LaTeX document" },
+        },
       },
       S = {
         name = "Session",
@@ -310,8 +317,15 @@ return {
       l = {
         name = "LSP",
         c = {
-          "<cmd>lua require('Comment.api').toggle.blockwise.current()<cr>",
-          "Blockwise Toggle",
+          name = "Comment",
+          b = {
+            comment_cmd.toggle_bwcomment_selection,
+            "Blockwise Toggle",
+          },
+          l = {
+            comment_cmd.toggle_lwcomment_selection,
+            "Linewise Toggle",
+          },
         },
       },
     }, visual_keymap_opts)
