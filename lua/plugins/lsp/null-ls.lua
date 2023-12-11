@@ -34,9 +34,7 @@ return {
 
         --[[Formatting]]
         -- Python
-        formatting.yapf.with({
-          extra_args = { "style", "{based_on_style: google, indent_width: 2}" },
-        }),
+        formatting.black,
 
         -- JavaScript
         formatting.eslint,

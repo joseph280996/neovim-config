@@ -61,8 +61,7 @@ jdtls.start_or_attach({
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
     "-Dlog.protocol=true",
     "-Dlog.level=ALL",
-    "-Xmx64m",
-    "-Xms64m",
+    "-Xmx1G",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
     "java.base/java.util=ALL-UNNAMED",
@@ -77,6 +76,13 @@ jdtls.start_or_attach({
   },
   settings = {
     java = {
+      project = {
+        referencedLibraries = {
+          './gson-2.10.1.jar',
+          './hamcrest-2.2.jar',
+          './junit-4.13.2.jar'
+        }
+      },
       configuration = {
         runtimes = {
           {
