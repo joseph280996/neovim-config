@@ -6,7 +6,10 @@ local wk = require("which-key")
 local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local jdtls_path = require("mason-registry").get_package("jdtls"):get_install_path()
 local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
-local java_path = get_value_on_os({Window = "C:/Program Files/Java/jdk-20/bin/java", Linux = "java"})
+local java_path = get_value_on_os({
+  Window = "C:/Program Files/Java/jdk-20/bin/java",
+  Linux = "/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin/java",
+})
 
 local debugger_path = require("mason-registry").get_package("java-debug-adapter"):get_install_path()
 
@@ -17,7 +20,29 @@ local function get_config_dir()
   )
 end
 
+local cmd = {
+  java_path,
+  "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+  "-Dosgi.bundles.defaultStartLevel=4",
+  "-Declipse.product=org.eclipse.jdt.ls.core.product",
+  "-Dlog.protocol=true",
+  "-Dlog.level=ALL",
+  "-Xmx1G",
+  "--add-modules=ALL-SYSTEM",
+  "--add-opens",
+  "java.base/java.util=ALL-UNNAMED",
+  "--add-opens",
+  "java.base/java.lang=ALL-UNNAMED",
+  "-jar",
+  launcher_jar,
+  "-configuration",
+  vim.fs.normalize(jdtls_path .. "/" .. get_config_dir()),
+  "-data",
+  vim.fn.expand("~/.cache/jdtls-workspace/") .. workspace_dir,
+}
+
 jdtls.start_or_attach({
+  cmd = cmd,
   capabilities = handlers.capabilities,
   on_attach = function()
     require("jdtls.dap").setup_dap_main_class_configs()
@@ -54,34 +79,14 @@ jdtls.start_or_attach({
       prefix = "<leader>",
     })
   end,
-  cmd = {
-    java_path,
-    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-    "-Dosgi.bundles.defaultStartLevel=4",
-    "-Declipse.product=org.eclipse.jdt.ls.core.product",
-    "-Dlog.protocol=true",
-    "-Dlog.level=ALL",
-    "-Xmx1G",
-    "--add-modules=ALL-SYSTEM",
-    "--add-opens",
-    "java.base/java.util=ALL-UNNAMED",
-    "--add-opens",
-    "java.base/java.lang=ALL-UNNAMED",
-    "-jar",
-    launcher_jar,
-    "-configuration",
-    vim.fs.normalize(jdtls_path .. "/" .. get_config_dir()),
-    "-data",
-    vim.fn.expand("~/.cache/jdtls-workspace/") .. workspace_dir,
-  },
   settings = {
     java = {
       project = {
         referencedLibraries = {
-          './gson-2.10.1.jar',
-          './hamcrest-2.2.jar',
-          './junit-4.13.2.jar'
-        }
+          "./gson-2.10.1.jar",
+          "./hamcrest-2.2.jar",
+          "./junit-4.13.2.jar",
+        },
       },
       configuration = {
         runtimes = {
@@ -89,7 +94,7 @@ jdtls.start_or_attach({
             name = "JavaSE-20",
             path = get_value_on_os({
               Window = "C:/Program Files/Java/jdk-20",
-              Linux = "java",
+              Linux = "/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/",
             }, true),
           },
         },
