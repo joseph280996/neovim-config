@@ -1,4 +1,6 @@
 local get_values_on_os = require("user.utils.get-values-on-os").get_values_on_os
+local system_name = require("user.utils.os-name")
+
 -- This is necessary for VimTeX to load properly. The "indent" is optional.
 -- Note that most plugin managers will do this automatically.
 local options = {
@@ -21,6 +23,12 @@ end
 -- vim.g.vimtex_view_method = 'zathura'
 
 -- Or with a generic interface:
+local os_name = vim.loop.os_uname().sysname
+
+if os_name == system_name.Window then
+  vim.g.vimtex_view_general_viewer = "SumatraPDF"
+end
+
 vim.g.vimtex_view_general_options = get_values_on_os(
   { Window = "-reuse-instance -forward-search @tex @line @pdf", Linux = nil },
   true

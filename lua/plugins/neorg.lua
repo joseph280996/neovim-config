@@ -1,3 +1,5 @@
+local get_values_on_os = require("user.utils.get-values-on-os").get_values_on_os
+
 return {
   "nvim-neorg/neorg",
   ft = "norg",
@@ -22,13 +24,20 @@ return {
         ["core.highlights"] = {},
         ["core.dirman"] = { -- Manages Neorg workspaces
           config = {
-            workspaces = {
-              school = "~/Documents/notes/School/",
-              personal = "~/Documents/notes/Personal/",
-            },
+            workspaces = get_values_on_os({
+              Window = {
+                school = "F:/Notebook/Personal/notes/School",
+                personal = "F:/Notebook/Personal/notes/Personal",
+              },
+              Linux = {
+                school = "~/Documents/notes/School/",
+                personal = "~/Documents/notes/Personal/",
+              },
+            }, true),
           },
         },
         ["core.esupports.indent"] = {},
+        ["core.ui.calendar"] = {},
       },
     })
   end,
