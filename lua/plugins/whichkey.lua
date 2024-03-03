@@ -77,6 +77,7 @@ return {
       noremap = true, -- use `noremap` when creating keymaps
       nowait = true, -- use `nowait` when creating keymaps
     }
+    -- TODO: Refactor this to each separate plugins
     whichkey.register({
       [";"] = { "<cmd>Alpha<cr>", "Alpha" },
       ["<F5>"] = { "<cmd>lua require('dap').continue()<cr>", "Debug Start/continue" },
@@ -144,24 +145,18 @@ return {
         R = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle Repl" },
         x = { "<cmd>lua require('dap').terminate()<cr>", "Exit" },
       },
-      e = {
-        name = "Explorer",
-        f = { "<cmd>Neotree focus filesystem reveal<cr>", "Open/Focus on the Explorer" },
-        x = { "<cmd>Neotree close<cr>", "Close the Explorer" },
-        o = { "<cmd>AerialToggle!<cr>", "Outline" },
-      },
       f = {
         name = "Find",
         a = { "<cmd>Telescope pickers<cr>", "Telescope Actions" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-        c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+        c = { "<cmd>Telescope commands<cr>", "Commands" },
         f = {
           "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
           "Files",
         },
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-        m = { "<cmd>lua require('notify').history()<cr>", "Find Noti" },
+        n = { "<cmd>lua require('notify').history()<cr>", "Find Noti" },
         p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Find Projects" },
         r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
         s = { "<cmd>SearchSession<cr>", "Find Session" },
@@ -169,13 +164,17 @@ return {
           "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
           "Find Text",
         },
-        C = { "<cmd>Telescope commands<cr>", "Commands" },
+        x = {
+          name = "Explorer",
+          f = { "<cmd>Neotree focus filesystem reveal<cr>", "Open/Focus on the Explorer" },
+          x = { "<cmd>Neotree close<cr>", "Close the Explorer" },
+          o = { "<cmd>AerialToggle!<cr>", "Outline" },
+        },
         M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         R = { "<cmd>Telescope registers<cr>", "Registers" },
       },
       g = {
         name = "Git",
-        g = { "<cmd>Neogit<cr>", "Open Git UI" },
         d = {
           "<cmd>DiffviewOpen<cr>",
           "Git Diffview",
@@ -184,19 +183,6 @@ return {
           name = "History",
           f = { "<cmd>DiffviewFileHistory<cr>", "File" },
         },
-        j = { "<cmd>lua require('gitsigns').next_hunk()<cr>", "Next Hunk" },
-        k = { "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Prev Hunk" },
-        l = { "<cmd>GitBlameToggle<cr>", "Blame" },
-        o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-        p = { "<cmd>lua require('gitsigns').preview_hunk()<cr>", "Preview Hunk" },
-        r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Hunk" },
-        s = { "<cmd>lua require('gitsigns').stage_hunk()<cr>", "Stage Hunk" },
-        u = {
-          "<cmd>lua require('gitsigns').undo_stage_hunk()<cr>",
-          "Undo Stage Hunk",
-        },
-        S = { "<cmd>lua require('gitsigns').stage_buffer()<cr>", "Stage Buffer" },
-        R = { "<cmd>lua require('gitsigns').reset_buffer()<cr>", "Reset Buffer" },
       },
       l = {
         name = "LSP",

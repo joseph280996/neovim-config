@@ -24,6 +24,9 @@ return {
         -- Markdown
         diagnostic.markdownlint.with({ extra_args = { "-r", "~MD013" } }),
 
+        -- LaTeX
+        diagnostic.textidote,
+
         -- SQL
         diagnostic.sqlfluff.with({
           extra_args = {
