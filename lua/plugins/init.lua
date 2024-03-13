@@ -42,4 +42,5 @@ return {
 
   -- Terminals
   { "akinsho/toggleterm.nvim", version = "*" },
+
 }

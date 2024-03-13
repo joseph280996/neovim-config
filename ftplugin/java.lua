@@ -83,9 +83,9 @@ jdtls.start_or_attach({
     java = {
       project = {
         referencedLibraries = {
-          "./gson-2.10.1.jar",
-          "./hamcrest-2.2.jar",
-          "./junit-4.13.2.jar",
+          "../jars/gson-2.10.1.jar",
+          "../jars/hamcrest-2.2.jar",
+          "../jars/junit-4.13.2.jar",
         },
       },
       configuration = {

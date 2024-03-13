@@ -25,7 +25,7 @@ return {
         diagnostic.markdownlint.with({ extra_args = { "-r", "~MD013" } }),
 
         -- LaTeX
-        diagnostic.textidote,
+        diagnostic.textidote.with({ command = { "java", "-jar", "../../../jars/textidote.jar" } }),
 
         -- SQL
         diagnostic.sqlfluff.with({
