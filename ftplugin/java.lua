@@ -1,5 +1,5 @@
 local handlers = require("plugins.lsp.handlers")
-local get_value_on_os = require("user.utils.get-values-on-os").get_values_on_os
+local get_value_on_os = require("user.utils.get-values-on-os")
 local jdtls = require("jdtls")
 local wk = require("which-key")
 

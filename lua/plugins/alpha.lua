@@ -1,4 +1,4 @@
-local get_values_on_os = require("user.utils.get-values-on-os").get_values_on_os
+local get_values_on_os = require("user.utils.get-values-on-os")
 return {
   "goolord/alpha-nvim",
   dependencies = {
