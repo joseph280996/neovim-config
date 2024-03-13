@@ -37,7 +37,6 @@ return {
           },
         },
         ["core.esupports.indent"] = {},
-        ["core.ui.calendar"] = {},
       },
     })
   end,

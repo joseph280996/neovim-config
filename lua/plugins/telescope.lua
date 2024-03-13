@@ -32,7 +32,6 @@ return {
         "gradle/",
         "%.dll",
         "%.exe",
-        "%.ipynb",
       },
     },
     pickers = {

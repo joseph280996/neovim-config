@@ -3,6 +3,8 @@ if not status_ok then
   return
 end
 
+local get_value_on_os = require("user.utils.get-values-on-os").get_values_on_os
+
 toggleterm.setup({
   size = 20,
   open_mapping = [[<c-\>]],
@@ -15,7 +17,7 @@ toggleterm.setup({
   persist_size = true,
   direction = "horizontal",
   close_on_exit = true,
-  shell = "pwsh",
+  shell = get_value_on_os({ Window = "pwsh", Linux = vim.o.shell }, true),
   float_opts = {
     border = "curved",
     winblend = 0,
