@@ -1,4 +1,4 @@
-local get_values_on_os = require("user.utils.get-values-on-os").get_values_on_os
+local get_values_on_os = require("user.utils.get-values-on-os")
 
 local function get_packages_build_cmd()
   local os_command = {

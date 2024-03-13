@@ -9,6 +9,8 @@ return {
       return
     end
 
+    local get_values_on_os = require("user.utils.get-values-on-os")
+
     local formatting = null_ls.builtins.formatting
     local diagnostic = null_ls.builtins.diagnostics
     local codeaction = null_ls.builtins.code_actions
@@ -25,7 +27,12 @@ return {
         diagnostic.markdownlint.with({ extra_args = { "-r", "~MD013" } }),
 
         -- LaTeX
-        diagnostic.textidote,
+        diagnostic.textidote.with({
+          command = get_values_on_os({
+            Window = { "java", "-jar", "../../../jars/textidote.jar" },
+            Linux = "textidote",
+          }, true),
+        }),
 
         -- SQL
         diagnostic.sqlfluff.with({

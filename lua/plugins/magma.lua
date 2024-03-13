@@ -4,6 +4,7 @@ function MagmaInitPython()
     :MagmaEvaluateArgument a=5
     ]])
 end
+
 -- Magma
 return {
   "dccsillag/magma-nvim",
@@ -39,6 +40,9 @@ return {
     }, {
       prefix = "<leader>l",
       mode = "v",
+      silent = true,  -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true,  -- use `nowait` when creating keymaps
     })
   end,
 }

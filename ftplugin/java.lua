@@ -1,5 +1,5 @@
 local handlers = require("plugins.lsp.handlers")
-local get_value_on_os = require("user.utils.get-values-on-os").get_values_on_os
+local get_value_on_os = require("user.utils.get-values-on-os")
 local jdtls = require("jdtls")
 local wk = require("which-key")
 
@@ -83,9 +83,9 @@ jdtls.start_or_attach({
     java = {
       project = {
         referencedLibraries = {
-          "./gson-2.10.1.jar",
-          "./hamcrest-2.2.jar",
-          "./junit-4.13.2.jar",
+          "../jars/gson-2.10.1.jar",
+          "../jars/hamcrest-2.2.jar",
+          "../jars/junit-4.13.2.jar",
         },
       },
       configuration = {

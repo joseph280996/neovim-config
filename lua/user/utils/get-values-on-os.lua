@@ -24,6 +24,4 @@ local function get_values_on_os(system_values, is_macOS_same_as_Linux)
   end
 end
 
-return {
-  get_values_on_os = get_values_on_os,
-}
+return get_values_on_os
