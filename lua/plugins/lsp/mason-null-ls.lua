@@ -6,7 +6,7 @@ return {
     "nvimtools/none-ls.nvim",
   },
   opts = {
-    ensure_installed = { "stylelua", "eslint", "prettier", "markdownlint", "black" },
+    ensure_installed = { "stylelua", "eslint", "prettier", "markdownlint", "black", "proselint" },
     automatic_installation = true,
     handlers = {},
   },

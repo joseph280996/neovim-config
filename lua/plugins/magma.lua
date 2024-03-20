@@ -1,17 +1,11 @@
-function MagmaInitPython()
-  vim.cmd([[
-    :MagmaInit python3
-    :MagmaEvaluateArgument a=5
-    ]])
-end
-
 -- Magma
 return {
   "dccsillag/magma-nvim",
-  build = ":UpdateRemotePlugins",
+  keys = ":UpdateRemotePlugins",
   dependencies = { "folke/which-key.nvim" },
   config = function()
-    vim.cmd([[:command MagmaInitPython lua MagmaInitPython()]])
+    vim.g.magma_image_provider = "none"
+    vim.g.magma_automatically_open_output = true
 
     local wk = require("which-key")
 

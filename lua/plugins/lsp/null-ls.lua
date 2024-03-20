@@ -26,14 +26,6 @@ return {
         -- Markdown
         diagnostic.markdownlint.with({ extra_args = { "-r", "~MD013" } }),
 
-        -- LaTeX
-        diagnostic.textidote.with({
-          command = get_values_on_os({
-            Window = { "java", "-jar", "../../../jars/textidote.jar" },
-            Linux = "textidote",
-          }, true),
-        }),
-
         -- SQL
         diagnostic.sqlfluff.with({
           extra_args = {
@@ -41,6 +33,7 @@ return {
             "~/AppData/Local/nvim/lua/plugins/lsp/formatter_conf/.sqlfluff",
           },
         }),
+        diagnostic.proselint,
 
         --[[Formatting]]
         -- Python

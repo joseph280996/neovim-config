@@ -34,10 +34,7 @@ for setting, value in pairs(options) do
   vim.opt[setting] = value
 end
 
-vim.g.python3_host_prog = get_values_on_os(
-  { Window = "C:/Users/josep/miniconda3/python.exe", Linux = "python" },
-  true
-)
+vim.g.python3_host_prog = "python"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.lasttab = 1

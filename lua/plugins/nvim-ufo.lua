@@ -6,7 +6,7 @@ return {
     },
     config = function()
       require("ufo").setup({
-        close_fold_kinds = { "imports" },
+        close_fold_kinds_for_ft = { default = { "imports" } },
       })
       vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
       vim.keymap.set("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
