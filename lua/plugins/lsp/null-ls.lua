@@ -19,8 +19,6 @@ return {
       debug = true,
       sources = {
         --[[Code Actions]]
-        -- JavaScript
-        codeaction.eslint,
 
         --[[Diagnostics]]
         -- Markdown
@@ -52,9 +50,6 @@ return {
 
         -- Lua
         formatting.stylua,
-
-        -- LaTex and Markdown
-        formatting.latexindent,
       },
     })
   end,
