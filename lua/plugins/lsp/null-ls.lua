@@ -19,6 +19,7 @@ return {
       debug = true,
       sources = {
         --[[Code Actions]]
+        codeaction.proselint,
 
         --[[Diagnostics]]
         -- Markdown
@@ -31,14 +32,12 @@ return {
             "~/AppData/Local/nvim/lua/plugins/lsp/formatter_conf/.sqlfluff",
           },
         }),
-        diagnostic.proselint,
+
+        diagnostic.textidote,
 
         --[[Formatting]]
         -- Python
         formatting.black,
-
-        -- JavaScript
-        formatting.eslint,
 
         -- SQL
         formatting.sqlfluff.with({
