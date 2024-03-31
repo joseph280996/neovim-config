@@ -4,7 +4,7 @@ return {
     "tsserver",
     "html",
     "jsonls",
-    "ltex",
+    "texlab",
     "omnisharp",
     "sqlls",
     "lua_ls",
