@@ -43,7 +43,6 @@ return {
     end,
   },
   require("plugins.dap.dapui"),
-  require("plugins.dap.mason-dap"),
   require("plugins.dap.dap-python"),
   require("plugins.dap.dap-vscode-js"),
 }

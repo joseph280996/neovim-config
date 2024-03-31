@@ -4,6 +4,7 @@ return {
   require("plugins.lsp.mason"),
   require("plugins.lsp.mason-lsp"),
   require("plugins.lsp.mason-null-ls"),
+  require("plugins.dap.mason-dap"),
   {
     "neovim/nvim-lspconfig", -- Native LSP
     dependencies = {

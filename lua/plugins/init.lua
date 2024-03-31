@@ -35,11 +35,6 @@ return {
     },
   },
 
-  -- Treesitter
-
-  -- LaTex
-  "lervag/vimtex",
-
   -- Terminals
   { "akinsho/toggleterm.nvim", version = "*" },
 
