@@ -5,7 +5,7 @@ return {
   "dccsillag/magma-nvim",
   lazy = false,
   ft = { "ipynb" },
-  run = ":UpdateRemotePlugins",
+  build = ":UpdateRemotePlugins",
   dependencies = { "folke/which-key.nvim" },
   config = function()
     vim.g.magma_image_provider = get_values_on_os({ Window = "none", Linux = "ueberzug" })
