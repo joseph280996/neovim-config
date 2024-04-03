@@ -1,11 +1,14 @@
+local get_values_on_os = require("user.utils.get-values-on-os")
+
 -- Magma
 return {
   "dccsillag/magma-nvim",
   lazy = false,
-  keys = ":UpdateRemotePlugins",
+  ft = { "ipynb" },
+  run = ":UpdateRemotePlugins",
   dependencies = { "folke/which-key.nvim" },
   config = function()
-    vim.g.magma_image_provider = "none"
+    vim.g.magma_image_provider = get_values_on_os({ Window = "none", Linux = "ueberzug" })
     vim.g.magma_automatically_open_output = true
 
     local wk = require("which-key")
@@ -15,7 +18,7 @@ return {
         name = "Magma",
         i = {
           name = "Init",
-          p = { "<cmd>MagmaInitPython<cr>", "Initialize Python" },
+          p = { "<cmd>MagmaInit<cr>", "Initialize Python" },
         },
         r = { "<cmd>MagmaEvaluateOperator<cr>", "Evaluate Operator" },
         l = { "<cmd>MagmaEvaluateLine<cr>", "Evaluate Whole Line" },
@@ -35,9 +38,9 @@ return {
     }, {
       prefix = "<leader>l",
       mode = "v",
-      silent = true, -- use `silent` when creating keymaps
+      silent = true,  -- use `silent` when creating keymaps
       noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
+      nowait = true,  -- use `nowait` when creating keymaps
     })
   end,
 }
