@@ -1,10 +1,12 @@
 return {
-    settings = {
-        python = {
-            analysis = {
-                autoImportCompletions = true,
-                typeCheckingMode = "basic"
-            },
-        },
+  settings = {
+    pyright = {
+      disableOrganizeImports = true,
     },
+    python = {
+      analysis = {
+        ignore = { "*" },
+      },
+    },
+  },
 }

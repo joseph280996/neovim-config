@@ -111,6 +111,10 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.semanticTokensProvider = nil
   end
 
+  if client.name == "ruff_lsp" then
+    client.server_capabilities.hoverProvider = false
+  end
+
   lsp_keymaps(bufnr)
 end
 

@@ -1,6 +1,7 @@
 -- Magma
 return {
   "dccsillag/magma-nvim",
+  lazy = false,
   keys = ":UpdateRemotePlugins",
   dependencies = { "folke/which-key.nvim" },
   config = function()
@@ -34,9 +35,9 @@ return {
     }, {
       prefix = "<leader>l",
       mode = "v",
-      silent = true,  -- use `silent` when creating keymaps
+      silent = true, -- use `silent` when creating keymaps
       noremap = true, -- use `noremap` when creating keymaps
-      nowait = true,  -- use `nowait` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
     })
   end,
 }
