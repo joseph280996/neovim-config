@@ -66,7 +66,6 @@ return {
     },
   },
   config = function(_, opts)
-    local comment_cmd = require("user.comment")
     local whichkey = require("which-key")
     whichkey.setup(opts)
     local normal_keymap_opts = {
@@ -291,29 +290,5 @@ return {
       },
     }, normal_keymap_opts)
 
-    local visual_keymap_opts = {
-      mode = "v", -- NORMAL mode
-      prefix = "<leader>",
-      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    }
-    whichkey.register({
-      l = {
-        name = "LSP",
-        c = {
-          name = "Comment",
-          b = {
-            comment_cmd.toggle_bwcomment_selection,
-            "Blockwise Toggle",
-          },
-          l = {
-            comment_cmd.toggle_lwcomment_selection,
-            "Linewise Toggle",
-          },
-        },
-      },
-    }, visual_keymap_opts)
   end,
 }
