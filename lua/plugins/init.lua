@@ -34,8 +34,4 @@ return {
       "nvim-telescope/telescope.nvim",
     },
   },
-
-  -- Terminals
-  { "akinsho/toggleterm.nvim", version = "*" },
-
 }

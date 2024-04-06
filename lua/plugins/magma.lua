@@ -2,45 +2,45 @@ local get_values_on_os = require("user.utils.get-values-on-os")
 
 -- Magma
 return {
-  "dccsillag/magma-nvim",
-  lazy = false,
-  ft = { "ipynb" },
-  build = ":UpdateRemotePlugins",
-  dependencies = { "folke/which-key.nvim" },
-  config = function()
-    vim.g.magma_image_provider = get_values_on_os({ Window = "none", Linux = "ueberzug" })
-    vim.g.magma_automatically_open_output = true
-
-    local wk = require("which-key")
-
-    wk.register({
-      m = {
-        name = "Magma",
-        i = {
-          name = "Init",
-          p = { "<cmd>MagmaInit<cr>", "Initialize Python" },
-        },
-        r = { "<cmd>MagmaEvaluateOperator<cr>", "Evaluate Operator" },
-        l = { "<cmd>MagmaEvaluateLine<cr>", "Evaluate Whole Line" },
-        c = { "<cmd>MagmaReevaluateCell<cr>", "Reevaluate Current Cell" },
-        d = { "<cmd>MagmaDelete<cr>", "Delete Output" },
-        o = { "<cmd>MagmaShowOutput<cr>", "Show Output" },
+  {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      keymaps_ext = {
+        m = { name = "Magma" },
       },
-    }, {
-      prefix = "<leader>l",
-      mode = "n",
-    })
-    wk.register({
-      m = {
-        name = "Magma",
-        r = { "<cmd>MagmaEvaluateVisual<cr>", "Evaluate Selection" },
+    },
+  },
+  {
+    "dccsillag/magma-nvim",
+    lazy = false,
+    ft = { "ipynb" },
+    build = ":UpdateRemotePlugins",
+    config = function()
+      vim.g.magma_image_provider = get_values_on_os({ Window = "none", Linux = "ueberzug" })
+      vim.g.magma_automatically_open_output = true
+    end,
+    keys = {
+      { "<leader>mip", "<cmd>MagmaInit<cr>", desc = "Initialize Python", mode = "n" },
+      { "<leader>mr", "<cmd>MagmaEvaluateOperator<cr>", desc = "Evaluate Operator", mode = "n" },
+      { "<leader>ml", "<cmd>MagmaEvaluateLine<cr>", desc = "Evaluate Whole Line", mode = "n" },
+      {
+        "<leader>mc",
+        "<cmd>MagmaReevaluateCell<cr>",
+        desc = "Reevaluate Current Cell",
+        mode = "n",
       },
-    }, {
-      prefix = "<leader>l",
-      mode = "v",
-      silent = true,  -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true,  -- use `nowait` when creating keymaps
-    })
-  end,
+      { "<leader>md", "<cmd>MagmaDelete<cr>", desc = "Delete Output", mode = "n" },
+      { "<leader>mo", "<cmd>MagmaShowOutput<cr>", desc = "Show Output", mode = "n" },
+      {
+        "<leader>mr",
+        "<cmd>MagmaEvaluateVisual<cr>",
+        desc = "Evaluate Selection",
+        mode = "v",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+    },
+  },
 }

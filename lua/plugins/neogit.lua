@@ -11,15 +11,15 @@ return {
       diffview = true,
     },
   },
-  config = function(_, opts)
-    local neogit = require("neogit")
-    neogit.setup(opts)
-    local wk = require("which-key")
-
-    wk.register({
-      g = { "<cmd>Neogit<cr>", "Open Git UI" },
-    }, {
-      prefix = "<leader>g",
-    })
-  end,
+  keys = {
+    {
+      "<leader>gg",
+      "<cmd>Neogit<cr>",
+      desc = "Open Git UI",
+      mode = "n",
+      silent = true,
+      noremap = true,
+      nowait = true,
+    },
+  },
 }

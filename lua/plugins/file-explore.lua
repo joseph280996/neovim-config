@@ -1,14 +1,23 @@
 return {
-  "nvim-neo-tree/neo-tree.nvim",
-  branch = "v3.x",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "kyazdani42/nvim-web-devicons",
-    "MunifTanjim/nui.nvim",
-    "s1n7ax/nvim-window-picker",
+  {
+    "folke/which-key.nvim", -- Centralized list of all commands UI
+    optional = true,
+    opts = {
+      keymaps_ext = {
+        x = { name = "Explorer" },
+      },
+    },
   },
-  config = function()
-    require("neo-tree").setup({
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+      "s1n7ax/nvim-window-picker",
+    },
+    opts = {
       enable_git_status = false,
       enable_diagnostic = true,
       sort_case_insensitive = true,
@@ -39,7 +48,7 @@ return {
         symlink_target = { enabled = false },
         filesystem = {
           window = {
-            async_directory_scan = "always"
+            async_directory_scan = "always",
           },
           filtered_items = {
             hide_dotfiles = true,
@@ -65,6 +74,28 @@ return {
           show_unloaded = true,
         },
       },
-    })
-  end,
+    },
+    keys = {
+      {
+        "<leader>xf",
+        "<cmd>Neotree focus filesystem reveal<cr>",
+        desc = "Open/Focus on the Explorer",
+      },
+      {
+        "<leader>xx",
+        "<cmd>Neotree close<cr>",
+        desc = "Close the Explorer",
+      },
+      {
+        "<leader>xo",
+        "<cmd>AerialToggle!<cr>",
+        desc = "Outline",
+      },
+      {
+        "<leader>xb",
+        "<cmd>Neotree show buffers reveal<cr>",
+        desc = "Explorer Opened Buffers",
+      },
+    },
+  },
 }

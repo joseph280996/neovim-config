@@ -1,83 +1,36 @@
+local normal_keymap_opts = {
+  mode = "n", -- NORMAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
 return {
   "folke/which-key.nvim", -- Centralized list of all commands UI
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 30
+  end,
   opts = {
     plugins = {
-      marks = true, -- shows a list of your marks on ' and `
-      registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-      spelling = {
-        enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-        suggestions = 20, -- how many suggestions should be shown in the list?
-      },
+      mark = false,
       -- the presets plugin, adds help for a bunch of default keybindings in Neovim
       -- No actual key bindings are created
       presets = {
         operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
         motions = false, -- adds help for motions
-        text_objects = false, -- help for text objects triggered after entering an operator
-        windows = true, -- default bindings on <c-w>
-        nav = true, -- misc bindings to work with windows
-        z = true, -- bindings for folds, spelling and others prefixed with z
-        g = true, -- bindings for prefixed with g
       },
     },
     -- add operators that will trigger motion and text object completion
     -- to enable all native operators, set the preset / operators plugin above
     operators = { gc = "Comments", ys = "Surround" },
-    key_labels = {
-      -- override the label used to display some keys. It doesn't effect WK in any other way.
-      -- For example:
-      -- ["<space>"] = "SPC",
-      -- ["<cr>"] = "RET",
-      -- ["<tab>"] = "TAB",
-    },
-    icons = {
-      breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-      separator = "➜", -- symbol used between a key and it's label
-      group = "+", -- symbol prepended to a group
-    },
-    popup_mappings = {
-      scroll_down = "<c-d>", -- binding to scroll down inside the popup
-      scroll_up = "<c-u>", -- binding to scroll up inside the popup
-    },
     window = {
       border = "rounded", -- none, single, double, shadow
-      position = "bottom", -- bottom, top
-      margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
       padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-      winblend = 0,
     },
-    layout = {
-      height = { min = 4, max = 25 }, -- min and max height of the columns
-      width = { min = 20, max = 50 }, -- min and max width of the columns
-      spacing = 3, -- spacing between columns
-      align = "left", -- align columns left, center or right
-    },
-    ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
-    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-    show_help = true, -- show help message on the command line when the popup is visible
-    -- triggers = "auto", -- automatically setup triggers
-    -- triggers = {"<leader>"} -- or specify a list manually
-    triggers_blacklist = {
-      -- list of mode / prefixes that should never be hooked by WhichKey
-      -- this is mostly relevant for key maps that start with a native binding
-      -- most people should not need to change this
-      i = { "j", "k" },
-      v = { "j", "k" },
-    },
-  },
-  config = function(_, opts)
-    local whichkey = require("which-key")
-    whichkey.setup(opts)
-    local normal_keymap_opts = {
-      mode = "n", -- NORMAL mode
-      prefix = "<leader>",
-      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    }
-    -- TODO: Refactor this to each separate plugins
-    whichkey.register({
+    keymaps_ext = {
       [";"] = { "<cmd>Alpha<cr>", "Alpha" },
       ["<F5>"] = { "<cmd>lua require('dap').continue()<cr>", "Debug Start/continue" },
       ["<F10>"] = { "<cmd>lua require('dap').step_over()<cr>", "Debug Step Over" },
@@ -85,7 +38,6 @@ return {
       ["<F12>"] = { "<cmd>lua require('dap').step_out()<cr>", "Debug Step Out" },
       b = {
         name = "Buffers",
-        e = { "<cmd>Neotree show buffers reveal<cr>", "Explorer Opened Buffers" },
         h = { "<cmd>FocusSplitLeft<cr>", "Focus Left" },
         j = { "<cmd>FocusSplitDown<cr>", "Focus Down" },
         k = { "<cmd>FocusSplitUp<cr>", "Focus Up" },
@@ -163,26 +115,10 @@ return {
           "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
           "Find Text",
         },
-        x = {
-          name = "Explorer",
-          f = { "<cmd>Neotree focus filesystem reveal<cr>", "Open/Focus on the Explorer" },
-          x = { "<cmd>Neotree close<cr>", "Close the Explorer" },
-          o = { "<cmd>AerialToggle!<cr>", "Outline" },
-        },
         M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         R = { "<cmd>Telescope registers<cr>", "Registers" },
       },
-      g = {
-        name = "Git",
-        d = {
-          "<cmd>DiffviewOpen<cr>",
-          "Git Diffview",
-        },
-        h = {
-          name = "History",
-          f = { "<cmd>DiffviewFileHistory<cr>", "File" },
-        },
-      },
+      g = { name = "Git" },
       l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -227,15 +163,6 @@ return {
           "Workspace Symbols",
         },
       },
-      n = {
-        name = "Notes",
-        w = {
-          name = "Workspace",
-          w = { "<cmd>Neorg workspace work<cr>", "Work" },
-          s = { "<cmd>Neorg workspace school<cr>", "School" },
-          p = { "<cmd>Neorg workspace personal<cr>", "Personal" },
-        },
-      },
       p = {
         name = "Packages Manager",
         o = { "<cmd>Lazy<cr>", "Open Lazy Screen" },
@@ -247,12 +174,14 @@ return {
           "Redo",
           s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions" },
         },
-        m = { "<cmd>MarkdownPreview<cr>", "Preview Markdown" },
       },
-      t = {
-        name = "Tabs",
-        c = { "<cmd>tabclose<cr>", "Close Tab" },
-        n = { "<cmd>tabnew<cr>", "New Tab" },
+      u = {
+        name = "Utils",
+        t = {
+          name = "Tabs",
+          c = { "<cmd>tabclose<cr>", "Close Tab" },
+          n = { "<cmd>tabnew<cr>", "New Tab" },
+        },
       },
       v = {
         name = "Vim packages",
@@ -288,7 +217,12 @@ return {
           "Output",
         },
       },
-    }, normal_keymap_opts)
-
+    },
+  },
+  config = function(_, opts)
+    local whichkey = require("which-key")
+    whichkey.setup(opts)
+    -- TODO: Refactor this to each separate plugins
+    whichkey.register(opts.keymaps_ext, normal_keymap_opts)
   end,
 }
