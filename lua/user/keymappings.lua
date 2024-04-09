@@ -1,7 +1,7 @@
 local opts = { silent = true, noremap = true }
 
 -- Let 'tl' toggle between this and the last accessed tab
-vim.api.nvim_set_keymap("n", "<Leader>tl", ':exe "tabn ".g:lasttab<CR>', opts)
+vim.api.nvim_set_keymap("n", "<Leader>utl", ':exe "tabn ".g:lasttab<CR>', opts)
 vim.cmd([[ au TabLeave * let g:lasttab = tabpagenr() ]])
 
 -- {{ Split And Tabs }}

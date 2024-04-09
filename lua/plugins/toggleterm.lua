@@ -1,216 +1,307 @@
 local get_value_on_os = require("user.utils.get-values-on-os")
 
 return {
-  "akinsho/toggleterm.nvim",
-  version = "*",
-  opts = {
-    size = 20,
-    open_mapping = [[<c-\>]],
-    hide_numbers = true,
-    shade_filetypes = {},
-    shade_terminals = true,
-    shading_factor = -30,
-    start_in_insert = true,
-    insert_mappings = true,
-    persist_size = true,
-    direction = "horizontal",
-    close_on_exit = true,
-    shell = get_value_on_os({ Window = "pwsh", Linux = vim.o.shell }, true),
-    float_opts = {
-      border = "curved",
-      winblend = 0,
-      highlights = {
-        border = "Normal",
-        background = "Normal",
+  {
+    "folke/which-key.nvim", -- Centralized list of all commands UI
+    optional = true,
+    opts = {
+      keymaps_ext = {
+        t = { name = "Terminal" },
       },
     },
   },
-  config = function(_, opts)
-    local toggleterm = require("toggleterm")
-
-    toggleterm.setup(opts)
-
-    vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-
-    local Terminal = require("toggleterm.terminal").Terminal
-    local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-
-    function _LAZYGIT_TOGGLE()
-      lazygit:toggle()
-    end
-
-    local node = Terminal:new({ cmd = "node", hidden = true })
-
-    function _NODE_TOGGLE()
-      node:toggle()
-    end
-
-    local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
-
-    function _NCDU_TOGGLE()
-      ncdu:toggle()
-    end
-
-    local htop = Terminal:new({ cmd = "htop", hidden = true })
-
-    function _HTOP_TOGGLE()
-      htop:toggle()
-    end
-
-    local python = Terminal:new({ cmd = "python", hidden = true })
-
-    function _PYTHON_TOGGLE()
-      python:toggle()
-    end
-
-    local direction_opts = {
-      horizontal = {
-        direction = "horizontal",
-        size = 10,
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      size = 20,
+      open_mapping = [[<c-\>]],
+      hide_numbers = true,
+      shade_filetypes = {},
+      shade_terminals = true,
+      shading_factor = -30,
+      start_in_insert = true,
+      insert_mappings = true,
+      persist_size = true,
+      direction = "horizontal",
+      close_on_exit = true,
+      shell = get_value_on_os({ Window = "pwsh", Linux = vim.o.shell }, true),
+      float_opts = {
+        border = "curved",
+        winblend = 0,
+        highlights = {
+          border = "Normal",
+          background = "Normal",
+        },
       },
-      vertical = {
-        direction = "vertical",
-        size = 80,
-      },
-      float = {
-        direction = "float",
-      },
-    }
-    local powershell_opts = { cmd = "pwsh" }
+    },
+    config = function(_, opts)
+      require("toggleterm").setup(opts)
 
-    local powershell_horizontal =
-      Terminal:new(vim.tbl_deep_extend("keep", powershell_opts, direction_opts["horizontal"]))
-    function _PS_HORIZONTAL_TOGGLE()
-      powershell_horizontal:toggle()
-    end
+      vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
-    local powershell_vertical =
-      Terminal:new(vim.tbl_deep_extend("keep", powershell_opts, direction_opts["vertical"]))
-    function _PS_VERTICAL_TOGGLE()
-      powershell_vertical:toggle()
-    end
+      local Terminal = require("toggleterm.terminal").Terminal
+      local cached_terms = {
+        lazygit = Terminal:new({ cmd = "lazygit", hidden = true }),
+        node = Terminal:new({ cmd = "node", hidden = true }),
+        ncdu = Terminal:new({ cmd = "ncdu", hidden = true }),
+        htop = Terminal:new({ cmd = "htop", hidden = true }),
+        python = Terminal:new({ cmd = "python", hidden = true }),
+      }
 
-    local powershell_float =
-      Terminal:new(vim.tbl_deep_extend("keep", powershell_opts, direction_opts["float"]))
-    function _PS_FLOAT_TOGGLE()
-      powershell_float:toggle()
-    end
+      function _TERM_TOGGLE(term_name)
+        if term_name == "lazygit" then
+          cached_terms.lazygit:toggle()
+        elseif term_name == "node" then
+          cached_terms.node:toggle()
+        elseif term_name == "ncdu" then
+          cached_terms.ncdu:toggle()
+        elseif term_name == "htop" then
+          cached_terms.htop:toggle()
+        elseif term_name == "python" then
+          cached_terms.python:toggle()
+        end
+      end
 
-    function _PS_HORIZONTAL_TOGGLE_NEW_SESSION()
-      powershell_horizontal =
+      local direction_opts = {
+        horizontal = {
+          direction = "horizontal",
+          size = 10,
+        },
+        vertical = {
+          direction = "vertical",
+          size = 80,
+        },
+        float = {
+          direction = "float",
+        },
+      }
+      local _TERM_TOGGLE = function(shell, direction) end
+      local powershell_opts = { cmd = "pwsh" }
+
+      local powershell_horizontal =
         Terminal:new(vim.tbl_deep_extend("keep", powershell_opts, direction_opts["horizontal"]))
-      powershell_horizontal:toggle()
-    end
+      function _PS_HORIZONTAL_TOGGLE()
+        powershell_horizontal:toggle()
+      end
 
-    function _PS_VERTICAL_TOGGLE_NEW_SESSION()
-      powershell_vertical =
+      local powershell_vertical =
         Terminal:new(vim.tbl_deep_extend("keep", powershell_opts, direction_opts["vertical"]))
-      powershell_vertical:toggle()
-    end
+      function _PS_VERTICAL_TOGGLE()
+        powershell_vertical:toggle()
+      end
 
-    function _PS_FLOAT_TOGGLE_NEW_SESSION()
-      powershell_float =
+      local powershell_float =
         Terminal:new(vim.tbl_deep_extend("keep", powershell_opts, direction_opts["float"]))
-      powershell_float:toggle()
-    end
+      function _PS_FLOAT_TOGGLE()
+        powershell_float:toggle()
+      end
 
-    local git_bash_opts = { cmd = "bash" }
+      function _PS_HORIZONTAL_TOGGLE_NEW_SESSION()
+        powershell_horizontal =
+          Terminal:new(vim.tbl_deep_extend("keep", powershell_opts, direction_opts["horizontal"]))
+        powershell_horizontal:toggle()
+      end
 
-    local function setup_gb()
-      vim.cmd([[let &shell = '"C:/Program Files/Git/bin/bash.exe"']])
-      vim.cmd([[let &shellcmdflag = '-s']])
-    end
+      function _PS_VERTICAL_TOGGLE_NEW_SESSION()
+        powershell_vertical =
+          Terminal:new(vim.tbl_deep_extend("keep", powershell_opts, direction_opts["vertical"]))
+        powershell_vertical:toggle()
+      end
 
-    local git_bash_horizontal =
-      Terminal:new(vim.tbl_deep_extend("keep", git_bash_opts, direction_opts["horizontal"]))
-    function _GB_HORIZONTAL_TOGGLE()
-      setup_gb()
-      git_bash_horizontal:toggle()
-    end
+      function _PS_FLOAT_TOGGLE_NEW_SESSION()
+        powershell_float =
+          Terminal:new(vim.tbl_deep_extend("keep", powershell_opts, direction_opts["float"]))
+        powershell_float:toggle()
+      end
 
-    local git_bash_vertical =
-      Terminal:new(vim.tbl_deep_extend("keep", git_bash_opts, direction_opts["vertical"]))
-    function _GB_VERTICAL_TOGGLE()
-      setup_gb()
-      git_bash_vertical:toggle()
-    end
+      local git_bash_opts = { cmd = "bash" }
 
-    local git_bash_float =
-      Terminal:new(vim.tbl_deep_extend("keep", git_bash_opts, direction_opts["float"]))
-    function _GB_FLOAT_TOGGLE()
-      setup_gb()
-      git_bash_float:toggle()
-    end
+      local function setup_gb()
+        vim.cmd([[let &shell = '"C:/Program Files/Git/bin/bash.exe"']])
+        vim.cmd([[let &shellcmdflag = '-s']])
+      end
 
-    function _GB_HORIZONTAL_TOGGLE_NEW_SESSION()
-      setup_gb()
-      git_bash_horizontal =
+      local git_bash_horizontal =
         Terminal:new(vim.tbl_deep_extend("keep", git_bash_opts, direction_opts["horizontal"]))
-      git_bash_horizontal:toggle()
-    end
+      function _GB_HORIZONTAL_TOGGLE()
+        setup_gb()
+        git_bash_horizontal:toggle()
+      end
 
-    function _GB_VERTICAL_TOGGLE_NEW_SESSION()
-      setup_gb()
-      git_bash_vertical =
+      local git_bash_vertical =
         Terminal:new(vim.tbl_deep_extend("keep", git_bash_opts, direction_opts["vertical"]))
-      git_bash_vertical:toggle()
-    end
+      function _GB_VERTICAL_TOGGLE()
+        setup_gb()
+        git_bash_vertical:toggle()
+      end
 
-    function _GB_FLOAT_TOGGLE_NEW_SESSION()
-      setup_gb()
-      git_bash_float =
+      local git_bash_float =
         Terminal:new(vim.tbl_deep_extend("keep", git_bash_opts, direction_opts["float"]))
-      git_bash_float:toggle()
-    end
-  end,
-  keys = {
-    { "<esc>", [[<C-\><C-n>]], mode = "t", buffer = 0, noremap = true },
-    { "jk", [[<C-\><C-n>]], mode = "t", buffer = 0, noremap = true },
-    { "<C-h>", [[<C-\><C-n><C-W>h]], buffer = 0, mode = "t", noremap = true },
-    { "<C-j>", [[<C-\><C-n><C-W>j]], buffer = 0, mode = "t", noremap = true },
-    { "<C-k>", [[<C-\><C-n><C-W>k]], buffer = 0, mode = "t", noremap = true },
-    { "<C-l>", [[<C-\><C-n><C-W>l]], buffer = 0, mode = "t", noremap = true },
-    ["<leader>t"] = {
-      desc = "Terminal",
-      o = {
-        desc = "Open",
-        n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-        t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-        u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-        P = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-        f = { "<cmd>lua _PS_FLOAT_TOGGLE()<cr>", "Float" },
-        h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
-        v = { "<cmd>lua _PS_VERTICAL_TOGGLE()<cr>", "Vertical" },
-        p = {
-          name = "Powershell",
-          f = { "<cmd>lua _PS_FLOAT_TOGGLE()<cr>", "Float" },
-          h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
-          v = { "<cmd>lua _PS_VERTICAL_TOGGLE()<cr>", "Vertical" },
-        },
-        b = {
-          name = "Bash",
-          f = { "<cmd>lua _GB_FLOAT_TOGGLE()<cr>", "Float" },
-          h = { "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
-          v = { "<cmd>lua _GB_VERTICAL_TOGGLE()<cr>", "Vertical" },
-        },
+      function _GB_FLOAT_TOGGLE()
+        setup_gb()
+        git_bash_float:toggle()
+      end
+
+      function _GB_HORIZONTAL_TOGGLE_NEW_SESSION()
+        setup_gb()
+        git_bash_horizontal =
+          Terminal:new(vim.tbl_deep_extend("keep", git_bash_opts, direction_opts["horizontal"]))
+        git_bash_horizontal:toggle()
+      end
+
+      function _GB_VERTICAL_TOGGLE_NEW_SESSION()
+        setup_gb()
+        git_bash_vertical =
+          Terminal:new(vim.tbl_deep_extend("keep", git_bash_opts, direction_opts["vertical"]))
+        git_bash_vertical:toggle()
+      end
+
+      function _GB_FLOAT_TOGGLE_NEW_SESSION()
+        setup_gb()
+        git_bash_float =
+          Terminal:new(vim.tbl_deep_extend("keep", git_bash_opts, direction_opts["float"]))
+        git_bash_float:toggle()
+      end
+    end,
+    keys = {
+      { "<esc>", [[<C-\><C-n>]], mode = "t", buffer = 0, noremap = true },
+      { "jk", [[<C-\><C-n>]], mode = "t", buffer = 0, noremap = true },
+      { "<C-h>", [[<C-\><C-n><C-W>h]], buffer = 0, mode = "t", noremap = true },
+      { "<C-j>", [[<C-\><C-n><C-W>j]], buffer = 0, mode = "t", noremap = true },
+      { "<C-k>", [[<C-\><C-n><C-W>k]], buffer = 0, mode = "t", noremap = true },
+      { "<C-l>", [[<C-\><C-n><C-W>l]], buffer = 0, mode = "t", noremap = true },
+      {
+        "<leader>ton",
+        '<cmd>lua _TERM_TOGGLE("node")<cr>',
+        desc = "Open Node Terminal",
+        mode = "n",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
       },
-      n = {
-        name = "New",
-        f = { "<cmd>lua _PS_FLOAT_TOGGLE_NEW_SESSION()<cr>", "Float" },
-        h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE_NEW_SESSION()<cr>", "Horizontal" },
-        v = { "<cmd>lua _PS_VERTICAL_TOGGLE_NEW_SESSION()<cr>", "Vertical" },
-        p = {
-          name = "Powershell",
-          f = { "<cmd>lua _PS_FLOAT_TOGGLE_NEW_SESSION()<cr>", "Float" },
-          h = { "<cmd>lua _PS_HORIZONTAL_TOGGLE_NEW_SESSION()<cr>", "Horizontal" },
-          v = { "<cmd>lua _PS_VERTICAL_TOGGLE_NEW_SESSION()<cr>", "Vertical" },
-        },
-        b = {
-          name = "Bash",
-          f = { "<cmd>lua _GB_FLOAT_TOGGLE()<cr>", "Float" },
-          h = { "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>", "Horizontal" },
-          v = { "<cmd>lua _GB_VERTICAL_TOGGLE()<cr>", "Vertical" },
-        },
+      {
+        "<leader>tot",
+        '<cmd>lua _TERM_TOGGLE("htop")<cr>',
+        desc = "Open Htop Terminal",
+        mode = "n",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tou",
+        '<cmd>lua _TERM_TOGGLE("ncdu")<cr>',
+        desc = "Open NCDU Terminal",
+        mode = "n",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>topy",
+        '<cmd>lua _TERM_TOGGLE("python")<cr>',
+        desc = "Open Python Terminal",
+        mode = "t",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tof",
+        "<cmd>lua _PS_FLOAT_TOGGLE()<cr>",
+        desc = "Open Pwsh Float",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>toh",
+        "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>",
+        desc = "Open Pwsh Horizontal",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tov",
+        "<cmd>lua _PS_VERTICAL_TOGGLE()<cr>",
+        desc = "Open Pwsh Vertical",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tobf",
+        "<cmd>lua _GB_FLOAT_TOGGLE()<cr>",
+        desc = "Open Bash Float",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tobf",
+        "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>",
+        desc = "Open Bash Horizontal",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tobv",
+        "<cmd>lua _GB_VERTICAL_TOGGLE()<cr>",
+        desc = "Open Bash Vertical",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tnpf",
+        "<cmd>lua _PS_FLOAT_TOGGLE_NEW_SESSION()<cr>",
+        desc = "New Pwsh Float",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tnph",
+        "<cmd>lua _PS_HORIZONTAL_TOGGLE_NEW_SESSION()<cr>",
+        desc = "New Pwsh Horizontal",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tnpv",
+        "<cmd>lua _PS_VERTICAL_TOGGLE_NEW_SESSION()<cr>",
+        desc = "New Pwsh Vertical",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tnbf",
+        "<cmd>lua _GB_FLOAT_TOGGLE()<cr>",
+        desc = "New Bash Float",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tnbh",
+        "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>",
+        desc = "New Bash Horizontal",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "<leader>tnbv",
+        "<cmd>lua _GB_VERTICAL_TOGGLE()<cr>",
+        desc = "New Bash Vertical",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
       },
     },
   },
