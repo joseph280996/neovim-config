@@ -42,4 +42,42 @@ return {
       end,
     })
   end,
+  keys = {
+    {
+      "<leader>bh",
+      "<cmd>FocusSplitLeft<cr>",
+      desc = "Focus Left",
+      mode = "n",
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+    {
+      "<leader>bj",
+      "<cmd>FocusSplitDown<cr>",
+      desc = "Focus Down",
+      mode = "n",
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+    {
+      "<leader>bk",
+      "<cmd>FocusSplitUp<cr>",
+      desc = "Focus Up",
+      mode = "n",
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+    {
+      "<leader>bl",
+      "<cmd>FocusSplitRight<cr>",
+      desc = "Focus Right",
+      mode = "n",
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+  },
 }

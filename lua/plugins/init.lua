@@ -1,13 +1,4 @@
 return {
-  -- Diagnosis
-  {
-    "folke/trouble.nvim",
-    dependencies = {
-      "kyazdani42/nvim-web-devicons",
-    },
-    opts = {},
-  },
-
   -- Unit Tests
   {
     "nvim-neotest/neotest",

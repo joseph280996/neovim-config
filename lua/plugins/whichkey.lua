@@ -1,5 +1,13 @@
 local normal_keymap_opts = {
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   mode = "n", -- NORMAL mode
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+local visual_keymap_opts = {
+  mode = "v", -- NORMAL mode
   prefix = "<leader>",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps
@@ -38,10 +46,6 @@ return {
       ["<F12>"] = { "<cmd>lua require('dap').step_out()<cr>", "Debug Step Out" },
       b = {
         name = "Buffers",
-        h = { "<cmd>FocusSplitLeft<cr>", "Focus Left" },
-        j = { "<cmd>FocusSplitDown<cr>", "Focus Down" },
-        k = { "<cmd>FocusSplitUp<cr>", "Focus Up" },
-        l = { "<cmd>FocusSplitRight<cr>", "Focus Right" },
         c = { "<cmd>bdelete!<CR>", "Close Buffer" },
       },
       d = {
@@ -79,10 +83,6 @@ return {
       l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-        c = {
-          "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>",
-          "Linewise Toggle Commenting",
-        },
         d = {
           "<cmd>Telescope diagnostics bufnr=0<cr>",
           "Document Diagnostics",
@@ -101,15 +101,6 @@ return {
         q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-        t = {
-          name = "Trouble",
-          d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Troubles in Buffer" },
-          f = { "<cmd>TroubleToggle quickfix<cr>", "Trouble Quickfix" },
-          l = { "<cmd>TroubleToggle loclist<cr>", "Trouble in LocList" },
-          o = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
-          r = { "<cmd>TroubleToggle lsp_references<cr>", "Trouble LSP refs" },
-          w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Troubles in Workspace" },
-        },
         w = {
           "<cmd>Telescope diagnostics<cr>",
           "Workspace Diagnostics",
@@ -168,11 +159,13 @@ return {
         },
       },
     },
+    keymaps_visual_ext = {},
   },
   config = function(_, opts)
     local whichkey = require("which-key")
     whichkey.setup(opts)
     -- TODO: Refactor this to each separate plugins
     whichkey.register(opts.keymaps_ext, normal_keymap_opts)
+    whichkey.register(opts.keymaps_visual_ext, visual_keymap_opts)
   end,
 }
