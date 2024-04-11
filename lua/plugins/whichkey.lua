@@ -87,7 +87,7 @@ return {
           "<cmd>Telescope diagnostics bufnr=0<cr>",
           "Document Diagnostics",
         },
-        f = { require("plugins.lsp.handlers").lsp_formatting, "Format" },
+        f = { require("plugins.lsp.utils.handlers").lsp_formatting, "Format" },
         i = { "<cmd>LspInfo<cr>", "Info" },
         j = {
           "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",

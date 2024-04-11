@@ -15,7 +15,7 @@ return {
     version = "*",
     opts = {
       size = 20,
-      open_mapping = [[<c-\>]],
+      open_mapping = [[<C-\>]],
       hide_numbers = true,
       shade_filetypes = {},
       shade_terminals = true,
@@ -42,6 +42,7 @@ return {
 
       local Terminal = require("toggleterm.terminal").Terminal
       local cached_terms = {
+        pwsh = Terminal:new({ cmd = "lazygit", hidden = true }),
         lazygit = Terminal:new({ cmd = "lazygit", hidden = true }),
         node = Terminal:new({ cmd = "node", hidden = true }),
         ncdu = Terminal:new({ cmd = "ncdu", hidden = true }),
@@ -52,6 +53,8 @@ return {
       function _TERM_TOGGLE(term_name)
         if term_name == "lazygit" then
           cached_terms.lazygit:toggle()
+        elseif term_name == "pwsh" then
+          cached_terms.pwsh:toggle()
         elseif term_name == "node" then
           cached_terms.node:toggle()
         elseif term_name == "ncdu" then
@@ -76,8 +79,8 @@ return {
           direction = "float",
         },
       }
-      local _TERM_TOGGLE = function(shell, direction) end
       local powershell_opts = { cmd = "pwsh" }
+      function _CREATE_NEW_TERM() end
 
       local powershell_horizontal =
         Terminal:new(vim.tbl_deep_extend("keep", powershell_opts, direction_opts["horizontal"]))
@@ -208,33 +211,9 @@ return {
         nowait = true, -- use `nowait` when creating keymaps
       },
       {
-        "<leader>tof",
-        "<cmd>lua _PS_FLOAT_TOGGLE()<cr>",
-        desc = "Open Pwsh Float",
-        silent = true, -- use `silent` when creating keymaps
-        noremap = true, -- use `noremap` when creating keymaps
-        nowait = true, -- use `nowait` when creating keymaps
-      },
-      {
         "<leader>toh",
-        "<cmd>lua _PS_HORIZONTAL_TOGGLE()<cr>",
+        '<cmd>lua _TERM_TOGGLE("pwsh")<cr>',
         desc = "Open Pwsh Horizontal",
-        silent = true, -- use `silent` when creating keymaps
-        noremap = true, -- use `noremap` when creating keymaps
-        nowait = true, -- use `nowait` when creating keymaps
-      },
-      {
-        "<leader>tov",
-        "<cmd>lua _PS_VERTICAL_TOGGLE()<cr>",
-        desc = "Open Pwsh Vertical",
-        silent = true, -- use `silent` when creating keymaps
-        noremap = true, -- use `noremap` when creating keymaps
-        nowait = true, -- use `nowait` when creating keymaps
-      },
-      {
-        "<leader>tobf",
-        "<cmd>lua _GB_FLOAT_TOGGLE()<cr>",
-        desc = "Open Bash Float",
         silent = true, -- use `silent` when creating keymaps
         noremap = true, -- use `noremap` when creating keymaps
         nowait = true, -- use `nowait` when creating keymaps
@@ -243,14 +222,6 @@ return {
         "<leader>tobf",
         "<cmd>lua _GB_HORIZONTAL_TOGGLE()<cr>",
         desc = "Open Bash Horizontal",
-        silent = true, -- use `silent` when creating keymaps
-        noremap = true, -- use `noremap` when creating keymaps
-        nowait = true, -- use `nowait` when creating keymaps
-      },
-      {
-        "<leader>tobv",
-        "<cmd>lua _GB_VERTICAL_TOGGLE()<cr>",
-        desc = "Open Bash Vertical",
         silent = true, -- use `silent` when creating keymaps
         noremap = true, -- use `noremap` when creating keymaps
         nowait = true, -- use `nowait` when creating keymaps

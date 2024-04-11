@@ -13,8 +13,8 @@ return {
 
     for _, server in pairs(servers) do
       opts = {
-        on_attach = require("lua.plugins.lsp.utils.handlers").on_attach,
-        capabilities = require("lua.plugins.lsp.utils.handlers").capabilities,
+        on_attach = require("plugins.lsp.utils.handlers").on_attach,
+        capabilities = require("plugins.lsp.utils.handlers").capabilities,
       }
 
       server = vim.split(server, "@")[1]
