@@ -4,6 +4,7 @@ return {
     "hrsh7th/cmp-buffer", -- Buffer Completion
     "hrsh7th/cmp-path", -- Path Completion
     "hrsh7th/cmp-cmdline", -- CMD Completion
+    "micangl/cmp-vimtex",
     "saadparwaiz1/cmp_luasnip", -- Snippet Completion
     "hrsh7th/cmp-nvim-lsp", -- Buffer Completion
     "tzachar/cmp-tabnine",
@@ -21,7 +22,7 @@ return {
       return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
     end
 
-    require("cmp").setup({
+    cmp.setup({
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -98,6 +99,10 @@ return {
         ghost_text = false,
         native_menu = false,
       },
+    })
+
+    cmp.setup.filetype("tex", {
+      sources = cmp.config.sources({ { name = "vimtex" } }, { { name = "buffer" } }),
     })
   end,
 }

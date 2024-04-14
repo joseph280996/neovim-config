@@ -42,7 +42,7 @@ return {
 
       local Terminal = require("toggleterm.terminal").Terminal
       local cached_terms = {
-        pwsh = Terminal:new({ cmd = "lazygit", hidden = true }),
+        pwsh = Terminal:new({ cmd = "pwsh", hidden = true }),
         lazygit = Terminal:new({ cmd = "lazygit", hidden = true }),
         node = Terminal:new({ cmd = "node", hidden = true }),
         ncdu = Terminal:new({ cmd = "ncdu", hidden = true }),
