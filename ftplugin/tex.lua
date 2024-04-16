@@ -1,8 +1,8 @@
 local settings = {
   wrap = true,
-  breakindent = true,
+  textwidth = 80,
   linebreak = true,
-  tw = 80,
+  breakindent = true
 }
 
 for setting, value in pairs(settings) do
