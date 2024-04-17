@@ -9,19 +9,73 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- Remapping split navigation to Ctrl + <h,j,k,l>
-vim.api.nvim_set_keymap("n", "<c-k>", ":wincmd k<CR>", opts)
-vim.api.nvim_set_keymap("n", "<c-j>", ":wincmd j<CR>", opts)
-vim.api.nvim_set_keymap("n", "<c-h>", ":wincmd h<CR>", opts)
-vim.api.nvim_set_keymap("n", "<c-l>", ":wincmd l<CR>", opts)
+vim.api.nvim_set_keymap(
+  "n",
+  "<c-k>",
+  ":wincmd k<CR>",
+  vim.tbl_deep_extend("keep", opts, { desc = "Move To Upper Pane" })
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<c-j>",
+  ":wincmd j<CR>",
+  vim.tbl_deep_extend("keep", opts, { desc = "Move to Bottom Pane" })
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<c-h>",
+  ":wincmd h<CR>",
+  vim.tbl_deep_extend("keep", opts, { desc = "Move to Left Pane" })
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<c-l>",
+  ":wincmd l<CR>",
+  vim.tbl_deep_extend("keep", opts, { desc = "Move to Right Pane" })
+)
 
 -- Friendly Adjusting split size
-vim.api.nvim_set_keymap("n", "<c-left>", ":vert res -3<CR>", opts)
-vim.api.nvim_set_keymap("n", "<c-right>", ":vert res +3<CR>", opts)
-vim.api.nvim_set_keymap("n", "<c-up>", ":hor res -3<CR>", opts)
-vim.api.nvim_set_keymap("n", "<c-down>", ":hor res +3<CR>", opts)
+vim.api.nvim_set_keymap(
+  "n",
+  "<c-left>",
+  ":vert res -3<CR>",
+  vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border to the Left" })
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<c-right>",
+  ":vert res +3<CR>",
+  vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border to the Right" })
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<c-up>",
+  ":hor res -3<CR>",
+  vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border Upwards" })
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<c-down>",
+  ":hor res +3<CR>",
+  vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border Downwards" })
+)
 
 -- Buffer keymappings
 vim.keymap.set("n", "<c-tab>", "<Plug>(CybuNext)")
 vim.keymap.set("n", "<c-s-tab>", "<Plug>(CybuPrev)")
 vim.keymap.set({ "n", "v" }, "]b", "<Plug>(CybuLastusedPrev)")
 vim.keymap.set({ "n", "v" }, "[b", "<Plug>(CybuLastusedNext)")
+
+-- Tab keymappings
+vim.keymap.set(
+  "n",
+  "tc",
+  ":tabclose<cr>",
+  vim.tbl_deep_extend("keep", opts, { desc = "Close Current Tab" })
+)
+vim.keymap.set(
+  "n",
+  "tn",
+  ":tabnew<cr>",
+  vim.tbl_deep_extend("keep", opts, { desc = "Create New Tab" })
+)

@@ -123,14 +123,6 @@ return {
           s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions" },
         },
       },
-      u = {
-        name = "Utils",
-        t = {
-          name = "Tabs",
-          c = { "<cmd>tabclose<cr>", "Close Tab" },
-          n = { "<cmd>tabnew<cr>", "New Tab" },
-        },
-      },
       x = { name = "Explorer" },
       S = { name = "Session" },
       T = { name = "Unit Testing" },
