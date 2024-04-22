@@ -82,30 +82,17 @@ return {
       g = { name = "Git" },
       l = {
         name = "LSP",
-        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
         d = {
           "<cmd>Telescope diagnostics bufnr=0<cr>",
           "Document Diagnostics",
         },
         f = { require("plugins.lsp.utils.handlers").lsp_formatting, "Format" },
-        i = { "<cmd>LspInfo<cr>", "Info" },
-        j = {
-          "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-          "Next Diagnostic",
-        },
-        k = {
-          "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-          "Prev Diagnostic",
-        },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-        q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
         w = {
           "<cmd>Telescope diagnostics<cr>",
           "Workspace Diagnostics",
         },
-        I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
         S = {
           "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
           "Workspace Symbols",
