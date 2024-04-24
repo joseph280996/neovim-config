@@ -42,7 +42,7 @@ return {
         },
         filtered_items = {
           hide_dotfiles = false,
-          hide_gitignored = true,
+          hide_gitignored = false,
           hide_hidden = false,
           hide_by_name = {
             "package-lock.json",
