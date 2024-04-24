@@ -6,6 +6,7 @@ return {
     "sindrets/diffview.nvim", -- optional
   },
   opts = {
+    kind = "auto",
     integrations = {
       telescope = true,
       diffview = true,
