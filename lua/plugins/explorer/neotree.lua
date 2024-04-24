@@ -41,9 +41,9 @@ return {
           async_directory_scan = "always",
         },
         filtered_items = {
-          hide_dotfiles = true,
+          hide_dotfiles = false,
           hide_gitignored = true,
-          hide_hidden = true,
+          hide_hidden = false,
           hide_by_name = {
             "package-lock.json",
             "lazy-lock.json",
