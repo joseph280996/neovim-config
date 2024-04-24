@@ -65,17 +65,3 @@ vim.keymap.set("n", "<c-tab>", "<Plug>(CybuNext)")
 vim.keymap.set("n", "<c-s-tab>", "<Plug>(CybuPrev)")
 vim.keymap.set({ "n", "v" }, "]b", "<Plug>(CybuLastusedPrev)")
 vim.keymap.set({ "n", "v" }, "[b", "<Plug>(CybuLastusedNext)")
-
--- Tab keymappings
-vim.keymap.set(
-  "n",
-  "tc",
-  ":tabclose<cr>",
-  vim.tbl_deep_extend("keep", opts, { desc = "Close Current Tab" })
-)
-vim.keymap.set(
-  "n",
-  "tn",
-  ":tabnew<cr>",
-  vim.tbl_deep_extend("keep", opts, { desc = "Create New Tab" })
-)
