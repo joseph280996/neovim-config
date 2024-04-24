@@ -59,9 +59,3 @@ vim.api.nvim_set_keymap(
   ":hor res +3<CR>",
   vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border Downwards" })
 )
-
--- Buffer keymappings
-vim.keymap.set("n", "<c-tab>", "<Plug>(CybuNext)")
-vim.keymap.set("n", "<c-s-tab>", "<Plug>(CybuPrev)")
-vim.keymap.set({ "n", "v" }, "]b", "<Plug>(CybuLastusedPrev)")
-vim.keymap.set({ "n", "v" }, "[b", "<Plug>(CybuLastusedNext)")
