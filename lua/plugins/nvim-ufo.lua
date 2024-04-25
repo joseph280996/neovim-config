@@ -8,10 +8,44 @@ return {
       require("ufo").setup({
         close_fold_kinds_for_ft = { default = { "imports" } },
       })
-      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-      vim.keymap.set("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
     end,
+    keys = {
+      {
+        "zr",
+        "<cmd>lua require('ufo').openFoldsExceptKinds()<cr>",
+        mode = "n",
+        desc = "Open Folds Except Kinds",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "zm",
+        "<cmd>lua require('ufo').closeFoldsWith()<cr>",
+        mode = "n",
+        desc = "Close Folds With",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "zR",
+        "<cmd>lua require('ufo').openAllFolds()<cr>",
+        mode = "n",
+        desc = "Open All Folds",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+      {
+        "zM",
+        "<cmd>lua require('ufo').closeAllFolds()<cr>",
+        mode = "n",
+        desc = "Close All Folds",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
+    },
   },
 }

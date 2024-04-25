@@ -9,53 +9,42 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- Remapping split navigation to Ctrl + <h,j,k,l>
-vim.api.nvim_set_keymap(
-  "n",
-  "<c-k>",
-  ":wincmd k<CR>",
-  vim.tbl_deep_extend("keep", opts, { desc = "Move To Upper Pane" })
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<c-j>",
-  ":wincmd j<CR>",
-  vim.tbl_deep_extend("keep", opts, { desc = "Move to Bottom Pane" })
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<c-h>",
-  ":wincmd h<CR>",
-  vim.tbl_deep_extend("keep", opts, { desc = "Move to Left Pane" })
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<c-l>",
-  ":wincmd l<CR>",
-  vim.tbl_deep_extend("keep", opts, { desc = "Move to Right Pane" })
-)
+local normal_keymaps = {
+  ["<c-k>"] = {
+    cmd = ":wincmd k<CR>",
+    opts = vim.tbl_deep_extend("keep", opts, { desc = "Move To Upper Pane" }),
+  },
+  ["<c-j>"] = {
+    cmd = ":wincmd j<CR>",
+    opts = vim.tbl_deep_extend("keep", opts, { desc = "Move to Bottom Pane" }),
+  },
+  ["<c-h>"] = {
+    cmd = ":wincmd h<CR>",
+    opts = vim.tbl_deep_extend("keep", opts, { desc = "Move to Left Pane" }),
+  },
+  ["<c-l>"] = {
+    cmd = ":wincmd l<CR>",
+    opts = vim.tbl_deep_extend("keep", opts, { desc = "Move to Right Pane" }),
+  },
+  ["<c-left>"] = {
+    cmd = ":vert res -3<CR>",
+    opts = vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border to the Left" }),
+  },
+  ["<c-right>"] = {
+    cmd = ":vert res +3<CR>",
+    opts = vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border to the Right" }),
+  },
+  ["<c-up>"] = {
+    cmd = ":hor res -3<CR>",
+    opts = vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border Upwards" }),
+  },
+  ["<c-down>"] = {
+    cmd = ":hor res +3<CR>",
+    opts = vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border Downwards" }),
+  },
+}
 
 -- Friendly Adjusting split size
-vim.api.nvim_set_keymap(
-  "n",
-  "<c-left>",
-  ":vert res -3<CR>",
-  vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border to the Left" })
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<c-right>",
-  ":vert res +3<CR>",
-  vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border to the Right" })
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<c-up>",
-  ":hor res -3<CR>",
-  vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border Upwards" })
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<c-down>",
-  ":hor res +3<CR>",
-  vim.tbl_deep_extend("keep", opts, { desc = "Move Pane Border Downwards" })
-)
+for i, value in ipairs(normal_keymaps) do
+  vim.api.nvim_set_keymap("n", value.cmd, value.opts)
+end

@@ -12,7 +12,12 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "kyazdani42/nvim-web-devicons",
+      "nvim-telescope/telescope.nvim",
     },
+    config = function(_, opts)
+      require("aerial").setup(opts)
+      require("telescope").load_extension("aerial")
+    end,
     keys = {
       {
         "<leader>xo",
