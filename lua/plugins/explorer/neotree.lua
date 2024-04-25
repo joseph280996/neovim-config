@@ -7,51 +7,44 @@ return {
     "MunifTanjim/nui.nvim",
     "s1n7ax/nvim-window-picker",
   },
-  opts = {
-    enable_git_status = false,
-    enable_diagnostic = true,
-    sort_case_insensitive = true,
-    open_files_do_not_replace_types = { "terminal", "trouble", "aerial" },
-    default_component_configs = {
-      icon = {
-        folder_empty = "󰜌",
-        default = "*",
+  config = function(_, opts)
+    require("neo-tree").setup({
+      enable_git_status = false,
+      enable_diagnostic = true,
+      sort_case_insensitive = true,
+      open_files_do_not_replace_types = { "terminal", "trouble", "aerial" },
+      default_component_configs = {
+        indent = {
+          -- expander config, needed for nesting files
+          with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+        },
+        file_size = { enabled = false },
+        type = { enabled = false },
+        last_modified = { enabled = false },
+        created = { enabled = false },
+        symlink_target = { enabled = false },
       },
-      indent = {
-        indent_size = 2,
-        padding = 1,
-        with_marker = true,
-        indent_marker = "│",
-        last_indent_marker = "└",
-        highlight = "NeoTreeIndentMarker",
-        -- expander config, needed for nesting files
-        with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-        expander_collapsed = "",
-        expander_expanded = "",
-        expander_highlight = "NeoTreeExpander",
-      },
-      nesting_rules = {},
-      file_size = { enabled = false },
-      type = { enabled = false },
-      last_modified = { enabled = false },
-      created = { enabled = false },
-      symlink_target = { enabled = false },
       filesystem = {
         window = {
           async_directory_scan = "always",
         },
-        filtered_items = {
-          hide_dotfiles = false,
-          hide_gitignored = false,
-          hide_hidden = false,
-          hide_by_name = {
-            "package-lock.json",
-            "lazy-lock.json",
-          },
-        },
         follow_current_file = {
           enabled = true,
           leaves_dirs_open = false,
+        },
+        filtered_items = {
+          visible = true,
+          hide_gitignore = true,
+          hide_dotfiles = false,
+          hide_hidden = true,
+          hide_by_pattern = {
+            "package-lock.json",
+            "lazy-lock.json"
+          },
+          never_show = {
+            ".DS_Store",
+            ".git",
+          },
         },
         hijack_netrw_behavior = "open_default",
         use_libuv_file_watcher = true,
@@ -63,8 +56,8 @@ return {
         },
         show_unloaded = true,
       },
-    },
-  },
+    })
+  end,
   keys = {
     {
       "<leader>xf",
