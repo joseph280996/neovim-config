@@ -45,6 +45,6 @@ local normal_keymaps = {
 }
 
 -- Friendly Adjusting split size
-for i, value in ipairs(normal_keymaps) do
-  vim.api.nvim_set_keymap("n", value.cmd, value.opts)
+for mapping, cmd_opts in pairs(normal_keymaps) do
+  vim.api.nvim_set_keymap("n", mapping, cmd_opts.cmd, cmd_opts.opts)
 end
