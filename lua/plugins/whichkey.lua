@@ -6,6 +6,7 @@ local normal_keymap_opts = {
   noremap = true, -- use `noremap` when creating keymaps
   nowait = true, -- use `nowait` when creating keymaps
 }
+
 local visual_keymap_opts = {
   mode = "v", -- NORMAL mode
   prefix = "<leader>",
@@ -14,6 +15,7 @@ local visual_keymap_opts = {
   noremap = true, -- use `noremap` when creating keymaps
   nowait = true, -- use `nowait` when creating keymaps
 }
+
 return {
   "folke/which-key.nvim", -- Centralized list of all commands UI
   event = "VeryLazy",

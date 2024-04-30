@@ -1,23 +1,20 @@
 # My Neovim Configurations in Lua
 
 This is my Neovim setup on both Window, Linux and MacOS.
+I don't use tab because I leave it to Wezterm to handle.
 
-## Forewords
+## Roadmap
 
-Most of my set up are basing on [Chris@Machine Neovim setup](https://github.com/ChristianChiarulli/nvim) with a little of extension in plugins that I use for better dev experience.
-I used VSCode prior to this and enjoy the layout of VSCode so you'll see a lot of similarity in the UI that I have here.
-However, I like the keymapping + ease of access of Neovim better and that result in the switch.
+- Remove session management and migrate to wezterm.
+- Current consideration of using Zellij for better robust session management.
 
 ## Prerequisite
 
 If you're using Java, make sure you have these installed on your machine:
+
 - junit
 - gson
 - hamcrest
-
-To use Textidote, make sure you follow their installation instruction.
-For window, you download it into a jars/ folder and rename the jar file to textidot.jar and that should automatically work.
-For Linux, this comes as a package you can get from deb.
 
 ## Installation
 
@@ -28,9 +25,6 @@ If you're using Linux, you can install these using Brew:
 ```bash
 brew bundle
 ```
-
-For Window, you can use:
-
 
 ## FAQ
 
