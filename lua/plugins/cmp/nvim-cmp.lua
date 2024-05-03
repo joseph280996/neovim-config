@@ -102,7 +102,12 @@ return {
     })
 
     cmp.setup.filetype("tex", {
-      sources = cmp.config.sources({ { name = "vimtex" } }, { { name = "buffer" } }),
+      sources = cmp.config.sources({
+        { name = "vimtex" },
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "path" },
+      }, { { name = "buffer" } }),
     })
   end,
 }

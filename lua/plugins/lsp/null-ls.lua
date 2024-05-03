@@ -33,8 +33,6 @@ return {
           },
         }),
 
-        diagnostic.textidote,
-
         --[[Formatting]]
         -- Python
         formatting.black,
