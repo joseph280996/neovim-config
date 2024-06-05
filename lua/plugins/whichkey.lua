@@ -48,7 +48,7 @@ return {
       ["<F12>"] = { "<cmd>lua require('dap').step_out()<cr>", "Debug Step Out" },
       b = {
         name = "Buffers",
-        c = { "<cmd>bdelete!<CR>", "Close Buffer" },
+        x = { "<cmd>bdelete!<CR>", "Close Buffer" },
       },
       d = {
         name = "Debug",

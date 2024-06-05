@@ -6,6 +6,8 @@ local ignore_filetypes = {
   "TelescopePrompt",
   "alpha",
   "aerial",
+  "tex",
+  "no-neck-pain",
 }
 
 local ignore_buftypes = { "nofile", "prompt", "popup" }
