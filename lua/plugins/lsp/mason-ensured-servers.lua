@@ -11,6 +11,8 @@ return {
     "lua_ls",
     "marksman",
   },
+  dap = { "python", "js", ".net" },
+  nonels = { "stylelua", "eslint", "prettier", "markdownlint", "black", "proselint" },
   extra_installation = {
     "jdtls",
   },

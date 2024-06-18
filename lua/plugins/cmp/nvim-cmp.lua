@@ -7,7 +7,6 @@ return {
     "micangl/cmp-vimtex",
     "saadparwaiz1/cmp_luasnip", -- Snippet Completion
     "hrsh7th/cmp-nvim-lsp", -- Buffer Completion
-    "tzachar/cmp-tabnine",
     "onsails/lspkind.nvim",
     "L3MON4D3/LuaSnip",
   },
