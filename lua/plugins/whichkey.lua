@@ -112,6 +112,7 @@ return {
           s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions" },
         },
       },
+      u = { name = "Utilities" },
       x = { name = "Explorer" },
       S = { name = "Session" },
       T = { name = "Unit Testing" },
