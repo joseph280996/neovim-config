@@ -20,6 +20,7 @@ return {
       vim.g.molten_auto_open_output = false
       vim.g.molten_auto_image_popup = true
       vim.g.molten_split_direction = "bottom"
+      vim.g.molten_split_size = 20
     end,
     keys = {
       {

@@ -3,10 +3,11 @@ return {
   settings = {
     texlab = {
       build = {
-        onSave = true,
+        onSave = false,
       },
-      lint = {
-        onSave = true,
+      chktex = {
+        onOpenAndSave = true,
+        onEdit = false,
       },
       latexindent = {
         modifyLineBreaks = true,

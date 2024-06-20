@@ -1,5 +1,5 @@
 return {
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascriptreact", "javascript" },
   settings = {
     quotePreference = "double",
     javascript = {
