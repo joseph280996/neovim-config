@@ -1,9 +1,10 @@
 return {
-  msbuild = {
-     enabled = true,
+  MsBuild = {
+    enabled = true,
+    LoadProjectsOnDemand = true,
   },
   FormattingOptions = {
-    EnableEditorConfigSupport = false,
+    EnableEditorConfigSupport = true,
     OrganizeImports = false,
     NewLine = "\n",
     UseTabs = false,
@@ -55,6 +56,6 @@ return {
     NewLineForFinally = true,
     NewLineForMembersInObjectInit = true,
     NewLineForMembersInAnonymousTypes = true,
-    NewLineForClausesInQuery = true
-  }
+    NewLineForClausesInQuery = true,
+  },
 }
