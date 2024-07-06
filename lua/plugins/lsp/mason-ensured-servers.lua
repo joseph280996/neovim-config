@@ -1,6 +1,6 @@
 return {
   lsp = {
-    "ruff_lsp",
+    "ruff",
     "pyright",
     "tsserver",
     "html",
