@@ -190,11 +190,6 @@ M.lsp_formatting = function()
 end
 
 M.on_attach = function(client, bufnr)
-  local filetype = vim.bo.filetype
-  if filetype == "cs" then
-    client.server_capabilities.semanticTokensProvider = nil
-  end
-
   if client.name == "ruff_lsp" then
     client.server_capabilities.hoverProvider = false
   end

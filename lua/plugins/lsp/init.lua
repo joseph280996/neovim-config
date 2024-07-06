@@ -1,5 +1,3 @@
-local servers = require("plugins.lsp.mason-ensured-servers").lsp
-
 return {
   require("plugins.lsp.mason"),
   require("plugins.lsp.mason-lsp"),
