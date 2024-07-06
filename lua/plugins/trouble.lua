@@ -19,7 +19,7 @@ return {
     keys = {
       {
         "<leader>ltd",
-        "<cmd>TroubleToggle document_diagnostics<cr>",
+        "<cmd>Trouble diagnostics toggle<cr>",
         desc = "Troubles in Buffer",
         mode = "n", -- NORMAL mode
         silent = true, -- use `silent` when creating keymaps
@@ -28,7 +28,7 @@ return {
       },
       {
         "<leader>ltf",
-        "<cmd>TroubleToggle quickfix<cr>",
+        "<cmd>Trouble qflist toggle<cr>",
         desc = "Trouble Quickfix",
         mode = "n", -- NORMAL mode
         silent = true, -- use `silent` when creating keymaps
@@ -37,7 +37,7 @@ return {
       },
       {
         "<leader>ltl",
-        "<cmd>TroubleToggle loclist<cr>",
+        "<cmd>Trouble loclist toggle<cr>",
         desc = "Trouble in LocList",
         mode = "n", -- NORMAL mode
         silent = true, -- use `silent` when creating keymaps
@@ -46,7 +46,7 @@ return {
       },
       {
         "<leader>lto",
-        "<cmd>TroubleToggle<cr>",
+        "<cmd>Trouble diagnostics toggle<cr>",
         desc = "Toggle Trouble",
         mode = "n", -- NORMAL mode
         silent = true, -- use `silent` when creating keymaps
@@ -55,7 +55,7 @@ return {
       },
       {
         "<leader>ltr",
-        "<cmd>TroubleToggle lsp_references<cr>",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
         desc = "Trouble LSP refs",
         mode = "n", -- NORMAL mode
         silent = true, -- use `silent` when creating keymaps
