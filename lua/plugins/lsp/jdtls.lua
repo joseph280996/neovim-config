@@ -111,7 +111,7 @@ return {
         bundles = {
           vim.fn.glob(
             debugger_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar",
-            1
+            true
           ),
         },
       },

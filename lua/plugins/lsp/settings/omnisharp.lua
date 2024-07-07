@@ -58,4 +58,7 @@ return {
     NewLineForMembersInAnonymousTypes = true,
     NewLineForClausesInQuery = true,
   },
+  RoslynExtensionOptions = {
+    enableDecompilationSupport = true,
+  }
 }
