@@ -27,7 +27,7 @@ return {
         diagnostic.sqlfluff.with({
           extra_args = {
             "--config",
-            "~/AppData/Local/nvim/lua/plugins/lsp/formatter_conf/.sqlfluff",
+            vim.fn.stdpath("config") .. "/plugins/lsp/formatter_conf/.sqlfluff",
           },
         }),
 
@@ -39,7 +39,7 @@ return {
         formatting.sqlfluff.with({
           extra_args = {
             "--config",
-            "~/AppData/Local/nvim/lua/plugins/lsp/formatter_conf/.sqlfluff",
+            vim.fn.stdpath("config") .. "/plugins/lsp/formatter_conf/.sqlfluff",
           },
         }),
 

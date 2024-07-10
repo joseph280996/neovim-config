@@ -89,6 +89,7 @@ return {
           "Document Diagnostics",
         },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+        f = { "Fix" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
         w = {
           "<cmd>Telescope diagnostics<cr>",
