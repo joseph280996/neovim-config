@@ -88,8 +88,8 @@ return {
           "<cmd>Telescope diagnostics bufnr=0<cr>",
           "Document Diagnostics",
         },
-        f = { require("plugins.lsp.utils.handlers").lsp_formatting, "Format" },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+        f = { "Fix" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
         w = {
           "<cmd>Telescope diagnostics<cr>",

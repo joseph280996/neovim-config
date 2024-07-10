@@ -1,4 +1,5 @@
 return {
+  { "Tastyep/structlog.nvim" },
 
   -- Snippets
   "rafamadriz/friendly-snippets", -- Snippets extension to use

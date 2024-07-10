@@ -1,4 +1,5 @@
 local servers = require("plugins.lsp.mason-ensured-servers").lsp
+local utils = require("plugins.lsp.utils")
 
 return {
   "neovim/nvim-lspconfig", -- Native LSP
@@ -11,10 +12,12 @@ return {
 
     local opts = {}
 
+    utils.setup()
+
     for _, server in pairs(servers) do
       opts = {
-        on_attach = require("plugins.lsp.utils.handlers").on_attach,
-        capabilities = require("plugins.lsp.utils.handlers").capabilities,
+        on_attach = utils.on_attach,
+        capabilities = utils.capabilities,
       }
 
       server = vim.split(server, "@")[1]
