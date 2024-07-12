@@ -1,5 +1,5 @@
-local get_values_on_os = require("user.utils.get-values-on-os")
-local system_name = require("user.utils.os-name")
+local get_values_on_os = require("utils.get-values-on-os")
+local system_name = require("utils.constants").os_name
 
 return {
   {

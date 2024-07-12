@@ -2,8 +2,7 @@ return {
   "mfussenegger/nvim-jdtls",
   ft = "java",
   config = function()
-    local handlers = require("plugins.lsp.handlers")
-    local get_value_on_os = require("user.utils.get-values-on-os")
+    local get_value_on_os = require("utils.get-values-on-os")
     local jdtls = require("jdtls")
     local wk = require("which-key")
 
@@ -48,7 +47,7 @@ return {
 
     jdtls.start_or_attach({
       cmd = cmd,
-      capabilities = handlers.capabilities,
+      capabilities = require("utils.lsp.capabilities"),
       on_attach = function()
         require("jdtls.dap").setup_dap_main_class_configs()
         jdtls.setup_dap({ hotcodereplace = "auto" })

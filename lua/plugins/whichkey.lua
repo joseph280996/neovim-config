@@ -115,7 +115,11 @@ return {
       u = { name = "Utilities" },
       x = { name = "Explorer" },
       S = { name = "Session" },
-      T = { name = "Unit Testing" },
+      T = {
+        name = "Unit Testing",
+        R = { name = "Run" },
+        W = { name = "Watch" },
+      },
     },
     keymaps_visual_ext = {},
   },

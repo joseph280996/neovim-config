@@ -1,4 +1,4 @@
-local ensured_install = require("plugins.lsp.mason-ensured-servers")
+local ensured_install = require("utils.lsp.required-lsp-servers").dap
 return {
   "jay-babu/mason-nvim-dap.nvim",
   dependencies = {
@@ -6,7 +6,7 @@ return {
   },
   config = function()
     require("mason-nvim-dap").setup({
-      ensure_installed = ensured_install.dap,
+      ensure_installed = ensured_install,
     })
   end,
 }

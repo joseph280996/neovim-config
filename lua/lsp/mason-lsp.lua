@@ -1,4 +1,4 @@
-local packages = require("plugins.lsp.mason-ensured-servers")
+local packages = require("utils.constants").servers
 
 return {
   "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer

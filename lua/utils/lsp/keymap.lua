@@ -95,7 +95,7 @@ local function get_bindings(filetype)
       {
         mode = "n",
         lhs = "<leader>lff",
-        rhs = "<cmd>lua require('plugins.lsp.utils').lsp_format()<cr>",
+        rhs = "<cmd>lua require('utils.lsp.formatter')()<cr>",
         opts = { desc = "File Format" },
       },
     }
@@ -188,7 +188,7 @@ local function get_bindings(filetype)
       {
         mode = "n",
         lhs = "<leader>lff",
-        rhs = "<cmd>lua require('plugins.lsp.utils.formatter')()<cr>",
+        rhs = "<cmd>lua require('utils.lsp.formatter')()<cr>",
         opts = { desc = "File Format" },
       },
     }

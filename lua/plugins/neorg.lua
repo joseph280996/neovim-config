@@ -1,4 +1,4 @@
-local get_values_on_os = require("user.utils.get-values-on-os")
+local get_values_on_os = require("utils.get-values-on-os")
 
 return {
   {
