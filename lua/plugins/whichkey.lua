@@ -99,9 +99,10 @@ return {
         "<leader>l",
         group = "LSP",
       },
+      { "<leader>lc", group = "Comment" },
+      { "<leader>lf", group = "Fix" },
       { "<leader>ld ", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
       { "<leader>ll ", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
-      { "<leader>lf", group = "Fix" },
       { "<leader>ls ", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
       { "<leader>lw ", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics" },
       {
@@ -127,23 +128,14 @@ return {
       { "<leader><F10>", "<cmd>lua require('dap').step_over()<cr>", desc = "Debug Step Over" },
       { "<leader><F11>", "<cmd>lua require('dap').step_into()<cr>", desc = "Debug Step Into" },
       { "<leader><F12>", "<cmd>lua require('dap').step_out()<cr>", desc = "Debug Step Out" },
+
+      { "<leader>p", group = "Packages Manager" },
+      { "<leader>po", "<cmd>Lazy<cr>", desc = "Open Lazy Screen" },
+      { "<leader>ph", "<cmd>Lazy health<cr>", desc = "Health" },
+      { "<leader>q", group = "Quick Access" },
+      { "<leader>qr", group = "Redo" },
+      { "<leader>qrs", "<cmd>Telescope resume<cr>", desc = "Last Telescope Actions" },
     },
-    keymaps_ext = {
-      --[[]]
-      p = {
-        name = "Packages Manager",
-        o = { "<cmd>Lazy<cr>", "Open Lazy Screen" },
-        h = { "<cmd>Lazy health<cr>", "Health" },
-      },
-      q = {
-        name = "Quick Access",
-        r = {
-          "Redo",
-          s = { "<cmd>Telescope resume<cr>", "Last Telescope Actions" },
-        },
-      },
-    },
-    keymaps_visual_ext = {},
   },
   config = function(_, opts)
     local whichkey = require("which-key")

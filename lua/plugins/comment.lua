@@ -16,7 +16,6 @@ return {
     optional = true,
     opts = {
       keymaps_visual_ext = {
-        ["lc"] = { name = "Comment" },
       },
     },
   },
