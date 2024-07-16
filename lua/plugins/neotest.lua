@@ -22,7 +22,7 @@ return -- Unit Tests
           runner = "pytest",
         }),
         require("neotest-dotnet")({
-          dap = { justMyCode = false },
+          dap = { justMyCode = false, adapter_name = "netcoredbg" },
           discovery_root = "solution",
         }),
       },

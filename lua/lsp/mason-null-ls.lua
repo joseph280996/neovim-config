@@ -1,4 +1,4 @@
-local ensured_install = require("plugins.lsp.mason-ensured-servers")
+local servers = require("utils.constants").servers
 return {
   "jay-babu/mason-null-ls.nvim",
   event = { "BufReadPre", "BufNewFile" },
@@ -7,7 +7,7 @@ return {
     "nvimtools/none-ls.nvim",
   },
   opts = {
-    ensure_installed = ensured_install.nonels,
+    ensure_installed = servers.nonels,
     automatic_installation = true,
     handlers = {},
   },

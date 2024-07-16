@@ -1,4 +1,4 @@
-local system_name = require("user.utils.os-name")
+local system_name = require("utils.constants").os_name
 
 -- @tparam tab system_values
 -- @tparam bool is_macOS_same_as_Linux

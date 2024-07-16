@@ -1,0 +1,81 @@
+return {
+    os_name = {
+        Window = "Windows_NT",
+        Linux = "Linux",
+        MacOS = "Darwin"
+    },
+    icons = {
+        documents = {
+            File = "",
+            Files = "",
+            Folder = "",
+            OpenFolder = ""
+        },
+        git = {
+            Add = "",
+            Mod = "",
+            Remove = "",
+            Ignore = "",
+            Rename = "",
+            Diff = "",
+            Repo = "",
+            Octoface = ""
+        },
+        ui = {
+            ArrowClosed = "",
+            ArrowOpen = "",
+            Lock = "",
+            Circle = "",
+            BigCircle = "",
+            BigUnfilledCircle = "",
+            Close = "",
+            NewFile = "",
+            Search = "",
+            Lightbulb = "",
+            Project = "",
+            Dashboard = "",
+            History = "",
+            Comment = "",
+            Bug = "",
+            Code = "",
+            Telescope = "",
+            Gear = "",
+            Package = "",
+            List = "",
+            SignIn = "",
+            SignOut = "",
+            Check = "",
+            Fire = "",
+            Note = "",
+            BookMark = "",
+            Pencil = "",
+            ChevronRight = ">",
+            Table = "",
+            Calendar = "",
+            CloudDownload = ""
+        },
+        diagnostics = {
+            Error = "",
+            Warning = "",
+            Information = "",
+            Question = "",
+            Hint = ""
+        },
+        misc = {
+            Robot = "ﮧ",
+            Squirrel = "",
+            Tag = "",
+            Watch = "",
+            Smiley = "ﲃ",
+            Package = "",
+            CircuitBoard = ""
+        }
+    },
+    servers = {
+        lsp = {"ruff", "pyright", "tsserver", "html", "jsonls", "texlab", "omnisharp", "sqlls", "lua_ls", "marksman",
+               "cucumber_language_server"},
+        dap = {"python", "js", ".net"},
+        nonels = {"stylelua", "eslint", "prettier", "markdownlint", "black", "proselint"},
+        extra_installation = {"jdtls"}
+    }
+}
