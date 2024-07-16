@@ -96,11 +96,12 @@ return {
 
       --[[ LSP OPERATIONS ]]
       {
-        "<leader>l",
+        prefix = "<leader>l",
         group = "LSP",
       },
       { "<leader>lc", group = "Comment" },
       { "<leader>lf", group = "Fix" },
+      { "<leader>lt", group = "Trouble" },
       { "<leader>ld ", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
       { "<leader>ll ", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
       { "<leader>ls ", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
@@ -115,6 +116,9 @@ return {
       { "<leader>u", group = "Utilities" },
       { "<leader>x", group = "Explorer" },
       { "<leader>S", group = "Session" },
+      { "<leader>m", group = "Molten" },
+      { "<leader>n", group = "Notes" },
+      { "<leader>vt", group = "VimTex" },
 
       --[[ UNIT TESTING ]]
       { "<leader>T", group = "Unit Testing" },
@@ -140,8 +144,5 @@ return {
   config = function(_, opts)
     local whichkey = require("which-key")
     whichkey.setup(opts)
-    -- TODO: Refactor this to each separate plugins
-    whichkey.add(opts.keymaps_ext, normal_keymap_opts)
-    whichkey.add(opts.keymaps_visual_ext, visual_keymap_opts)
   end,
 }

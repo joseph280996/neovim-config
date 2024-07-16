@@ -2,15 +2,6 @@ local get_values_on_os = require("utils.get-values-on-os")
 
 return {
   {
-    "folke/which-key.nvim", -- Centralized list of all commands UI
-    optional = true,
-    opts = {
-      keymaps_ext = {
-        n = { name = "Notes" },
-      },
-    },
-  },
-  {
     "vhyrro/luarocks.nvim",
     priority = 1000, -- We'd like this plugin to load first out of the rest
     config = true, -- This automatically runs `require("luarocks-nvim").setup()`
