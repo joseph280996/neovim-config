@@ -37,6 +37,11 @@ return {
     pickers = {
       find_files = {
         theme = "dropdown",
+        previewer = false,
+        layout_config = {
+          anchor = "N",
+          prompt_position = "top",
+        },
       },
       live_grep = {
         --@usage don't include the filename in the search results

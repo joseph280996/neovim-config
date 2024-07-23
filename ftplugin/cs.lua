@@ -1,4 +1,3 @@
-
 --- @enum FixAllScope
 local scope = {
   Document = 0,

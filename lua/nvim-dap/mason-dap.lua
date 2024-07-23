@@ -1,4 +1,4 @@
-local ensured_install = require("utils.lsp.required-lsp-servers").dap
+local ensured_install = require("utils.constants").dap
 return {
   "jay-babu/mason-nvim-dap.nvim",
   dependencies = {

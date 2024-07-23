@@ -20,7 +20,7 @@ return {
       return b
     end
 
-    local icons = require("user.icons")
+    local icons = require("utils.constants").icons
 
     dashboard.section.header.val = {
       [[                                                                       ]],
@@ -44,17 +44,13 @@ return {
       ),
       button("r", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
       button("t", icons.ui.List .. " Find text", ":Telescope live_grep <CR>"),
-      button("s", icons.ui.SignIn .. " Find Session", ":SearchSession<CR>"),
       button(
         "c",
         icons.ui.Gear .. " Config",
-        get_values_on_os(
-          {
-            Window = ":e ~/AppData/Local/nvim/init.lua <CR>",
-            Linux = ":e ~/.config/nvim/init.lua <CR>",
-          },
-          true
-        )
+        get_values_on_os({
+          Window = ":e ~/AppData/Local/nvim/init.lua <CR>",
+          Linux = ":e ~/.config/nvim/init.lua <CR>",
+        }, true)
       ),
       button("P", icons.ui.Package .. " Packages", "<cmd>Lazy<cr>"),
       button("q", icons.ui.SignOut .. " Quit", ":qa<CR>"),
@@ -78,4 +74,15 @@ return {
     -- vim.cmd([[autocmd User AlphaReady echo 'ready']])
     alpha.setup(dashboard.opts)
   end,
+  keys = {
+    {
+      "<leader>;",
+      "<cmd>Alpha<cr>",
+      desc = "Alpha",
+      mode = "n",
+      silent = true,
+      noremap = true,
+      nowait = true,
+    },
+  },
 }
