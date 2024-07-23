@@ -47,33 +47,19 @@ return {
         g = true, -- bindings for prefixed with g
       },
     },
-    -- add operators that will trigger motion and text object completion
-    -- to enable all native operators, set the preset / operators plugin above
-    operators = { gc = "Comments", ys = "Surround" },
     spec = {
       --[[ BUFFER OPEARTION ]]
       { "<leader>b", group = "Buffer" },
       { "<leader>bx", "<cmd>bdelete!<CR>", desc = "Close Buffer" },
-      { "<leader>d", group = "Debug" },
-      {
-        "<leader>b",
-        "<cmd>lua require('dap').toggle_breakpoint()<cr>",
-        desc = "Toggle Breakpoint",
-      },
-      { "<leader>l", "<cmd>lua require('dap').run_last()<cr>", desc = "Run Last" },
-      { "<leader>u", "<cmd>lua require('dapui').toggle()<cr>", desc = "UI" },
-      { "<leader>r", "<cmd>lua require('dap').toggle_breakpoint()<cr>", desc = "Run" },
-      { "<leader>R", "<cmd>lua require('dap').repl.toggle()<cr>", desc = "Toggle Repl" },
-      { "<leader>x", "<cmd>lua require('dap').terminate()<cr>", desc = "Exit" },
 
-      --[[ FIND OPERATION ]]
+      --[[ FIND OPs ]]
       { "<leader>f", group = "Find" },
       { "<leader>fa", "<cmd>Telescope pickers<cr>", desc = "Telescope Actions" },
       { "<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
       { "<leader>fc", "<cmd>Telescope commands<cr>", desc = "Commands" },
       {
         "<leader>ff",
-        "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+        "<cmd>lua require('telescope.builtin').find_files()<cr>",
         desc = "Files",
       },
       { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
@@ -85,7 +71,6 @@ return {
         desc = "Find Projects",
       },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File" },
-      { "<leader>fs", "<cmd>SearchSession<cr>", desc = "Find Session" },
       {
         "<leader>ft",
         "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
@@ -94,18 +79,14 @@ return {
       { "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
       { "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
 
-      --[[ LSP OPERATIONS ]]
-      {
-        prefix = "<leader>l",
-        group = "LSP",
-      },
-      { "<leader>lc", group = "Comment" },
+      --[[ LSP OPs ]]
+      { "<leader>l", group = "LSP" },
       { "<leader>lf", group = "Fix" },
       { "<leader>lt", group = "Trouble" },
-      { "<leader>ld ", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
-      { "<leader>ll ", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
-      { "<leader>ls ", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
-      { "<leader>lw ", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics" },
+      { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
+      { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
+      { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
+      { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics" },
       {
         "<leader>lS ",
         "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -114,10 +95,12 @@ return {
 
       { "<leader>g", group = "Git" },
       { "<leader>u", group = "Utilities" },
+      { "<leader>ur", "<cmd>Telescope resume<cr>", desc = "Last Telescope Actions" },
+
       { "<leader>x", group = "Explorer" },
-      { "<leader>S", group = "Session" },
       { "<leader>m", group = "Molten" },
       { "<leader>n", group = "Notes" },
+      { "<leader>v", group = "Vim Packages" },
       { "<leader>vt", group = "VimTex" },
 
       --[[ UNIT TESTING ]]
@@ -125,20 +108,38 @@ return {
       { "<leader>TR ", group = "Run" },
       { "<leader>TW ", group = "Watch" },
 
-      { "<leader>;", "<cmd>Alpha<cr>", desc = "Alpha" },
-
-      --[[ DAP OPERATIONS ]]
+      --[[ DAP OPs ]]
       { "<leader><F5>", "<cmd>lua require('dap').continue()<cr>", desc = "Debug Start/continue" },
       { "<leader><F10>", "<cmd>lua require('dap').step_over()<cr>", desc = "Debug Step Over" },
       { "<leader><F11>", "<cmd>lua require('dap').step_into()<cr>", desc = "Debug Step Into" },
       { "<leader><F12>", "<cmd>lua require('dap').step_out()<cr>", desc = "Debug Step Out" },
+      { "<leader>d", group = "Debug" },
+      {
+        "<leader>db",
+        "<cmd>lua require('dap').toggle_breakpoint()<cr>",
+        group = "Debug",
+        desc = "Toggle Breakpoint",
+      },
+      {
+        "<leader>dl",
+        "<cmd>lua require('dap').run_last()<cr>",
+        group = "Debug",
+        desc = "Run Last",
+      },
+      { "<leader>du", "<cmd>lua require('dapui').toggle()<cr>", group = "Debug", desc = "UI" },
+      {
+        "<leader>dR",
+        "<cmd>lua require('dap').repl.toggle()<cr>",
+        group = "Debug",
+        desc = "Toggle Repl",
+      },
+      { "<leader>dx", "<cmd>lua require('dap').terminate()<cr>", group = "Debug", desc = "Exit" },
 
+      --[[ PACKAGES OPs ]]
       { "<leader>p", group = "Packages Manager" },
       { "<leader>po", "<cmd>Lazy<cr>", desc = "Open Lazy Screen" },
       { "<leader>ph", "<cmd>Lazy health<cr>", desc = "Health" },
-      { "<leader>q", group = "Quick Access" },
-      { "<leader>qr", group = "Redo" },
-      { "<leader>qrs", "<cmd>Telescope resume<cr>", desc = "Last Telescope Actions" },
+      { "<leader>pm", "<cmd>Mason<cr>", desc = "Open Mason" },
     },
   },
   config = function(_, opts)
