@@ -19,6 +19,7 @@ return {
       "typescript",
       "css",
       "markdown",
+      "markdown_inline",
       "html",
       "java",
     },

@@ -77,16 +77,16 @@ return {
       "pyright",
       "tsserver",
       "html",
-      "jsonls",
       "texlab",
       "omnisharp",
       "sqlls",
       "lua_ls",
       "marksman",
       "eslint",
+      "spectral"
     },
     dap = { "python", "js", ".net" },
-    nonels = { "stylelua", "markdownlint", "black", "proselint" },
+    nonels = { "stylelua", "stylelint", "markdownlint", "black", "proselint", "prettier" },
     extra_installation = { "jdtls" },
   },
 }

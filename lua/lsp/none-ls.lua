@@ -27,9 +27,10 @@ return {
         diagnostic.sqlfluff.with({
           extra_args = {
             "--config",
-            vim.fn.stdpath("config") .. "/plugins/lsp/formatter_conf/.sqlfluff",
+            vim.fn.stdpath("config") .. "/lsp/formatter_conf/.sqlfluff",
           },
         }),
+        diagnostic.stylelint,
 
         --[[Formatting]]
         -- Python
@@ -39,12 +40,18 @@ return {
         formatting.sqlfluff.with({
           extra_args = {
             "--config",
-            vim.fn.stdpath("config") .. "/plugins/lsp/formatter_conf/.sqlfluff",
+            vim.fn.stdpath("config") .. "/lsp/formatter_conf/.sqlfluff",
           },
         }),
 
         -- Lua
         formatting.stylua,
+        formatting.prettier.with({
+          extra_args = {
+            "--config",
+            vim.fn.stdpath("config") .. "/lua/lsp/formatter_conf/.prettierrc",
+          },
+        }),
       },
     })
   end,

@@ -1,7 +1,11 @@
 return {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascriptreact", "javascript" },
+  init_options = {
+    preferences = {
+      quotePreference = "double",
+    },
+  },
   settings = {
-    quotePreference = "double",
     javascript = {
       inlayHints = {
         includeInlayEnumMemberValueHints = true,
@@ -13,6 +17,8 @@ return {
         includeInlayVariableTypeHints = true,
       },
       format = {
+        baseIndentSize = 4,
+        tabSize = 4,
         convertTabsToSpaces = false,
         insertSpaceAfterCommaDelimiter = true,
         insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
@@ -38,6 +44,8 @@ return {
         includeInlayVariableTypeHints = true,
       },
       format = {
+        baseIndentSize = 4,
+        tabSize = 4,
         convertTabsToSpaces = false,
         insertSpaceAfterCommaDelimiter = true,
         insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
