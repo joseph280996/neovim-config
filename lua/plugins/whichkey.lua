@@ -102,6 +102,7 @@ return {
       { "<leader>n", group = "Notes" },
       { "<leader>v", group = "Vim Packages" },
       { "<leader>vt", group = "VimTex" },
+      { "<leader>s", group = "Surround" },
 
       --[[ UNIT TESTING ]]
       { "<leader>T", group = "Unit Testing" },
