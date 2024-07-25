@@ -9,10 +9,13 @@ return -- Unit Tests
   "nvim-neotest/neotest",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-neotest/neotest-python",
-    "Issafalcon/neotest-dotnet",
     "nvim-treesitter/nvim-treesitter",
     "antoinemadec/FixCursorHold.nvim",
+
+    -- [[ LANGUAGE SUPPORTED ]]
+    "Issafalcon/neotest-dotnet",
+    "nvim-neotest/neotest-python",
+    "nvim-neotest/neotest-jest",
   },
   config = function(_, _)
     require("neotest").setup({
@@ -24,6 +27,13 @@ return -- Unit Tests
         require("neotest-dotnet")({
           dap = { justMyCode = false, adapter_name = "netcoredbg" },
           discovery_root = "solution",
+        }),
+        require("neotest-jest")({
+          jestCommand = "npm test --",
+          env = { CI = true },
+          cwd = function(path)
+            return vim.fn.getcwd()
+          end,
         }),
       },
     })
