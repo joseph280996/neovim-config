@@ -30,7 +30,7 @@ return {
             vim.fn.stdpath("config") .. "/lsp/formatter_conf/.sqlfluff",
           },
         }),
-        diagnostic.stylelint,
+        -- diagnostic.stylelint,
 
         --[[Formatting]]
         -- Python

@@ -1,4 +1,5 @@
 local servers = require("utils.constants").servers.lsp
+local lsp_keymaps = require("lsp.config.keymap")
 
 return {
   "neovim/nvim-lspconfig", -- Native LSP
@@ -21,13 +22,19 @@ return {
 
     for _, server in pairs(servers) do
       opts = {
-        on_attach = require("utils.lsp.on_attach"),
-        capabilities = require('utils.lsp.capabilities')
+        on_attach = function(client, bufnr)
+          if client.name == "ruff_lsp" then
+            client.server_capabilities.hoverProvider = false
+          end
+
+          lsp_keymaps(bufnr)
+        end,
+        capabilities = require("lua.lsp.config.capabilities"),
       }
 
       server = vim.split(server, "@")[1]
 
-      local require_ok, conf_opts = pcall(require, "lsp.settings." .. server)
+      local require_ok, conf_opts = pcall(require, "lsp.server_settings." .. server)
       if require_ok then
         opts = vim.tbl_deep_extend("keep", opts, conf_opts)
       end

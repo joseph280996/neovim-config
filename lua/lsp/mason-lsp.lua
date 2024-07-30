@@ -6,7 +6,7 @@ return {
     "williamboman/mason.nvim",
   },
   opts = {
-    ensure_installed = vim.tbl_deep_extend("keep", packages.lsp, packages.extra_installation),
+    ensure_installed = vim.tbl_deep_extend("keep", packages.lsp),
     automatic_installation = true,
   },
 }

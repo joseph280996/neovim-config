@@ -28,13 +28,13 @@ return {
     minimum_width = 10,
 
     -- Icons for the different levels
-    icons = {
-      ERROR = icons.diagnostics.Error,
-      WARN = icons.diagnostics.Warning,
-      INFO = icons.diagnostics.Information,
-      DEBUG = icons.ui.Bug,
-      TRACE = icons.ui.Pencil,
-    },
+    -- icons = {
+    --   ERROR = icons.diagnostics.Error,
+    --   WARN = icons.diagnostics.Warning,
+    --   INFO = icons.diagnostics.Information,
+    --   DEBUG = icons.ui.Bug,
+    --   TRACE = icons.ui.Pencil,
+    -- },
   },
   config = function(_, opts)
     local notify = require("notify")

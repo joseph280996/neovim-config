@@ -83,10 +83,10 @@ return {
       "lua_ls",
       "marksman",
       "eslint",
-      "spectral"
+      "spectral",
+      "jdtls"
     },
     dap = { "python", "js", ".net" },
     nonels = { "stylelua", "stylelint", "markdownlint", "black", "proselint", "prettier" },
-    extra_installation = { "jdtls" },
   },
 }

@@ -47,7 +47,7 @@ return {
 
     jdtls.start_or_attach({
       cmd = cmd,
-      capabilities = require("utils.lsp.capabilities"),
+      capabilities = require("lua.lsp.config.capabilities"),
       on_attach = function()
         require("jdtls.dap").setup_dap_main_class_configs()
         jdtls.setup_dap({ hotcodereplace = "auto" })

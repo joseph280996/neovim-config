@@ -4,3 +4,4 @@ semi: true
 singleQuote: false
 quoteProps: preserve
 parser: typescript
+printWidth: 180

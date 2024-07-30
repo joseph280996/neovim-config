@@ -10,7 +10,7 @@ return {
   config = function(_, opts)
     require("neo-tree").setup({
       enable_git_status = false,
-      enable_diagnostic = true,
+      enable_diagnostic = false,
       sort_case_insensitive = true,
       open_files_do_not_replace_types = { "terminal", "trouble", "aerial" },
       default_component_configs = {
