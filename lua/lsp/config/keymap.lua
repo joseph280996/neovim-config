@@ -64,6 +64,12 @@ local function get_bindings(filetype)
       },
       {
         mode = "n",
+        lhs = "<leader>lj",
+        rhs = "<cmd>lua vim.diagnostic.goto_next()<cr>",
+        opts = { desc = "Next Diagnostic" },
+      },
+      {
+        mode = "n",
         lhs = "<leader>lk",
         rhs = "<cmd>lua vim.diagnostic.goto_prev()<cr>",
         opts = { desc = "Prev Diagnostic" },

@@ -29,7 +29,7 @@ return {
 
           lsp_keymaps(bufnr)
         end,
-        capabilities = require("lua.lsp.config.capabilities"),
+        capabilities = require("lsp.config.capabilities"),
       }
 
       server = vim.split(server, "@")[1]
