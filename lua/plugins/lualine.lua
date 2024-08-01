@@ -1,3 +1,12 @@
+local function show_macro_recording()
+  local recording_register = vim.fn.reg_recording()
+  if recording_register == "" then
+    return ""
+  else
+    return "Recording @" .. recording_register
+  end
+end
+
 -- Statusline
 return {
   "christianchiarulli/lualine.nvim",
@@ -16,7 +25,13 @@ return {
       disabled_filetypes = { "alpha", "dashboard" },
     },
     sections = {
-      lualine_a = { "mode" },
+      lualine_a = {
+        "mode",
+        {
+          "macro-recording",
+          fmt = show_macro_recording,
+        },
+      },
       lualine_b = { "diff", "diagnostic" },
       lualine_c = { "filename" },
       lualine_x = { "encoding", "fileformat", "filetype", "aerial" },
