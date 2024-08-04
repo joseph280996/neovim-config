@@ -59,7 +59,7 @@ return {
       Warning = "",
       Information = "",
       Question = "",
-      Hint = "",
+      Hint = "󰌶",
     },
     misc = {
       Robot = "ﮧ",

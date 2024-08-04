@@ -16,10 +16,6 @@ return {
       border = "rounded",
     })
 
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-      border = "rounded",
-    })
-
     for _, server in pairs(servers) do
       opts = {
         on_attach = function(client, bufnr)

@@ -1,6 +1,8 @@
 return {
   "rebelot/kanagawa.nvim",
-  priority = 1000,
+  dependencies = {
+    "OXY2DEV/markview.nvim",
+  },
   opts = {
     compile = false, -- enable compiling the colorscheme
     undercurl = false, -- enable undercurls
@@ -24,7 +26,6 @@ return {
     },
     overrides = function(colors) -- add/modify highlights
       local theme = colors.theme
-      local palette = colors.palette
       local makeDiagnosticColor = function(color)
         local color_utils = require("kanagawa.lib.color")
         return { fg = color, bg = color_utils(color):blend(theme.ui.bg, 0.95):to_hex() }
@@ -36,6 +37,8 @@ return {
         DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
 
         DiagnosticUnderlineHint = { undercurl = true, sp = "none" },
+        DiagnosticUnderlineError = { undercurl = true, sp = "none" },
+        DiagnosticUnderlineInfo = { undercurl = true, sp = "none" },
       }
     end,
   },

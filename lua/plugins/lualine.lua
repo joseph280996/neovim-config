@@ -21,21 +21,22 @@ return {
       -- theme = "catppuccin",
       theme = "kanagawa",
       component_separators = { left = "", right = "" },
-      section_separators = { left = "", right = "" },
+      section_separators = { left = " ", right = " " },
       disabled_filetypes = { "alpha", "dashboard" },
     },
     sections = {
       lualine_a = {
         "mode",
+      },
+      lualine_b = {
         {
           "macro-recording",
           fmt = show_macro_recording,
         },
       },
-      lualine_b = { "diff", "diagnostic" },
-      lualine_c = { "filename" },
-      lualine_x = { "encoding", "fileformat", "filetype", "aerial" },
-      lualine_y = {},
+      lualine_c = { "branch", "aerial" },
+      lualine_x = {},
+      lualine_y = { "encoding", "fileformat" },
       lualine_z = { "location" },
     },
     inactive_sections = {

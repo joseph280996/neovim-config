@@ -37,7 +37,11 @@ return lazy.setup({
     { import = "plugins" },
     { import = "testing" },
   },
+  install = {
+    missing = true,
+    colorscheme = { "kanagawa" },
+  },
   checker = {
-    enabled = true,
+    enabled = false,
   },
 })

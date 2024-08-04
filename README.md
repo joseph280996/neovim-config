@@ -3,11 +3,6 @@
 This is my Neovim setup on both Window, Linux and MacOS.
 I don't use tab because I leave it to Wezterm to handle.
 
-## Roadmap
-
-- Remove session management and migrate to wezterm.
-- Current consideration of using Zellij for better robust session management.
-
 ## Prerequisite
 
 If you're using Java, make sure you have these installed on your machine:

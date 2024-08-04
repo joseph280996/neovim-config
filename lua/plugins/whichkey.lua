@@ -1,21 +1,3 @@
-local normal_keymap_opts = {
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  mode = "n", -- NORMAL mode
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
-local visual_keymap_opts = {
-  mode = "v", -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
 return {
   "folke/which-key.nvim", -- Centralized list of all commands UI
   dependencies = {
@@ -79,6 +61,10 @@ return {
       { "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
       { "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
 
+      { "<leader>g", group = "Git" },
+
+      { "<leader>h", "<cmd>Hardtime toggle", desc = "Toggle Hardtime" },
+
       --[[ LSP OPs ]]
       { "<leader>l", group = "LSP" },
       { "<leader>lf", group = "Fix" },
@@ -93,7 +79,6 @@ return {
         desc = "Workspace Symbols",
       },
 
-      { "<leader>g", group = "Git" },
       { "<leader>u", group = "Utilities" },
       { "<leader>ur", "<cmd>Telescope resume<cr>", desc = "Last Telescope Actions" },
 
@@ -139,6 +124,7 @@ return {
       --[[ PACKAGES OPs ]]
       { "<leader>p", group = "Packages Manager" },
       { "<leader>po", "<cmd>Lazy<cr>", desc = "Open Lazy Screen" },
+      { "<leader>pu", "<cmd>Lazy <cr>", desc = "Open Lazy Screen" },
       { "<leader>ph", "<cmd>Lazy health<cr>", desc = "Health" },
       { "<leader>pm", "<cmd>Mason<cr>", desc = "Open Mason" },
     },

@@ -3,6 +3,9 @@ return {
   event = "VeryLazy",
   opts = {
     always_trigger = true,
-    transparency = 10
+    transparency = 10,
+    handler_opts = {
+      border = "rounded",
+    },
   },
 }

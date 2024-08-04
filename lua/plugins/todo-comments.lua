@@ -1,3 +1,4 @@
 return {
-    "folke/todo-comments.nvim", -- Highlight todo comments
+  "folke/todo-comments.nvim", -- Highlight todo comments
+  opts = true,
 }
