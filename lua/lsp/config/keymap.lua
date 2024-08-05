@@ -16,12 +16,6 @@ local function get_bindings(filetype)
       },
       {
         mode = "n",
-        lhs = "K",
-        rhs = "<cmd>lua vim.lsp.buf.hover()<CR>",
-        opts = { desc = "Toggle LSP Hover" },
-      },
-      {
-        mode = "n",
         lhs = "gI",
         rhs = "<cmd>lua require('omnisharp_extended').lsp_implementation()<CR>",
         opts = { desc = "Go To Implementation" },
@@ -112,12 +106,6 @@ local function get_bindings(filetype)
         lhs = "gd",
         rhs = "<cmd>lua vim.lsp.buf.definition()<CR>",
         opts = { desc = "Go To Definition" },
-      },
-      {
-        mode = "n",
-        lhs = "K",
-        rhs = "<cmd>lua vim.lsp.buf.hover()<CR>",
-        opts = { desc = "Toggle LSP Hover" },
       },
       {
         mode = "n",

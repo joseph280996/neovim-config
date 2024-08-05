@@ -40,6 +40,20 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
+      "K",
+      function()
+        local winId = require("ufo").peekFoldedLinesUnderCursor()
+        if not winId then
+          vim.lsp.buf.hover()
+        end
+      end,
+      mode = "n",
+      desc = "Toggle Lsp Hover",
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+    {
       "zM",
       "<cmd>lua require('ufo').closeAllFolds()<cr>",
       mode = "n",
