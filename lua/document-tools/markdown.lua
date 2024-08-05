@@ -1,23 +1,23 @@
 -- Markdown
 return {
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   ft = { "markdown" },
-  --   build = function()
-  --     vim.fn["mkdp#util#install"]()
-  --   end,
-  --   keys = {
-  --     {
-  --       "<leader>um",
-  --       "<cmd>MarkdownPreview<cr>",
-  --       desc = "Preview Markdown",
-  --       mode = "n",
-  --       silent = true,
-  --       noremap = true,
-  --       nowait = true,
-  --     },
-  --   },
-  -- },
+  {
+    "iamcco/markdown-preview.nvim",
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+    keys = {
+      {
+        "<leader>um",
+        "<cmd>MarkdownPreview<cr>",
+        desc = "Preview Markdown",
+        mode = "n",
+        silent = true,
+        noremap = true,
+        nowait = true,
+      },
+    },
+  },
   {
     "OXY2DEV/markview.nvim",
     ft = "markdown",

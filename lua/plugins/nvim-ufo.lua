@@ -6,7 +6,13 @@ return {
   },
   lazy = false,
   opts = {
-    close_fold_kinds_for_ft = { default = { "imports" } },
+    close_fold_kinds_for_ft = {
+      cs = {
+        "imports",
+        "region",
+      },
+      default = { "imports" },
+    },
   },
   config = function(_, opts)
     require("ufo").setup(opts)
