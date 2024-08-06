@@ -119,7 +119,7 @@ local function get_bindings(filetype)
     }
   end
 
-  return vim.tbl_deep_extend("keep", ft_keymap, common_keymap)
+  return vim.list_extend(ft_keymap, common_keymap)
 end
 
 return function(bufnr)

@@ -41,6 +41,8 @@ return {
         language_names = {
           { "py", "python" },
           { "cpp", "C++" },
+          { "js", "javascript" },
+          { "ts", "typescript" },
         },
         language_direction = "left",
 
