@@ -4,7 +4,7 @@ return {
   dependencies = {
     "kyazdani42/nvim-web-devicons",
   },
-  opts = {},
+  opts = true,
   keys = {
     {
       "<leader>ltd",

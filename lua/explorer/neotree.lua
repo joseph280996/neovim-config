@@ -9,6 +9,12 @@ return {
     "saifulapm/neotree-file-nesting-config",
   },
   opts = {
+    sources = {
+      "filesystem",
+      "buffers",
+      "git_status",
+      "document_symbols",
+    },
     hide_root_node = true,
     retain_hidden_root_indent = true,
     enable_git_status = false,

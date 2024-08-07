@@ -86,7 +86,7 @@ return {
       "spectral",
       "jdtls"
     },
-    dap = { "python", "js", ".net" },
+    dap = { "python", "js", "c#" },
     nonels = { "stylelua", "stylelint", "markdownlint", "black", "proselint", "prettier" },
   },
 }

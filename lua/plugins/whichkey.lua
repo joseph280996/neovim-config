@@ -103,23 +103,20 @@ return {
       {
         "<leader>db",
         "<cmd>lua require('dap').toggle_breakpoint()<cr>",
-        group = "Debug",
         desc = "Toggle Breakpoint",
       },
       {
         "<leader>dl",
         "<cmd>lua require('dap').run_last()<cr>",
-        group = "Debug",
         desc = "Run Last",
       },
-      { "<leader>du", "<cmd>lua require('dapui').toggle()<cr>", group = "Debug", desc = "UI" },
+      { "<leader>du", "<cmd>lua require('dapui').toggle()<cr>", desc = "UI" },
       {
         "<leader>dR",
         "<cmd>lua require('dap').repl.toggle()<cr>",
-        group = "Debug",
         desc = "Toggle Repl",
       },
-      { "<leader>dx", "<cmd>lua require('dap').terminate()<cr>", group = "Debug", desc = "Exit" },
+      { "<leader>dx", "<cmd>lua require('dap').terminate()<cr>", desc = "Exit" },
 
       --[[ PACKAGES OPs ]]
       { "<leader>p", group = "Packages Manager" },
