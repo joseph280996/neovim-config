@@ -84,7 +84,8 @@ return {
       "marksman",
       "eslint",
       "spectral",
-      "jdtls"
+      "jdtls",
+      "cucumber_language_server"
     },
     dap = { "python", "js", "c#" },
     nonels = { "stylelua", "stylelint", "markdownlint", "black", "proselint", "prettier" },

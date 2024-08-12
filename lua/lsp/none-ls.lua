@@ -48,8 +48,13 @@ return {
         formatting.stylua,
         formatting.prettier.with({
           extra_args = {
-            "--config",
-            vim.fn.stdpath("config") .. "/lua/lsp/formatter_conf/.prettierrc",
+            "--use-tabs",
+            "--tab-width",
+            4,
+            "--print-width",
+            180,
+            "--quote-props",
+            "preserve"
           },
         }),
       },
