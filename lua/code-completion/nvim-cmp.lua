@@ -3,7 +3,6 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer", -- Buffer Completion
     "hrsh7th/cmp-path", -- Path Completion
-    "hrsh7th/cmp-cmdline", -- CMD Completion
     "micangl/cmp-vimtex",
     "saadparwaiz1/cmp_luasnip", -- Snippet Completion
     "hrsh7th/cmp-nvim-lsp", -- Buffer Completion
@@ -21,6 +20,12 @@ return {
       return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
     end
 
+    local sources = {
+      { name = "nvim_lsp" },
+      { name = "luasnip" },
+      { name = "buffer" },
+      { name = "path" },
+    }
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -33,21 +38,31 @@ return {
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-        ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+        ["<C-y>"] = cmp.mapping.confirm({ select = false }), -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
         ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
           c = cmp.mapping.close(),
         }),
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            if luasnip.expandable() then
+              luasnip.expand()
+            else
+              cmp.mapping.confirm({
+                select = true,
+              })
+            end
+          else
+            fallback()
+          end
+        end),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          elseif luasnip.expandable() then
-            luasnip.expand()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
+          elseif luasnip.locally_jumpable(1) then
+            luasnip.jump(1)
           elseif check_backspace() then
             fallback()
           else
@@ -60,7 +75,7 @@ return {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
+          elseif luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
           else
             fallback()
@@ -70,6 +85,7 @@ return {
           "s",
         }),
       },
+      sources = sources,
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = lspkind.cmp_format({
@@ -77,14 +93,14 @@ return {
           maxwidth = 50,
           ellipsis_char = "...",
           show_labelDetails = true,
+          menu = {
+            buffer = "Buffer",
+            nvim_lsp = "LSP",
+            luasnip = "LuaSnip",
+            nvim_lua = "Lua",
+            latex_symbols = "Latex",
+          },
         }),
-      },
-      sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
-        { name = "neorg" },
       },
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
@@ -101,13 +117,18 @@ return {
       },
     })
 
+    cmp.setup.filetype("norg", {
+      sources = cmp.config.sources(
+        vim.list_extend({ { name = "neorg" } }, sources),
+        { { name = "buffer" } }
+      ),
+    })
+
     cmp.setup.filetype("tex", {
-      sources = cmp.config.sources({
-        { name = "vimtex" },
-        { name = "nvim_lsp" },
-        { name = "buffer" },
-        { name = "path" },
-      }, { { name = "buffer" } }),
+      sources = cmp.config.sources(
+        vim.list_extend({ { name = "vimtex" } }, sources),
+        { { name = "buffer" } }
+      ),
     })
   end,
 }

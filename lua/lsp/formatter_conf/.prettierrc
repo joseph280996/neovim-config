@@ -1,7 +1,7 @@
-tabWidth: 4
+tabWidth: 8
 useTabs: true
 semi: true
-singleQuote: false
+singleQuote: true
 quoteProps: preserve
 parser: typescript
 printWidth: 180
