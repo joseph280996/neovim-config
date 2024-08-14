@@ -28,8 +28,6 @@ return {
         capabilities = require("lsp.config.capabilities"),
       }
 
-      server = vim.split(server, "@")[1]
-
       local require_ok, conf_opts = pcall(require, "lsp.server_settings." .. server)
       if require_ok then
         opts = vim.tbl_deep_extend("keep", opts, conf_opts)

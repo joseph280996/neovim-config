@@ -36,7 +36,7 @@ return {
       },
       lualine_c = { "branch", "aerial" },
       lualine_x = {},
-      lualine_y = { "encoding", "fileformat" },
+      lualine_y = { "encoding", "fileformat", "filetype" },
       lualine_z = { "location" },
     },
     inactive_sections = {
