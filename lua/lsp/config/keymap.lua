@@ -27,7 +27,7 @@ local function get_bindings(filetype)
     },
     {
       mode = "n",
-      lhs = "<leader>la",
+      lhs = "<leader>lca",
       rhs = "<cmd>lua vim.lsp.buf.code_action()<cr>",
       opts = { desc = "Open Code Action" },
     },
@@ -115,6 +115,36 @@ local function get_bindings(filetype)
         lhs = "gT",
         rhs = "<cmd>lua require('omnisharp_extended').lsp_type_definition()<CR>",
         opts = { desc = "Go To References" },
+      },
+      {
+        mode = "n",
+        lhs = "gd",
+        rhs = "<cmd>lua require('omnisharp_extended').lsp_definition()<CR>",
+        opts = { desc = "Go To Definition" },
+      },
+      {
+        mode = "n",
+        lhs = "<leader>lni",
+        rhs = "<cmd>DotnetUI new_item",
+        opts = { desc = "Add new .NET sln/proj/globaljson item" },
+      },
+      {
+        mode = "n",
+        lhs = "<leader>lnf",
+        rhs = "<cmd>DotnetUI file bootstrap",
+        opts = { desc = "Bootstrapping a new C# file" },
+      },
+      {
+        mode = "n",
+        lhs = "<leader>lpra",
+        rhs = "<cmd>DotnetUI project reference add",
+        opts = { desc = "Add new Project reference" },
+      },
+      {
+        mode = "n",
+        lhs = "<leader>lppa",
+        rhs = "<cmd>DotnetUI project package add",
+        opts = { desc = "Add new Nuget Package" },
       },
     }
   end

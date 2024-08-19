@@ -22,7 +22,7 @@ return {
   },
   keys = {
     {
-      "<leader>lc",
+      "<leader>lcc",
       "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>",
       mode = "n",
       desc = "Linewise Toggle Commenting",
