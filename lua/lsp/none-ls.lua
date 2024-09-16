@@ -20,6 +20,9 @@ return {
         codeaction.proselint,
 
         --[[Diagnostics]]
+        -- C/C++
+        diagnostic.cppcheck,
+
         -- Markdown
         diagnostic.markdownlint.with({ extra_args = { "-r", "~MD013" } }),
 
@@ -54,7 +57,7 @@ return {
             "--print-width",
             180,
             "--quote-props",
-            "preserve"
+            "preserve",
           },
         }),
       },

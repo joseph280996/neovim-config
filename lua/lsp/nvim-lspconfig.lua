@@ -16,6 +16,8 @@ return {
       border = "rounded",
     })
 
+    vim.lsp.inlay_hint.enable(true)
+
     for _, server in pairs(servers) do
       opts = {
         on_attach = function(client, bufnr)

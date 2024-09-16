@@ -75,7 +75,7 @@ return {
     lsp = {
       "ruff",
       "pyright",
-      "tsserver",
+      "ts_ls",
       "html",
       "texlab",
       "omnisharp",
@@ -86,9 +86,10 @@ return {
       "spectral",
       "jdtls",
       "cucumber_language_server",
+      "clangd"
     },
     dap = { "python", "js", "c#" },
-    nonels = { "stylelua", "stylelint", "markdownlint", "black", "proselint", "prettier" },
+    nonels = { "stylelua", "stylelint", "markdownlint", "black", "proselint", "prettier", "cppcheck" },
   },
   theme_palette = {
     kanagawa = {
