@@ -9,7 +9,7 @@ return {
     local install_dir = vim.fn.stdpath("data")
 
     -- DAP ADAPTERS CONFIG
-    dap.adapters.coreclr = {
+    dap.adapters.netcoredbg = {
       type = "executable",
       command = install_dir .. "/mason/packages/netcoredbg/netcoredbg",
       args = { "--interpreter=vscode" },
