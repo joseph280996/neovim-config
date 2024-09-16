@@ -20,6 +20,7 @@ return {
       -- theme = "nord",
       -- theme = "catppuccin",
       theme = "kanagawa",
+      -- theme = "kanagawa_paper",
       component_separators = { left = "", right = "" },
       section_separators = { left = " ", right = " " },
       disabled_filetypes = { "alpha", "dashboard" },
@@ -32,6 +33,11 @@ return {
         {
           "macro-recording",
           fmt = show_macro_recording,
+        },
+        {
+          "filename",
+          file_status = true,
+          path = 1,
         },
       },
       lualine_c = { "branch", "aerial" },
@@ -46,6 +52,28 @@ return {
       lualine_x = { "location" },
       lualine_y = {},
       lualine_z = {},
+    },
+  },
+  tabline = {
+    {
+      lualine_a = {
+        "mode",
+      },
+      lualine_b = {
+        {
+          "macro-recording",
+          fmt = show_macro_recording,
+        },
+        {
+          "filename",
+          file_status = true,
+          path = 1,
+        },
+      },
+      lualine_c = { "branch", "aerial" },
+      lualine_x = {},
+      lualine_y = { "encoding", "fileformat", "filetype" },
+      lualine_z = { "location" },
     },
   },
 }

@@ -46,4 +46,13 @@ return {
     require("kanagawa").setup(opts)
     vim.cmd("colorscheme kanagawa-wave")
   end,
+  -- {
+  --   "sho-87/kanagawa-paper.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {},
+  --   config = function(_, opts)
+  --     vim.cmd("colorscheme kanagawa-paper")
+  --   end,
+  -- },
 }
