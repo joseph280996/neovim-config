@@ -125,25 +125,25 @@ local function get_bindings(filetype)
       {
         mode = "n",
         lhs = "<leader>lni",
-        rhs = "<cmd>DotnetUI new_item",
+        rhs = "<cmd>DotnetUI new_item<cr>",
         opts = { desc = "Add new .NET sln/proj/globaljson item" },
       },
       {
         mode = "n",
         lhs = "<leader>lnf",
-        rhs = "<cmd>DotnetUI file bootstrap",
+        rhs = "<cmd>DotnetUI file bootstrap<cr>",
         opts = { desc = "Bootstrapping a new C# file" },
       },
       {
         mode = "n",
         lhs = "<leader>lpra",
-        rhs = "<cmd>DotnetUI project reference add",
+        rhs = "<cmd>DotnetUI project reference add<cr>",
         opts = { desc = "Add new Project reference" },
       },
       {
         mode = "n",
         lhs = "<leader>lppa",
-        rhs = "<cmd>DotnetUI project package add",
+        rhs = "<cmd>DotnetUI project package add<cr>",
         opts = { desc = "Add new Nuget Package" },
       },
     }
