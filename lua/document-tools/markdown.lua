@@ -50,13 +50,5 @@ return {
         sign_hl = nil,
       },
     },
-    config = function(_, opts)
-      local markview = require("markview")
-      local markview_colors = require("markview/colors")
-      local kanagawa_colors = require("kanagawa.colors").setup({ theme = "wave" })
-      local theme = kanagawa_colors.theme
-
-      markview.setup(opts)
-    end,
   },
 }
