@@ -6,6 +6,7 @@ return {
   opts = {
     auto_install = true,
     ensure_installed = {
+      "http",
       "c",
       "vimdoc",
       "sql",
