@@ -1,10 +1,6 @@
 return {
   "GCBallesteros/jupytext.nvim",
   lazy = false,
-  opts = {
-    style = "markdown",
-    output_extension = "md",
-    force_ft = "markdown",
-  },
+  opts = true,
   -- Depending on your nvim distro or config you may need to make the loading not lazy
 }

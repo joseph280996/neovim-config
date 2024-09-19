@@ -23,7 +23,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>mr",
+      "<leader>meo",
       "<cmd>MoltenEvaluateOperator<cr>",
       desc = "Evaluate Operator",
       mode = "n",
@@ -32,7 +32,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>ml",
+      "<leader>mel",
       "<cmd>MoltenEvaluateLine<cr>",
       desc = "Evaluate Whole Line",
       mode = "n",
@@ -41,7 +41,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>mc",
+      "<leader>mec",
       "<cmd>MoltenReevaluateCell<cr>",
       desc = "Reevaluate Current Cell",
       mode = "n",
@@ -52,7 +52,7 @@ return {
     {
       "<leader>md",
       "<cmd>MoltenDelete<cr>",
-      desc = "Delete Output",
+      desc = "Delete Active Cell",
       mode = "n",
       silent = true, -- use `silent` when creating keymaps
       noremap = true, -- use `noremap` when creating keymaps
@@ -68,7 +68,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>mo",
+      "<leader>ms",
       "<cmd>MoltenSave<cr>",
       desc = "Save Cell Output",
       mode = "n",
@@ -77,7 +77,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>mo",
+      "<leader>ml",
       "<cmd>MoltenLoad<cr>",
       desc = "Load Cell Output",
       mode = "n",
@@ -86,10 +86,28 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>mr",
+      "<leader>me",
       "<cmd>MoltenEvaluateVisual<cr>",
       desc = "Evaluate Selection",
       mode = "v",
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+    {
+      "<leader>mnn",
+      "<cmd>MoltenNext<cr>",
+      desc = "Go to next cell",
+      mode = "n",
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+    {
+      "<leader>mnp",
+      "<cmd>MoltenPrev<cr>",
+      desc = "Go to previous cell",
+      mode = "n",
       silent = true, -- use `silent` when creating keymaps
       noremap = true, -- use `noremap` when creating keymaps
       nowait = true, -- use `nowait` when creating keymaps

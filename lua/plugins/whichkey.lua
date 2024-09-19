@@ -84,6 +84,9 @@ return {
 
       { "<leader>x", group = "Explorer" },
       { "<leader>m", group = "Molten" },
+      { "<leader>mn", group = "Molten Navigation" },
+      { "<leader>me", group = "Molten Evaluate" },
+      { "<leader>m", group = "Molten", mode = "v" },
       { "<leader>n", group = "Notes" },
       { "<leader>v", group = "Vim Packages" },
       { "<leader>vt", group = "VimTex" },

@@ -29,7 +29,7 @@ local options = {
   smarttab = true,
   tabstop = 2,
   shiftwidth = 2,
-  cmdheight = 0
+  cmdheight = 0,
 }
 
 for setting, value in pairs(options) do
