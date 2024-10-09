@@ -86,10 +86,11 @@ return {
       "spectral",
       "jdtls",
       "cucumber_language_server",
-      "clangd"
+      "clangd",
     },
     dap = { "python", "js", "c#" },
-    nonels = { "stylelua", "stylelint", "markdownlint", "black", "proselint", "prettier", "cppcheck" },
+    linters = { "eslint", "cppcheck" },
+    formatters = { "stylelua", "stylelint", "black", "prettier" },
   },
   theme_palette = {
     kanagawa = {
