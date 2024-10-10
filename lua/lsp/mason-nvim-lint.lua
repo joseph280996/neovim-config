@@ -6,6 +6,7 @@ return {
     "mfussenegger/nvim-lint",
   },
   opts = {
-    ensure_installed = servers.linters
-  }
+    ensure_installed = servers.linters,
+    automatic_installation = false,
+  },
 }

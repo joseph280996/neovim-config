@@ -1,11 +1,12 @@
 local servers = require("utils.constants").servers
 return {
-  "rshkarin/mason-nvim-lint",
+  "zapling/mason-conform.nvim",
   dependencies = {
     "williamboman/mason.nvim",
-    "mfussenegger/nvim-lint",
+    "stevearc/conform.nvim",
   },
   opts = {
-    ensure_installed = servers.formatters
-  }
+    ensure_installed = servers.formatters,
+    ignore_install = { "prettierd" },
+  },
 }

@@ -1,8 +1,5 @@
 return {
   "rebelot/kanagawa.nvim",
-  dependencies = {
-    "OXY2DEV/markview.nvim",
-  },
   opts = {
     compile = false, -- enable compiling the colorscheme
     undercurl = false, -- enable undercurls

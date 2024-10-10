@@ -73,10 +73,8 @@ return {
   },
   servers = {
     lsp = {
-      "ruff",
-      "pyright",
+      "ruff_lsp",
       "ts_ls",
-      "html",
       "texlab",
       "omnisharp",
       "sqlls",
@@ -89,8 +87,8 @@ return {
       "clangd",
     },
     dap = { "python", "js", "c#" },
-    linters = { "eslint", "cppcheck" },
-    formatters = { "stylelua", "stylelint", "black", "prettier" },
+    linters = { "cmakelint", "vale" },
+    formatters = { "stylelua", "prettier", "cmake_format" },
   },
   theme_palette = {
     kanagawa = {

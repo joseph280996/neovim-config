@@ -6,7 +6,7 @@ return {
         onSave = false,
       },
       chktex = {
-        onOpenAndSave = true,
+        onOpenAndSave = false,
         onEdit = false,
       },
       latexindent = {

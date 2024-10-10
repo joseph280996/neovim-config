@@ -64,7 +64,7 @@ local function get_bindings(filetype)
     {
       mode = "n",
       lhs = "<leader>lff",
-      rhs = "<cmd>lua require('lsp.config.formatter')()<cr>",
+      rhs = "<cmd>Format<cr>",
       opts = { desc = "File Format" },
     },
   }
