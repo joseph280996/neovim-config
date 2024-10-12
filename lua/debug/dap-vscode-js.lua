@@ -1,5 +1,6 @@
 return {
   "mxsdev/nvim-dap-vscode-js",
+  ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
   dependencies = {
     "mfussenegger/nvim-dap",
     "jay-babu/mason-nvim-dap.nvim",

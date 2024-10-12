@@ -1,5 +1,6 @@
 return {
   "williamboman/mason.nvim", -- Simple to use LSP installer
+  cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonInstallAll" },
   opts = {
     ui = {
       border = "none",

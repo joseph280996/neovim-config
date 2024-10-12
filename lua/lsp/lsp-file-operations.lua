@@ -1,10 +1,8 @@
 return {
   "antosha417/nvim-lsp-file-operations",
+  lazy = true,
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "kyazdani42/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
   },
-  config = function()
-    require("lsp-file-operations").setup()
-  end,
 }

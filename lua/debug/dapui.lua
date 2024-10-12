@@ -65,4 +65,14 @@ return {
       },
     })
   end,
+  keys = {
+    {
+      "<leader>du",
+      "<cmd>lua require('dapui').toggle()<cr>",
+      desc = "UI",
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+  },
 }

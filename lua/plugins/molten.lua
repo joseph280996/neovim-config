@@ -1,7 +1,7 @@
 -- Magma
 return {
   "benlubas/molten-nvim",
-  lazy = false,
+  ft = "ipynb",
   version = "^1.0.0",
   build = ":UpdateRemotePlugins",
   dependencies = "willothy/wezterm.nvim",

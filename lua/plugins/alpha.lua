@@ -74,8 +74,6 @@ return {
     "kyazdani42/nvim-web-devicons",
   },
   event = "VimEnter",
-  enabled = true,
-  init = false,
   config = function()
     local status_ok, alpha = pcall(require, "alpha")
     if not status_ok then

@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp", -- Completion Plugin
+  event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-buffer", -- Buffer Completion
     "hrsh7th/cmp-path", -- Path Completion

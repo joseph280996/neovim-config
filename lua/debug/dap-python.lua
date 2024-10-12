@@ -2,6 +2,7 @@ local get_values_on_os = require("utils.get-values-on-os")
 
 return {
   "mfussenegger/nvim-dap-python",
+  ft = "python",
   dependencies = {
     "mfussenegger/nvim-dap",
     "jay-babu/mason-nvim-dap.nvim",

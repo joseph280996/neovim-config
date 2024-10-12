@@ -1,6 +1,6 @@
 return {
   "ray-x/lsp_signature.nvim",
-  event = "VeryLazy",
+  event = { "BufReadPost", "BufWritePost", "InsertLeave", "InsertEnter" },
   opts = {
     always_trigger = true,
     transparency = 10,

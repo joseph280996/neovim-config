@@ -3,6 +3,7 @@ local lsp_keymaps = require("lsp.config.keymap")
 
 return {
   "neovim/nvim-lspconfig", -- Native LSP
+  event = { "BufReadPost", "BufWritePost", "InsertLeave", "InsertEnter" },
   dependencies = {
     "williamboman/mason.nvim", -- Simple to use LSP installer
     "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer

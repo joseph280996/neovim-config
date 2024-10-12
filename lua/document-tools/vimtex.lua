@@ -4,7 +4,6 @@ local system_name = require("utils.constants").os_name
 return {
   -- LaTex
   "lervag/vimtex",
-  lazy = false,
   ft = "tex",
   init = function()
     -- This is necessary for VimTeX to load properly. The "indent" is optional.

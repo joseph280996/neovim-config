@@ -3,6 +3,7 @@ return {
   dependencies = {
     "windwp/nvim-ts-autotag",
   },
+  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
   opts = {
     auto_install = true,
     ensure_installed = {
@@ -23,7 +24,7 @@ return {
       "markdown_inline",
       "html",
       "java",
-      "regex"
+      "regex",
     },
     ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
     highlight = {
@@ -50,9 +51,7 @@ return {
     },
     indent = { enable = true, disable = { "python", "css" } },
   },
-  build = function()
-    require("nvim-treesitter.install").update({ with_sync = true })()
-  end,
+  build = ":TSUpdate",
   config = function(_, opts)
     local ts_configs = require("nvim-treesitter.configs")
     local ts_install = require("nvim-treesitter.install")

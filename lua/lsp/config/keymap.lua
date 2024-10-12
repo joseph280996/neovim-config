@@ -64,12 +64,9 @@ local function get_bindings(filetype)
     {
       mode = "n",
       lhs = "<leader>lff",
-      rhs = "<cmd>Format<cr>",
+      rhs = "<cmd>lua require('lsp.config.formatter')()<cr>",
       opts = { desc = "File Format" },
     },
-  }
-
-  local ft_keymap = {
     {
       mode = "n",
       lhs = "gd",
@@ -89,6 +86,8 @@ local function get_bindings(filetype)
       opts = { desc = "Go To References" },
     },
   }
+
+  local ft_keymap = {}
 
   if filetype == "cs" then
     ft_keymap = {
@@ -145,6 +144,41 @@ local function get_bindings(filetype)
         lhs = "<leader>lppa",
         rhs = "<cmd>DotnetUI project package add<cr>",
         opts = { desc = "Add new Nuget Package" },
+      },
+    }
+  end
+
+  if filetype == "java" then
+    ft_keymap = {
+      {
+        mode = "n",
+        lhs = "<leader>jtc",
+        rhs = "<cmd>lua require('jdtls').test_clas()<cr>",
+        opts = { desc = "Test class" },
+      },
+      {
+        mode = "n",
+        lhs = "<leader>jtn",
+        rhs = "<cmd>lua require('jdtls').test_nearest_method()<cr>",
+        opts = { desc = "Test nearest method" },
+      },
+      {
+        mode = "n",
+        lhs = "<leader>jev",
+        rhs = "<cmd>lua require('jdtls').extract_variable(true)<cr>",
+        opts = { desc = "Extract Variables" },
+      },
+      {
+        mode = "n",
+        lhs = "<leader>jem",
+        rhs = "<cmd>lua require('jdtls').extract_method(true)<cr>",
+        opts = { desc = "Extract Methods" },
+      },
+      {
+        mode = "n",
+        lhs = "<leader>ji",
+        rhs = "<cmd>lua require('jdtls').organize_imports()<cr>",
+        opts = { desc = "Import Organize" },
       },
     }
   end

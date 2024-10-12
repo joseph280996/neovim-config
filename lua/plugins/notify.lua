@@ -1,5 +1,3 @@
-local icons = require("utils.constants").icons
-
 return {
   "rcarriga/nvim-notify",
   opts = {
@@ -21,8 +19,7 @@ return {
 
     -- For stages that change opacity this is treated as the highlight behind the window
     -- Set this to either a highlight group or an RGB hex value e.g. "#000000"
-    background_colour = "#000000"
-,
+    background_colour = "#000000",
 
     -- Minimum width for notification windows
     minimum_width = 10,
@@ -51,4 +48,14 @@ return {
       notify(msg, ...)
     end
   end,
+  keys = {
+    {
+      "<leader>fn",
+      "<cmd>lua require('notify').history()<cr>",
+      desc = "Find Noti",
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+  },
 }

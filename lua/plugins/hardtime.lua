@@ -2,7 +2,8 @@
 return {
   "m4xshen/hardtime.nvim",
   dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+  event = "VeryLazy",
   opts = {
-    diabled_filetypes = { "neo-tree", "qf", "netrw", "lazy", "mason", "alpha", "dashboard" },
+    diabled_filetypes = { "qf", "lazy", "mason", "alpha", "dashboard" },
   },
 }

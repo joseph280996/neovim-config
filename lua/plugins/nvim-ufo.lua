@@ -4,7 +4,7 @@ return {
     "kevinhwang91/promise-async",
     "neovim/nvim-lspconfig", -- Native LSP
   },
-  lazy = false,
+  event = "BufReadPost",
   opts = {
     close_fold_kinds_for_ft = {
       cs = {

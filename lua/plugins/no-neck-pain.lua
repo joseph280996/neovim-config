@@ -1,7 +1,7 @@
 return {
   "shortcuts/no-neck-pain.nvim",
   version = "*",
-  ft = "tex",
+  ft = { "tex", "markdown" },
   config = true,
   keys = {
     {

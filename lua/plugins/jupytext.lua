@@ -1,5 +1,6 @@
 return {
   "GCBallesteros/jupytext.nvim",
+  ft = "ipynb",
   opts = {
     style = "markdown",
     extension = "md",

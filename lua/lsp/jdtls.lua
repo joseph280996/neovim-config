@@ -48,40 +48,10 @@ return {
     jdtls.start_or_attach({
       cmd = cmd,
       capabilities = require("lua.lsp.config.capabilities"),
-      on_attach = function()
+      on_attach = function(_, bufnr)
         require("jdtls.dap").setup_dap_main_class_configs()
         jdtls.setup_dap({ hotcodereplace = "auto" })
-        local map = vim.keymap.set
-        map("n", "gD", vim.lsp.buf.declaration, { silent = true, buffer = true })
-        map("n", "gd", vim.lsp.buf.definition, { silent = true, buffer = true })
-        map("n", "K", vim.lsp.buf.hover, { silent = true, buffer = true })
-        map("n", "<Leader>dj", vim.diagnostic.goto_next, { buffer = true })
-        map("n", "<Leader>dk", vim.diagnostic.goto_prev, { buffer = true })
-        map("n", "<Leader>dl", require("telescope.builtin").diagnostics, { buffer = true })
-        map("n", "<Leader>lr", vim.lsp.buf.rename, { buffer = true })
-        map("n", "<Leader>c", vim.lsp.buf.code_action, { buffer = true })
-        map("n", "<Leader>lf", vim.lsp.buf.formatting, { silent = true, noremap = true })
-        wk.register({
-          j = {
-            name = "Java",
-            t = {
-              name = "Test",
-              c = { jdtls.test_class, "Test class" },
-              n = { jdtls.test_nearest_method, "Test nearest method" },
-            },
-            e = {
-              name = "Extract",
-              v = { "<cmd>lua require('jdtls').extract_variable(true)<cr>", "Variables" },
-              m = { "<cmd>lua require('jdtls').extract_method(true)<cr>", "Methods" },
-            },
-            i = {
-              name = "Import",
-              o = { jdtls.organize_imports, "Organize" },
-            },
-          },
-        }, {
-          prefix = "<leader>",
-        })
+        require("lsp.config.keymap")(bufnr)
       end,
       settings = {
         java = {

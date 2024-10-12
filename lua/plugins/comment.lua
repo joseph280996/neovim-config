@@ -13,16 +13,13 @@ end
 return {
   -- Development Utilities
   "numToStr/Comment.nvim", -- Easily comment stuff
-  lazy = false,
+  lazy = true,
   opts = {
     mappings = false,
   },
-  dependencies = {
-    "folke/which-key.nvim",
-  },
   keys = {
     {
-      "<leader>lcc",
+      "<leader>cc",
       "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>",
       mode = "n",
       desc = "Linewise Toggle Commenting",
@@ -31,7 +28,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>lcb",
+      "<leader>cb",
       toggle_bwcomment_selection,
       mode = "v",
       desc = "Blockwise Toggle",
@@ -40,7 +37,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>lcl",
+      "<leader>cl",
       toggle_lwcomment_selection,
       mode = "v",
       desc = "Linewise Toggle",

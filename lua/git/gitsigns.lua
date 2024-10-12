@@ -1,7 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
-  dependencies = { "folke/which-key.nvim" },
   config = function()
     local gitsigns = require("gitsigns")
     gitsigns.setup({
@@ -28,24 +27,6 @@ return {
       "<leader>gk",
       "<cmd>lua require('gitsigns').prev_hunk()<cr>",
       desc = "Prev Hunk",
-      mode = "n",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
-      "<leader>gl",
-      "<cmd>GitBlameToggle<cr>",
-      desc = "Blame",
-      mode = "n",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
-      "<leader>go",
-      "<cmd>Telescope git_status<cr>",
-      desc = "Open changed file",
       mode = "n",
       silent = true,
       noremap = true,

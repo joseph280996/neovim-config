@@ -58,7 +58,7 @@ return {
           ".git",
         },
       },
-      hijack_netrw_behavior = "open_default",
+      hijack_netrw_behavior = "disabled",
       use_libuv_file_watcher = true,
     },
     buffers = {
@@ -72,6 +72,7 @@ return {
   config = function(_, opts)
     opts.nesting_rules = require("neotree-file-nesting-config").nesting_rules
     require("neo-tree").setup(opts)
+    require("lsp-file-operations").setup()
   end,
   keys = {
     {

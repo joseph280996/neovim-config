@@ -10,6 +10,7 @@ end
 -- Statusline
 return {
   "christianchiarulli/lualine.nvim",
+  event = { "BufReadPost", "BufWritePost", "InsertLeave" },
   dependencies = {
     "kyazdani42/nvim-web-devicons",
     lazy = true,
@@ -40,7 +41,7 @@ return {
           path = 1,
         },
       },
-      lualine_c = { "branch", "aerial" },
+      lualine_c = { "branch" },
       lualine_x = {},
       lualine_y = { "encoding", "fileformat", "filetype" },
       lualine_z = { "location" },
@@ -70,7 +71,7 @@ return {
           path = 1,
         },
       },
-      lualine_c = { "branch", "aerial" },
+      lualine_c = { "branch" },
       lualine_x = {},
       lualine_y = { "encoding", "fileformat", "filetype" },
       lualine_z = { "location" },

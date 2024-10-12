@@ -1,8 +1,7 @@
 local icons = require("utils.constants").icons
 return {
   "b0o/incline.nvim",
-  -- Optional: Lazy load Incline
-  event = "VeryLazy",
+  event = { "BufReadPost", "BufWritePost", "InsertLeave" },
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },

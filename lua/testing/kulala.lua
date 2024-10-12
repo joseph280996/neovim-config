@@ -27,4 +27,24 @@ return {
     -- see: https://curl.se/docs/manpage.html
     additional_curl_options = {},
   },
+  keys = {
+    {
+      "<leader>ukr",
+      "<cmd>lua require('kulala').run()<cr>",
+      desc = "Run current request",
+      mode = "n", -- NORMAL mode
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+    {
+      "<leader>uka",
+      "<cmd>lua require('kulala').run_all()<cr>",
+      desc = "Run all request in current buffer",
+      mode = "n", -- NORMAL mode
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+  }
 }
