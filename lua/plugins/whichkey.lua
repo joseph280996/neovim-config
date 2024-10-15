@@ -38,7 +38,7 @@ return {
       { "<leader>f", group = "Find" },
       { "<leader>g", group = "Git" },
 
-      { "<leader>h", "<cmd>Hardtime toggle", desc = "Toggle Hardtime" },
+      { "<leader>h", group = "Hardtime" },
 
       --[[ LSP OPs ]]
       { "<leader>l", group = "LSP" },

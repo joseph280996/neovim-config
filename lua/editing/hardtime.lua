@@ -6,4 +6,14 @@ return {
   opts = {
     diabled_filetypes = { "qf", "lazy", "mason", "alpha", "dashboard" },
   },
+  keys = {
+    {
+      "<leader>hh",
+      "<cmd>Hardtime toggle",
+      desc = "Toggle Hardtime",
+      silent = true,
+      noremap = true,
+      nowait = true,
+    },
+  },
 }

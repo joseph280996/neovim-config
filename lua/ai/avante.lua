@@ -29,7 +29,7 @@ return {
       },
       submit = {
         normal = "<CR>",
-        insert = "<leader>uasi",
+        insert = "<C-s>",
       },
     },
   },
@@ -43,7 +43,6 @@ return {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    --- The below dependencies are optional,
     "nvim-tree/nvim-web-devicons",
     {
       -- support for image pasting
@@ -64,8 +63,29 @@ return {
     },
   },
   keys = {
-    { "<leader>uaa", "<cmd>AvanteAsk<cr>", desc = "AI Ask" },
-    { "<leader>uar", "<cmd>AvanteRefresh<cr>", desc = "AI Refresh" },
-    { "<leader>uae", "<cmd>AvanteEdit<cr>", desc = "AI Edit prompt" },
+    {
+      "<leader>uaa",
+      "<cmd>AvanteAsk<cr>",
+      desc = "AI Ask",
+      silent = true,
+      noremap = true,
+      nowait = true,
+    },
+    {
+      "<leader>uar",
+      "<cmd>AvanteRefresh<cr>",
+      desc = "AI Refresh",
+      silent = true,
+      noremap = true,
+      nowait = true,
+    },
+    {
+      "<leader>uae",
+      "<cmd>AvanteEdit<cr>",
+      desc = "AI Edit prompt",
+      silent = true,
+      noremap = true,
+      nowait = true,
+    },
   },
 }

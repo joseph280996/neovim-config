@@ -4,11 +4,13 @@ return {
   dependencies = {
     "kyazdani42/nvim-web-devicons",
   },
-  opts = true,
+  opts = {
+    auto_close = true,
+  },
   keys = {
     {
       "<leader>ltd",
-      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+      "<cmd>Trouble diagnostics toggle filter.buf=0 win.position=right<cr>",
       desc = "Troubles in Buffer",
       mode = "n", -- NORMAL mode
       silent = true, -- use `silent` when creating keymaps

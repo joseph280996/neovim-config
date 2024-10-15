@@ -28,6 +28,7 @@ end
 
 return lazy.setup({
   spec = {
+    { import = "editing" },
     { import = "code-completion" },
     { import = "debug" },
     { import = "document-tools" },
