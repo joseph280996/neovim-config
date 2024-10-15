@@ -2,7 +2,7 @@
 return {
   {
     "iamcco/markdown-preview.nvim",
-    ft = { "markdown" },
+    ft = { "markdown", "Avante" },
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
@@ -20,7 +20,8 @@ return {
   },
   {
     "OXY2DEV/markview.nvim",
-    ft = "markdown",
+    lazy = false,
+    enabled = true,
     dependencies = {
       -- You may not need this if you don't lazy load
       -- Or if the parsers are in your $RUNTIMEPATH
@@ -28,7 +29,9 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     opts = {
-      modes = { "n", "v", "vs", "V", "Vs", "^V", "r" },
+      filetypes = { "markdown", "Avante" },
+      buf_ignore = {},
+      max_length = 99999,
       code_blocks = {
         enable = true,
 

@@ -2,6 +2,7 @@ local icons = require("utils.constants").icons
 
 return {
   "nvim-telescope/telescope.nvim",
+  event = "BufEnter",
   cmd = "Telescope",
   branch = "0.1.x",
   dependencies = {

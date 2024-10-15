@@ -36,6 +36,7 @@ return lazy.setup({
     { import = "lsp" },
     { import = "plugins" },
     { import = "testing" },
+    { import = "ai" },
   },
   install = {
     missing = true,
