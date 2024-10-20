@@ -69,6 +69,26 @@ return {
       },
       show_unloaded = true,
     },
+    event_handlers = {
+      {
+        event = "file_open_requested",
+        handler = function()
+          require("neo-tree.command").execute({ action = "close" })
+        end,
+      },
+      {
+        event = "neo_tree_buffer_enter",
+        handler = function()
+          vim.cmd("highlight! Cursor blend=100")
+        end,
+      },
+      {
+        event = "neo_tree_buffer_leave",
+        handler = function()
+          vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
+        end,
+      },
+    },
   },
   config = function(_, opts)
     opts.nesting_rules = require("neotree-file-nesting-config").nesting_rules
