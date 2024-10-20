@@ -2,7 +2,6 @@ local icons = require("utils.constants").icons
 
 return {
   "nvim-telescope/telescope.nvim",
-  event = "BufEnter",
   cmd = "Telescope",
   branch = "0.1.x",
   dependencies = {
@@ -12,7 +11,25 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     },
-    { "ahmedkhalf/project.nvim" },
+    {
+      "ahmedkhalf/project.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("project_nvim").setup({
+          manual_mode = false,
+          detection_methods = { "lsp", "pattern" },
+          patterns = {
+            ".git",
+            "*.sln",
+            "README.md",
+          },
+          ignore_lsp = {},
+          show_hidden = false,
+          silent_chdir = false,
+          datapath = vim.fn.stdpath("data"),
+        })
+      end,
+    },
   },
   opts = {
     defaults = {
@@ -95,26 +112,6 @@ return {
       },
       live_grep_args = {
         auto_quoting = true,
-      },
-      projects = {
-        manual_mode = false,
-        detection_methods = { "lsp", "pattern" },
-        patterns = {
-          ".git",
-          ".sln",
-          "CMakeLists.txt",
-          "src",
-          "package-lock.json",
-          "package.json",
-          "node_modules",
-          "README.md",
-          ".gitignore",
-          ".gitmodules",
-        },
-        ignore_lsp = {},
-        show_hidden = false,
-        silent_chdir = true,
-        datapath = vim.fn.stdpath("data"),
       },
     },
   },
@@ -264,7 +261,7 @@ return {
     },
     {
       "<leader>fp",
-      "<cmd>Telescope projects<cr>",
+      "<cmd>lua require('telescope').extensions.projects.projects({})<cr>",
       desc = "Find Projects",
       silent = true, -- use `silent` when creating keymaps
       noremap = true, -- use `noremap` when creating keymaps
