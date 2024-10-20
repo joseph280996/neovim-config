@@ -16,8 +16,6 @@ return {
       "git_status",
       "document_symbols",
     },
-    hide_root_node = true,
-    retain_hidden_root_indent = true,
     enable_git_status = false,
     enable_diagnostic = false,
     sort_case_insensitive = true,
@@ -49,14 +47,8 @@ return {
         hide_gitignore = false,
         hide_dotfiles = false,
         hide_hidden = false,
-        hide_by_pattern = {
-          "package-lock.json",
-          "lazy-lock.json",
-          "yarn-lock.json",
-        },
         never_show = {
           ".DS_Store",
-          ".git",
         },
       },
       hijack_netrw_behavior = "disabled",
