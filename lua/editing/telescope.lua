@@ -25,7 +25,7 @@ return {
           },
           ignore_lsp = {},
           show_hidden = false,
-          silent_chdir = false,
+          silent_chdir = true,
           datapath = vim.fn.stdpath("data"),
         })
       end,
