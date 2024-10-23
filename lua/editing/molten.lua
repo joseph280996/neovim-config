@@ -95,7 +95,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>mnn",
+      "<leader>mcn",
       "<cmd>MoltenNext<cr>",
       desc = "Go to next cell",
       mode = "n",
@@ -104,7 +104,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>mnp",
+      "<leader>mcp",
       "<cmd>MoltenPrev<cr>",
       desc = "Go to previous cell",
       mode = "n",

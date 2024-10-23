@@ -53,7 +53,12 @@ return {
 
       { "<leader>x", group = "Explorer" },
       { "<leader>m", group = "Molten" },
-      { "<leader>mn", group = "Molten Navigation" },
+      {
+        "<leader>mn",
+        "<cmd>NewJupyterNotebook main<cr>",
+        desc = "Initialize an empty JupyterNotebook",
+      },
+      { "<leader>mc", group = "Molten Cell Navigation" },
       { "<leader>me", group = "Molten Evaluate" },
       { "<leader>m", group = "Molten", mode = "v" },
       { "<leader>n", group = "Notes" },
