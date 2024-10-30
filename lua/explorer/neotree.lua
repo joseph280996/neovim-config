@@ -90,8 +90,17 @@ return {
   keys = {
     {
       "<leader>xf",
-      "<cmd>Neotree focus filesystem reveal<cr>",
+      "<cmd>Neotree focus filesystem<cr>",
       desc = "Open/Focus on the Explorer",
+      mode = "n", -- NORMAL mode
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    },
+    {
+      "<leader>xr",
+      "<cmd>Neotree focus filesystem reveal_force_cwd<cr>",
+      desc = "Reveal the file in cwd and force change cwd",
       mode = "n", -- NORMAL mode
       silent = true, -- use `silent` when creating keymaps
       noremap = true, -- use `noremap` when creating keymaps
