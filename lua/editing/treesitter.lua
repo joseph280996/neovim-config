@@ -7,10 +7,16 @@ return {
   opts = {
     auto_install = true,
     ensure_installed = {
+      "diff",
+      "gitignore",
+      "git_rebase",
+      "gitcommit",
+      "cmake",
       "vim",
       "http",
       "c",
       "vimdoc",
+      "dockerfile",
       "sql",
       "java",
       "c_sharp",
@@ -30,7 +36,10 @@ return {
     ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
     highlight = {
       enable = true, -- false will disable the whole extension
-      disable = { "latex", "cucumber" },
+      disable = {
+        "latex", -- as this is done by vimtex
+        "cucumber", -- TODO: Figure out how to have cucumber highlighting
+      },
       additional_vim_regex_highlighting = false,
     },
     autotag = {
@@ -50,7 +59,10 @@ return {
     autopairs = {
       enable = true,
     },
-    indent = { enable = true, disable = { "python", "css" } },
+    indent = {
+      enable = true,
+      disable = { "python", "css" },
+    },
   },
   build = ":TSUpdate",
   config = function(_, opts)
