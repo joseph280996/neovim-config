@@ -1,5 +1,3 @@
-local get_values_on_os = require("utils.get-values-on-os")
-
 local options = {
   -- {{ Neovim Config }}
   number = true, -- Enable line number
