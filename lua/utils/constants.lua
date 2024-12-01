@@ -74,6 +74,7 @@ return {
   servers = {
     lsp = {
       "ruff",
+      "pylyzer",
       "ts_ls",
       "texlab",
       "omnisharp",
