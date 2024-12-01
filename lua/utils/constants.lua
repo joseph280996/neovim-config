@@ -73,7 +73,7 @@ return {
   },
   servers = {
     lsp = {
-      "ruff_lsp",
+      "ruff",
       "ts_ls",
       "texlab",
       "omnisharp",

@@ -3,6 +3,7 @@ return {
   event = { "BufWritePost", "BufReadPost", "InsertLeave", "InsertEnter" },
   config = function()
     require("lint").linters_by_ft = {
+      python = { "ruff" },
       cpp = { "cppcheck" },
       tex = { "chktex" },
       typescript = { "eslint" },
