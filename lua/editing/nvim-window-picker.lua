@@ -5,20 +5,17 @@ return {
   opts = {
     hint = "floating-big-letter",
     filter_func = function(windows, rules)
-      local function predicate(wid)
-        cfg = vim.api.nvim_win_get_config(wid)
-        if not cfg.focusable then
-          return false
-        end
-        return true
-      end
-      local filtered = vim.tbl_filter(predicate, windows)
-
       local dfilter = require("window-picker.filters.default-window-filter"):new()
       dfilter:set_config(rules)
-      return dfilter:filter_windows(filtered)
+      local original_filtered = dfilter:filter_windows(windows)
+
+      return vim.tbl_filter(function(wid)
+        local window = vim.api.nvim_win_get_config(wid)
+        return window.focusable
+      end, original_filtered)
     end,
     filter_rules = {
+      include_current_win = true,
       -- filter using buffer options
       bo = {
         -- if the file type is one of following, the window will be ignored
