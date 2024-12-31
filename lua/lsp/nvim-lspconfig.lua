@@ -1,4 +1,4 @@
-local servers = require("utils.constants").servers.lsp
+local lsp_servers = require("utils.constants").servers.lsp
 local lsp_keymaps = require("lsp.config.keymap")
 
 return {
@@ -7,6 +7,7 @@ return {
   dependencies = {
     "williamboman/mason.nvim", -- Simple to use LSP installer
     "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
+    "saghen/blink.cmp"
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -18,6 +19,8 @@ return {
     })
 
     vim.lsp.inlay_hint.enable(true)
+    local servers = {}
+    vim.list_extend(servers, lsp_servers)
 
     for _, server in pairs(servers) do
       opts = {

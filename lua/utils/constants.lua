@@ -74,7 +74,6 @@ return {
   servers = {
     lsp = {
       "ruff",
-      "pylyzer",
       "ts_ls",
       "texlab",
       "omnisharp",
@@ -86,6 +85,7 @@ return {
       "jdtls",
       "cucumber_language_server",
       "clangd",
+      "pyright"
     },
     dap = { "python", "js", "c#" },
     linters = { "cmakelint", "vale" },

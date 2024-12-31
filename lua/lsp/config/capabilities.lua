@@ -1,4 +1,4 @@
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local status_cmp_ok, blink_cmp = pcall(require, "blink.cmp")
 if not status_cmp_ok then
   return
 end
@@ -9,6 +9,6 @@ capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true,
 }
-capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+capabilities = blink_cmp.get_lsp_capabilities(capabilities)
 
 return capabilities
