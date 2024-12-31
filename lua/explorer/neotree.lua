@@ -27,6 +27,7 @@ return {
         expander_collapsed = "",
         expander_expanded = "",
       },
+      modified = { symbol = "" },
       file_size = { enabled = false },
       type = { enabled = false },
       last_modified = { enabled = false },
@@ -79,6 +80,12 @@ return {
         handler = function()
           vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
         end,
+      },
+    },
+    window = {
+      mapping = {
+        ["S"] = "split_with_window_picker",
+        ["s"] = "vsplit_with_window_picker",
       },
     },
   },
