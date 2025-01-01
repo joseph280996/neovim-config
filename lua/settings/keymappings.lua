@@ -44,6 +44,10 @@ local normal_keymaps = {
   },
 }
 
+vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
+
+vim.g.mapleader = " "
+
 -- Friendly Adjusting split size
 for mapping, cmd_opts in pairs(normal_keymaps) do
   vim.api.nvim_set_keymap("n", mapping, cmd_opts.cmd, cmd_opts.opts)
