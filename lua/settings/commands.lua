@@ -1,6 +1,3 @@
--- Provide a command to create a blank new Python notebook
--- note: the metadata is needed for Jupytext to understand how to parse the notebook.
--- if you use another language than Python, you should change it in the template.
 local default_notebook = [[
   {
     "cells": [
@@ -34,6 +31,8 @@ local default_notebook = [[
   }
 ]]
 
+--- Bootstrapping a new Notebook file
+---@param filename string Path to the file to create
 local function new_notebook(filename)
   local path = filename .. ".ipynb"
   local file = io.open(path, "w")

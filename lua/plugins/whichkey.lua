@@ -46,6 +46,7 @@ return {
       { "<leader>lt", group = "Trouble" },
       { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
       { "<leader>c", group = "Comment" },
+      { "<leader>cd", group = "Code Document Comment" },
       { "<leader>c", group = "Comment", mode = "v" },
 
       { "<leader>u", group = "Utilities" },
