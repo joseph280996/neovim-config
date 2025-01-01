@@ -14,7 +14,7 @@ return {
           'enable',
           'pairs',
           'ipairs',
-          'pcall'
+          'pcall',
         }
       },
       workspace = {
