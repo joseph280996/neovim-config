@@ -5,7 +5,7 @@ return {
       backends = { "treesitter", "lsp", "markdown", "man" },
       show_guides = true,
       layout = {
-        default_direction = "prefer_left",
+        default_direction = "prefer_right",
       },
     },
     -- Optional dependencies
