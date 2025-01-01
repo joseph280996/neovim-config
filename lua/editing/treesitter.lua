@@ -1,8 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-    "windwp/nvim-ts-autotag",
-  },
+  dependencies = { "RRethy/nvim-treesitter-endwise" },
   event = { "BufReadPost", "BufWritePost", "BufNewFile" },
   opts = {
     auto_install = true,
@@ -42,26 +40,12 @@ return {
       },
       additional_vim_regex_highlighting = false,
     },
-    autotag = {
-      enable = true,
-      enable_close = true,
-      enable_close_on_slash = true,
-      filetypes = {
-        "html",
-        "xml",
-        "cs",
-        "javascript",
-        "typescript",
-        "typescriptreact",
-        "javascriptreact",
-      },
-    },
-    autopairs = {
-      enable = true,
-    },
     indent = {
       enable = true,
       disable = { "python", "css" },
+    },
+    endwise = {
+      enable = true,
     },
   },
   build = ":TSUpdate",

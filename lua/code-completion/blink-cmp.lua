@@ -20,7 +20,7 @@ return {
 
         -- Disable auto brackets
         -- NOTE: some LSPs may add auto brackets themselves anyway
-        accept = { auto_brackets = { enabled = false } },
+        accept = { auto_brackets = { enabled = true } },
 
         -- Insert completion item on selection, don't select by default
         list = {
