@@ -55,18 +55,22 @@ return {
         -- Disable cmdline completions
         cmdline = {},
         per_filetype = {
-          tex = { "lsp", "path", "snippets", "buffer" },
+          tex = { "lsp", "path", "snippets", "buffer", "vimtex" },
         },
         providers = {
           vimtex = {
-            name="vimtex",
-            module = "blink.compat.source"
-          }
-        }
+            name = "vimtex",
+            module = "blink.compat.source",
+          },
+        },
       },
 
       -- Experimental signature help support
-      signature = { enabled = false },
+      signature = { enabled = true },
+
+      keymap = {
+        preset = "super-tab",
+      },
     },
     opts_extend = { "sources.default" },
   },
