@@ -15,6 +15,13 @@ local ignore_buftypes = { "nofile", "prompt", "popup" }
 return {
   "nvim-focus/focus.nvim",
   version = "*",
+  event = "BufEnter",
+  opts = {
+
+    ui = {
+      winhighlight = true
+    }
+  },
   config = function()
     require("focus").setup()
 

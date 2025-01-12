@@ -9,12 +9,6 @@ local function get_bindings(filetype)
     },
     {
       mode = "n",
-      lhs = "gl",
-      rhs = "<cmd>lua vim.diagnostic.open_float()<CR>",
-      opts = { desc = "Open Diagnostic Float" },
-    },
-    {
-      mode = "n",
       lhs = "<leader>li",
       rhs = "<cmd>LspInfo<cr>",
       opts = { desc = "Open LSP Info" },
@@ -33,15 +27,27 @@ local function get_bindings(filetype)
     },
     {
       mode = "n",
-      lhs = "<leader>lj",
+      lhs = "gl",
+      rhs = "<cmd>lua vim.diagnostic.open_float()<CR>",
+      opts = { desc = "Open Diagnostic Float" },
+    },
+    {
+      mode = "n",
+      lhs = "<leader>ldj",
       rhs = "<cmd>lua vim.diagnostic.goto_next()<cr>",
       opts = { desc = "Next Diagnostic" },
     },
     {
       mode = "n",
-      lhs = "<leader>lk",
+      lhs = "<leader>ldk",
       rhs = "<cmd>lua vim.diagnostic.goto_prev()<cr>",
       opts = { desc = "Prev Diagnostic" },
+    },
+    {
+      mode = "n",
+      lhs = "<leader>ldq",
+      rhs = "<cmd>lua vim.diagnostic.setloclist()<CR>",
+      opts = { desc = "Quick Fix" },
     },
     {
       mode = "n",
@@ -54,12 +60,6 @@ local function get_bindings(filetype)
       lhs = "<leader>ls",
       rhs = "<cmd>lua vim.lsp.buf.signature_help()<CR>",
       opts = { desc = "Display func signature" },
-    },
-    {
-      mode = "n",
-      lhs = "<leader>lq",
-      rhs = "<cmd>lua vim.diagnostic.setloclist()<CR>",
-      opts = { desc = "Quick Fix" },
     },
     {
       mode = "n",
