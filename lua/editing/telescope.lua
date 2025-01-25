@@ -131,14 +131,7 @@ return {
       noremap = true, -- use `noremap` when creating keymaps
       nowait = true, -- use `nowait` when creating keymaps
     },
-    {
-      "<leader>fb",
-      "<cmd>Telescope git_branches<cr>",
-      desc = "Checkout branch",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
+
     {
       "<leader>fc",
       "<cmd>Telescope commands<cr>",

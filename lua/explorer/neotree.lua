@@ -35,9 +35,6 @@ return {
       symlink_target = { enabled = false },
     },
     filesystem = {
-      window = {
-        async_directory_scan = "always",
-      },
       follow_current_file = {
         enabled = true,
         leaves_dirs_open = false,
@@ -54,6 +51,12 @@ return {
       },
       hijack_netrw_behavior = "disabled",
       use_libuv_file_watcher = true,
+      window = {
+        mappings = {
+          ["S"] = "split_with_window_picker",
+          ["s"] = "vsplit_with_window_picker",
+        },
+      },
     },
     buffers = {
       follow_current_file = {
@@ -80,12 +83,6 @@ return {
         handler = function()
           vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
         end,
-      },
-    },
-    window = {
-      mapping = {
-        ["S"] = "split_with_window_picker",
-        ["s"] = "vsplit_with_window_picker",
       },
     },
   },

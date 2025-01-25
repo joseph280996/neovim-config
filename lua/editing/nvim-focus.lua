@@ -17,7 +17,6 @@ return {
   version = "*",
   event = "BufEnter",
   opts = {
-
     ui = {
       winhighlight = true
     }

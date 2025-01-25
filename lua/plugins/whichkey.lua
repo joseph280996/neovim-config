@@ -37,6 +37,14 @@ return {
       --[[ FIND OPs ]]
       { "<leader>f", group = "Find" },
       { "<leader>g", group = "Git" },
+      {
+        "<leader>gb",
+        "<cmd>Telescope git_branches<cr>",
+        desc = "Checkout branch",
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true, -- use `nowait` when creating keymaps
+      },
 
       { "<leader>h", group = "Hardtime" },
 
