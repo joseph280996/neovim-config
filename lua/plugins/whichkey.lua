@@ -30,6 +30,7 @@ return {
       },
     },
     spec = {
+      {"<leader><leader>", group = "Layer 2"},
       --[[ BUFFER OPEARTION ]]
       { "<leader>b", group = "Buffer" },
       { "<leader>bx", "<cmd>bdelete!<CR>", desc = "Close Buffer" },

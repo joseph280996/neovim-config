@@ -1,4 +1,16 @@
 return {
+  ignore_filetypes = {
+    "lazy",
+    "NvimTree",
+    "help",
+    "neotest-summary",
+    "TelescopePrompt",
+    "alpha",
+    "aerial",
+    "tex",
+    "no-neck-pain",
+  },
+  ignore_buftypes = { "nofile", "prompt", "popup" },
   os_name = {
     Window = "Windows_NT",
     Linux = "Linux",
@@ -85,7 +97,7 @@ return {
       "jdtls",
       "cucumber_language_server",
       "clangd",
-      "pyright"
+      "pyright",
     },
     dap = { "python", "js", "c#" },
     linters = { "cmakelint", "vale" },

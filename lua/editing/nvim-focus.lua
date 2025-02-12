@@ -1,28 +1,15 @@
-local ignore_filetypes = {
-  "lazy",
-  "NvimTree",
-  "help",
-  "neotest-summary",
-  "TelescopePrompt",
-  "alpha",
-  "aerial",
-  "tex",
-  "no-neck-pain",
-}
-
-local ignore_buftypes = { "nofile", "prompt", "popup" }
-
 return {
   "nvim-focus/focus.nvim",
   version = "*",
   event = "BufEnter",
   opts = {
     ui = {
-      winhighlight = true
-    }
+      winhighlight = true,
+    },
   },
   config = function()
     require("focus").setup()
+    local constants = require("utils.constants")
 
     local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
 
@@ -30,7 +17,7 @@ return {
       group = augroup,
       desc = "Disable focus autoresize for BufType",
       callback = function(_)
-        if vim.tbl_contains(ignore_buftypes, vim.bo.buftype) then
+        if vim.tbl_contains(constants.ignore_buftypes, vim.bo.buftype) then
           vim.w.focus_disable = true
         else
           vim.w.focus_disable = false
@@ -42,7 +29,7 @@ return {
       group = augroup,
       desc = "Disable focus autoresize for FileType",
       callback = function(_)
-        if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
+        if vim.tbl_contains(constants.ignore_filetypes, vim.bo.filetype) then
           vim.b.focus_disable = true
         else
           vim.b.focus_disable = false
