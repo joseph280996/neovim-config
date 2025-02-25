@@ -30,7 +30,6 @@ return {
     end
 
     vim.g.vimtex_compiler_method = "latexmk"
-    vim.g.vimtex_mappings_enable = 0
   end,
   keys = {
     {
@@ -46,6 +45,15 @@ return {
       "<leader>vtt",
       "<cmd>VimtexTocToggle<cr>",
       desc = "Toggle table of content",
+      mode = "n",
+      noremap = true,
+      nowait = true,
+      silent = true,
+    },
+    {
+      "<leader>vtx",
+      "<cmd>VimtexClean<cr>",
+      desc = "Clean LaTeX document",
       mode = "n",
       noremap = true,
       nowait = true,
