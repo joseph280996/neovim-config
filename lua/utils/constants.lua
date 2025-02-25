@@ -101,7 +101,7 @@ return {
     },
     dap = { "python", "js", "c#" },
     linters = { "cmakelint", "vale" },
-    formatters = { "stylelua", "prettier", "cmake_format" },
+    formatters = { "stylelua", "prettier", "cmake_format", "clang-format" },
   },
   theme_palette = {
     kanagawa = {
