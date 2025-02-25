@@ -1,4 +1,5 @@
-local get_values_on_os = require("utils.get-values-on-os")
+return {}
+--[[ local get_values_on_os = require("utils.get-values-on-os")
 return {
   "yetone/avante.nvim",
   lazy = false,
@@ -88,4 +89,4 @@ return {
       nowait = true,
     },
   },
-}
+} ]]
