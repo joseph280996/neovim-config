@@ -26,7 +26,7 @@ return {
         list = {
           selection = {
             preselect = true,
-            auto_insert = true
+            auto_insert = true,
           },
           cycle = {
             from_top = true,
@@ -51,12 +51,10 @@ return {
         -- Display a preview of the selected item on the current line
         ghost_text = { enabled = true },
       },
-
       sources = {
         -- Remove 'buffer' if you don't want text completions, by default it's only enabled when LSP returns no items
         default = { "lsp", "path", "snippets", "buffer" },
         -- Disable cmdline completions
-        cmdline = {},
         per_filetype = {
           tex = { "lsp", "path", "snippets", "buffer", "vimtex" },
         },
