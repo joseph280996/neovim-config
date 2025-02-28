@@ -11,6 +11,9 @@ return {
       telescope = true,
       diffview = true,
     },
+    commit_editor = {
+      kind = "auto"
+    }
   },
   keys = {
     {

@@ -131,14 +131,7 @@ return {
       noremap = true, -- use `noremap` when creating keymaps
       nowait = true, -- use `nowait` when creating keymaps
     },
-    {
-      "<leader>fb",
-      "<cmd>Telescope git_branches<cr>",
-      desc = "Checkout branch",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
+
     {
       "<leader>fc",
       "<cmd>Telescope commands<cr>",
@@ -172,25 +165,9 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>ld",
-      "<cmd>Telescope diagnostics bufnr=0<cr>",
-      desc = "Document Diagnostics",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
       "<leader>ls",
       "<cmd>Telescope lsp_document_symbols<cr>",
       desc = "Document Symbols",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
-      "<leader>lw",
-      "<cmd>Telescope diagnostics<cr>",
-      desc = "Workspace Diagnostics",
       silent = true, -- use `silent` when creating keymaps
       noremap = true, -- use `noremap` when creating keymaps
       nowait = true, -- use `nowait` when creating keymaps

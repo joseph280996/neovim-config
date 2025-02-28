@@ -30,28 +30,29 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     opts = {
-      filetypes = { "markdown", "Avante" },
-      buf_ignore = {},
-      max_length = 99999,
-      code_blocks = {
-        enable = true,
-
-        style = "language",
-        hl = "Layer2",
-
-        min_width = 60,
-        pad_amount = 3,
-
-        language_names = {
-          { "py", "python" },
-          { "cpp", "C++" },
-          { "js", "javascript" },
-          { "ts", "typescript" },
+      preview = {
+        buf_ignore = {},
+        max_buf_length = 1000,
+        filetypes = { "markdown", "Avante" },
+        hybrid_modes = { "n" },
+      },
+      markdown = {
+        code_blocks = {
+          enable = true,
+          style = "block",
+          min_width = 60,
+          pad_amount = 3,
+          language_names = {
+            { "py", "python" },
+            { "cpp", "C++" },
+            { "js", "javascript" },
+            { "ts", "typescript" },
+          },
+          label_direction = "left",
         },
-        language_direction = "left",
-
-        sign = false,
-        sign_hl = nil,
+        headings = {
+          enable = true,
+        }
       },
     },
   },

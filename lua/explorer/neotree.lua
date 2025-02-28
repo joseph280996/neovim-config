@@ -35,9 +35,6 @@ return {
       symlink_target = { enabled = false },
     },
     filesystem = {
-      window = {
-        async_directory_scan = "always",
-      },
       follow_current_file = {
         enabled = true,
         leaves_dirs_open = false,
@@ -54,6 +51,12 @@ return {
       },
       hijack_netrw_behavior = "disabled",
       use_libuv_file_watcher = true,
+      window = {
+        mappings = {
+          ["S"] = "split_with_window_picker",
+          ["s"] = "vsplit_with_window_picker",
+        },
+      },
     },
     buffers = {
       follow_current_file = {
@@ -82,15 +85,25 @@ return {
         end,
       },
     },
-    window = {
-      mapping = {
-        ["S"] = "split_with_window_picker",
-        ["s"] = "vsplit_with_window_picker",
-      },
-    },
   },
   config = function(_, opts)
     opts.nesting_rules = require("neotree-file-nesting-config").nesting_rules
+    if vim.bo.filetype == "cs" then
+      vim.tbl_extend("force", opts.filesystem.commands, {
+        ["add_template"] = function(state)
+          local node = state.tree:get_node()
+          local path = node.type == "directory" and node.path or vim.fs.dirname(node.path)
+          require("easy-dotnet").create_new_item(path, function()
+            require("neo-tree.sources.manager").refresh(state.name)
+          end)
+        end,
+      })
+      vim.tbl_extend("force", opts.filesystem.mappings, {
+        ["a"] = { "show_help", nowait = false, config = { title = "Add", prefix_key = "a" } },
+        ["ae"] = { "add" },
+        ["at"] = { "add_template" },
+      })
+    end
     require("neo-tree").setup(opts)
     require("lsp-file-operations").setup()
   end,

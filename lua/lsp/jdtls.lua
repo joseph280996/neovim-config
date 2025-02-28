@@ -4,8 +4,6 @@ return {
   config = function()
     local get_value_on_os = require("utils.get-values-on-os")
     local jdtls = require("jdtls")
-    local wk = require("which-key")
-
     local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
     local jdtls_path = require("mason-registry").get_package("jdtls"):get_install_path()
     local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
@@ -47,7 +45,7 @@ return {
 
     jdtls.start_or_attach({
       cmd = cmd,
-      capabilities = require("lua.lsp.config.capabilities"),
+      capabilities = require("lsp.config.capabilities"),
       on_attach = function(_, bufnr)
         require("jdtls.dap").setup_dap_main_class_configs()
         jdtls.setup_dap({ hotcodereplace = "auto" })
