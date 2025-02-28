@@ -1,6 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = { "RRethy/nvim-treesitter-endwise" },
+  dependencies = {
+    "RRethy/nvim-treesitter-textsubjects",
+  },
   event = { "BufReadPost", "BufWritePost", "BufNewFile" },
   opts = {
     auto_install = true,
@@ -44,8 +46,16 @@ return {
       enable = true,
       disable = { "python", "css" },
     },
-    endwise = {
+    textsubjects = {
       enable = true,
+      keymaps = {
+        ["."] = "textsubjects-smart",
+        [";"] = "textsubjects-container-outer",
+        ["i;"] = {
+          "textsubjects-container-inner",
+          desc = "Select inside containers (classes, functions, etc.)",
+        },
+      },
     },
   },
   build = ":TSUpdate",
