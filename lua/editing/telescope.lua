@@ -148,7 +148,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>ff",
+      "<leader>fff",
       "<cmd>Telescope find_files<cr>",
       desc = "Files",
       silent = true, -- use `silent` when creating keymaps
@@ -212,7 +212,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>fr",
+      "<leader>ffr",
       "<cmd>Telescope oldfiles<cr>",
       desc = "Open Recent File",
       silent = true, -- use `silent` when creating keymaps

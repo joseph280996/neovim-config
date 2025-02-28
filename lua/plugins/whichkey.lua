@@ -36,6 +36,7 @@ return {
 
       --[[ FIND OPs ]]
       { "<leader>f", group = "Find" },
+      { "<leader>ff", group = "Find Files" },
       { "<leader>g", group = "Git" },
 
       { "<leader>h", group = "Hardtime" },
