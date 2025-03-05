@@ -1,4 +1,4 @@
-local servers = require("utils.constants").servers
+local servers = require("utils.constants.mason_servers")
 return {
   "rshkarin/mason-nvim-lint",
   cmd = { "Mason", "MasonUpdate", "MasonInstallAll", "MasonInstall" },

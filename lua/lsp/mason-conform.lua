@@ -1,4 +1,4 @@
-local servers = require("utils.constants").servers
+local servers = require("utils.constants.mason_servers")
 return {
   "zapling/mason-conform.nvim",
   cmd = { "Mason", "MasonUpdate", "MasonInstallAll", "MasonInstall" },

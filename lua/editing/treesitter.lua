@@ -62,8 +62,8 @@ return {
   config = function(_, opts)
     local ts_configs = require("nvim-treesitter.configs")
     local ts_install = require("nvim-treesitter.install")
-    local get_values_on_os = require("utils.get-values-on-os")
-    ts_install.prefer_git = get_values_on_os({ Window = false, Linux = false }, true)
+
+    ts_install.prefer_git = false
     ts_install.compilers = { "clang", "gcc" }
 
     ts_configs.setup(opts)

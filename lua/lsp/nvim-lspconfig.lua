@@ -1,4 +1,4 @@
-local lsp_servers = require("utils.constants").servers.lsp
+local lsp_servers = require("utils.constants.mason_servers").lsp
 local lsp_keymaps = require("lsp.config.keymap")
 
 return {

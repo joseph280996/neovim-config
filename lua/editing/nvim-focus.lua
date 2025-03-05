@@ -1,3 +1,5 @@
+local ignores = require("utils.constants.ignores")
+
 return {
   "nvim-focus/focus.nvim",
   version = "*",
@@ -9,15 +11,13 @@ return {
   },
   config = function()
     require("focus").setup()
-    local constants = require("utils.constants")
-
     local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
 
     vim.api.nvim_create_autocmd("WinEnter", {
       group = augroup,
       desc = "Disable focus autoresize for BufType",
       callback = function(_)
-        if vim.tbl_contains(constants.ignore_buftypes, vim.bo.buftype) then
+        if vim.tbl_contains(ignores.ignore_buftypes, vim.bo.buftype) then
           vim.w.focus_disable = true
         else
           vim.w.focus_disable = false
@@ -29,7 +29,7 @@ return {
       group = augroup,
       desc = "Disable focus autoresize for FileType",
       callback = function(_)
-        if vim.tbl_contains(constants.ignore_filetypes, vim.bo.filetype) then
+        if vim.tbl_contains(ignores.ignore_filetypes, vim.bo.filetype) then
           vim.b.focus_disable = true
         else
           vim.b.focus_disable = false

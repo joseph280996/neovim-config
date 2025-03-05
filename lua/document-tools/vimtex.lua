@@ -1,5 +1,13 @@
 local get_values_on_os = require("utils.get-values-on-os")
-local system_name = require("utils.constants").os_name
+local constants = require("utils.constants")
+
+local function set_vimtex_viewer()
+  vim.g.vimtex_view_general_viewer = "SumatraPDF.exe"
+  vim.g.vimtex_view_general_options = get_values_on_os({
+    [constants.WINDOW] = "-reuse-instance -forward-search @tex @line @pdf",
+    [constants.LINUX] = nil,
+  }, true)
+end
 
 return {
   -- LaTex
@@ -19,15 +27,13 @@ return {
       vim.opt[setting] = value
     end
 
-    local os_name = vim.loop.os_uname().sysname
+    local set_vimtex_viewer_fn = get_values_on_os({
+      [constants.WINDOW] = set_vimtex_viewer,
+      [constants.LINUX] = set_vimtex_viewer,
+      [constants.DARWIN] = constants.NOOP,
+    })
 
-    if os_name == system_name.Window or os_name == system_name.Linux then
-      vim.g.vimtex_view_general_viewer = "SumatraPDF.exe"
-      vim.g.vimtex_view_general_options = get_values_on_os(
-        { Window = "-reuse-instance -forward-search @tex @line @pdf", Linux = nil },
-        true
-      )
-    end
+    set_vimtex_viewer_fn()
 
     vim.g.vimtex_compiler_method = "latexmk"
   end,

@@ -53,8 +53,10 @@ return {
       use_libuv_file_watcher = true,
       window = {
         mappings = {
-          ["S"] = "split_with_window_picker",
-          ["s"] = "vsplit_with_window_picker",
+          ["s"] = "open_vsplit",
+          ["S"] = "open_split",
+          ["<C-s>"] = "vsplit_with_window_picker",
+          ["<C-S>"] = "split_with_window_picker",
         },
       },
     },

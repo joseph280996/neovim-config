@@ -1,4 +1,5 @@
-local ensured_install = require("utils.constants").dap
+local servers = require("utils.constants.mason_servers")
+
 return {
   "jay-babu/mason-nvim-dap.nvim",
   dependencies = {
@@ -7,7 +8,7 @@ return {
   cmd = { "Mason", "MasonUpdate", "MasonInstallAll", "MasonInstall" },
   config = function()
     require("mason-nvim-dap").setup({
-      ensure_installed = ensured_install,
+      ensure_installed = servers.dap,
     })
   end,
 }

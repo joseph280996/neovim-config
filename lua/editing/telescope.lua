@@ -1,4 +1,4 @@
-local icons = require("utils.constants").icons
+local icons = require("utils.constants.icons")
 
 return {
   "nvim-telescope/telescope.nvim",

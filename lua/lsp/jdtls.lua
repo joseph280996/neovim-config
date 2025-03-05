@@ -1,3 +1,4 @@
+local constants = require("utils.constants")
 return {
   "mfussenegger/nvim-jdtls",
   ft = "java",
@@ -17,7 +18,7 @@ return {
 
     local function get_config_dir()
       return get_value_on_os(
-        { Window = "config_win", Linux = "config_linux", MacOS = "config_mac" },
+        { [constants.WINDOW] = "config_win", [constants.LINUX] = "config_linux", [constants.DARWIN] = "config_mac" },
         false
       )
     end

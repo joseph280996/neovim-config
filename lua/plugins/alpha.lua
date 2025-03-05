@@ -1,4 +1,5 @@
 local get_values_on_os = require("utils.get-values-on-os")
+local constants = require("utils.constants")
 local headers = {
   signature = {
     [[                                                                                          +=+++                          ]],
@@ -111,7 +112,7 @@ return {
       return b
     end
 
-    local icons = require("utils.constants").icons
+    local icons = require("utils.constants.icons")
 
     dashboard.section.header.val = headers.proud_cat
     dashboard.section.buttons.val = {
@@ -128,8 +129,8 @@ return {
         "c",
         icons.ui.Gear .. "  Config",
         get_values_on_os({
-          Window = ":e ~/AppData/Local/nvim/init.lua <CR>",
-          Linux = ":e ~/.config/nvim/init.lua <CR>",
+          [constants.WINDOW] = ":e ~/AppData/Local/nvim/init.lua <CR>",
+          [constants.LINUX] = ":e ~/.config/nvim/init.lua <CR>",
         }, true)
       ),
       button("P", icons.ui.Package .. "  Packages", "<cmd>Lazy<cr>"),

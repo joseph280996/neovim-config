@@ -1,4 +1,4 @@
-local icons = require("utils.constants").icons
+local icons = require("utils.constants.icons")
 return {
   "b0o/incline.nvim",
   event = { "BufReadPost", "BufWritePost", "InsertLeave" },
