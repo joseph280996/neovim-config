@@ -30,13 +30,14 @@ return {
       },
     },
     spec = {
-      {"<leader><leader>", group = "Layer 2"},
+      { "<leader><leader>", group = "Layer 2" },
       --[[ BUFFER OPEARTION ]]
       { "<leader>b", group = "Buffer" },
       { "<leader>bx", "<cmd>bdelete!<CR>", desc = "Close Buffer" },
 
       --[[ FIND OPs ]]
       { "<leader>f", group = "Find" },
+      { "<leader>ff", group = "Find files" },
       { "<leader>g", group = "Git" },
       {
         "<leader>gb",
