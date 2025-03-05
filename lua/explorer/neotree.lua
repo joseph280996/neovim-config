@@ -23,7 +23,7 @@ return {
     default_component_configs = {
       indent = {
         -- expander config, needed for nesting files
-        with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+        with_expanders = true, -- If nil and file nesting is enabled, will enable expanders
         expander_collapsed = "",
         expander_expanded = "",
       },
