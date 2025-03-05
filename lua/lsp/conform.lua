@@ -5,6 +5,7 @@ return {
   opts = {
     -- Define your formatters
     formatters_by_ft = {
+      json = { "prettier" },
       lua = { "stylua" },
       c = { "clang-format" },
       python = { "ruff_format" },
