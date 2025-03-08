@@ -3,12 +3,6 @@ local function get_bindings(filetype)
   local common_keymap = {
     {
       mode = "n",
-      lhs = "gD",
-      rhs = "<cmd>lua vim.lsp.buf.declaration()<CR>",
-      opts = { desc = "Go to Declaration" },
-    },
-    {
-      mode = "n",
       lhs = "<leader>li",
       rhs = "<cmd>LspInfo<cr>",
       opts = { desc = "Open LSP Info" },
@@ -24,24 +18,6 @@ local function get_bindings(filetype)
       lhs = "<leader>lca",
       rhs = "<cmd>lua vim.lsp.buf.code_action()<cr>",
       opts = { desc = "Open Code Action" },
-    },
-    {
-      mode = "n",
-      lhs = "gl",
-      rhs = "<cmd>lua vim.diagnostic.open_float()<CR>",
-      opts = { desc = "Open Diagnostic Float" },
-    },
-    {
-      mode = "n",
-      lhs = "<leader>ldj",
-      rhs = "<cmd>lua vim.diagnostic.goto_next()<cr>",
-      opts = { desc = "Next Diagnostic" },
-    },
-    {
-      mode = "n",
-      lhs = "<leader>ldk",
-      rhs = "<cmd>lua vim.diagnostic.goto_prev()<cr>",
-      opts = { desc = "Prev Diagnostic" },
     },
     {
       mode = "n",
@@ -66,24 +42,6 @@ local function get_bindings(filetype)
       lhs = "<leader>lff",
       rhs = "<cmd>lua require('lsp.config.formatter')()<cr>",
       opts = { desc = "File Format" },
-    },
-    {
-      mode = "n",
-      lhs = "gd",
-      rhs = "<cmd>lua vim.lsp.buf.definition()<CR>",
-      opts = { desc = "Go To Definition" },
-    },
-    {
-      mode = "n",
-      lhs = "gI",
-      rhs = "<cmd>lua vim.lsp.buf.implementation()<CR>",
-      opts = { desc = "Go To Implementation" },
-    },
-    {
-      mode = "n",
-      lhs = "gr",
-      rhs = "<cmd>lua vim.lsp.buf.references()<CR>",
-      opts = { desc = "Go To References" },
     },
   }
 

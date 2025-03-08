@@ -116,15 +116,15 @@ return {
 
     dashboard.section.header.val = headers.proud_cat
     dashboard.section.buttons.val = {
-      button("f", icons.documents.Files .. "  Find file", ":Telescope find_files <CR>"),
+      button("f", icons.documents.Files .. "  Find file", ":lua Snacks.picker.files() <CR>"),
       button("e", icons.ui.NewFile .. "  New file", ":ene <BAR> startinsert <CR>"),
       button(
         "p",
         icons.git.Repo .. "  Find project",
         ":lua require('telescope').extensions.projects.projects()<CR>"
       ),
-      button("r", icons.ui.History .. "  Recent files", ":Telescope oldfiles <CR>"),
-      button("t", icons.ui.List .. "  Find text", ":Telescope live_grep <CR>"),
+      button("r", icons.ui.History .. "  Recent files", ":lua Snacks.picker.recent() <CR>"),
+      button("t", icons.ui.List .. "  Find text", ":lua Snacks.picker.grep() <CR>"),
       button(
         "c",
         icons.ui.Gear .. "  Config",
