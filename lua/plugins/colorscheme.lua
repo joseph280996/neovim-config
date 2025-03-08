@@ -1,5 +1,6 @@
 return {
   "rebelot/kanagawa.nvim",
+  commit = "a0ec3b7048a1dd3fc3c9e0639921f22c9470b1e8",
   opts = {
     compile = false, -- enable compiling the colorscheme
     undercurl = false, -- enable undercurls
