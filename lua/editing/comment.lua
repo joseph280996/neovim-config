@@ -19,7 +19,7 @@ return {
   },
   keys = {
     {
-      "<leader>cc",
+      "gcc",
       "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>",
       mode = "n",
       desc = "Linewise Toggle Commenting",
@@ -28,7 +28,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>cb",
+      "gcb",
       toggle_bwcomment_selection,
       mode = "v",
       desc = "Blockwise Toggle",
@@ -37,7 +37,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>cl",
+      "gcl",
       toggle_lwcomment_selection,
       mode = "v",
       desc = "Linewise Toggle",
