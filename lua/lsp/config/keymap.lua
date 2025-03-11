@@ -19,15 +19,9 @@ local common_keymap = {
   },
   {
     mode = "n",
-    lhs = "<leader>lca",
+    lhs = "<leader>la",
     rhs = "<cmd>lua vim.lsp.buf.code_action()<cr>",
     opts = { desc = "Open Code Action" },
-  },
-  {
-    mode = "n",
-    lhs = "<leader>ls",
-    rhs = "<cmd>lua vim.lsp.buf.signature_help()<CR>",
-    opts = { desc = "Display func signature" },
   },
   {
     mode = "n",
