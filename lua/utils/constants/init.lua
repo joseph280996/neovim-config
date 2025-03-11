@@ -1,7 +1,9 @@
 return {
   DARWIN = "Darwin",
-  WINDOW = "Window_NT",
+  WINDOW = "Windows_NT",
   LINUX = "Linux",
 
   NOOP = function() end,
+
+  KEYBINDING_OPTS = { noremap = true, silent = true }
 }
