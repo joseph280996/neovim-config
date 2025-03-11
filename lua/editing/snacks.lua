@@ -48,7 +48,10 @@ return {
     {
       "<leader>ff",
       function()
-        Snacks.picker.smart({ layout = { preset = "vscode", preview = "main" } })
+        Snacks.picker.smart({
+          layout = { preset = "vscode", preview = "main" },
+          filter = { cwd = true },
+        })
       end,
       desc = "Files",
       silent = true, -- use `silent` when creating keymaps
