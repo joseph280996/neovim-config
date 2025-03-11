@@ -20,7 +20,6 @@ return {
       enabled = true,
       matcher = {
         cwd_bonus = true,
-        frecency = true,
       },
     },
   },
@@ -118,7 +117,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>fr",
+      "<leader>fR",
       function()
         Snacks.picker.registers()
       end,
@@ -170,7 +169,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "gI",
+      "gri",
       function()
         Snacks.picker.lsp_implementations()
       end,
@@ -180,7 +179,7 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "gr",
+      "grr",
       function()
         Snacks.picker.lsp_references()
       end,

@@ -7,7 +7,7 @@ return {
   dependencies = {
     "williamboman/mason.nvim", -- Simple to use LSP installer
     "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
-    "saghen/blink.cmp"
+    "saghen/blink.cmp",
   },
   config = function()
     local lspconfig = require("lspconfig")
