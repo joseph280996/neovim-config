@@ -28,6 +28,10 @@ local options = {
   tabstop = 2,
   shiftwidth = 2,
   cmdheight = 0,
+
+  -- {{ Split Config }}
+  splitbelow = true,
+  splitright = true,
 }
 
 for setting, value in pairs(options) do

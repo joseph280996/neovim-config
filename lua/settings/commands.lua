@@ -51,3 +51,5 @@ end, {
   nargs = 1,
   complete = "file",
 })
+
+vim.cmd([[ au TabLeave * let g:lasttab = tabpagenr() ]])

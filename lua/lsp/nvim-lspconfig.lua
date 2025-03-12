@@ -1,5 +1,6 @@
 local lsp_servers = require("utils.constants.mason_servers").lsp
 local lsp_keymaps = require("lsp.config.keymap")
+local keymaps_setter = require("utils.keymaps_setter")
 
 return {
   "neovim/nvim-lspconfig", -- Native LSP
@@ -7,16 +8,12 @@ return {
   dependencies = {
     "williamboman/mason.nvim", -- Simple to use LSP installer
     "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
-    "saghen/blink.cmp"
+    "saghen/blink.cmp",
   },
   config = function()
     local lspconfig = require("lspconfig")
 
     local opts = {}
-
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-      border = "rounded",
-    })
 
     vim.lsp.inlay_hint.enable(true)
     local servers = {}
@@ -29,7 +26,7 @@ return {
             client.server_capabilities.hoverProvider = false
           end
 
-          lsp_keymaps(bufnr)
+          keymaps_setter(bufnr, lsp_keymaps)
         end,
         capabilities = require("lsp.config.capabilities"),
       }

@@ -118,21 +118,9 @@ return {
     dashboard.section.buttons.val = {
       button("f", icons.documents.Files .. "  Find file", ":lua Snacks.picker.files() <CR>"),
       button("e", icons.ui.NewFile .. "  New file", ":ene <BAR> startinsert <CR>"),
-      button(
-        "p",
-        icons.git.Repo .. "  Find project",
-        ":lua require('telescope').extensions.projects.projects()<CR>"
-      ),
+      button("p", icons.git.Repo .. "  Find project", ":lua Snacks.picker.projects()"),
       button("r", icons.ui.History .. "  Recent files", ":lua Snacks.picker.recent() <CR>"),
       button("t", icons.ui.List .. "  Find text", ":lua Snacks.picker.grep() <CR>"),
-      button(
-        "c",
-        icons.ui.Gear .. "  Config",
-        get_values_on_os({
-          [constants.WINDOW] = ":e ~/AppData/Local/nvim/init.lua <CR>",
-          [constants.LINUX] = ":e ~/.config/nvim/init.lua <CR>",
-        }, true)
-      ),
       button("P", icons.ui.Package .. "  Packages", "<cmd>Lazy<cr>"),
       button("q", icons.ui.SignOut .. "  Quit", ":qa<CR>"),
     }
