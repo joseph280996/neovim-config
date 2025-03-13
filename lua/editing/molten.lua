@@ -14,7 +14,7 @@ return {
   end,
   keys = {
     {
-      "<leader>mip",
+      "<leader>mi",
       "<cmd>MoltenInit<cr>",
       desc = "Initialize Python",
       mode = "n",

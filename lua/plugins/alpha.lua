@@ -1,5 +1,3 @@
-local get_values_on_os = require("utils.get-values-on-os")
-local constants = require("utils.constants")
 local headers = {
   signature = {
     [[                                                                                          +=+++                          ]],
@@ -116,11 +114,11 @@ return {
 
     dashboard.section.header.val = headers.proud_cat
     dashboard.section.buttons.val = {
-      button("f", icons.documents.Files .. "  Find file", ":lua Snacks.picker.files() <CR>"),
-      button("e", icons.ui.NewFile .. "  New file", ":ene <BAR> startinsert <CR>"),
       button("p", icons.git.Repo .. "  Find project", ":lua Snacks.picker.projects() <CR>"),
       button("r", icons.ui.History .. "  Recent files", ":lua Snacks.picker.recent() <CR>"),
+      button("f", icons.documents.Files .. "  Find file", ":lua Snacks.picker.files() <CR>"),
       button("t", icons.ui.List .. "  Find text", ":lua Snacks.picker.grep() <CR>"),
+      button("e", icons.ui.NewFile .. "  New file", ":ene <BAR> startinsert <CR>"),
       button("P", icons.ui.Package .. "  Packages", "<cmd>Lazy<cr>"),
       button("q", icons.ui.SignOut .. "  Quit", ":qa<CR>"),
     }

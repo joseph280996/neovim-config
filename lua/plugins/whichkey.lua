@@ -53,6 +53,7 @@ return {
 
       { "<leader>u", group = "Utilities" },
       { "<leader>uk", group = "Kulala" },
+      { "<leader>ut", group = "Tab Related" },
 
       { "<leader>x", group = "Explorer" },
       { "<leader>m", group = "Molten" },
@@ -83,6 +84,9 @@ return {
       { "<leader>pu", "<cmd>Lazy <cr>", desc = "Open Lazy Screen" },
       { "<leader>ph", "<cmd>Lazy health<cr>", desc = "Health" },
       { "<leader>pm", "<cmd>Mason<cr>", desc = "Open Mason" },
+
+      --[[ Notes ]]
+      { "<leader>z", group = "Notes" },
     },
   },
   config = function(_, opts)
