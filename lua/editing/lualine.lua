@@ -7,9 +7,8 @@ local function show_macro_recording()
   end
 end
 
--- Statusline
 return {
-  "christianchiarulli/lualine.nvim",
+  "nvim-lualine/lualine.nvim",
   event = { "BufReadPost", "BufWritePost", "InsertLeave" },
   dependencies = {
     "kyazdani42/nvim-web-devicons",
@@ -25,56 +24,47 @@ return {
       component_separators = { left = "", right = "" },
       section_separators = { left = " ", right = " " },
       disabled_filetypes = { "alpha", "dashboard" },
+      always_show_tabline = true,
     },
     sections = {
       lualine_a = {
         "mode",
       },
       lualine_b = {
-        {
-          "macro-recording",
-          fmt = show_macro_recording,
-        },
-        {
-          "filename",
-          file_status = true,
-          path = 1,
-        },
+        { "searchcount" },
+        { "macro-recording", fmt = show_macro_recording },
       },
-      lualine_c = { "branch" },
-      lualine_x = {},
+      lualine_c = { "branch", "diff" },
+      lualine_x = { "filesize" },
       lualine_y = { "encoding", "fileformat", "filetype" },
       lualine_z = { "location" },
+    },
+    tabline = {
+      lualine_a = {
+        {
+          "tabs",
+          mode = 2,
+        },
+      },
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = { "branch" },
     },
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
-      lualine_c = { "filename" },
-      lualine_x = { "location" },
-      lualine_y = {},
-      lualine_z = {},
-    },
-  },
-  tabline = {
-    {
-      lualine_a = {
-        "mode",
-      },
-      lualine_b = {
-        {
-          "macro-recording",
-          fmt = show_macro_recording,
-        },
-        {
-          "filename",
-          file_status = true,
-          path = 1,
-        },
-      },
-      lualine_c = { "branch" },
-      lualine_x = {},
+      lualine_c = {},
+      lualine_x = { "filesize" },
       lualine_y = { "encoding", "fileformat", "filetype" },
       lualine_z = { "location" },
+    },
+    extensions = {
+      "neo-tree",
+      "aerial",
+      "trouble",
+      "lazy",
     },
   },
 }
