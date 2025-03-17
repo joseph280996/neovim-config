@@ -120,7 +120,7 @@ return {
   keys = {
     {
       "<leader>xf",
-      "<cmd>Neotree filesystem reveal left toggle",
+      "<cmd>Neotree filesystem reveal left toggle<cr>",
       desc = "Open/Focus on the Explorer",
       mode = "n", -- NORMAL mode
       silent = true, -- use `silent` when creating keymaps
