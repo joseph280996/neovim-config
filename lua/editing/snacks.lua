@@ -69,16 +69,6 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     },
     {
-      "<leader>fs",
-      function()
-        Snacks.picker.lsp_symbols({ layout = { preset = "vscode", preview = "main" } })
-      end,
-      desc = "LSP Symbols",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
       "<leader>fS",
       function()
         Snacks.picker.lsp_workspace_symbols()
