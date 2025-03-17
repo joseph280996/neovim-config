@@ -39,19 +39,6 @@ return {
       lualine_y = { "encoding", "fileformat", "filetype" },
       lualine_z = { "location" },
     },
-    tabline = {
-      lualine_a = {
-        {
-          "tabs",
-          mode = 2,
-        },
-      },
-      lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = { "branch" },
-    },
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
