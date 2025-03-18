@@ -5,5 +5,5 @@ return {
 
   NOOP = function() end,
 
-  KEYBINDING_OPTS = { noremap = true, silent = true }
+  KEYBINDING_OPTS = { noremap = true, silent = true, nowait = true }
 }
