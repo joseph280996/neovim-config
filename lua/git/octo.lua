@@ -1,3 +1,5 @@
+local constants = require("utils.constants")
+
 return {
   "pwntester/octo.nvim",
   dependencies = {
@@ -242,6 +244,17 @@ return {
       notification = {
         read = { lhs = "<localleader>rn", desc = "mark notification as read" },
       },
+    },
+  },
+  keys = {
+    {
+      "<leader>go",
+      "<cmd>Octo<cr>",
+      mode = "n",
+      desc = "Git Diffview",
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
     },
   },
 }
