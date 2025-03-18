@@ -29,6 +29,10 @@ return {
         return { fg = color, bg = color_utils(color):blend(theme.ui.bg, 0.95):to_hex() }
       end
       return {
+        NormalFloat = { bg = "none" },
+        FloatBorder = { bg = "none" },
+        FloatTitle = { bg = "none" },
+
         DiagnosticVirtualTextHint = makeDiagnosticColor(theme.diag.hint),
         DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
         DiagnosticVirtualTextWarn = makeDiagnosticColor(theme.diag.warning),
