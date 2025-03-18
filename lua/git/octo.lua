@@ -1,4 +1,4 @@
-local constants = require("utils.constants")
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 
 return {
   "pwntester/octo.nvim",
@@ -251,6 +251,6 @@ return {
       "<leader>go",
       "<cmd>Octo<cr>",
       desc = "Git Diffview",
-    }, KEYBINDING_OPTS  ),
+    }, KEYBINDING_OPTS),
   },
 }

@@ -4,9 +4,12 @@ vim.keymap.set("n", "<Space>", "<Nop>", opts)
 
 vim.g.mapleader = " "
 
--- Let 'tl' toggle between this and the last accessed tab
-opts["desc"] = "Toggle last accessed tab"
-vim.api.nvim_set_keymap("n", "<leader>utl", ':exe "tabn ".g:lasttab<CR>', opts)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>utl",
+  ':exe "tabn ".g:lasttab<CR>',
+  vim.tbl_deep_extend("force", opts, { desc = "Toggle last accessed tab" })
+)
 
 vim.cmd([[unmap gra]])
 vim.cmd([[unmap grn]])

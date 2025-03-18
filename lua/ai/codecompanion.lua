@@ -45,13 +45,11 @@ return {
     vim.tbl_deep_extend("force", {
       "<leader><leader>cc",
       "<cmd>CodeCompanionChat Toggle<cr>",
-        
       desc = "Toggle Chat Buffer",
     }, KEYBINDING_OPTS),
     vim.tbl_deep_extend("force", {
       "<leader><leader>cp",
       "<cmd>CodeCompanionActions<cr>",
-        
       desc = "Open Command Palettes",
     }, KEYBINDING_OPTS),
   },
