@@ -31,7 +31,7 @@ return {
         "mode",
       },
       lualine_b = {
-        { "searchcount" },
+        "searchcount",
         { "macro-recording", fmt = show_macro_recording },
       },
       lualine_c = { "branch", "diff" },
@@ -40,7 +40,9 @@ return {
       lualine_z = { "location" },
     },
     inactive_sections = {
-      lualine_a = {},
+      lualine_a = {
+        "mode",
+      },
       lualine_b = {},
       lualine_c = {},
       lualine_x = { "filesize" },
