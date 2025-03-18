@@ -1,3 +1,5 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+
 local virt_handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}
   local suffix = (" 󰁂 %d "):format(endLnum - lnum)
@@ -47,34 +49,22 @@ return {
     require("ufo").setup(opts)
   end,
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "zr",
       "<cmd>lua require('ufo').openFoldsExceptKinds()<cr>",
-      mode = "n",
       desc = "Open Folds Except Kinds",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "zm",
       "<cmd>lua require('ufo').closeFoldsWith()<cr>",
-      mode = "n",
       desc = "Close Folds With",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "zR",
       "<cmd>lua require('ufo').openAllFolds()<cr>",
-      mode = "n",
       desc = "Open All Folds",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "K",
       function()
         local winId = require("ufo").peekFoldedLinesUnderCursor()
@@ -82,20 +72,12 @@ return {
           vim.lsp.buf.hover()
         end
       end,
-      mode = "n",
       desc = "Toggle Lsp Hover",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "zM",
       "<cmd>lua require('ufo').closeAllFolds()<cr>",
-      mode = "n",
       desc = "Close All Folds",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
+    }, KEYBINDING_OPTS),
   },
 }

@@ -1,3 +1,5 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+
 return {
   "zk-org/zk-nvim",
   config = function()
@@ -13,51 +15,31 @@ return {
     })
   end,
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>zn",
       "<cmd>ZkNew { title = vim.fn.input('Title: ')}<cr>",
       desc = "Create new file with name",
-      mode = "n",
-      noremap = true,
-      nowait = true,
-      silent = true,
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>zo",
       "<Cmd>ZkNotes { sort = { 'modified' } }<CR>",
       desc = "Open Notes picker",
-      mode = "n",
-      noremap = true,
-      nowait = true,
-      silent = true,
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>zt",
       "<cmd>ZkTags<cr>",
       desc = "Open Notes picker associated with selected tags",
-      mode = "n",
-      noremap = true,
-      nowait = true,
-      silent = true,
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>zf",
       "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>",
       desc = "Search for notes matching a given query",
-      mode = "n",
-      noremap = true,
-      nowait = true,
-      silent = true,
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>zf",
       ":'<,'>ZkMatch<CR>",
       desc = "Search for notes matching a given query",
       mode = "x",
-      noremap = true,
-      nowait = true,
-      silent = true,
-    },
-
+    }, KEYBINDING_OPTS),
   },
 }

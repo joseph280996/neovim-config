@@ -1,3 +1,5 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+
 local headers = {
   signature = {
     [[                                                                                          +=+++                          ]],
@@ -148,14 +150,10 @@ return {
     alpha.setup(dashboard.opts)
   end,
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>;",
       "<cmd>Alpha<cr>",
       desc = "Alpha",
-      mode = "n",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
+    }, KEYBINDING_OPTS  ),
   },
 }

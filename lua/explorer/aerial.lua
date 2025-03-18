@@ -1,3 +1,4 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 return {
   {
     "stevearc/aerial.nvim",
@@ -40,41 +41,28 @@ return {
       require("aerial").setup(opts)
     end,
     keys = {
-      {
+      vim.tbl_deep_extend("force", {
         "<leader>xo",
         "<cmd>AerialToggle!<cr>",
         desc = "Outline",
-        mode = "n", -- NORMAL mode
-        silent = true, -- use `silent` when creating keymaps
-        noremap = true, -- use `noremap` when creating keymaps
-        nowait = true, -- use `nowait` when creating keymaps
-      },
-      {
+      }, KEYBINDING_OPTS  ),
+      vim.tbl_deep_extend("force", {
         "<leader>fs",
         function()
           require("aerial").snacks_picker({ layout = { preset = "vscode", preview = false } })
         end,
         desc = "LSP Symbols",
-        silent = true, -- use `silent` when creating keymaps
-        noremap = true, -- use `noremap` when creating keymaps
-        nowait = true, -- use `nowait` when creating keymaps
-      },
-      {
+      }, KEYBINDING_OPTS  ),
+      vim.tbl_deep_extend("force", {
         "]s",
         "<cmd>AerialNext<cr>",
         desc = "Next Symbols",
-        silent = true, -- use `silent` when creating keymaps
-        noremap = true, -- use `noremap` when creating keymaps
-        nowait = true, -- use `nowait` when creating keymaps
-      },
-      {
+      }, KEYBINDING_OPTS  ),
+      vim.tbl_deep_extend("force", {
         "]s",
         "<cmd>AerialPrev<cr>",
         desc = "Previous Symbols",
-        silent = true, -- use `silent` when creating keymaps
-        noremap = true, -- use `noremap` when creating keymaps
-        nowait = true, -- use `nowait` when creating keymaps
-      },
+      }, KEYBINDING_OPTS  ),
     },
   },
 }

@@ -1,3 +1,5 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+
 -- Magma
 return {
   "benlubas/molten-nvim",
@@ -13,104 +15,61 @@ return {
     vim.g.molten_split_size = 20
   end,
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>mi",
       "<cmd>MoltenInit<cr>",
       desc = "Initialize Python",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>meo",
       "<cmd>MoltenEvaluateOperator<cr>",
       desc = "Evaluate Operator",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>mel",
       "<cmd>MoltenEvaluateLine<cr>",
       desc = "Evaluate Whole Line",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>mec",
       "<cmd>MoltenReevaluateCell<cr>",
       desc = "Reevaluate Current Cell",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>md",
       "<cmd>MoltenDelete<cr>",
       desc = "Delete Active Cell",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>mo",
       "<cmd>MoltenEnterOutput<cr>",
       desc = "Show Output",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>ms",
       "<cmd>MoltenSave<cr>",
       desc = "Save Cell Output",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>ml",
       "<cmd>MoltenLoad<cr>",
       desc = "Load Cell Output",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>me",
       "<cmd>MoltenEvaluateVisual<cr>",
       desc = "Evaluate Selection",
       mode = "v",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>mcn",
       "<cmd>MoltenNext<cr>",
       desc = "Go to next cell",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>mcp",
       "<cmd>MoltenPrev<cr>",
       desc = "Go to previous cell",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
+    }, KEYBINDING_OPTS),
   },
 }

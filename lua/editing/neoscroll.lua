@@ -1,3 +1,5 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+
 return {
   "karb94/neoscroll.nvim",
   config = function()
@@ -14,101 +16,71 @@ return {
     })
   end,
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<C-u>",
       "<cmd>lua require('neoscroll').ctrl_u({duration = 500, easing='sine'})<cr>",
-      mode = "n",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
+      desc = "Scroll half a screen up",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<C-u>",
       "<cmd>lua require('neoscroll').ctrl_u({duration = 500, easing='sine'})<cr>",
       mode = "v",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
+      desc = "Scroll half a screen up",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<C-d>",
       "<cmd>lua require('neoscroll').ctrl_d({duration = 500, easing='sine'})<cr>",
-      mode = "n",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
+      desc = "Scroll half a screen down",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<C-d>",
       "<cmd>lua require('neoscroll').ctrl_d({duration = 500, easing='sine'})<cr>",
       mode = "v",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
+      desc = "Scroll half a screen down",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<C-b>",
       "<cmd>lua require('neoscroll').ctrl_b({duration = 1000, easing='sine'})<cr>",
-      mode = "n",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
+      desc = "Scoll a page up",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<C-b>",
       "<cmd>lua require('neoscroll').ctrl_b({duration = 1000, easing='sine'})<cr>",
       mode = "v",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
+      desc = "Scroll a page up",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<C-f>",
       "<cmd>lua require('neoscroll').ctrl_f({duration = 1000, easing='sine'})<cr>",
-      mode = "n",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
+      desc = "Scroll a page down",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<C-f>",
       "<cmd>lua require('neoscroll').ctrl_f({duration = 1000, easing='sine'})<cr>",
       mode = "v",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
+      desc = "Scroll a page down",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<C-y>",
       "<cmd>lua require('neoscroll').scroll(-0.1, {move_cursor = false; duration = 100})<cr>",
-      mode = "n",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
+      desc = "Scroll a line up",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<C-y>",
       "<cmd>lua require('neoscroll').scroll(-0.1, {move_cursor = false; duration = 100})<cr>",
       mode = "v",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
+      desc = "Scroll a line up",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<C-e>",
       "<cmd>lua require('neoscroll').scroll(0.1, {move_cursor = false; duration = 100})<cr>",
-      mode = "n",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
-    {
+      desc = "Scroll a line down",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<C-e>",
       "<cmd>lua require('neoscroll').scroll(0.1, {move_cursor = false; duration = 100})<cr>",
       mode = "v",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
+      desc = "Scroll a line down",
+    }, KEYBINDING_OPTS),
   },
 }

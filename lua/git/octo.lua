@@ -247,14 +247,10 @@ return {
     },
   },
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>go",
       "<cmd>Octo<cr>",
-      mode = "n",
       desc = "Git Diffview",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
+    }, KEYBINDING_OPTS  ),
   },
 }

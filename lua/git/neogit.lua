@@ -1,3 +1,4 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 return {
   "NeogitOrg/neogit",
   dependencies = {
@@ -16,14 +17,10 @@ return {
     }
   },
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>gg",
       "<cmd>Neogit<cr>",
       desc = "Open Git UI",
-      mode = "n",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
+    }, KEYBINDING_OPTS  ),
   },
 }

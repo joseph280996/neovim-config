@@ -47,27 +47,21 @@ return {
   },
   keys = {
     -- Find
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>fb",
       function()
         Snacks.picker.buffers()
       end,
       desc = "Buffers",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>fc",
       function()
         Snacks.picker.commands()
       end,
       desc = "Commands",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>ff",
       function()
         Snacks.picker.smart({
@@ -76,132 +70,93 @@ return {
         })
       end,
       desc = "Files",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>fk",
       function()
         Snacks.picker.keymaps()
       end,
       desc = "Keymaps",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>fS",
       function()
         Snacks.picker.lsp_workspace_symbols()
       end,
       desc = "LSP Workspace Symbols",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>ft",
       function()
         Snacks.picker.grep()
       end,
       desc = "Find Text",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>fT",
       function()
         Snacks.picker.grep_buffers()
       end,
       desc = "Find Text in Open Bufferes",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>fw",
       function()
         Snacks.picker.grep_word()
       end,
       mode = { "n", "x" },
       desc = "Find Word under cursor or selection",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>fR",
       function()
         Snacks.picker.registers()
       end,
       desc = "Registers",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>fp",
       function()
         Snacks.picker.projects({ layout = custom_layout })
       end,
       desc = "Find Projects",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>ur",
       function()
         Snacks.picker.resume()
       end,
       desc = "Last Telescope Actions",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
+    }, KEYBINDING_OPTS),
 
     -- LSP
-    {
+    vim.tbl_deep_extend("force", {
       "gd",
       function()
         Snacks.picker.lsp_definitions({ layout = custom_layout })
       end,
       desc = "Go to Definition",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "gD",
       function()
         Snacks.picker.lsp_declarations({ layout = custom_layout })
       end,
       desc = "Go to Declaration",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "gri",
       function()
         Snacks.picker.lsp_implementations()
       end,
       desc = "Go To Implementation",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "grr",
       function()
         Snacks.picker.lsp_references()
       end,
       desc = "Go To References",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
+    }, KEYBINDING_OPTS),
   },
 }

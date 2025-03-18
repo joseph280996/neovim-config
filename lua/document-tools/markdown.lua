@@ -1,3 +1,5 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+
 -- Markdown
 return {
   {
@@ -8,15 +10,11 @@ return {
       vim.fn["mkdp#util#install"]()
     end,
     keys = {
-      {
+      vim.tbl_deep_extend("force", {
         "<leader>um",
         "<cmd>MarkdownPreview<cr>",
         desc = "Preview Markdown",
-        mode = "n",
-        silent = true,
-        noremap = true,
-        nowait = true,
-      },
+      }, KEYBINDING_OPTS),
     },
   },
   {
@@ -52,7 +50,7 @@ return {
         },
         headings = {
           enable = true,
-        }
+        },
       },
     },
   },

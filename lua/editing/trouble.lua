@@ -1,6 +1,9 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+
 return {
   -- Diagnosis
   "folke/trouble.nvim",
+  lazy = false,
   dependencies = {
     "kyazdani42/nvim-web-devicons",
   },
@@ -8,50 +11,30 @@ return {
     auto_close = true,
   },
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>ltd",
       "<cmd>Trouble diagnostics toggle filter.buf=0 win={type=split, position=right}<cr>",
       desc = "Troubles in Buffer",
-      mode = "n", -- NORMAL mode
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>ltf",
       "<cmd>Trouble qflist toggle<cr>",
       desc = "Trouble Quickfix",
-      mode = "n", -- NORMAL mode
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>ltl",
       "<cmd>Trouble loclist toggle<cr>",
       desc = "Trouble in LocList",
-      mode = "n", -- NORMAL mode
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>lto",
       "<cmd>Trouble diagnostics toggle<cr>",
       desc = "Toggle Trouble",
-      mode = "n", -- NORMAL mode
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>ltr",
       "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
       desc = "Trouble LSP refs",
-      mode = "n", -- NORMAL mode
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
+    }, KEYBINDING_OPTS),
   },
 }

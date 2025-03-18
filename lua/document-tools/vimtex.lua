@@ -1,3 +1,5 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+
 local get_values_on_os = require("utils.get-values-on-os")
 local constants = require("utils.constants")
 
@@ -42,32 +44,20 @@ return {
     vim.g.vimtex_compiler_method = "latexmk"
   end,
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>vtc",
       "<cmd>VimtexCompile<cr>",
       desc = "Compile toggle LaTeX document",
-      mode = "n",
-      noremap = true,
-      nowait = true,
-      silent = true,
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>vtt",
       "<cmd>VimtexTocToggle<cr>",
       desc = "Toggle table of content",
-      mode = "n",
-      noremap = true,
-      nowait = true,
-      silent = true,
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>vtx",
       "<cmd>VimtexClean<cr>",
       desc = "Clean LaTeX document",
-      mode = "n",
-      noremap = true,
-      nowait = true,
-      silent = true,
-    },
+    }, KEYBINDING_OPTS),
   },
 }

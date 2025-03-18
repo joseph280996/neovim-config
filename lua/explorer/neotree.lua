@@ -1,3 +1,4 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 return {
   "nvim-neo-tree/neo-tree.nvim",
   cmd = "Neotree",
@@ -118,32 +119,20 @@ return {
     require("neo-tree").setup(opts)
   end,
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>xf",
       "<cmd>Neotree filesystem reveal left toggle<cr>",
       desc = "Open/Focus on the Explorer",
-      mode = "n", -- NORMAL mode
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>xx",
       "<cmd>Neotree close<cr>",
       desc = "Close the Explorer",
-      mode = "n", -- NORMAL mode
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>xb",
       "<cmd>Neotree show buffers reveal<cr>",
       desc = "Explorer Opened Buffers",
-      mode = "n", -- NORMAL mode
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
+    }, KEYBINDING_OPTS),
   },
 }

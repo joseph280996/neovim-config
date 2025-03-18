@@ -1,3 +1,5 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+
 return {
   "shortcuts/no-neck-pain.nvim",
   version = "*",
@@ -22,14 +24,10 @@ return {
     end
   end,
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>bc",
       "<cmd>NoNeckPain<cr>",
       desc = "Focus Center",
-      mode = "n",
-      silent = true,
-      noremap = true,
-      nowait = true,
-    },
+    }, KEYBINDING_OPTS),
   },
 }

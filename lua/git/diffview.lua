@@ -1,3 +1,4 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 return {
   "sindrets/diffview.nvim",
   opts = {
@@ -9,23 +10,15 @@ return {
     },
   },
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>gd",
       "<cmd>DiffviewOpen<cr>",
-      mode = "n",
       desc = "Git Diffview",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS  ),
+    vim.tbl_deep_extend("force", {
       "<leader>gh",
       "<cmd>DiffviewFileHistory<cr>",
-      mode = "n",
       desc = "Git Diffview",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
+    }, KEYBINDING_OPTS  ),
   },
 }

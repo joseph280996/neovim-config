@@ -1,3 +1,4 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 local ignores = require("utils.constants.ignores")
 
 return {
@@ -38,41 +39,25 @@ return {
     })
   end,
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>bh",
       "<cmd>FocusSplitLeft<cr>",
       desc = "Focus Left",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>bj",
       "<cmd>FocusSplitDown<cr>",
       desc = "Focus Down",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>bk",
       "<cmd>FocusSplitUp<cr>",
       desc = "Focus Up",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>bl",
       "<cmd>FocusSplitRight<cr>",
       desc = "Focus Right",
-      mode = "n",
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
+    }, KEYBINDING_OPTS),
   },
 }

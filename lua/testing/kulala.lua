@@ -1,3 +1,5 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+
 return {
   "mistweaverco/kulala.nvim",
   opts = {
@@ -28,23 +30,15 @@ return {
     additional_curl_options = {},
   },
   keys = {
-    {
+    vim.tbl_deep_extend("force", {
       "<leader>ukr",
       "<cmd>lua require('kulala').run()<cr>",
       desc = "Run current request",
-      mode = "n", -- NORMAL mode
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    {
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>uka",
       "<cmd>lua require('kulala').run_all()<cr>",
       desc = "Run all request in current buffer",
-      mode = "n", -- NORMAL mode
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-  }
+    }, KEYBINDING_OPTS),
+  },
 }
