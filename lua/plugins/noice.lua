@@ -11,17 +11,6 @@ return {
     "rcarriga/nvim-notify",
   },
   opts = {
-    views = {
-      cmdline_popup = {
-        position = {
-          col = "50%",
-          row = 0
-        },
-      },
-    },
-    messages = {
-      enabled = false,
-    },
     lsp = {
       signature = {
         enabled = false,
@@ -30,5 +19,8 @@ return {
         enabled = false,
       },
     },
+    presets = {
+      command_palette = true
+    }
   },
 }
