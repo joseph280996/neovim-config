@@ -1,3 +1,25 @@
+local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+local custom_layout = {
+  preview = false,
+  layout = {
+    backdrop = false,
+    row = 1,
+    width = 0.4,
+    min_width = 80,
+    height = 0.4,
+    border = "none",
+    box = "vertical",
+    {
+      win = "input",
+      height = 1,
+      border = "rounded",
+      title = "{title} {live} {flags}",
+      title_pos = "center",
+    },
+    { win = "list", border = "rounded" },
+    { win = "preview", title = "{preview}", border = "rounded" },
+  },
+}
 return {
   "folke/snacks.nvim",
   lazy = false,
@@ -49,7 +71,7 @@ return {
       "<leader>ff",
       function()
         Snacks.picker.smart({
-          layout = { preset = "vscode", preview = "main" },
+          layout = vim.tbl_deep_extend("keep", { preview = "main" }, custom_layout),
           filter = { cwd = true },
         })
       end,
@@ -122,7 +144,7 @@ return {
     {
       "<leader>fp",
       function()
-        Snacks.picker.projects({ layout = { preset = "vscode", preview = "main" } })
+        Snacks.picker.projects({ layout = custom_layout })
       end,
       desc = "Find Projects",
       silent = true, -- use `silent` when creating keymaps
@@ -144,7 +166,7 @@ return {
     {
       "gd",
       function()
-        Snacks.picker.lsp_definitions({ layout = { preset = "vscode" } })
+        Snacks.picker.lsp_definitions({ layout = custom_layout })
       end,
       desc = "Go to Definition",
       silent = true, -- use `silent` when creating keymaps
@@ -154,7 +176,7 @@ return {
     {
       "gD",
       function()
-        Snacks.picker.lsp_declarations({ layout = { preset = "vscode" } })
+        Snacks.picker.lsp_declarations({ layout = custom_layout })
       end,
       desc = "Go to Declaration",
       silent = true, -- use `silent` when creating keymaps
