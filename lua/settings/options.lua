@@ -12,7 +12,6 @@ local options = {
   swapfile = false, -- Disable creation of swap file
   cursorline = true, -- Highlighting current line
   compatible = false,
-  timeoutlen = 1000,
   endofline = false,
 
   -- {{ Fold Config }}
