@@ -158,5 +158,14 @@ return {
       end,
       desc = "Go To References",
     }, KEYBINDING_OPTS),
+
+    -- Utilities
+    vim.tbl_deep_extend("force", {
+      "<leader>uu",
+      function()
+        Snacks.picker.undo()
+      end,
+      desc = "Undo Tree",
+    }, KEYBINDING_OPTS),
   },
 }
