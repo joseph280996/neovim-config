@@ -1,34 +1,35 @@
 local keymaps = {
   {
+    "<leader>jtc",
+    "<cmd>lua require('jdtls').test_clas()<cr>",
     mode = "n",
-    lhs = "<leader>jtc",
-    rhs = "<cmd>lua require('jdtls').test_clas()<cr>",
-    opts = { desc = "Test class" },
+    desc = "Test class",
   },
   {
+    "<leader>jtn",
+    "<cmd>lua require('jdtls').test_nearest_method()<cr>",
     mode = "n",
-    lhs = "<leader>jtn",
-    rhs = "<cmd>lua require('jdtls').test_nearest_method()<cr>",
-    opts = { desc = "Test nearest method" },
+    desc = "Test nearest method",
   },
   {
+    "<leader>jev",
+    "<cmd>lua require('jdtls').extract_variable(true)<cr>",
     mode = "n",
-    lhs = "<leader>jev",
-    rhs = "<cmd>lua require('jdtls').extract_variable(true)<cr>",
-    opts = { desc = "Extract Variables" },
+    desc = "Extract Variables",
   },
   {
+    "<leader>jem",
+    "<cmd>lua require('jdtls').extract_method(true)<cr>",
     mode = "n",
-    lhs = "<leader>jem",
-    rhs = "<cmd>lua require('jdtls').extract_method(true)<cr>",
-    opts = { desc = "Extract Methods" },
+    desc = "Extract Methods",
   },
   {
+    "<leader>ji",
+    "<cmd>lua require('jdtls').organize_imports()<cr>",
     mode = "n",
-    lhs = "<leader>ji",
-    rhs = "<cmd>lua require('jdtls').organize_imports()<cr>",
-    opts = { desc = "Import Organize" },
+    desc = "Import Organize",
   },
 }
 
-require("utils.keymaps_setter")(0, keymaps)
+local wk = require("which-key")
+wk.add(keymaps)
