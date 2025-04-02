@@ -5,10 +5,7 @@ return {
   event = "VeryLazy",
   config = function()
     require("nvim-surround").setup({
-      normal = "s",
-      normal_cur = "ss",
-      normal_line = "S",
-      normal_cur_line = "SS",
+      visual = "gs",
     })
   end,
 }
