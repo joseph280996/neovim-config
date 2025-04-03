@@ -1,3 +1,4 @@
+local icons = require("utils.constants.icons")
 local options = {
   -- {{ Neovim Config }}
   number = true, -- Enable line number
@@ -12,15 +13,17 @@ local options = {
   swapfile = false, -- Disable creation of swap file
   cursorline = true, -- Highlighting current line
   compatible = false,
-  timeoutlen = 1000,
   endofline = false,
 
   -- {{ Fold Config }}
-  foldcolumn = "1",
   foldlevel = 99, -- Unfold on open
   foldlevelstart = 99,
   foldenable = true,
   signcolumn = "yes",
+  foldmethod = "expr",
+  foldexpr = "v:lua.vim.treesitter.foldexpr()",
+  foldtext = "",
+  foldcolumn = "1",
 
   -- {{ Tab Config }}
   expandtab = true,
@@ -37,6 +40,12 @@ local options = {
 for setting, value in pairs(options) do
   vim.opt[setting] = value
 end
+
+vim.opt.fillchars:append({
+  fold = " ",
+  foldclose = icons.ui.ArrowClosed,
+  foldopen = icons.ui.ArrowOpen,
+})
 
 vim.g.python3_host_prog = "python"
 vim.g.loaded_netrw = 1

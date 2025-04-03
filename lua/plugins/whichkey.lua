@@ -4,11 +4,10 @@ return {
     { "echasnovski/mini.icons", version = false },
   },
   event = "VeryLazy",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-  end,
   opts = {
+    delay = function(ctx)
+      return ctx.plugin and 0 or 1000
+    end,
     preset = "modern",
     plugins = {
       marks = true, -- shows a list of your marks on ' and `
@@ -26,7 +25,7 @@ return {
         windows = true, -- default bindings on <c-w>
         nav = true, -- misc bindings to work with windows
         z = true, -- bindings for folds, spelling and others prefixed with z
-        g = false, -- bindings for prefixed with g
+        g = true, -- bindings for prefixed with g
       },
     },
     spec = {
