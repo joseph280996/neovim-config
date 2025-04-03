@@ -22,15 +22,18 @@ local custom_layout = {
 }
 return {
   "folke/snacks.nvim",
+  priority = 1000,
   lazy = false,
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
+    lazygit = { enabled = false },
     bigfile = { enabled = false },
     dashboard = { enabled = false },
     explorer = { enabled = false },
     indent = { enabled = false },
+    image = { enabled = false },
     input = { enabled = false },
     notifier = { enabled = false },
     quickfile = { enabled = false },
