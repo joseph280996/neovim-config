@@ -6,7 +6,7 @@ local constants = require("utils.constants")
 local function set_vimtex_viewer()
   vim.g.vimtex_view_general_viewer = get_values_on_os({
     [constants.WINDOW] = "SumatraPDF.exe",
-    [constants.LINUX] = "~/.config/nvim/scripts/sumatra.fish",
+    [constants.LINUX] = "fish ~/.config/nvim/scripts/sumatra.fish",
   }, true)
 
   vim.g.vimtex_view_general_options = get_values_on_os({
