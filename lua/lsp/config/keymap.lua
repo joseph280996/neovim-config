@@ -1,12 +1,6 @@
 local common_keymap = {
   {
     mode = "n",
-    lhs = "<leader>lr",
-    rhs = "<cmd>lua vim.lsp.buf.rename()<cr>",
-    opts = { desc = "Rename Symbol" },
-  },
-  {
-    mode = "n",
     lhs = "<leader>li",
     rhs = "<cmd>LspInfo<cr>",
     opts = { desc = "Open LSP Info" },
@@ -16,12 +10,6 @@ local common_keymap = {
     lhs = "<leader>lI",
     rhs = "<cmd>LspInstallInfo<cr>",
     opts = { desc = "Open LSP Install Info" },
-  },
-  {
-    mode = "n",
-    lhs = "<leader>la",
-    rhs = "<cmd>lua vim.lsp.buf.code_action()<cr>",
-    opts = { desc = "Open Code Action" },
   },
   {
     mode = "n",

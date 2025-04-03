@@ -10,6 +10,3 @@ vim.api.nvim_set_keymap(
   ':exe "tabn ".g:lasttab<CR>',
   vim.tbl_deep_extend("force", opts, { desc = "Toggle last accessed tab" })
 )
-
-vim.cmd([[unmap gra]])
-vim.cmd([[unmap grn]])
