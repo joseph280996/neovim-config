@@ -1,6 +1,6 @@
 return {
   "igorlfs/nvim-dap-view",
-  opts = true,
+  opts = {},
   keys = {
     {
       "<leader>du",
