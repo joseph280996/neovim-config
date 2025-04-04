@@ -31,7 +31,7 @@ return {
     lazygit = { enabled = false },
     bigfile = { enabled = false },
     dashboard = { enabled = false },
-    explorer = { enabled = false },
+    explorer = { enabled = true },
     indent = { enabled = false },
     image = { enabled = false },
     input = { enabled = false },
@@ -41,14 +41,58 @@ return {
     scroll = { enabled = false },
     statuscolumn = { enabled = false },
     words = { enabled = false },
-    pickers = {
+    picker = {
       enabled = true,
+      sources = {
+        explorer = {
+          layout = {
+            preview = "main",
+            layout = {
+              backdrop = false,
+              width = 40,
+              min_width = 20,
+              height = 0,
+              position = "left",
+              border = "none",
+              box = "vertical",
+              {
+                win = "input",
+                height = 1,
+                border = "rounded",
+                title = "{title} {live} {flags}",
+                title_pos = "center",
+              },
+              { win = "list", border = "none" },
+              { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+            },
+          },
+        },
+        smart = {
+          layout = vim.tbl_deep_extend("keep", { preview = "main" }, custom_layout),
+          filter = { cwd = true },
+        },
+        project = { layout = custom_layout },
+        lsp_definitions = {
+          layout = custom_layout,
+        },
+        lsp_declarations = {
+          layout = custom_layout,
+        },
+      },
       matcher = {
         cwd_bonus = true,
       },
     },
   },
   keys = {
+    vim.tbl_deep_extend("force", {
+      "<leader>xf",
+      function()
+        Snacks.picker.explorer()
+      end,
+      desc = "Open File Explorer",
+    }, KEYBINDING_OPTS),
+
     -- Find
     vim.tbl_deep_extend("force", {
       "<leader>fb",
@@ -67,10 +111,7 @@ return {
     vim.tbl_deep_extend("force", {
       "<leader>ff",
       function()
-        Snacks.picker.smart({
-          layout = vim.tbl_deep_extend("keep", { preview = "main" }, custom_layout),
-          filter = { cwd = true },
-        })
+        Snacks.picker.smart()
       end,
       desc = "Files",
     }, KEYBINDING_OPTS),
@@ -120,7 +161,7 @@ return {
     vim.tbl_deep_extend("force", {
       "<leader>fp",
       function()
-        Snacks.picker.projects({ layout = custom_layout })
+        Snacks.picker.projects()
       end,
       desc = "Find Projects",
     }, KEYBINDING_OPTS),
@@ -136,14 +177,14 @@ return {
     vim.tbl_deep_extend("force", {
       "gd",
       function()
-        Snacks.picker.lsp_definitions({ layout = custom_layout })
+        Snacks.picker.lsp_definitions()
       end,
       desc = "Go to Definition",
     }, KEYBINDING_OPTS),
     vim.tbl_deep_extend("force", {
       "gD",
       function()
-        Snacks.picker.lsp_declarations({ layout = custom_layout })
+        Snacks.picker.lsp_declarations()
       end,
       desc = "Go to Declaration",
     }, KEYBINDING_OPTS),
