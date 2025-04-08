@@ -31,7 +31,10 @@ return {
     lazygit = { enabled = false },
     bigfile = { enabled = false },
     dashboard = { enabled = false },
-    explorer = { enabled = true },
+    explorer = {
+      enabled = true,
+      replace_netrw = false,
+    },
     indent = { enabled = false },
     image = { enabled = false },
     input = { enabled = false },
@@ -45,6 +48,7 @@ return {
       enabled = true,
       sources = {
         explorer = {
+          auto_close = true,
           layout = {
             preview = "main",
             layout = {
@@ -88,7 +92,7 @@ return {
     vim.tbl_deep_extend("force", {
       "<leader>xf",
       function()
-        Snacks.picker.explorer()
+        Snacks.explorer()
       end,
       desc = "Open File Explorer",
     }, KEYBINDING_OPTS),
