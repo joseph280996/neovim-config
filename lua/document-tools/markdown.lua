@@ -19,6 +19,7 @@ return {
   },
   {
     "OXY2DEV/markview.nvim",
+    ft = { "markdown", "md", "Avante" },
     lazy = false,
     enabled = true,
     dependencies = {
@@ -26,7 +27,15 @@ return {
       -- Or if the parsers are in your $RUNTIMEPATH
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
+      "rebelot/kanagawa.nvim",
     },
+    config = function(_, opts)
+      local presets = require("markview.presets")
+      opts.markdown.headings = presets.headings.slanted
+      opts.markdown.horizontal_rules = presets.horizontal_rules.thin
+      opts.markdown.tables = presets.tables.rounded
+      require("markview").setup(opts)
+    end,
     opts = {
       preview = {
         buf_ignore = {},
@@ -51,6 +60,21 @@ return {
         headings = {
           enable = true,
         },
+      },
+      latex = {
+        enable = false,
+      },
+      latex_static = {
+        enable = false,
+      },
+      html = {
+        enable = false,
+      },
+      yaml = {
+        enable = false,
+      },
+      typst = {
+        enable = false,
       },
     },
   },
