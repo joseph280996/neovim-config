@@ -1,4 +1,5 @@
 local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+local icons = require("utils.constants.icons")
 local custom_layout = {
   preview = false,
   layout = {
@@ -20,6 +21,131 @@ local custom_layout = {
     { win = "preview", title = "{preview}", border = "rounded" },
   },
 }
+local picker_conf = {
+  enabled = true,
+  sources = {
+    explorer = {
+      auto_close = true,
+      layout = {
+        preview = "main",
+        layout = {
+          backdrop = false,
+          width = 40,
+          min_width = 20,
+          height = 0,
+          position = "left",
+          border = "none",
+          box = "vertical",
+          {
+            win = "input",
+            height = 1,
+            border = "rounded",
+            title = "{title} {live} {flags}",
+            title_pos = "center",
+          },
+          { win = "list", border = "none" },
+          { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+        },
+      },
+    },
+    smart = {
+      layout = vim.tbl_deep_extend("keep", { preview = "main" }, custom_layout),
+      filter = { cwd = true },
+    },
+    project = { layout = custom_layout },
+    lsp_definitions = {
+      layout = custom_layout,
+    },
+    lsp_declarations = {
+      layout = custom_layout,
+    },
+  },
+  matcher = {
+    cwd_bonus = true,
+  },
+}
+local dashboard_conf = {
+  width = 60,
+  row = nil, -- dashboard position. nil for center
+  col = nil, -- dashboard position. nil for center
+  pane_gap = 4,
+  autokeys = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", -- autokey sequence
+  -- These settings are used by some built-in sections
+  preset = {
+    -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
+    ---@type fun(cmd:string, opts:table)|nil
+    pick = nil,
+    -- Used by the `keys` section to show keymaps.
+    -- Set your custom keymaps here.
+    -- When using a function, the `items` argument are the default keymaps.
+    ---@type snacks.dashboard.Item[]
+    keys = {
+      {
+        icon = icons.git.Repo .. " ",
+        key = "p",
+        desc = "Find Projects",
+        action = ":lua Snacks.dashboard.pick('projects')",
+      },
+      {
+        icon = icons.ui.Search .. " ",
+        key = "f",
+        desc = "Find File",
+        action = ":lua Snacks.dashboard.pick('files')",
+      },
+      { icon = icons.ui.NewFile .. " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+      {
+        icon = icons.ui.List .. " ",
+        key = "g",
+        desc = "Find Text",
+        action = ":lua Snacks.dashboard.pick('live_grep')",
+      },
+      {
+        icon = icons.documents.Files .. " ",
+        key = "r",
+        desc = "Recent Files",
+        action = ":lua Snacks.dashboard.pick('oldfiles')",
+      },
+      {
+        icon = icons.ui.Gear .. " ",
+        key = "c",
+        desc = "Config",
+        action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+      },
+      { icon = icons.ui.SignOut .. " ", key = "q", desc = "Quit", action = ":qa" },
+    },
+    -- Used by the `header` section
+    header = [[
+                                                                   
+      ████ ██████           █████      ██                    
+     ███████████             █████                            
+     █████████ ███████████████████ ███   ███████████  
+    █████████  ███    █████████████ █████ ██████████████  
+   █████████ ██████████ █████████ █████ █████ ████ █████  
+ ███████████ ███    ███ █████████ █████ █████ ████ █████ 
+██████  █████████████████████ ████ █████ █████ ████ ██████]],
+  },
+  -- item field formatters
+  sections = {
+    { section = "header", indent = 2, gap = 1, padding = 1 },
+    { section = "keys", indent = 2, gap = 1, padding = 1 },
+    {
+      icon = icons.documents.File .. " ",
+      title = "Recent Files",
+      section = "recent_files",
+      indent = 2,
+      padding = 1,
+    },
+    { section = "startup" },
+    {
+      pane = 2,
+      section = "terminal",
+      cmd = "chafa C:/Users/josep/OneDrive/Desktop/Wallpaper/60tjwn2tsote1.jpeg --format symbols --symbols vhalf --size 96x27 --stretch",
+      width = 128,
+      height = 36,
+      padding = 1,
+    },
+  },
+}
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -30,7 +156,7 @@ return {
     -- refer to the configuration section below
     lazygit = { enabled = false },
     bigfile = { enabled = false },
-    dashboard = { enabled = false },
+    dashboard = dashboard_conf,
     explorer = {
       enabled = true,
       replace_netrw = false,
@@ -44,49 +170,7 @@ return {
     scroll = { enabled = false },
     statuscolumn = { enabled = false },
     words = { enabled = false },
-    picker = {
-      enabled = true,
-      sources = {
-        explorer = {
-          auto_close = true,
-          layout = {
-            preview = "main",
-            layout = {
-              backdrop = false,
-              width = 40,
-              min_width = 20,
-              height = 0,
-              position = "left",
-              border = "none",
-              box = "vertical",
-              {
-                win = "input",
-                height = 1,
-                border = "rounded",
-                title = "{title} {live} {flags}",
-                title_pos = "center",
-              },
-              { win = "list", border = "none" },
-              { win = "preview", title = "{preview}", height = 0.4, border = "top" },
-            },
-          },
-        },
-        smart = {
-          layout = vim.tbl_deep_extend("keep", { preview = "main" }, custom_layout),
-          filter = { cwd = true },
-        },
-        project = { layout = custom_layout },
-        lsp_definitions = {
-          layout = custom_layout,
-        },
-        lsp_declarations = {
-          layout = custom_layout,
-        },
-      },
-      matcher = {
-        cwd_bonus = true,
-      },
-    },
+    picker = picker_conf,
   },
   keys = {
     vim.tbl_deep_extend("force", {
