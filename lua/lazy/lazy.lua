@@ -32,7 +32,6 @@ return lazy.setup({
     { import = "code-completion" },
     { import = "debug" },
     { import = "document-tools" },
-    { import = "explorer" },
     { import = "git" },
     { import = "lsp" },
     { import = "plugins" },

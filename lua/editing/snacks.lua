@@ -1,50 +1,21 @@
 local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 local icons = require("utils.constants.icons")
 local custom_layout = {
-  preview = false,
+  preset = "vscode",
   layout = {
-    backdrop = false,
-    row = 1,
-    width = 0.4,
-    min_width = 80,
-    height = 0.4,
-    border = "none",
-    box = "vertical",
-    {
-      win = "input",
-      height = 1,
-      border = "rounded",
-      title = "{title} {live} {flags}",
-      title_pos = "center",
-    },
-    { win = "list", border = "rounded" },
-    { win = "preview", title = "{preview}", border = "rounded" },
+    [2] = { win = "list", border = "rounded" },
   },
 }
+
 local picker_conf = {
   enabled = true,
   sources = {
     explorer = {
       auto_close = true,
       layout = {
-        preview = "main",
+        preset = "left",
         layout = {
-          backdrop = false,
-          width = 40,
           min_width = 20,
-          height = 0,
-          position = "left",
-          border = "none",
-          box = "vertical",
-          {
-            win = "input",
-            height = 1,
-            border = "rounded",
-            title = "{title} {live} {flags}",
-            title_pos = "center",
-          },
-          { win = "list", border = "none" },
-          { win = "preview", title = "{preview}", height = 0.4, border = "top" },
         },
       },
     },
@@ -59,11 +30,18 @@ local picker_conf = {
     lsp_declarations = {
       layout = custom_layout,
     },
+    lsp_symbols = {
+      layout = custom_layout,
+      filter = {
+        lua = true,
+      },
+    },
   },
   matcher = {
     cwd_bonus = true,
   },
 }
+
 local dashboard_conf = {
   width = 60,
   row = nil, -- dashboard position. nil for center
@@ -92,7 +70,12 @@ local dashboard_conf = {
         desc = "Find File",
         action = ":lua Snacks.dashboard.pick('files')",
       },
-      { icon = icons.ui.NewFile .. " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+      {
+        icon = icons.ui.NewFile .. " ",
+        key = "n",
+        desc = "New File",
+        action = ":ene | startinsert",
+      },
       {
         icon = icons.ui.List .. " ",
         key = "g",
@@ -146,6 +129,7 @@ local dashboard_conf = {
     },
   },
 }
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -180,6 +164,17 @@ return {
       end,
       desc = "Open File Explorer",
     }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
+      "<leader>xo",
+      function()
+        Snacks.picker.lsp_symbols({
+          layout = {
+            preset = "right",
+          },
+        })
+      end,
+      desc = "Open Symbols Explorer",
+    }, KEYBINDING_OPTS),
 
     -- Find
     vim.tbl_deep_extend("force", {
@@ -209,6 +204,13 @@ return {
         Snacks.picker.keymaps()
       end,
       desc = "Keymaps",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
+      "<leader>fs",
+      function()
+        Snacks.picker.lsp_symbols()
+      end,
+      desc = "LSP Symbols",
     }, KEYBINDING_OPTS),
     vim.tbl_deep_extend("force", {
       "<leader>fS",
