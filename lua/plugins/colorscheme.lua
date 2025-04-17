@@ -24,6 +24,7 @@ return {
     },
     overrides = function(colors) -- add/modify highlights
       local theme = colors.theme
+      local palette = colors.palette
       local makeDiagnosticColor = function(color)
         local color_utils = require("kanagawa.lib.color")
         return { fg = color, bg = color_utils(color):blend(theme.ui.bg, 0.95):to_hex() }
@@ -41,6 +42,8 @@ return {
         DiagnosticUnderlineHint = { undercurl = true, sp = "none" },
         DiagnosticUnderlineError = { undercurl = true, sp = "none" },
         DiagnosticUnderlineInfo = { undercurl = true, sp = "none" },
+
+        IblIndent = { fg = theme.ui.bg_p1 },
       }
     end,
   },
