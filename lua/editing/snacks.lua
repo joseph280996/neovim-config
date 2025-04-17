@@ -1,5 +1,14 @@
-local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
+local constants = require("utils.constants")
 local icons = require("utils.constants.icons")
+local get_values_on_os = require("utils.get-values-on-os")
+local image_getter = require("utils.get-dashboard-image").getImageByHour
+
+local KEYBINDING_OPTS = constants.KEYBINDING_OPTS
+local IMAGE_PATH = get_values_on_os({
+  [constants.WINDOW] = constants.IMAGE_PATH_WIN,
+  [constants.LINUX] = constants.IMAGE_PATH_LINUX,
+})
+
 local custom_layout = {
   preset = "vscode",
   layout = {
@@ -122,7 +131,7 @@ local dashboard_conf = {
     {
       pane = 2,
       section = "terminal",
-      cmd = "chafa C:/Users/josep/OneDrive/Desktop/Wallpaper/60tjwn2tsote1.jpeg --format symbols --symbols vhalf --size 96x27 --stretch",
+      cmd = "chafa " .. image_getter(IMAGE_PATH) .. " --format symbols --symbols vhalf --size 96x27 --stretch",
       width = 128,
       height = 36,
       padding = 1,

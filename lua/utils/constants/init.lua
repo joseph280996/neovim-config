@@ -5,5 +5,8 @@ return {
 
   NOOP = function() end,
 
-  KEYBINDING_OPTS = { noremap = true, silent = true, nowait = true }
+  KEYBINDING_OPTS = { noremap = true, silent = true, nowait = true },
+
+  IMAGE_PATH_WIN = "C:/Users/josep/OneDrive/Desktop/Wallpaper/",
+  IMAGE_PATH_LINUX = "/mnt/c/Users/josep/OneDrive/Desktop/Wallpaper/"
 }
