@@ -43,21 +43,4 @@ return {
 
     vim.g.vimtex_compiler_method = "latexmk"
   end,
-  keys = {
-    vim.tbl_deep_extend("force", {
-      "<leader>vtc",
-      "<cmd>VimtexCompile<cr>",
-      desc = "Compile toggle LaTeX document",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>vtt",
-      "<cmd>VimtexTocToggle<cr>",
-      desc = "Toggle table of content",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>vtx",
-      "<cmd>VimtexClean<cr>",
-      desc = "Clean LaTeX document",
-    }, KEYBINDING_OPTS),
-  },
 }
