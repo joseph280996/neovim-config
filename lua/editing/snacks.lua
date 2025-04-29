@@ -131,7 +131,9 @@ local dashboard_conf = {
     {
       pane = 2,
       section = "terminal",
-      cmd = "chafa " .. image_getter(IMAGE_PATH) .. " --format symbols --symbols vhalf --size 96x27 --stretch",
+      cmd = "chafa "
+        .. image_getter(IMAGE_PATH)
+        .. " --format symbols --symbols vhalf --size 96x27 --stretch",
       width = 128,
       height = 36,
       padding = 1,

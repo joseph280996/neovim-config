@@ -1,6 +1,5 @@
 return {
   "stevearc/conform.nvim",
-  lazy = true,
   cmd = { "ConformInfo" },
   opts = {
     -- Define your formatters
@@ -56,7 +55,9 @@ return {
   keys = {
     {
       "<leader>lf",
-      require("conform").format({ async = true, lsp_format = "fallback" }),
+      function()
+        require("conform").format({async = true, lsp_format = "fallback"})
+      end,
       mode = "n",
       desc = "File Format",
     },

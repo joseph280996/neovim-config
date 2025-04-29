@@ -11,12 +11,6 @@ local common_keymap = {
     rhs = "<cmd>LspInstallInfo<cr>",
     opts = { desc = "Open LSP Install Info" },
   },
-  {
-    mode = "n",
-    lhs = "<leader>lf",
-    rhs = "<cmd>lua require('conform').format({ lsp_format = 'fallback' })<cr>",
-    opts = { desc = "File Format" },
-  },
 }
 
 return common_keymap
