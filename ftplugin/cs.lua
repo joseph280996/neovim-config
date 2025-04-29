@@ -42,13 +42,13 @@ local keymaps = {
     desc = "Bootstrapping a new C# file",
   },
   {
-    "<leader>lpra",
+    "<leader>lpr",
     "<cmd>DotnetUI project reference add<cr>",
     mode = "n",
     desc = "Add new Project reference",
   },
   {
-    "<leader>lppa",
+    "<leader>lpp",
     "<cmd>DotnetUI project package add<cr>",
     mode = "n",
     desc = "Add new Nuget Package",

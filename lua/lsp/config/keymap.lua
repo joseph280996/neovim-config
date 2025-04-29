@@ -13,8 +13,8 @@ local common_keymap = {
   },
   {
     mode = "n",
-    lhs = "<leader>lff",
-    rhs = "<cmd>lua require('lsp.config.formatter')()<cr>",
+    lhs = "<leader>lf",
+    rhs = "<cmd>lua require('conform').format({ lsp_format = 'fallback' })<cr>",
     opts = { desc = "File Format" },
   },
 }

@@ -53,4 +53,12 @@ return {
       },
     },
   },
+  keys = {
+    {
+      "<leader>lf",
+      require("conform").format({ async = true, lsp_format = "fallback" }),
+      mode = "n",
+      desc = "File Format",
+    },
+  },
 }

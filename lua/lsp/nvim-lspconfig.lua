@@ -11,37 +11,29 @@ return {
     "saghen/blink.cmp",
   },
   config = function()
-    local lspconfig = require("lspconfig")
-
-    local opts = {}
-
     vim.lsp.inlay_hint.enable(true)
+
     local servers = {}
     vim.list_extend(servers, lsp_servers)
 
     for _, server in pairs(servers) do
-      opts = {
-        on_attach = function(client, bufnr)
-          if client.name == "ruff_lsp" then
-            client.server_capabilities.hoverProvider = false
-          end
-
-          if client:supports_method("textDocument/foldingRange") then
-            local win = vim.api.nvim_get_current_win()
-            vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
-          end
-
-          keymaps_setter(bufnr, lsp_keymaps)
-        end,
-        capabilities = require("lsp.config.capabilities"),
-      }
-
-      local require_ok, conf_opts = pcall(require, "lsp.server_settings." .. server)
-      if require_ok then
-        opts = vim.tbl_deep_extend("keep", opts, conf_opts)
-      end
-
-      lspconfig[server].setup(opts)
+      vim.lsp.enable(server)
     end
+
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+        if client.name == "ruff_lsp" then
+          client.server_capabilities.hoverProvider = false
+        end
+
+        if client:supports_method("textDocument/foldingRange") then
+          local win = vim.api.nvim_get_current_win()
+          vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+        end
+
+        keymaps_setter(args.buf, lsp_keymaps)
+      end,
+    })
   end,
 }
