@@ -4,7 +4,6 @@ local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 return {
   {
     "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle" },
     ft = { "markdown", "Avante" },
     build = function()
       vim.fn["mkdp#util#install"]()
