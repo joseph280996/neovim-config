@@ -12,6 +12,7 @@ return {
     "spectral",
     "jdtls",
     "cucumber_language_server",
+    "tailwindcss",
     "clangd",
     "pyright",
   },
