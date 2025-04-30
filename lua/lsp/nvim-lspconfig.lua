@@ -1,5 +1,4 @@
 local lsp_servers = require("utils.constants.mason_servers").lsp
-local lsp_keymaps = require("lsp.config.keymap")
 local keymaps_setter = require("utils.keymaps_setter")
 
 return {
@@ -9,10 +8,37 @@ return {
     "williamboman/mason.nvim", -- Simple to use LSP installer
     "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
     "saghen/blink.cmp",
+    "folke/which-key.nvim", -- Centralized list of all commands UI
   },
   config = function()
+    local blink_cmp = require("blink.cmp")
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
+    capabilities = blink_cmp.get_lsp_capabilities(capabilities)
+
+    vim.lsp.config("*", {
+      capaabilities = capabilities,
+    })
+
     vim.lsp.inlay_hint.enable(true)
 
+    local universal_keymap = {
+      {
+        "<leader>li",
+        "<cmd>LspInfo<cr>",
+        mode = "n",
+        desc = "Open LSP Info",
+      },
+      {
+        "<leader>lI",
+        "<cmd>LspInstallInfo<cr>",
+        mode = "n",
+        desc = "Open LSP Install Info",
+      },
+    }
     local servers = {}
     vim.list_extend(servers, lsp_servers)
 
@@ -32,7 +58,7 @@ return {
           vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
         end
 
-        keymaps_setter(args.buf, lsp_keymaps)
+        require("which-key").add(universal_keymap)
       end,
     })
   end,
