@@ -47,7 +47,7 @@ return {
       sqlfluff = {
         append_args = {
           "--config",
-          vim.fn.stdpath("config") .. "/lua/lsp/formatter_conf/.sqlfluff",
+          vim.fn.stdpath("config") .. "/formatter-conf/.sqlfluff",
         },
       },
     },

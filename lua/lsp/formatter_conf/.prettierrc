@@ -1,7 +1,0 @@
-tabWidth: 8
-useTabs: true
-semi: true
-singleQuote: true
-quoteProps: preserve
-parser: typescript
-printWidth: 180
