@@ -29,14 +29,12 @@ end
 return lazy.setup({
   spec = {
     { import = "editing" },
-    { import = "code-completion" },
     { import = "debug" },
     { import = "document-tools" },
     { import = "git" },
     { import = "lsp" },
     { import = "plugins" },
     { import = "testing" },
-    { import = "ai" },
   },
   install = {
     missing = true,
