@@ -1,8 +1,5 @@
 local function get_omnisharp_cmd()
-  local mason_reg = require("mason-registry")
-  local package = mason_reg.get_package("omnisharp")
-
-  return package:get_install_path() .. "/omnisharp"
+  return vim.fn.stdpath("data") .. "/mason/packages/omnisharp/omnisharp"
 end
 
 local function get_root_dir()
