@@ -10,3 +10,9 @@ vim.api.nvim_set_keymap(
   ':exe "tabn ".g:lasttab<CR>',
   vim.tbl_deep_extend("force", opts, { desc = "Toggle last accessed tab" })
 )
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>utx",
+  ':tabclose',
+  vim.tbl_deep_extend("force", opts, { desc = "Close current tab" })
+)

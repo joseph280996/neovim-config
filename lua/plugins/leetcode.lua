@@ -1,6 +1,7 @@
 return {
   "kawre/leetcode.nvim",
   commit = "d3e9c6a6cdde3dce2f1b2853f74589ce07d7616c",
+  cmd = "Leet",
   build = ":TSUpdate html",   -- if you have `nvim-treesitter` installed
   dependencies = {
     "nvim-telescope/telescope.nvim",
@@ -22,7 +23,7 @@ return {
 
     ---@type table<string, boolean>
     plugins = {
-      non_standalone = false,
+      non_standalone = true,
     },
 
     ---@type boolean
