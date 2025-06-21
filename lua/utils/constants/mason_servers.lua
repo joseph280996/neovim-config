@@ -16,7 +16,7 @@ return {
     "clangd",
     "pyright",
   },
-  dap = { "python", "js", "c#" },
+  dap = { "python", "js", "coreclr" },
   linters = { "cmakelint", "vale" },
   formatters = { "stylelua", "prettier", "cmake_format", "clang-format" },
 }

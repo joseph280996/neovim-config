@@ -39,7 +39,7 @@ return {
           -- nvim-cmp style menu
           draw = {
             columns = {
-              { "label", "label_description", gap = 2 },
+              { "label",     "label_description", gap = 2 },
               { "kind_icon", "kind" },
             },
           },
@@ -51,13 +51,16 @@ return {
         -- Display a preview of the selected item on the current line
         ghost_text = { enabled = true },
       },
+      fuzzy = {
+        implementation = "prefer_rust_with_warning"
+      },
       sources = {
         -- Remove 'buffer' if you don't want text completions, by default it's only enabled when LSP returns no items
         default = { "lsp", "path", "snippets", "buffer" },
         -- Disable cmdline completions
         per_filetype = {
-          tex = { "lsp", "path", "snippets", "buffer", "vimtex" },
-          cs = { "lsp", "easy-dotnet", "path", "snippets", "buffer" },
+          tex = { inherit_defaults = true, "vimtex", "dictionary" },
+          cs = { inherit_defaults = true, "easy-dotnet" },
         },
         providers = {
           ["easy-dotnet"] = {

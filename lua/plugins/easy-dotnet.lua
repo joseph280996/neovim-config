@@ -6,9 +6,9 @@ local function get_secret_path(secret_guid)
   local home_dir = vim.fn.expand("~")
   if require("easy-dotnet.extensions").isWindows() then
     local secret_path = home_dir
-      .. "\\AppData\\Roaming\\Microsoft\\UserSecrets\\"
-      .. secret_guid
-      .. "\\secrets.json"
+        .. "\\AppData\\Roaming\\Microsoft\\UserSecrets\\"
+        .. secret_guid
+        .. "\\secrets.json"
     path = secret_path
   else
     local secret_path = home_dir .. "/.microsoft/usersecrets/" .. secret_guid .. "/secrets.json"
@@ -19,7 +19,7 @@ end
 
 return {
   "GustavEikaas/easy-dotnet.nvim",
-  dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+  dependencies = { "nvim-lua/plenary.nvim", "folke/snacks.nvim" },
   config = function()
     local dotnet = require("easy-dotnet")
     -- Options are not required
@@ -94,6 +94,16 @@ return {
         type = "block_scoped",
         enabled = true,
       },
+      picker = "snacks",
+      notifications = {
+        handler = function(start_event)
+          local spinner = require("easy-dotnet.ui-modules.spinner").new()
+          spinner:start_spinner(start_event.job.name)
+          return function(finished_event)
+            spinner:stop_spinner(finished_event.result.text, finished_event.result.level)
+          end
+        end
+      }
     })
   end,
 }
