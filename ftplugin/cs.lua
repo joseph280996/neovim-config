@@ -31,25 +31,13 @@ local keymaps = {
   },
   {
     "<leader>lni",
-    "<cmd>DotnetUI new_item<cr>",
+    "<cmd>Dotnet new<cr>",
     mode = "n",
     desc = "Add new .NET sln/proj/globaljson item",
   },
   {
-    "<leader>lnf",
-    "<cmd>DotnetUI file bootstrap<cr>",
-    mode = "n",
-    desc = "Bootstrapping a new C# file",
-  },
-  {
-    "<leader>lpr",
-    "<cmd>DotnetUI project reference add<cr>",
-    mode = "n",
-    desc = "Add new Project reference",
-  },
-  {
     "<leader>lpp",
-    "<cmd>DotnetUI project package add<cr>",
+    "<cmd>Dotnet add package<cr>",
     mode = "n",
     desc = "Add new Nuget Package",
   },
