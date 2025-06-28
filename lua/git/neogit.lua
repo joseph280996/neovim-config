@@ -3,13 +3,13 @@ return {
   "NeogitOrg/neogit",
   dependencies = {
     "nvim-lua/plenary.nvim", -- required
-    "nvim-telescope/telescope.nvim", -- optional
+    "folke/snacks.nvim", -- optional
     "sindrets/diffview.nvim", -- optional
   },
   opts = {
     kind = "auto",
     integrations = {
-      telescope = true,
+      snacks = true,
       diffview = true,
     },
     commit_editor = {
