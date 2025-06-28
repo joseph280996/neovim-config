@@ -7,6 +7,7 @@ return {
   opts = {
     auto_install = true,
     ensure_installed = {
+      "yaml",
       "diff",
       "gitignore",
       "git_rebase",
