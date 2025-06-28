@@ -13,7 +13,7 @@ return {
       "gra",
       function()
         require("tiny-code-action").code_action()
-      end
+      end,
       desc = "Open code action list",
     }, KEYBINDING_OPTS),
   },
