@@ -7,7 +7,9 @@ return {
     { "folke/snacks.nvim" },
   },
   event = "LspAttach",
-  opts = {},
+  opts = {
+    picker = "snacks"
+  },
   keys = {
     vim.tbl_deep_extend("force", {
       "gra",
