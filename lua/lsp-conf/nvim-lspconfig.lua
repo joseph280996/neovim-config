@@ -1,9 +1,7 @@
 local lsp_servers = require("utils.constants.mason_servers").lsp
-local keymaps_setter = require("utils.keymaps_setter")
 
 return {
   "neovim/nvim-lspconfig", -- Native LSP
-  event = { "BufReadPost", "BufWritePost", "InsertLeave", "InsertEnter" },
   dependencies = {
     "williamboman/mason.nvim", -- Simple to use LSP installer
     "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
@@ -20,7 +18,7 @@ return {
     capabilities = blink_cmp.get_lsp_capabilities(capabilities)
 
     vim.lsp.config("*", {
-      capaabilities = capabilities,
+      capabilities = capabilities,
     })
 
     vim.lsp.inlay_hint.enable(true)
@@ -39,10 +37,7 @@ return {
         desc = "Open LSP Install Info",
       },
     }
-    local servers = {}
-    vim.list_extend(servers, lsp_servers)
-
-    for _, server in pairs(servers) do
+    for _, server in pairs(lsp_servers) do
       vim.lsp.enable(server)
     end
 
