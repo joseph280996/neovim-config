@@ -3,7 +3,6 @@ local ignore_filetypes = {
   "NvimTree",
   "help",
   "neotest-summary",
-  "TelescopePrompt",
   "alpha",
   "aerial",
   "tex",

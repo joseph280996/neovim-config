@@ -271,7 +271,7 @@ return {
       function()
         Snacks.picker.resume()
       end,
-      desc = "Last Telescope Actions",
+      desc = "Last Actions",
     }, KEYBINDING_OPTS),
 
     -- LSP
