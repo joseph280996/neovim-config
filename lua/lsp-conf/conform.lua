@@ -7,6 +7,7 @@ return {
       json = { "prettier" },
       lua = { "stylua" },
       c = { "clang-format" },
+      cpp = { "clang-format" },
       python = { "ruff_format" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       javascriptreact = { "prettierd", "prettier", stop_after_first = true },

@@ -5,6 +5,7 @@ aws-cli
 base
 base-devel
 bash-completion
+chafa
 cmake
 cppcheck
 cpupower
@@ -12,10 +13,12 @@ dos2unix
 dotnet-sdk
 dotnet-sdk-7.0
 fd
+fish
 fmt
 fzf
 gcc-fortran
 git
+github-cli
 go
 hdf5
 hwloc
@@ -28,11 +31,13 @@ lua53
 luarocks
 miniconda3
 mpich
+mpich-debug
 nano
 neovim
-nodejs
+nodejs-lts-jod
 numactl
 oh-my-posh
+oh-my-posh-debug
 opencv
 openssh
 progress
@@ -63,4 +68,4 @@ unzip
 vim
 vtk
 wget
-wl-clipboard
+zk

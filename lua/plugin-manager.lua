@@ -32,7 +32,7 @@ return lazy.setup({
     { import = "debug" },
     { import = "document-tools" },
     { import = "git" },
-    { import = "lsp" },
+    { import = "lsp-conf" },
     { import = "plugins" },
     { import = "testing" },
   },

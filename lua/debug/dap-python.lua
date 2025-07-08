@@ -9,7 +9,7 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
   },
   config = function()
-    local debugpy_path = require("mason-registry").get_package("debugpy"):get_install_path()
+    local debugpy_path = vim.fn.stdpath("data") .. "/mason/packages/debugpy"
     local debugpy_py_path = get_values_on_os({
       [constants.WINDOW] = "/venv/Scripts/python",
       [constants.LINUX] = "/venv/bin/python",
