@@ -10,6 +10,7 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       "micangl/cmp-vimtex",
+      "disrupted/blink-cmp-conventional-commits",
     },
 
     -- use a release tag to download pre-built binaries
@@ -58,8 +59,14 @@ return {
         per_filetype = {
           tex = { "lsp", "path", "snippets", "buffer", "vimtex" },
           cs = { "lsp", "easy-dotnet", "path", "snippets", "buffer" },
+          gitcommit = { "lsp", "easy-dotnet", "path", "snippets", "buffer", "conventional_commits" },
         },
         providers = {
+          conventional_commits = {
+            name = "Conventional Commits",
+            module = "blink-cmp-conventional-commits",
+            enabled = true,
+          },
           ["easy-dotnet"] = {
             name = "easy-dotnet",
             enabled = true,
