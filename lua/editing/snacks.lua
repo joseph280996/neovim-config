@@ -7,6 +7,7 @@ local KEYBINDING_OPTS = constants.KEYBINDING_OPTS
 local IMAGE_PATH = get_values_on_os({
   [constants.WINDOW] = constants.IMAGE_PATH_WIN,
   [constants.LINUX] = constants.IMAGE_PATH_LINUX,
+  [constants.DARWIN] = constants.IMAGE_PATH_DARWIN
 })
 
 local custom_layout = {
@@ -135,10 +136,10 @@ local dashboard_conf = {
       pane = 2,
       section = "terminal",
       cmd = "chafa "
-          .. image_getter(IMAGE_PATH)
-          .. " --format symbols --symbols vhalf --size 96x27 --stretch",
-      width = 128,
-      height = 36,
+        .. image_getter(IMAGE_PATH)
+        .. " --format symbols --symbols vhalf --size 96x27 --stretch",
+      width = 96,
+      height = 27,
       padding = 1,
     },
   },

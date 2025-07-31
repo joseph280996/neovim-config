@@ -35,6 +35,7 @@ M.getImageByHour = function(imageDirectory)
       file:match("%.jpg$")
       or file:match("%.png$")
       or file:match("%.jpeg$")
+      or file:match("%.webp$")
     then
       table.insert(images, file)
     end

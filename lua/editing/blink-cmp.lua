@@ -14,6 +14,7 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' }
       },
       "micangl/cmp-vimtex",
+      "disrupted/blink-cmp-conventional-commits",
     },
 
     -- use a release tag to download pre-built binaries
@@ -65,8 +66,14 @@ return {
         per_filetype = {
           tex = { inherit_defaults = true, "vimtex", "dictionary" },
           cs = { inherit_defaults = true, "easy-dotnet" },
+          gitcommit = { inherit_defaults = true, "conventional_commits" },
         },
         providers = {
+          conventional_commits = {
+            name = "Conventional Commits",
+            module = "blink-cmp-conventional-commits",
+            enabled = true,
+          },
           ["easy-dotnet"] = {
             name = "easy-dotnet",
             enabled = true,
