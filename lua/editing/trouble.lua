@@ -13,7 +13,7 @@ return {
   keys = {
     vim.tbl_deep_extend("force", {
       "<leader>ltd",
-      "<cmd>Trouble diagnostics toggle filter.buf=0 win={type=split, position=right}<cr>",
+      "<cmd>Trouble diagnostics toggle focus filter.buf=0 win={type=split, position=right}<cr>",
       desc = "Troubles in Buffer",
     }, KEYBINDING_OPTS),
     vim.tbl_deep_extend("force", {
