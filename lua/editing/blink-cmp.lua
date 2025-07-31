@@ -9,6 +9,10 @@ return {
     -- optional: provides snippets for the snippet source
     dependencies = {
       "rafamadriz/friendly-snippets",
+      {
+        'Kaiser-Yang/blink-cmp-dictionary',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+      },
       "micangl/cmp-vimtex",
     },
 
@@ -74,6 +78,16 @@ return {
             name = "vimtex",
             module = "blink.compat.source",
           },
+          dictionary = {
+            module = 'blink-cmp-dictionary',
+            name = 'Dict',
+            -- Make sure this is at least 2.
+            -- 3 is recommended
+            min_keyword_length = 3,
+            opts = {
+              -- options for blink-cmp-dictionary
+            }
+          }
         },
       },
 
