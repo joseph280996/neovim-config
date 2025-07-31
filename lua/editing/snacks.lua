@@ -32,7 +32,10 @@ local picker_conf = {
       layout = vim.tbl_deep_extend("keep", { preview = "main" }, custom_layout),
       filter = { cwd = true },
     },
-    project = { layout = custom_layout },
+    project = {
+      dev = { "~/.confg", "~/Code/Personal/", "~/Code/School/" },
+      layout = custom_layout
+    },
     lsp_definitions = {
       layout = custom_layout,
     },
@@ -53,8 +56,8 @@ local picker_conf = {
 
 local dashboard_conf = {
   width = 60,
-  row = nil, -- dashboard position. nil for center
-  col = nil, -- dashboard position. nil for center
+  row = nil,                                                                   -- dashboard position. nil for center
+  col = nil,                                                                   -- dashboard position. nil for center
   pane_gap = 4,
   autokeys = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", -- autokey sequence
   -- These settings are used by some built-in sections
@@ -107,19 +110,19 @@ local dashboard_conf = {
     },
     -- Used by the `header` section
     header = [[
-                                                                   
-      ████ ██████           █████      ██                    
-     ███████████             █████                            
-     █████████ ███████████████████ ███   ███████████  
-    █████████  ███    █████████████ █████ ██████████████  
-   █████████ ██████████ █████████ █████ █████ ████ █████  
- ███████████ ███    ███ █████████ █████ █████ ████ █████ 
+                                             
+      ████ ██████           █████      ██
+     ███████████             █████ 
+     █████████ ███████████████████ ███   ███████████
+    █████████  ███    █████████████ █████ ██████████████
+   █████████ ██████████ █████████ █████ █████ ████ █████
+ ███████████ ███    ███ █████████ █████ █████ ████ █████
 ██████  █████████████████████ ████ █████ █████ ████ ██████]],
   },
   -- item field formatters
   sections = {
     { section = "header", indent = 2, gap = 1, padding = 1 },
-    { section = "keys", indent = 2, gap = 1, padding = 1 },
+    { section = "keys",   indent = 2, gap = 1, padding = 1 },
     {
       icon = icons.documents.File .. " ",
       title = "Recent Files",
@@ -132,8 +135,8 @@ local dashboard_conf = {
       pane = 2,
       section = "terminal",
       cmd = "chafa "
-        .. image_getter(IMAGE_PATH)
-        .. " --format symbols --symbols vhalf --size 96x27 --stretch",
+          .. image_getter(IMAGE_PATH)
+          .. " --format symbols --symbols vhalf --size 96x27 --stretch",
       width = 128,
       height = 36,
       padding = 1,
