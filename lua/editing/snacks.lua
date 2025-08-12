@@ -20,15 +20,6 @@ local custom_layout = {
 local picker_conf = {
   enabled = true,
   sources = {
-    explorer = {
-      auto_close = true,
-      layout = {
-        preset = "left",
-        layout = {
-          min_width = 20,
-        },
-      },
-    },
     smart = {
       layout = vim.tbl_deep_extend("keep", { preview = "main" }, custom_layout),
       filter = { cwd = true },
@@ -156,12 +147,8 @@ return {
     lazygit = { enabled = false },
     bigfile = { enabled = false },
     dashboard = dashboard_conf,
-    explorer = {
-      enabled = true,
-      replace_netrw = false,
-    },
+    explorer = { enabled = false },
     indent = { enabled = false },
-    image = { enabled = false },
     input = { enabled = false },
     notifier = { enabled = false },
     quickfile = { enabled = false },
@@ -172,13 +159,6 @@ return {
     picker = picker_conf,
   },
   keys = {
-    vim.tbl_deep_extend("force", {
-      "<leader>xf",
-      function()
-        Snacks.explorer()
-      end,
-      desc = "Open File Explorer",
-    }, KEYBINDING_OPTS),
     vim.tbl_deep_extend("force", {
       "<leader>xo",
       function()

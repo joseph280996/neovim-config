@@ -3,23 +3,17 @@ local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 return {
   {
     "GCBallesteros/jupytext.nvim",
-    lazy = false,
-    opts = {
-      custom_language_formatting = {
-        python = {
-          extension = "md",
-          style = "markdown",
-          force_ft = "markdown"
-        }
-      }
-    },
+    commit = "d30aca899430b40d164c232985ccd0d7ca7f01c8",
+    config = false,
   },
   {
     "benlubas/molten-nvim",
     ft = "ipynb",
     version = "^1.0.0",
     build = ":UpdateRemotePlugins",
-    dependencies = "willothy/wezterm.nvim",
+    dependencies = {
+      "willothy/wezterm.nvim",
+    },
     init = function()
       vim.g.molten_image_provider = "wezterm"
       vim.g.molten_auto_open_output = false
@@ -85,5 +79,5 @@ return {
         desc = "Go to previous cell",
       }, KEYBINDING_OPTS),
     },
-  }
+  },
 }
