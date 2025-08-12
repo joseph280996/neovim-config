@@ -22,6 +22,7 @@ github-cli
 go
 hdf5
 hwloc
+imagemagick
 jq
 less
 libtiff5
