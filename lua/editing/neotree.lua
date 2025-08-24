@@ -25,6 +25,14 @@ return {
       last_modified = { enabled = false },
       created = { enabled = false },
     },
+    window = {
+      mappings = {
+        ["<space>"] = {
+          "toggle_node",
+          nowait = true,
+        }
+      }
+    },
     filesystem = {
       follow_current_file = {
         enabled = true,
