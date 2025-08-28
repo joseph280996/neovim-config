@@ -1,20 +1,11 @@
 return {
   {
-    "saghen/blink.compat",
-    version = "*",
-    lazy = true,
-  },
-  {
     "saghen/blink.cmp",
     -- optional: provides snippets for the snippet source
     dependencies = {
       "rafamadriz/friendly-snippets",
-      {
-        'Kaiser-Yang/blink-cmp-dictionary',
-        dependencies = { 'nvim-lua/plenary.nvim' }
-      },
-      "micangl/cmp-vimtex",
       "disrupted/blink-cmp-conventional-commits",
+      "erooke/blink-cmp-latex",
     },
 
     -- use a release tag to download pre-built binaries
@@ -61,11 +52,11 @@ return {
       },
       sources = {
         -- Remove 'buffer' if you don't want text completions, by default it's only enabled when LSP returns no items
-        default = { "lsp", "path", "snippets", "buffer" },
+        default = { "lsp", "path", "snippets"},
         -- Disable cmdline completions
         per_filetype = {
-          tex = { inherit_defaults = true, "vimtex", "dictionary" },
-          cs = { inherit_defaults = true, "easy-dotnet" },
+          tex = { inherit_defaults = true, "latex"},
+          cs = { inherit_defaults = true, "buffer" , "easy-dotnet" },
           gitcommit = { inherit_defaults = true, "conventional_commits" },
         },
         providers = {
@@ -81,20 +72,14 @@ return {
             score_offset = 10000,
             async = true,
           },
-          vimtex = {
-            name = "vimtex",
-            module = "blink.compat.source",
-          },
-          dictionary = {
-            module = 'blink-cmp-dictionary',
-            name = 'Dict',
-            -- Make sure this is at least 2.
-            -- 3 is recommended
-            min_keyword_length = 3,
+          latex = {
+            name = "Latex",
+            module = "blink-cmp-latex",
             opts = {
-              -- options for blink-cmp-dictionary
-            }
-          }
+              -- set to true to insert the latex command instead of the symbol
+              insert_command = false
+            },
+          },
         },
       },
 
