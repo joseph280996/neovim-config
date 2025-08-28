@@ -9,7 +9,6 @@ return {
         config = {
           cmd = { "zk", "lsp" },
           name = "zk",
-          capabilties = require("lsp.config.capabilities"),
         },
       },
     })
