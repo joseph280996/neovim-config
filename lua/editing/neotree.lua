@@ -25,6 +25,14 @@ return {
       last_modified = { enabled = false },
       created = { enabled = false },
     },
+    window = {
+      mappings = {
+        ["<space>"] = {
+          "toggle_node",
+          nowait = true,
+        }
+      }
+    },
     filesystem = {
       follow_current_file = {
         enabled = true,
@@ -42,6 +50,13 @@ return {
       use_libuv_file_watcher = true,
       window = {
         mappings = {
+          ["A"] = function(state)
+            local node = state.tree:get_node()
+            local path = node.type == "directory" and node.path or vim.fs.dirname(node.path)
+            require("easy-dotnet").create_new_item(path, function()
+              require("neo-tree.sources.manager").refresh(state.name)
+            end)
+          end,
           ["s"] = "open_vsplit",
           ["S"] = "open_split",
           ["<C-s>"] = "vsplit_with_window_picker",
@@ -96,7 +111,7 @@ return {
     local events = require("neo-tree.events")
     opts.event_handlers = opts.event_handlers or {}
     vim.list_extend(opts.event_handlers, {
-      { event = events.FILE_MOVED, handler = on_move },
+      { event = events.FILE_MOVED,   handler = on_move },
       { event = events.FILE_RENAMED, handler = on_move },
     })
     opts.nesting_rules = require("neotree-file-nesting-config").nesting_rules
