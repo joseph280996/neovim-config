@@ -8,9 +8,9 @@ return {
   end,
   keys = {
     vim.tbl_deep_extend("force", {
-      "<space>cj",
+      "<space>ej",
       "<cmd>TSJToggle<cr>",
-      desc = "Toggle TreeSitter join",
+      desc = "Toggle code join",
     }, KEYBINDING_OPTS  ),
   },
 }

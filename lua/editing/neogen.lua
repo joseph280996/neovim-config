@@ -7,22 +7,22 @@ return {
   -- version = "*"
   keys = {
     vim.tbl_deep_extend("force", {
-      "<leader>cdg",
+      "<leader>edg",
       "<cmd>Neogen<cr>",
       desc = "Auto Generate function|class|type doc",
     }, KEYBINDING_OPTS),
     vim.tbl_deep_extend("force", {
-      "<leader>cdf",
+      "<leader>edf",
       "<cmd>Neogen function<cr>",
       desc = "Generate function doc",
     }, KEYBINDING_OPTS),
     vim.tbl_deep_extend("force", {
-      "<leader>cdc",
+      "<leader>edc",
       "<cmd>Neogen class<cr>",
       desc = "Generate class doc",
     }, KEYBINDING_OPTS),
     vim.tbl_deep_extend("force", {
-      "<leader>cdt",
+      "<leader>edt",
       "<cmd>Neogen type<cr>",
       desc = "Generate type doc",
     }, KEYBINDING_OPTS),

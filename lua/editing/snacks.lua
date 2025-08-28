@@ -25,7 +25,13 @@ local picker_conf = {
       filter = { cwd = true },
     },
     project = {
-      dev = { "~/.confg", "~/Code/Personal/", "~/Code/School/" },
+      dev = {
+        "~/.confg",
+        "~/Code/Personal/",
+        "~/Code/School/",
+        get_values_on_os({ [constants.WINDOW] = "D:/Notebook/", [constants.LINUX] = "/mnt/d/Notebook/" }),
+      },
+      patterns = { ".git", "lazy-lock.json", "package.json", "Makefile", "README.md", ".zk" },
       layout = custom_layout
     },
     lsp_definitions = {
@@ -127,8 +133,8 @@ local dashboard_conf = {
       pane = 2,
       section = "terminal",
       cmd = "chafa "
-        .. image_getter(IMAGE_PATH)
-        .. " --format symbols --symbols vhalf --size 96x27 --stretch",
+          .. image_getter(IMAGE_PATH)
+          .. " --format symbols --symbols vhalf --size 96x27 --stretch",
       width = 96,
       height = 27,
       padding = 1,
@@ -251,11 +257,11 @@ return {
       desc = "Find Projects",
     }, KEYBINDING_OPTS),
     vim.tbl_deep_extend("force", {
-      "<leader>ur",
+      "<leader>er",
       function()
         Snacks.picker.resume()
       end,
-      desc = "Last Actions",
+      desc = "Resume Last Actions",
     }, KEYBINDING_OPTS),
 
     -- LSP
@@ -290,7 +296,7 @@ return {
 
     -- Utilities
     vim.tbl_deep_extend("force", {
-      "<leader>uu",
+      "<leader>eu",
       function()
         Snacks.picker.undo()
       end,

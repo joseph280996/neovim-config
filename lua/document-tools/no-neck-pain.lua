@@ -25,7 +25,7 @@ return {
   end,
   keys = {
     vim.tbl_deep_extend("force", {
-      "<leader>bc",
+      "<leader>ec",
       "<cmd>NoNeckPain<cr>",
       desc = "Focus Center",
     }, KEYBINDING_OPTS),

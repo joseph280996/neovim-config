@@ -29,7 +29,6 @@ return {
       },
     },
     spec = {
-      { "<leader><leader>", group = "Layer 2" },
       --[[ BUFFER OPEARTION ]]
       { "<leader>b", group = "Buffer" },
       { "<leader>bx", "<cmd>bdelete!<CR>", desc = "Close Buffer" },
@@ -46,8 +45,8 @@ return {
       { "<leader>lf", group = "Fix" },
       { "<leader>lt", group = "Trouble" },
       { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
-      { "<leader>c", group = "Comment" },
-      { "<leader>cd", group = "Code Document Comment" },
+      { "<leader>e", group = "Editing" },
+      { "<leader>ed", group = "Code Doc" },
       { "<leader>c", group = "Comment", mode = "v" },
 
       { "<leader>u", group = "Utilities" },
@@ -86,6 +85,10 @@ return {
 
       --[[ Notes ]]
       { "<leader>z", group = "Notes" },
+
+      --[[ Layer 2 ]]
+      { "<leader><leader>", group = "Layer 2" },
+      { "<leader><leader>c", group = "Layer 2" },
     },
   },
   config = function(_, opts)
