@@ -1,12 +1,12 @@
 local lsp_servers = require("utils.constants.mason_servers").lsp
 
 return {
-  "neovim/nvim-lspconfig", -- Native LSP
+  "neovim/nvim-lspconfig",               -- Native LSP
   dependencies = {
-    "williamboman/mason.nvim", -- Simple to use LSP installer
+    "williamboman/mason.nvim",           -- Simple to use LSP installer
     "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
     "saghen/blink.cmp",
-    "folke/which-key.nvim", -- Centralized list of all commands UI
+    "folke/which-key.nvim",              -- Centralized list of all commands UI
   },
   config = function()
     local blink_cmp = require("blink.cmp")
@@ -22,9 +22,17 @@ return {
     })
     vim.diagnostic.config({ virtual_text = false })
 
-    vim.lsp.inlay_hint.enable(true)
+    vim.lsp.inlay_hint.enable(false)
 
     local universal_keymap = {
+      {
+        "<leader>lh",
+        function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr = 0 })
+        end,
+        mode = "n",
+        desc = "Toggle type hint",
+      },
       {
         "<leader>li",
         "<cmd>LspInfo<cr>",
