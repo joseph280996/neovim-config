@@ -20,6 +20,7 @@ return {
     vim.lsp.config("*", {
       capabilities = capabilities,
     })
+    vim.diagnostic.config({ virtual_text = false })
 
     vim.lsp.inlay_hint.enable(true)
 
