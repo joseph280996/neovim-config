@@ -1,7 +1,6 @@
 local servers = require("utils.constants.mason_servers")
 return {
   "rshkarin/mason-nvim-lint",
-  cmd = { "Mason", "MasonUpdate", "MasonInstallAll", "MasonInstall" },
   dependencies = {
     "williamboman/mason.nvim",
     "mfussenegger/nvim-lint",
@@ -10,4 +9,7 @@ return {
     ensure_installed = servers.linters,
     automatic_installation = false,
   },
+  config = function(_, opts)
+    require("mason-nvim-lint").setup(opts)
+  end
 }
