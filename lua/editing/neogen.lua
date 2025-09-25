@@ -2,7 +2,13 @@ local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 
 return {
   "danymat/neogen",
-  config = true,
+  config = function()
+    require("neogen").setup({
+      languages = {
+        ["cpp.doxygen"] = require("neogen.configurations.cpp"),
+      },
+    })
+  end,
   -- Uncomment next line if you want to follow only stable versions
   -- version = "*"
   keys = {

@@ -23,6 +23,11 @@ return {
     },
     -- Customize formatters
     formatters = {
+      ["clang-format"] = {
+        append_args = {
+          "-style=file",
+        },
+      },
       prettier = {
         append_args = {
           "--use-tabs",

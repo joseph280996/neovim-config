@@ -6,15 +6,18 @@ base
 base-devel
 bash-completion
 chafa
+clang
 cmake
 cppcheck
 cpupower
 dos2unix
 dotnet-sdk
 dotnet-sdk-7.0
+extra-cmake-modules
 fd
 fish
 fmt
+freeglut
 fzf
 gcc-fortran
 git
@@ -25,7 +28,9 @@ hwloc
 imagemagick
 jq
 less
+libc++
 libtiff5
+libxtst
 lua51
 lua52
 lua53
@@ -35,6 +40,7 @@ mpich
 mpich-debug
 nano
 neovim
+ninja
 nodejs-lts-jod
 numactl
 oh-my-posh
@@ -64,9 +70,7 @@ texlive-mathscience
 texlive-pictures
 texlive-xetex
 tree-sitter-cli
-ttf-nerd-fonts-symbols-mono
 unzip
 vim
-vtk
 wget
 zk
