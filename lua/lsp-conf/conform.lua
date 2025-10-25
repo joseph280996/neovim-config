@@ -16,6 +16,7 @@ return {
       markdown = { "prettierd", "prettier", stop_after_first = true },
       sql = { "sqlfluff" },
       java = { "google-java-format" },
+      tex = { "tex-fmt" },
     },
     -- Set default options
     default_format_opts = {
@@ -58,6 +59,10 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require("conform").setup(opts)
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end,
   keys = {
     {
       "<leader>lf",
