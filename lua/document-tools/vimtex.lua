@@ -1,18 +1,26 @@
-local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
-
 local get_values_on_os = require("utils.get-values-on-os")
 local constants = require("utils.constants")
 
-local function set_vimtex_viewer()
-  vim.g.vimtex_view_general_viewer = get_values_on_os({
-    [constants.WINDOW] = "SumatraPDF.exe",
-    [constants.LINUX] = "fish ~/.config/nvim/scripts/sumatra.fish",
-  }, true)
+local WINDOW_SETTING = {
+  vimtex_view_general_viewer = "SumatraPDF.exe",
+  vimtex_view_general_options = "-reuse-instance -forward-search @tex @line @pdf",
+}
 
-  vim.g.vimtex_view_general_options = get_values_on_os({
-    [constants.WINDOW] = "-reuse-instance -forward-search @tex @line @pdf",
-    [constants.LINUX] = "-reuse-instance -forward-search @tex @line @pdf",
-  }, true)
+local WSL_SETTING = {
+  vimtex_view_general_viewer = "fish ~/.config/nvim/scripts/sumatra.fish",
+  vimtex_view_general_options = "-reuse-instance -forward-search @tex @line @pdf",
+}
+
+--@class VimtexViewerSettings
+--@field vimtex_view_general_viewer string The path or program to execute for viewing of the rendered LaTeX.
+--@field vimtex_view_general_options string The viewer options to run the viewer with.
+
+--@param settings VimtexViewerSettings The settings to pass to vimtex viewer.
+local function set_vimtex_viewer(settings)
+  if settings then
+    vim.g.vimtex_view_general_viewer = settings.vimtex_view_general_viewer
+    vim.g.vimtex_view_general_options = settings.vimtex_view_general_options
+  end
 end
 
 return {
@@ -33,13 +41,13 @@ return {
       vim.opt[setting] = value
     end
 
-    local set_vimtex_viewer_fn = get_values_on_os({
-      [constants.WINDOW] = set_vimtex_viewer,
-      [constants.LINUX] = set_vimtex_viewer,
-      [constants.DARWIN] = constants.NOOP,
+    local vimtex_options = get_values_on_os({
+      [constants.WINDOW] = WINDOW_SETTING,
+      [constants.LINUX] = WSL_SETTING,
+      [constants.DARWIN] = nil,
     })
 
-    set_vimtex_viewer_fn()
+    set_vimtex_viewer(vimtex_options)
 
     vim.g.vimtex_compiler_method = "latexmk"
   end,
