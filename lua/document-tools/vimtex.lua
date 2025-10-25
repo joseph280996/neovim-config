@@ -50,5 +50,6 @@ return {
     set_vimtex_viewer(vimtex_options)
 
     vim.g.vimtex_compiler_method = "latexmk"
+    vim.g.vimtex_complete_enabled = false
   end,
 }
