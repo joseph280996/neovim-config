@@ -5,21 +5,16 @@ I don't use tab because I leave it to Wezterm to handle.
 
 ## Prerequisite
 
+> [!WARNING]
+> Some packages require dependencies that have to be installed using
+> your system package manager instead of Mason. You can run `checkhealth` to
+> identify these packages.
+
 If you're using Java, make sure you have these installed on your machine:
 
 - junit
 - gson
 - hamcrest
-
-## Installation
-
-Some packages have other package dependencies that can't be installed using Mason or Lazy.nvim and need manual installation using your system package manager
-
-If you're using Linux, you can install these using Brew:
-
-```bash
-brew bundle
-```
 
 ## FAQ
 
