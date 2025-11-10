@@ -6,17 +6,6 @@ return {
       runtime = {
         version = 'LuaJIT'
       },
-      diagnostics = {
-        globals = {
-          'vim',
-          'require',
-          'on',
-          'enable',
-          'pairs',
-          'ipairs',
-          'pcall',
-        }
-      },
       workspace = {
         library = vim.api.nvim_get_runtime_file("", true),
       },
