@@ -2,6 +2,7 @@ local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 
 return {
   "olimorris/codecompanion.nvim",
+  lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
@@ -33,17 +34,15 @@ return {
             },
           },
         },
+        keymaps = {
+          close = {
+            modes = { n = "<C-x>", i = "<C-x>" },
+            opts = {},
+          },
+        },
       },
       inline = {
         adapter = "anthropic",
-      },
-      keymaps = {
-        close = {
-          modes = {
-            n = "<C-x>",
-            i = "<C-x>",
-          },
-        },
       },
     },
     extensions = {
