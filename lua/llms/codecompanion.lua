@@ -7,10 +7,20 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   opts = {
+    memory = {
+      opts = {
+        chat = {
+          enabled = true,
+          condition = function(chat)
+            return chat.adapter.type ~= "acp"
+          end,
+        },
+      },
+    },
     strategies = {
       -- Change the default chat adapter
       chat = {
-        adapter = "claude_code",
+        adapter = "anthropic",
         slash_commands = {
           ["file"] = {
             opts = {
@@ -35,17 +45,6 @@ return {
           },
         },
       },
-    },
-    adapters = {
-      acp = {
-        claude_code = function()
-          return require("codecompanion.adapters").extend("claude_code", {
-            env = {
-              CLAUDE_CODE_OAUTH_KEY = vim.env.CLAUDE_CODE_OAUTH_TOKEN
-            }
-          })
-        end
-      }
     },
     extensions = {
       mcphub = {
