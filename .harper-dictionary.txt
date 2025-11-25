@@ -1,0 +1,13 @@
+CodeCompanion
+DAP
+MCPHub
+VimTex
+cmp
+diffview
+gitsigns
+lsp
+lualine
+neogit
+nvim
+octo
+treesitter

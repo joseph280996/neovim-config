@@ -11,10 +11,10 @@ This is a comprehensive Neovim configuration supporting Windows, Linux (WSL2), a
 ### Entry Point and Loading Order
 
 1. `init.lua` - Loads settings and plugin manager in sequence:
-   - `settings/options.lua` - Core Neovim options
-   - `settings/commands.lua` - Custom commands
-   - `settings/keymappings.lua` - Global keymaps
-   - `plugin-manager.lua` - Lazy.nvim bootstrap and plugin loading
+    - `settings/options.lua` - Core Neovim options
+    - `settings/commands.lua` - Custom commands
+    - `settings/keymappings.lua` - Global keymaps
+    - `plugin-manager.lua` - Lazy.nvim bootstrap and plugin loading
 
 ### Plugin Organization
 
@@ -34,9 +34,11 @@ Each plugin is one file that returns a lazy.nvim spec.
 ### Language Server Configuration
 
 **Central server lists:** `lua/utils/constants/mason_servers.lua`
+
 - 18 LSP servers, 3 DAP adapters, 4 formatters, 2 linters
 
 **LSP setup flow:**
+
 1. `lsp-conf/mason.lua` - Installs servers via Mason
 2. `lsp-conf/nvim-lspconfig.lua` - Configures capabilities, keymaps, folding
 3. `lsp/[language].lua` - Language-specific settings (e.g., `lua_ls.lua`, `pyright.lua`)
@@ -69,6 +71,7 @@ Leader key is **Space**.
 ### Utilities and Helpers
 
 **`lua/utils/` provides:**
+
 - `constants/init.lua` - Keybinding options, OS detection, image paths
 - `constants/icons.lua` - 60+ icon definitions for UI
 - `constants/mason_servers.lua` - Centralized tool lists
@@ -78,6 +81,7 @@ Leader key is **Space**.
 ### Multi-OS Support
 
 The config detects OS via `vim.uv.os_uname().sysname` and adapts:
+
 - **VimTex viewers:** SumatraPDF (Windows/WSL), Sioyek (macOS)
 - **Java paths:** Different JDK locations per OS
 - **.NET secrets:** OS-specific UserSecrets paths
@@ -87,32 +91,38 @@ Use `require("utils.get-values-on-os")` for OS-conditional values.
 ## Language-Specific Setup
 
 ### C#/.NET (`ftplugin/cs.lua`, `lsp/omnisharp.lua`)
+
 - OmniSharp LSP with extended navigation
 - Easy-dotnet plugin for project management
 - Keymaps: `<leader>lni` (new item), `<leader>lpp` (package popup)
 - Auto-build before debug sessions
 
 ### Java (`ftplugin/java.lua`, `lsp/jdtls.lua`)
+
 - JDTLS with debugger integration
 - Custom workspace paths per project
 - **Prerequisites:** junit, gson, hamcrest must be installed system-wide
 
 ### Python (`lsp/pyright.lua`, `debug/dap-python.lua`)
+
 - Pyright for type checking, Ruff for linting/formatting
 - Debugpy for debugging
 - Neotest pytest adapter
 
 ### JavaScript/TypeScript (`lsp/ts_ls.lua`, `debug/dap-vscode-js.lua`)
+
 - ts_ls LSP, prettier/prettierd formatting
 - vscode-js-debug adapter
 - Neotest jest adapter
 
 ### LaTeX (`document-tools/vimtex.lua`, `ftplugin/tex.lua`)
+
 - VimTex with latexmk compilation
 - PDF viewers: SumatraPDF (Windows via `scripts/sumatra.fish`), Sioyek (macOS)
 - Keymaps under `<leader>v`
 
 ### C/C++ (`lsp/clangd.lua`)
+
 - Clangd LSP, clang-format formatter
 - **Prerequisites:** Requires cc/gcc/clang for tree-sitter (see README FAQ)
 
@@ -122,16 +132,16 @@ Use `require("utils.get-values-on-os")` for OS-conditional values.
 
 1. Create file in appropriate category: `lua/[category]/plugin-name.lua`
 2. Return a lazy.nvim spec:
-   ```lua
-   return {
-     "owner/repo",
-     event = "VeryLazy",  -- or cmd, ft, keys
-     opts = {},
-     config = function(_, opts)
-       require("plugin").setup(opts)
-     end
-   }
-   ```
+    ```lua
+    return {
+      "owner/repo",
+      event = "VeryLazy",  -- or cmd, ft, keys
+      opts = {},
+      config = function(_, opts)
+        require("plugin").setup(opts)
+      end
+    }
+    ```
 3. Restart Neovim - lazy.nvim auto-installs missing plugins
 
 ### Adding LSP Server
@@ -209,6 +219,7 @@ Run `:checkhealth` to identify missing dependencies.
 ## Completion Engine
 
 Uses **blink.cmp** (Rust-based) with:
+
 - LSP, buffer, path sources
 - Snippet support (friendly-snippets, conventional commits, LaTeX)
 - Fuzzy matching
@@ -218,14 +229,33 @@ Uses **blink.cmp** (Rust-based) with:
 ## AI Integration
 
 **CodeCompanion** (`lua/llms/codecompanion.lua`):
-- Chat with Claude AI: `<C-c>c`
-- Inline editing: `<C-c>e`
+
+- Chat with Claude AI: `<leader><leader>cc` (toggle chat buffer)
+- Command palette: `<leader><leader>cp`
+- Inline editing available through actions
 - Add context with snacks file picker
-- Close with `<C-x>`
+- Close chat with `<C-x>`
+
+**CodeCompanion History Extension**:
+
+- Persistent conversation history for CodeCompanion sessions
+- Browse and restore previous chat conversations: `gh` keymap
+- Save current chat: `sc` keymap
+- Auto-save enabled with no expiration limit
+- Integrates with snacks picker for history browsing
+- Configured as extension within codecompanion.lua
+
+**MCPHub Extension**:
+
+- Model Context Protocol integration via mcphub
+- Server tools accessible in chat interface
+- Automatic tool and variable creation
+- Slash command integration
 
 ## File Explorer
 
 **Neo-tree** (`lua/editing/neotree.lua`):
+
 - Toggle: `<leader>x`
 - File nesting configuration for related files (.cs/.Designer.cs, package.json/lock files)
 - Libuv file watcher, gitignore-aware

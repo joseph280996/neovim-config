@@ -6,6 +6,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "ravitemer/codecompanion-history.nvim",
   },
   opts = {
     memory = {
@@ -46,6 +47,16 @@ return {
       },
     },
     extensions = {
+      history = {
+        enabled = true,
+        opts = {
+          keymap = "gh",
+          save_chat_keymap = "sc",
+          auto_save = true,
+          expiration_days = 0,
+          picker = "snacks",
+        },
+      },
       mcphub = {
         callback = "mcphub.extensions.codecompanion",
         opts = {
