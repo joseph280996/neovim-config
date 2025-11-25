@@ -1,6 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
+  "VectorCode": { "branch": "main", "commit": "171361ea0410e739f9bf2a04c75113cd80d3c0d0" },
   "arrow.nvim": { "branch": "master", "commit": "6e0f726f55f99332dd726a53effd6813786b6d49" },
   "blink-cmp-conventional-commits": { "branch": "main", "commit": "e7ec5b86c1859ae8250cdafd6635b249183cdff4" },
   "blink-cmp-latex": { "branch": "main", "commit": "3a958361e275bb5996e8393e7b2595b2f40c15ca" },

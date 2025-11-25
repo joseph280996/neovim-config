@@ -1,0 +1,359 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "name": "Neovim Configuration Workspace",
+  "version": "1.0.0", 
+  "description": "Comprehensive multi-platform Neovim configuration with modular plugin architecture",
+  "system_prompt": "You are working with a sophisticated Neovim configuration that supports Windows, Linux (WSL2), and macOS. The configuration uses lazy.nvim for plugin management and is organized into modular feature categories. The codebase follows consistent patterns with OS-specific adaptations, centralized constants, and comprehensive language support including C#/.NET, Java, Python, JavaScript/TypeScript, LaTeX, and more.",
+  "vars": {
+    "config_root": ".config/nvim",
+    "lua_root": ".config/nvim/lua"
+  },
+  "groups": [
+    {
+      "name": "Core Configuration",
+      "description": "Entry point files and core Neovim settings that bootstrap the entire configuration",
+      "system_prompt": "Focus on the main entry points and core configuration files that set up Neovim options, commands, keymappings, and plugin loading. These are the foundation files that determine how the entire configuration loads and operates.",
+      "data": [
+        "init_lua",
+        "plugin_manager",
+        "core_options",
+        "core_commands", 
+        "core_keymappings",
+        "constants_main",
+        "mason_servers"
+      ]
+    },
+    {
+      "name": "LSP & Language Support",
+      "description": "Language Server Protocol configuration, formatters, linters, and language-specific settings",
+      "system_prompt": "Focus on LSP setup, language server configurations, formatting, linting, and language-specific features. This includes Mason for tool installation, Conform for formatting, nvim-lint for linting, and individual language server configurations.",
+      "data": [
+        "lsp_config",
+        "mason_setup",
+        "conform_formatting",
+        "nvim_lint",
+        "omnisharp_cs",
+        "jdtls_java",
+        "pyright_python",
+        "typescript_lsp",
+        "clangd_cpp",
+        "lua_ls"
+      ]
+    },
+    {
+      "name": "Text Editing & UI",
+      "description": "Text editing enhancements, user interface components, completion, and visual improvements",
+      "system_prompt": "Focus on text editing features, UI components, completion systems, and visual enhancements. This includes blink-cmp for completion, neotree for file exploration, lualine for status line, snacks picker, and various editing utilities.",
+      "data": [
+        "blink_completion",
+        "neotree_explorer",
+        "lualine_statusline",
+        "snacks_picker",
+        "snacks_dashboard",
+        "treesitter",
+        "neoscroll",
+        "smart_splits",
+        "todo_comments",
+        "whichkey"
+      ]
+    },
+    {
+      "name": "Git Integration",
+      "description": "Git-related functionality including gitsigns, neogit, diffview, and GitHub integration",
+      "system_prompt": "Focus on Git workflow tools and integration. This includes gitsigns for line-level git info, neogit for git UI, diffview for diffs, and octo.nvim for GitHub integration.",
+      "data": [
+        "gitsigns",
+        "neogit",
+        "diffview",
+        "octo_github"
+      ]
+    },
+    {
+      "name": "Debug & Testing", 
+      "description": "Debugging tools and testing frameworks including nvim-dap, neotest, and language-specific adapters",
+      "system_prompt": "Focus on debugging and testing infrastructure. This includes nvim-dap for debugging, neotest for unit testing, and language-specific adapters for Python, .NET, and JavaScript testing and debugging.",
+      "data": [
+        "nvim_dap_core",
+        "dap_python",
+        "dap_ui",
+        "mason_dap",
+        "neotest_testing"
+      ]
+    },
+    {
+      "name": "Document Authoring",
+      "description": "Document creation and editing tools including VimTeX, Markdown, and note-taking systems",
+      "system_prompt": "Focus on document authoring capabilities including LaTeX with VimTeX, Markdown preview and rendering, and note-taking with zk. These tools support academic and technical writing workflows.",
+      "data": [
+        "vimtex_latex",
+        "markdown_tools",
+        "zk_notes"
+      ]
+    },
+    {
+      "name": "AI & LLM Integration",
+      "description": "AI-powered coding assistance and LLM integration including CodeCompanion and related tools",
+      "system_prompt": "Focus on AI integration for coding assistance, chat capabilities, and LLM-powered development tools. This includes CodeCompanion for Claude AI integration, history management, and MCP hub integration.",
+      "data": [
+        "codecompanion_ai",
+        "mcphub",
+        "vectorcode"
+      ]
+    },
+    {
+      "name": "Utilities & Miscellaneous",
+      "description": "Utility plugins, theme configuration, notifications, and other miscellaneous functionality",
+      "system_prompt": "Focus on utility functions, UI enhancements, notifications, theme management, and various helper plugins that support the overall Neovim experience.",
+      "data": [
+        "noice_ui",
+        "luarocks",
+        "easy_dotnet",
+        "utils_constants",
+        "utils_os_detection",
+        "utils_keymaps"
+      ]
+    }
+  ],
+  "data": {
+    "init_lua": {
+      "type": "file",
+      "path": "${config_root}/init.lua",
+      "description": "Main entry point that loads settings and plugin manager"
+    },
+    "plugin_manager": {
+      "type": "file", 
+      "path": "${lua_root}/plugin-manager.lua",
+      "description": "Lazy.nvim bootstrap and plugin loading configuration"
+    },
+    "core_options": {
+      "type": "file",
+      "path": "${lua_root}/settings/options.lua", 
+      "description": "Core Neovim options and settings"
+    },
+    "core_commands": {
+      "type": "file",
+      "path": "${lua_root}/settings/commands.lua",
+      "description": "Custom Neovim commands"
+    },
+    "core_keymappings": {
+      "type": "file",
+      "path": "${lua_root}/settings/keymappings.lua",
+      "description": "Global keymappings and shortcuts"
+    },
+    "constants_main": {
+      "type": "file", 
+      "path": "${lua_root}/utils/constants/init.lua",
+      "description": "Main constants including keybinding options and OS detection"
+    },
+    "mason_servers": {
+      "type": "file",
+      "path": "${lua_root}/utils/constants/mason_servers.lua", 
+      "description": "Centralized list of LSP servers, DAP adapters, formatters, and linters"
+    },
+    "lsp_config": {
+      "type": "file",
+      "path": "${lua_root}/lsp-conf/nvim-lspconfig.lua",
+      "description": "Main LSP configuration with capabilities, keymaps, and folding"
+    },
+    "mason_setup": {
+      "type": "file",
+      "path": "${lua_root}/lsp-conf/mason.lua",
+      "description": "Mason tool installer configuration"
+    },
+    "conform_formatting": {
+      "type": "file", 
+      "path": "${lua_root}/lsp-conf/conform.lua",
+      "description": "Code formatting configuration with per-language formatters"
+    },
+    "nvim_lint": {
+      "type": "file",
+      "path": "${lua_root}/lsp-conf/nvim-lint.lua",
+      "description": "Linting configuration for various languages"
+    },
+    "omnisharp_cs": {
+      "type": "symbols",
+      "path": "${lua_root}/lsp/omnisharp.lua",
+      "description": "C# OmniSharp LSP configuration"
+    },
+    "jdtls_java": {
+      "type": "file",
+      "path": "${lua_root}/lsp-conf/jdtls.lua", 
+      "description": "Java JDTLS configuration with debugger integration"
+    },
+    "pyright_python": {
+      "type": "symbols",
+      "path": "${lua_root}/lsp/pyright.lua",
+      "description": "Python Pyright LSP configuration"
+    },
+    "typescript_lsp": {
+      "type": "symbols", 
+      "path": "${lua_root}/lsp/ts_ls.lua",
+      "description": "TypeScript/JavaScript LSP configuration"
+    },
+    "clangd_cpp": {
+      "type": "symbols",
+      "path": "${lua_root}/lsp/clangd.lua",
+      "description": "C/C++ Clangd LSP configuration"
+    },
+    "lua_ls": {
+      "type": "symbols",
+      "path": "${lua_root}/lsp/lua_ls.lua", 
+      "description": "Lua language server configuration"
+    },
+    "blink_completion": {
+      "type": "file",
+      "path": "${lua_root}/editing/blink-cmp.lua",
+      "description": "Rust-based completion engine with LSP, buffer, and snippet support"
+    },
+    "neotree_explorer": {
+      "type": "file",
+      "path": "${lua_root}/editing/neotree.lua",
+      "description": "File explorer with file nesting and integrated actions"
+    },
+    "lualine_statusline": {
+      "type": "file", 
+      "path": "${lua_root}/editing/lualine.lua",
+      "description": "Status line configuration with macro recording and file info"
+    },
+    "snacks_picker": {
+      "type": "file",
+      "path": "${lua_root}/editing/snacks/init.lua",
+      "description": "Modern picker for files, buffers, symbols, and more"
+    },
+    "snacks_dashboard": {
+      "type": "file",
+      "path": "${lua_root}/editing/snacks/dashboard.lua", 
+      "description": "Custom dashboard with recent files and dynamic images"
+    },
+    "treesitter": {
+      "type": "symbols",
+      "path": "${lua_root}/editing/treesitter.lua",
+      "description": "Syntax highlighting and parsing configuration"
+    },
+    "neoscroll": {
+      "type": "file",
+      "path": "${lua_root}/editing/neoscroll.lua",
+      "description": "Smooth scrolling animations with custom keybindings"
+    },
+    "smart_splits": {
+      "type": "file",
+      "path": "${lua_root}/editing/smart-splits.lua", 
+      "description": "Smart window splitting and navigation"
+    },
+    "todo_comments": {
+      "type": "file",
+      "path": "${lua_root}/editing/todo-comments.lua",
+      "description": "Highlight and search TODO comments"
+    },
+    "whichkey": {
+      "type": "file",
+      "path": "${lua_root}/plugins/whichkey.lua",
+      "description": "Keymap organization and help system with leader key namespaces"
+    },
+    "gitsigns": {
+      "type": "file",
+      "path": "${lua_root}/git/gitsigns.lua", 
+      "description": "Git integration with hunk navigation and staging"
+    },
+    "neogit": {
+      "type": "file",
+      "path": "${lua_root}/git/neogit.lua",
+      "description": "Git UI for commits, branches, and repository management"
+    },
+    "diffview": {
+      "type": "file",
+      "path": "${lua_root}/git/diffview.lua",
+      "description": "Git diff viewer and file history"
+    },
+    "octo_github": {
+      "type": "file",
+      "path": "${lua_root}/git/octo.lua",
+      "description": "GitHub integration for issues, PRs, and code reviews"
+    },
+    "nvim_dap_core": {
+      "type": "file", 
+      "path": "${lua_root}/debug/nvim-dap.lua",
+      "description": "Core debugging configuration with .NET support and project rebuilding"
+    },
+    "dap_python": {
+      "type": "file",
+      "path": "${lua_root}/debug/dap-python.lua",
+      "description": "Python debugging adapter configuration"
+    },
+    "dap_ui": {
+      "type": "file",
+      "path": "${lua_root}/debug/dapui.lua",
+      "description": "Debug UI for visualizing variables, stack traces, and breakpoints"
+    },
+    "mason_dap": {
+      "type": "file",
+      "path": "${lua_root}/debug/mason-dap.lua",
+      "description": "Mason integration for DAP adapter installation"
+    },
+    "neotest_testing": {
+      "type": "file", 
+      "path": "${lua_root}/testing/neotest.lua",
+      "description": "Unit testing framework with pytest, .NET, and Jest adapters"
+    },
+    "vimtex_latex": {
+      "type": "file",
+      "path": "${lua_root}/document-tools/vimtex.lua",
+      "description": "LaTeX integration with OS-specific PDF viewers"
+    },
+    "markdown_tools": {
+      "type": "file",
+      "path": "${lua_root}/document-tools/markdown.lua",
+      "description": "Markdown preview and enhanced rendering"
+    },
+    "zk_notes": {
+      "type": "file",
+      "path": "${lua_root}/document-tools/zk.lua",
+      "description": "Zettelkasten note-taking system with linking and tagging"
+    },
+    "codecompanion_ai": {
+      "type": "file",
+      "path": "${lua_root}/llms/codecompanion.lua", 
+      "description": "Claude AI integration with chat, history, and code assistance"
+    },
+    "mcphub": {
+      "type": "file",
+      "path": "${lua_root}/llms/mcphub.lua",
+      "description": "Model Context Protocol integration for enhanced AI capabilities"
+    },
+    "vectorcode": {
+      "type": "symbols",
+      "path": "${lua_root}/llms/vectorcode.lua",
+      "description": "VectorCode integration for semantic code search"
+    },
+    "noice_ui": {
+      "type": "file", 
+      "path": "${lua_root}/plugins/noice.lua",
+      "description": "Enhanced UI for messages, notifications, and command palette"
+    },
+    "luarocks": {
+      "type": "file",
+      "path": "${lua_root}/plugins/luarocks.lua",
+      "description": "Lua package manager integration"
+    },
+    "easy_dotnet": {
+      "type": "file",
+      "path": "${lua_root}/plugins/easy-dotnet.lua",
+      "description": ".NET project management with secrets, testing, and project templates"
+    },
+    "utils_constants": {
+      "type": "symbols",
+      "path": "${lua_root}/utils/constants/icons.lua",
+      "description": "Icon definitions and UI constants"
+    },
+    "utils_os_detection": {
+      "type": "file", 
+      "path": "${lua_root}/utils/get-values-on-os.lua",
+      "description": "OS-specific value resolution utility"
+    },
+    "utils_keymaps": {
+      "type": "file",
+      "path": "${lua_root}/utils/keymaps_setter.lua",
+      "description": "Buffer-local keymap helper functions"
+    }
+  }
+}
