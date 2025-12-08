@@ -9,5 +9,5 @@ return {
 
   IMAGE_PATH_WIN = "C:/Users/josep/OneDrive/Desktop/Wallpaper/",
   IMAGE_PATH_LINUX = "/mnt/c/Users/josep/OneDrive/Desktop/Wallpaper/",
-  IMAGE_PATH_DARWIN = "/Users/joseph280996/Pictures/wallpaper/"
+  IMAGE_PATH_DARWIN = "/Users/joseph280996/.config/nvim/wallpaper/"
 }
