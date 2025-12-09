@@ -3,15 +3,15 @@ return {
   event = { "BufWritePost", "BufReadPost", "InsertLeave", "InsertEnter" },
   config = function()
     require("lint").linters_by_ft = {
-      python = { "ruff" },
-      cpp = { "cppcheck" },
-      tex = { "chktex" },
+      -- python = { "ruff" },
+      -- cpp = { "cppcheck" },
+      -- tex = { "chktex" },
       typescript = { "eslint" },
       typescriptreact = { "eslint" },
       javascript = { "eslint" },
       javascriptreact = { "eslint" },
       markdown = { "vale" },
-      cmake = { "cmakelint" },
+      -- cmake = { "cmakelint" },
     }
   end,
 }

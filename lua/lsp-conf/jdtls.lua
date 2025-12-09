@@ -1,5 +1,6 @@
 local constants = require("utils.constants")
 return {
+  enabled = false,
   "mfussenegger/nvim-jdtls",
   ft = "java",
   config = function()

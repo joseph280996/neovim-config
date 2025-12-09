@@ -1,6 +1,5 @@
 return {
   "bahaaza/mcphub.nvim", -- TODO: Remove when https://github.com/ravitemer/mcphub.nvim/pull/279 merged
-  -- "ravitemer/mcphub.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
