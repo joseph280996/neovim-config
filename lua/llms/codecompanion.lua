@@ -4,9 +4,13 @@ return {
   {
     "Davidyz/VectorCode",
     dependencies = { "nvim-lua/plenary.nvim" },
+    enabled = false
   },
   {
     "olimorris/codecompanion.nvim",
+    -- TODO: Update code companion configurations to adapt to breaking change
+    tag = "v17.33.0",
+    pin = true,
     lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -53,13 +57,13 @@ return {
           },
         },
         extensions = {
-          vectorcode = {
-            opts = {
-              tool_goup = {
-                enabled = true,
-              },
-            }
-          },
+          -- vectorcode = {
+          --   opts = {
+          --     tool_goup = {
+          --       enabled = true,
+          --     },
+          --   }
+          -- },
           history = {
             enabled = true,
             opts = {
@@ -70,18 +74,18 @@ return {
               picker = "snacks",
             },
           },
-          mcphub = {
-            callback = "mcphub.extensions.codecompanion",
-            opts = {
-              make_tools = true,
-              show_server_tools_in_chat = true,
-              add_mcp_prefix_to_tool_names = false,
-              show_result_in_chat = true,
-              format_tool = nil,
-              make_vars = true,
-              make_slash_commands = true,
-            },
-          },
+          -- mcphub = {
+          --   callback = "mcphub.extensions.codecompanion",
+          --   opts = {
+          --     make_tools = true,
+          --     show_server_tools_in_chat = true,
+          --     add_mcp_prefix_to_tool_names = false,
+          --     show_result_in_chat = true,
+          --     format_tool = nil,
+          --     make_vars = true,
+          --     make_slash_commands = true,
+          --   },
+          -- },
         },
         opts = {
           -- Set debug logging

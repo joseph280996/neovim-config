@@ -20,6 +20,7 @@ return {
   -- LaTex
   "lervag/vimtex",
   ft = "tex",
+  enabled = false,
   init = function()
     local vimtex_options = get_values_on_os({
       [constants.WINDOW] = WINDOW_SETTING,
