@@ -29,28 +29,6 @@ return {
       --     "-style=file",
       --   },
       -- },
-      prettier = {
-        append_args = {
-          "--use-tabs",
-          "--tab-width",
-          4,
-          "--print-width",
-          180,
-          "--quote-props",
-          "preserve",
-        },
-      },
-      prettierd = {
-        append_args = {
-          "--use-tabs",
-          "--tab-width",
-          4,
-          "--print-width",
-          180,
-          "--quote-props",
-          "preserve",
-        },
-      },
       sqlfluff = {
         append_args = {
           "--config",
