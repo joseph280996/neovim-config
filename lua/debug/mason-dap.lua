@@ -5,7 +5,6 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
   },
-  cmd = { "Mason", "MasonUpdate", "MasonInstallAll", "MasonInstall" },
   config = function()
     require("mason-nvim-dap").setup({
       ensure_installed = servers.dap,
