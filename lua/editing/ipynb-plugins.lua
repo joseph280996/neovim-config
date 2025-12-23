@@ -5,9 +5,11 @@ return {
     "GCBallesteros/jupytext.nvim",
     commit = "d30aca899430b40d164c232985ccd0d7ca7f01c8",
     config = false,
+    enabled = false,
   },
   {
     "benlubas/molten-nvim",
+    enabled = false,
     ft = "ipynb",
     version = "^1.0.0",
     build = ":UpdateRemotePlugins",
