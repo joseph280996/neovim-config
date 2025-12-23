@@ -35,7 +35,10 @@ return {
       interactions = {
         -- Change the default chat adapter
         chat = {
-          adapter = "anthropic",
+          adapter = {
+            name = "copilot",
+            model = "claude-opus-4.5",
+          },
           slash_commands = {
             ["file"] = {
               opts = {
