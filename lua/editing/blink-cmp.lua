@@ -6,6 +6,7 @@ return {
       "rafamadriz/friendly-snippets",
       "disrupted/blink-cmp-conventional-commits",
       "erooke/blink-cmp-latex",
+      "fang2hou/blink-copilot"
     },
 
     -- use a release tag to download pre-built binaries
@@ -35,7 +36,7 @@ return {
           -- nvim-cmp style menu
           draw = {
             columns = {
-              { "label",     "label_description", gap = 2 },
+              { "label", "label_description", gap = 2 },
               { "kind_icon", "kind" },
             },
           },
@@ -48,15 +49,15 @@ return {
         ghost_text = { enabled = true },
       },
       fuzzy = {
-        implementation = "prefer_rust_with_warning"
+        implementation = "prefer_rust_with_warning",
       },
       sources = {
         -- Remove 'buffer' if you don't want text completions, by default it's only enabled when LSP returns no items
-        default = { "lsp", "path", "snippets"},
+        default = { "copilot", "lsp", "path", "snippets" },
         -- Disable cmdline completions
         per_filetype = {
-          tex = { inherit_defaults = true, "latex"},
-          cs = { inherit_defaults = true, "buffer" , "easy-dotnet" },
+          tex = { inherit_defaults = true, "latex" },
+          cs = { inherit_defaults = true, "buffer", "easy-dotnet" },
           gitcommit = { inherit_defaults = true, "conventional_commits" },
         },
         providers = {
@@ -77,9 +78,15 @@ return {
             module = "blink-cmp-latex",
             opts = {
               -- set to true to insert the latex command instead of the symbol
-              insert_command = false
+              insert_command = false,
             },
           },
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true
+          }
         },
       },
 

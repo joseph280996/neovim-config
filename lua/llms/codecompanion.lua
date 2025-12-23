@@ -4,14 +4,12 @@ return {
   {
     "Davidyz/VectorCode",
     dependencies = { "nvim-lua/plenary.nvim" },
-    enabled = false
+    enabled = false,
   },
   {
     "olimorris/codecompanion.nvim",
-    -- TODO: Update code companion configurations to adapt to breaking change
-    tag = "v17.33.0",
-    pin = true,
     lazy = false,
+    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -29,10 +27,13 @@ return {
             },
           },
         },
-        strategies = {
+        interactions = {
           -- Change the default chat adapter
           chat = {
-            adapter = "anthropic",
+            adapter = {
+              name = "copilot",
+              model = "claude-opus-4.5",
+            },
             slash_commands = {
               ["file"] = {
                 opts = {
@@ -53,7 +54,7 @@ return {
             },
           },
           inline = {
-            adapter = "anthropic",
+            adapter = "copilot",
           },
         },
         extensions = {
