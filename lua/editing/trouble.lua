@@ -7,6 +7,7 @@ return {
   dependencies = {
     "kyazdani42/nvim-web-devicons",
   },
+  cond = not vim.g.vscode,
   opts = {
     auto_close = true,
   },

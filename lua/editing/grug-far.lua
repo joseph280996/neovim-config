@@ -2,6 +2,7 @@ local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 return {
   "MagicDuck/grug-far.nvim",
   opts = true,
+  cond = not vim.g.vscode,
   keys = {
     vim.tbl_deep_extend("force", {
       "<leader>fr",

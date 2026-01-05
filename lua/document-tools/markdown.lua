@@ -37,7 +37,7 @@ return {
     end,
     opts = {
       preview = {
-        max_buf_lines = 1000,
+        max_buf_length = 1000,
         hybrid_modes = { "n" },
         filetypes = { "markdown", "codecompanion" },
         ignore_buftypes = { "nofile" },

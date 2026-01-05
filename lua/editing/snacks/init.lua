@@ -14,6 +14,7 @@ vim.list_extend(keys, scratch_km)
 return {
   "folke/snacks.nvim",
   priority = 1000,
+  cond = not vim.g.vscode,
   lazy = false,
   opts = {
     -- your configuration comes here

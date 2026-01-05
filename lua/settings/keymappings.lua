@@ -16,3 +16,18 @@ vim.api.nvim_set_keymap(
   ':tabclose',
   vim.tbl_deep_extend("force", opts, { desc = "Close current tab" })
 )
+
+if vim.g.vscode then
+  vim.api.nvim_set_keymap(
+    "n",
+    "tn",
+    ":tabnext<cr>",
+    vim.tbl_deep_extend("force", opts, { desc = "Next tab" })
+  )
+  vim.api.nvim_set_keymap(
+    "n",
+    "tp",
+    ':tabprevious<cr>',
+    vim.tbl_deep_extend("force", opts, { desc = "Previous tab" })
+  )
+end

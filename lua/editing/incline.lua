@@ -2,6 +2,7 @@ local icons = require("utils.constants.icons")
 return {
   "b0o/incline.nvim",
   event = { "BufReadPost", "BufWritePost", "InsertLeave" },
+  cond = not vim.g.vscode,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },

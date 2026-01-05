@@ -29,13 +29,13 @@ end
 return lazy.setup({
   spec = {
     { import = "editing" },
-    { import = "llms" },
-    { import = "debug" },
-    { import = "document-tools" },
-    { import = "git" },
-    { import = "lsp-conf" },
-    { import = "plugins" },
-    { import = "testing" },
+    { import = "llms", cond = not vim.g.vscode },
+    { import = "debug", cond = not vim.g.vscode },
+    { import = "document-tools", cond = not vim.g.vscode },
+    { import = "git", cond = not vim.g.vscode },
+    { import = "lsp-conf", cond = not vim.g.vscode },
+    { import = "plugins", cond = not vim.g.vscode },
+    { import = "testing", cond = not vim.g.vscode },
   },
   install = {
     missing = true,
