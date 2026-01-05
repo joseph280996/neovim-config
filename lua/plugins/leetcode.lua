@@ -10,7 +10,7 @@ return {
   },
   opts = {
     arg = "leetcode.nvim",
-    lang = "python3",
+    lang = "cpp",
     storage = {
       home = vim.fn.stdpath("data") .. "/leetcode",
       cache = vim.fn.stdpath("cache") .. "/leetcode",
@@ -19,7 +19,14 @@ return {
       non_standalone = true,
     },
     logging = true,
-    injector = {},
+    injector = {
+      ["cpp"] = {
+        imports = function(_)
+          -- return a different list to omit default imports
+          return { "#include<vector>" }
+        end,
+      },
+    },
     cache = {
       update_interval = 60 * 60 * 24 * 7,
     },
