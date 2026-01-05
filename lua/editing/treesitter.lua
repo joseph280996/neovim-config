@@ -4,6 +4,7 @@ return {
     "RRethy/nvim-treesitter-textsubjects",
   },
   lazy = false,
+  cond = not vim.g.vscode,
   opts = {
     auto_install = true,
     ensure_installed = {

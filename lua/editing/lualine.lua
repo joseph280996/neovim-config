@@ -10,6 +10,7 @@ end
 return {
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPost", "BufWritePost", "InsertLeave" },
+  cond = not vim.g.vscode,
   dependencies = {
     "kyazdani42/nvim-web-devicons",
     lazy = true,

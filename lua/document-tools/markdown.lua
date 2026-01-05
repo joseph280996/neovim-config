@@ -4,9 +4,11 @@ local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 return {
   {
     "iamcco/markdown-preview.nvim",
-    ft = { "markdown", "Avante" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
     end,
     keys = {
       vim.tbl_deep_extend("force", {
@@ -18,7 +20,7 @@ return {
   },
   {
     "OXY2DEV/markview.nvim",
-    ft = { "markdown", "md", "Avante" },
+    ft = { "markdown", "md" },
     dependencies = {
       -- You may not need this if you don't lazy load
       -- Or if the parsers are in your $RUNTIMEPATH

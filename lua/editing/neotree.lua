@@ -1,7 +1,8 @@
 local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  cmd = "Neotree",
+  cond = not vim.g.vscode,
+  lazy = false,
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",

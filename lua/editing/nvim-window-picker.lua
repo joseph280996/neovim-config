@@ -1,5 +1,6 @@
 return {
   "s1n7ax/nvim-window-picker",
+  cond = not vim.g.vscode,
   version = "2.*",
   lazy = true,
   opts = {
