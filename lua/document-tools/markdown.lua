@@ -20,7 +20,7 @@ return {
   },
   {
     "OXY2DEV/markview.nvim",
-    ft = { "markdown", "md" },
+    lazy = false,
     dependencies = {
       -- You may not need this if you don't lazy load
       -- Or if the parsers are in your $RUNTIMEPATH
@@ -39,8 +39,32 @@ return {
       preview = {
         buf_ignore = {},
         max_buf_length = 1000,
-        filetypes = { "markdown", "Avante" },
         hybrid_modes = { "n" },
+        filetypes = {
+          "md",
+          "markdown",
+          "norg",
+          "rmd",
+          "org",
+          "vimwiki",
+          "typst",
+          "latex",
+          "quarto",
+          "codecompanion",
+        },
+        ignore_buftypes = {},
+
+        condition = function(buffer)
+          local ft, bt = vim.bo[buffer].ft, vim.bo[buffer].bt
+
+          if bt == "nofile" and ft == "codecompanion" then
+            return true
+          elseif bt == "nofile" then
+            return false
+          else
+            return true
+          end
+        end,
       },
       markdown = {
         code_blocks = {
