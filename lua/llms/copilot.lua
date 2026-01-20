@@ -4,8 +4,12 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
+      copilot_node_command = "/Users/tpham4/.local/share/nvm/v22.21.1/bin/node",
       panel = { enabled = false },
       suggestion = { enabled = false },
+      nes = {
+        enabled = false
+      },
       filetypes = {
         javascript = true,
         typescript = true,
