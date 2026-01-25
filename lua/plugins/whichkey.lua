@@ -37,6 +37,8 @@ return {
       { "<leader>f", group = "Find" },
       { "<leader>ff", group = "Find Files" },
       { "<leader>g", group = "Git" },
+      { "<leader>gd", group = "Git Diff" },
+      { "<leader>gdf", group = "Git Diff File" },
 
       { "<leader>h", group = "Hardtime" },
 

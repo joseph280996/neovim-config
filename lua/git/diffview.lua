@@ -1,24 +1,28 @@
 local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 return {
-  "sindrets/diffview.nvim",
-  opts = {
-    view = {
-      merge_tool = {
-        -- Config for conflicted files in diff views during a merge or rebase.
-        layout = "diff3_mixed",
-      },
-    },
-  },
+  "esmuellert/codediff.nvim",
+  dependencies = { "MunifTanjim/nui.nvim" },
+  cmd = "CodeDiff",
   keys = {
     vim.tbl_deep_extend("force", {
-      "<leader>gd",
-      "<cmd>DiffviewOpen<cr>",
-      desc = "Git Diffview",
-    }, KEYBINDING_OPTS  ),
+      "<leader>gdm",
+      "<cmd>CodeDiff master<cr>",
+      desc = "Against master",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
+      "<leader>gdfm",
+      "<cmd>CodeDiff file main<cr>",
+      desc = "Against master",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
+      "<leader>gdfh",
+      "<cmd>CodeDiff file HEAD<cr>",
+      desc = "Against last commit",
+    }, KEYBINDING_OPTS),
     vim.tbl_deep_extend("force", {
       "<leader>gh",
-      "<cmd>DiffviewFileHistory<cr>",
-      desc = "Git Diffview",
-    }, KEYBINDING_OPTS  ),
+      "<cmd>CodeDiff history<cr>",
+      desc = "Git History",
+    }, KEYBINDING_OPTS),
   },
 }
