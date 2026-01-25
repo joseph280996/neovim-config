@@ -25,7 +25,7 @@ return {
             },
           },
         },
-        strategies = {
+        interactions = {
           -- Change the default chat adapter
           chat = {
             adapter = "anthropic",
