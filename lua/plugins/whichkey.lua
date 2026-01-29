@@ -74,6 +74,7 @@ return {
       { "<leader>T", group = "Unit Testing" },
       { "<leader>TR ", group = "Run" },
       { "<leader>TW ", group = "Watch" },
+      { "<leader>Tc", group = "Coverage" },
 
       --[[ DAP OPs ]]
       { "<leader>d", group = "Debug" },
