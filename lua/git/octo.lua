@@ -1,7 +1,6 @@
-local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
-
 return {
   "pwntester/octo.nvim",
+  enabled = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "folke/snacks.nvim",
