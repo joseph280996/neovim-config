@@ -45,7 +45,7 @@ return {
       --[[ LSP OPs ]]
       { "<leader>l", group = "LSP" },
       { "<leader>lf", group = "Fix" },
-      { "<leader>lt", group = "Trouble" },
+      { "<leader>ld", group = "Diagnostics" },
       { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
       { "<leader>e", group = "Editing" },
       { "<leader>ed", group = "Code Doc" },

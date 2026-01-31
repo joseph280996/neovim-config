@@ -1,12 +1,12 @@
 local lsp_servers = require("utils.constants.mason_servers").lsp
 
 return {
-  "neovim/nvim-lspconfig",               -- Native LSP
+  "neovim/nvim-lspconfig", -- Native LSP
   dependencies = {
-    "williamboman/mason.nvim",           -- Simple to use LSP installer
+    "williamboman/mason.nvim", -- Simple to use LSP installer
     "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
     "saghen/blink.cmp",
-    "folke/which-key.nvim",              -- Centralized list of all commands UI
+    "folke/which-key.nvim", -- Centralized list of all commands UI
   },
   config = function()
     local blink_cmp = require("blink.cmp")
@@ -28,7 +28,7 @@ return {
       {
         "<leader>lh",
         function()
-          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr = 0 })
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
         end,
         mode = "n",
         desc = "Toggle type hint",
@@ -44,6 +44,14 @@ return {
         "<cmd>LspInstallInfo<cr>",
         mode = "n",
         desc = "Open LSP Install Info",
+      },
+      {
+        "<leader>ldf",
+        function()
+          vim.diagnostic.open_float()
+        end,
+        mode = "n",
+        desc = "Open Diagnostic in floating window",
       },
     }
     for _, server in pairs(lsp_servers) do
