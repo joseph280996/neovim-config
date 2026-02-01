@@ -58,7 +58,7 @@ return {
               tool_goup = {
                 enabled = true,
               },
-            }
+            },
           },
           history = {
             enabled = true,
@@ -90,6 +90,17 @@ return {
       }
     end,
     keys = {
+      -- Normal
+      vim.tbl_deep_extend("force", {
+        "<leader><leader>ci",
+        function()
+          local input = vim.fn.input("CodeCompanion: ")
+          if input ~= "" then
+            vim.cmd("CodeCompanion" .. input)
+          end
+        end,
+        desc = "Inline Assistant",
+      }, KEYBINDING_OPTS),
       vim.tbl_deep_extend("force", {
         "<leader><leader>cc",
         "<cmd>CodeCompanionChat Toggle<cr>",
@@ -100,15 +111,19 @@ return {
         "<cmd>CodeCompanionActions<cr>",
         desc = "Open Command Palettes",
       }, KEYBINDING_OPTS),
+      -- Visual
       vim.tbl_deep_extend("force", {
+        mode = "x",
         "<leader>c",
         function()
           local input = vim.fn.input("CodeCompanion: ")
           if input ~= "" then
-            vim.cmd("CodeCompanion <,>" .. input)
+            local start_line = vim.fn.line("'<")
+            local end_line = vim.fn.line("'>")
+            vim.cmd(string.format("%d,%dCodeCompanion %s", start_line, end_line, input))
           end
         end,
-        desc = "CodeCompanion Inline Assistant",
+        desc = "Inline Assistant",
       }, KEYBINDING_OPTS),
     },
   },
