@@ -4,11 +4,14 @@ return {
   opts = {
     -- Define your formatters
     formatters_by_ft = {
-      json = { "prettier" },
+      json = { "prettierd", "prettier" },
       lua = { "stylua" },
       -- c = { "clang-format" },
       -- cpp = { "clang-format" },
       -- python = { "ruff_format" },
+      css = { "prettierd", "prettier" },
+      scss = { "prettierd", "prettier" },
+      html = { "prettierd", "prettier", stop_after_first = true },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       javascriptreact = { "prettierd", "prettier", stop_after_first = true },
       typescriptreact = { "prettierd", "prettier", stop_after_first = true },
@@ -29,6 +32,19 @@ return {
       --     "-style=file",
       --   },
       -- },
+      prettier = {
+        append_args = {
+          "--use-tabs",
+          "--tab-width",
+          4,
+          "--print-width",
+          180,
+          "--quote-props",
+          "preserve",
+          "--config-precedence",
+          "prefer-file",
+        },
+      },
       sqlfluff = {
         append_args = {
           "--config",
