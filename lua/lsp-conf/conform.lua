@@ -6,6 +6,9 @@ return {
     formatters_by_ft = {
       json = { "prettier" },
       lua = { "stylua" },
+      css = { "prettierd", "prettier" },
+      scss = { "prettierd", "prettier" },
+      html = { "prettierd", "prettier", stop_after_first = true },
       c = { "clang-format" },
       cpp = { "clang-format" },
       python = { "ruff_format" },
@@ -38,6 +41,8 @@ return {
           180,
           "--quote-props",
           "preserve",
+          "--config-precedence",
+          "prefer-file",
         },
       },
       prettierd = {
