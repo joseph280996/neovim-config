@@ -66,6 +66,9 @@ return {
           enable = true,
         },
       },
+      comment = {
+        enable = false,
+      },
       latex = {
         enable = false,
       },
