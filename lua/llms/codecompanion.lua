@@ -12,6 +12,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/codecompanion-history.nvim",
+      "cairijun/codecompanion-agentskills.nvim",
     },
     opts = function()
       return {
@@ -82,10 +83,13 @@ return {
               make_slash_commands = true,
             },
           },
-        },
-        opts = {
-          -- Set debug logging
-          log_level = "DEBUG",
+          agentskills = {
+            opts = {
+              paths = {
+                { "~/Code/Work/utils/skills/", recursive = true },
+              },
+            },
+          },
         },
       }
     end,
