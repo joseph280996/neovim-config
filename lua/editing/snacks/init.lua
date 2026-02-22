@@ -1,6 +1,7 @@
 local constants = require("utils.constants")
 local picker_conf = require("editing.snacks.picker")
 local dashboard_conf = require("editing.snacks.dashboard")
+local scratch_conf = require("editing.snacks.scratch")
 
 local KEYBINDING_OPTS = constants.KEYBINDING_OPTS
 
@@ -24,9 +25,12 @@ return {
     scroll = { enabled = false },
     statuscolumn = { enabled = false },
     words = { enabled = false },
+    scratch = scratch_conf,
     picker = picker_conf,
   },
   keys = {
+    { "<leader>us",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    { "<leader>uS",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     vim.tbl_deep_extend("force", {
       "<leader>xo",
       function()
