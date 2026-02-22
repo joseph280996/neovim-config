@@ -1,6 +1,9 @@
 return {
   -- Development Utilities
   "numToStr/Comment.nvim", -- Easily comment stuff
+  dependencies = {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  },
   opts = {
     toggler = {
       ---Line-comment toggle keymap
@@ -25,4 +28,8 @@ return {
       eol = "gcA",
     },
   },
+  config = function(_, opts)
+    opts.pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+    require("Comment").setup(opts)
+  end,
 }
