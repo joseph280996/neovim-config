@@ -49,6 +49,23 @@ return {
       debug_dll = dll
       return dll
     end
+    for _, language in ipairs({ "typescript", "javascript" }) do
+      dap.configurations[language] = {
+        {
+          name = "Launch file",
+          type = "node",
+          request = "launch",
+          program = "${file}",
+          cwd = "${workspaceFolder}",
+        },
+        {
+          name = "Launch Debugger against Chrome",
+          type = "chrome",
+          request = "launch",
+          url = "http://localhost:5050",
+        },
+      }
+    end
 
     for _, value in ipairs({ "cs", "fsharp" }) do
       dap.configurations[value] = {
@@ -77,6 +94,7 @@ return {
     end
 
     local install_dir = vim.fn.stdpath("data")
+    local config_dir = vim.fn.stdpath("config")
 
     -- DAP ADAPTERS CONFIG
     dap.adapters.coreclr = {
@@ -85,16 +103,16 @@ return {
       args = { "--interpreter=vscode" },
     }
 
-    -- DAP LANG CONFIG
-    local mappings = {
-      chrome = { "typescript", "javascript" },
-      ["pwa-chrome"] = { "typescript", "javascript" },
-      node = { "typescript", "javascript" },
-      ["pwa-node"] = { "typescript", "javascript" },
-      python = { "python" },
+    dap.adapters["pwa-node"] = {
+      type = "server",
+      host = "localhost",
+      port = "${port}",
+      executable = {
+        command = "node",
+        -- 💀 Make sure to update this path to point to your installation
+        args = { config_dir .. "/js-debug/src/dapDebugServer.js", "${port}" },
+      },
     }
-
-    require("dap.ext.vscode").load_launchjs(nil, mappings)
 
     vim.fn.sign_define(
       "DapBreakpoint",
