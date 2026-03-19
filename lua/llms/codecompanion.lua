@@ -14,85 +14,94 @@ return {
       "ravitemer/codecompanion-history.nvim",
       "cairijun/codecompanion-agentskills.nvim",
     },
-    opts = function()
-      return {
-        memory = {
-          opts = {
-            chat = {
-              enabled = true,
-              condition = function(chat)
-                return chat.adapter.type ~= "acp"
-              end,
-            },
+    opts = {
+      prompt_library = {
+        markdown = {
+          dirs = {
+            "~/Code/Work/utils/prompts/",
           },
         },
-        interactions = {
-          -- Change the default chat adapter
+      },
+      memory = {
+        opts = {
           chat = {
-            adapter = "anthropic",
-            slash_commands = {
-              ["file"] = {
-                opts = {
-                  provider = "snacks",
-                },
-              },
-              [""] = {
-                opts = {
-                  provider = "snacks",
-                },
-              },
-            },
-            keymaps = {
-              close = {
-                modes = { n = "<C-x>", i = "<C-x>" },
-                opts = {},
-              },
-            },
-          },
-          inline = {
-            adapter = "anthropic",
-          },
-        },
-        extensions = {
-          vectorcode = {
-            opts = {
-              tool_goup = {
-                enabled = true,
-              },
-            },
-          },
-          history = {
             enabled = true,
-            opts = {
-              keymap = "gh",
-              save_chat_keymap = "sc",
-              auto_save = true,
-              expiration_days = 0,
-              picker = "snacks",
-            },
+            condition = function(chat)
+              return chat.adapter.type ~= "acp"
+            end,
           },
-          mcphub = {
-            callback = "mcphub.extensions.codecompanion",
-            opts = {
-              make_tools = true,
-              show_server_tools_in_chat = true,
-              add_mcp_prefix_to_tool_names = false,
-              show_result_in_chat = true,
-              format_tool = nil,
-              make_vars = true,
-              make_slash_commands = true,
+        },
+      },
+      interactions = {
+        -- Change the default chat adapter
+        chat = {
+          adapter = "anthropic",
+          slash_commands = {
+            ["file"] = {
+              opts = {
+                provider = "snacks",
+              },
             },
-          },
-          agentskills = {
-            opts = {
-              paths = {
-                { "~/Code/utils/skills/", recursive = true },
+            [""] = {
+              opts = {
+                provider = "snacks",
               },
             },
           },
+          keymaps = {
+            close = {
+              modes = { n = "<C-x>", i = "<C-x>" },
+              opts = {},
+            },
+          },
         },
-      }
-    end,
+        inline = {
+          adapter = "anthropic",
+        },
+      },
+      extensions = {
+        vectorcode = {
+          opts = {
+            tool_goup = {
+              enabled = true,
+            },
+          },
+        },
+        history = {
+          enabled = true,
+          opts = {
+            keymap = "gh",
+            save_chat_keymap = "sc",
+            auto_save = true,
+            expiration_days = 0,
+            picker = "snacks",
+          },
+        },
+        mcphub = {
+          callback = "mcphub.extensions.codecompanion",
+          opts = {
+            make_tools = true,
+            show_server_tools_in_chat = true,
+            add_mcp_prefix_to_tool_names = false,
+            show_result_in_chat = true,
+            format_tool = nil,
+            make_vars = true,
+            make_slash_commands = true,
+          },
+        },
+        agentskills = {
+          opts = {
+            paths = {
+              { "~/Code/utils/skills/", recursive = true },
+            },
+          },
+        },
+      },
+      opts = {
+        -- Set debug logging
+        log_level = "DEBUG",
+      },
+    },
     keys = {
       -- Normal
       vim.tbl_deep_extend("force", {
