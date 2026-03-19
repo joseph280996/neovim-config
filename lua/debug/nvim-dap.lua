@@ -94,7 +94,6 @@ return {
     end
 
     local install_dir = vim.fn.stdpath("data")
-    local config_dir = vim.fn.stdpath("config")
 
     -- DAP ADAPTERS CONFIG
     dap.adapters.coreclr = {
@@ -110,7 +109,7 @@ return {
       executable = {
         command = "node",
         -- 💀 Make sure to update this path to point to your installation
-        args = { config_dir .. "/js-debug/src/dapDebugServer.js", "${port}" },
+        args = { install_dir .. "/lazy/vscode-js-debug/dapDebugServer.js", "${port}" },
       },
     }
 
