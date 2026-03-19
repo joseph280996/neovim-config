@@ -5,6 +5,11 @@ return {
   cmd = "CodeDiff",
   keys = {
     vim.tbl_deep_extend("force", {
+      "<leader>gdo",
+      "<cmd>CodeDiff<cr>",
+      desc = "Open CodeDiff",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
       "<leader>gdm",
       "<cmd>CodeDiff master<cr>",
       desc = "Against master",
