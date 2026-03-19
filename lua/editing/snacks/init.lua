@@ -29,8 +29,8 @@ return {
     picker = picker_conf,
   },
   keys = {
-    { "<leader>us",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-    { "<leader>uS",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
+    { "<leader>ns",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    { "<leader>nS",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     vim.tbl_deep_extend("force", {
       "<leader>xo",
       function()
