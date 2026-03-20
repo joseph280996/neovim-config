@@ -86,7 +86,7 @@ return {
           agentskills = {
             opts = {
               paths = {
-                { "~/Code/Work/utils/skills/", recursive = true },
+                { "~/Code/utils/skills/", recursive = true },
               },
             },
           },
