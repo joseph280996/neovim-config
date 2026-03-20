@@ -1,9 +1,15 @@
 local constants = require("utils.constants")
-local picker_conf = require("editing.snacks.picker")
 local dashboard_conf = require("editing.snacks.dashboard")
-local scratch_conf = require("editing.snacks.scratch")
+local picker_confs = require("editing.snacks.picker")
+local scratch_confs = require("editing.snacks.scratch")
 
-local KEYBINDING_OPTS = constants.KEYBINDING_OPTS
+local keys = {}
+
+local picker_conf, picker_km = picker_confs.config, picker_confs.keys
+local scratch_conf, scratch_km = scratch_confs.config, scratch_confs.keys
+
+vim.list_extend(keys, picker_km)
+vim.list_extend(keys, scratch_km)
 
 return {
   "folke/snacks.nvim",
@@ -28,145 +34,5 @@ return {
     scratch = scratch_conf,
     picker = picker_conf,
   },
-  keys = {
-    { "<leader>ns",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-    { "<leader>nS",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
-    vim.tbl_deep_extend("force", {
-      "<leader>xo",
-      function()
-        Snacks.picker.lsp_symbols({
-          layout = {
-            preset = "right",
-          },
-        })
-      end,
-      desc = "Open Symbols Explorer",
-    }, KEYBINDING_OPTS),
-
-    -- Find
-    vim.tbl_deep_extend("force", {
-      "<leader>fb",
-      function()
-        Snacks.picker.buffers()
-      end,
-      desc = "Buffers",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>fc",
-      function()
-        Snacks.picker.commands()
-      end,
-      desc = "Commands",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>ff",
-      function()
-        Snacks.picker.smart()
-      end,
-      desc = "Files",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>fk",
-      function()
-        Snacks.picker.keymaps()
-      end,
-      desc = "Keymaps",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>fs",
-      function()
-        Snacks.picker.lsp_symbols()
-      end,
-      desc = "LSP Symbols",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>fS",
-      function()
-        Snacks.picker.lsp_workspace_symbols()
-      end,
-      desc = "LSP Workspace Symbols",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>ft",
-      function()
-        Snacks.picker.grep()
-      end,
-      desc = "Find Text",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>fT",
-      function()
-        Snacks.picker.grep_buffers()
-      end,
-      desc = "Find Text in Open Bufferes",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>fw",
-      function()
-        Snacks.picker.grep_word()
-      end,
-      mode = { "n", "x" },
-      desc = "Find Word under cursor or selection",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>fR",
-      function()
-        Snacks.picker.registers()
-      end,
-      desc = "Registers",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>fp",
-      function()
-        Snacks.picker.projects()
-      end,
-      desc = "Find Projects",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>er",
-      function()
-        Snacks.picker.resume()
-      end,
-      desc = "Resume Last Actions",
-    }, KEYBINDING_OPTS),
-
-    -- LSP
-    vim.tbl_deep_extend("force", {
-      "gd",
-      function()
-        Snacks.picker.lsp_definitions()
-      end,
-      desc = "Go to Definition",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "gD",
-      function()
-        Snacks.picker.lsp_declarations()
-      end,
-      desc = "Go to Declaration",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "gri",
-      function()
-        Snacks.picker.lsp_implementations()
-      end,
-      desc = "Go To Implementation",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "grr",
-      function()
-        Snacks.picker.lsp_references()
-      end,
-      desc = "Go To References",
-    }, KEYBINDING_OPTS),
-
-    -- Utilities
-    vim.tbl_deep_extend("force", {
-      "<leader>eu",
-      function()
-        Snacks.picker.undo()
-      end,
-      desc = "Undo Tree",
-    }, KEYBINDING_OPTS),
-  },
+  keys = keys,
 }
