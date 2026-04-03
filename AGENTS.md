@@ -71,7 +71,7 @@ lua/
   utils/
     constants/
       init.lua                    KEYBINDING_OPTS, OS constants, image paths
-      mason_servers.lua           Central LSP/DAP/formatter/linter lists
+      mason-servers.lua           Central LSP/DAP/formatter/linter lists
       icons.lua                   Nerd Font glyph aliases
       ignores.lua                 File/dir ignore patterns
     get-values-on-os.lua          OS-conditional value resolver
@@ -180,7 +180,7 @@ return {
 These are loaded by `lua/lsp-conf/nvim-lspconfig.lua`. Do not call `setup()` inside them.
 
 ### Adding a New LSP Server
-1. Add the server name to the `lsp` array in `lua/utils/constants/mason_servers.lua`.
+1. Add the server name to the `lsp` array in `lua/utils/constants/mason-servers.lua`.
 2. Optionally create `lsp/servername.lua` if non-default settings are needed.
 3. Keymaps are applied automatically by `lua/lsp-conf/nvim-lspconfig.lua`.
 

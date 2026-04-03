@@ -20,7 +20,7 @@
         "core_commands", 
         "core_keymappings",
         "constants_main",
-        "mason_servers"
+        "mason-servers"
       ]
     },
     {
@@ -145,9 +145,9 @@
       "path": "${lua_root}/utils/constants/init.lua",
       "description": "Main constants including keybinding options and OS detection"
     },
-    "mason_servers": {
+    "mason-servers": {
       "type": "file",
-      "path": "${lua_root}/utils/constants/mason_servers.lua", 
+      "path": "${lua_root}/utils/constants/mason-servers.lua", 
       "description": "Centralized list of LSP servers, DAP adapters, formatters, and linters"
     },
     "lsp_config": {

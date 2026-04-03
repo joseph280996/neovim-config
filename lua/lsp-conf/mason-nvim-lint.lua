@@ -1,4 +1,4 @@
-local servers = require("utils.constants.mason_servers")
+local servers = require("utils.constants.mason-servers")
 return {
   "rshkarin/mason-nvim-lint",
   dependencies = {

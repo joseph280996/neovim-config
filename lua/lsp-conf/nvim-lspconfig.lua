@@ -1,4 +1,4 @@
-local lsp_servers = require("utils.constants.mason_servers").lsp
+local lsp_servers = require("utils.constants.mason-servers").lsp
 
 return {
   "neovim/nvim-lspconfig", -- Native LSP

@@ -31,7 +31,7 @@ Plugins in `lua/` organized by feature category (one plugin per file returning a
 
 ### Language Server Configuration
 
-**Central server lists:** `lua/utils/constants/mason_servers.lua` (15 LSP servers, 3 DAP adapters, 4 formatters, 2 linters)
+**Central server lists:** `lua/utils/constants/mason-servers.lua` (15 LSP servers, 3 DAP adapters, 4 formatters, 2 linters)
 
 **LSP setup flow:**
 
@@ -73,7 +73,7 @@ Leader key is **Space**. Namespaces defined in `lua/plugins/whichkey.lua`:
 - `constants/init.lua` - Keybinding options, OS detection, image paths
 - `constants/icons.lua` - Icon definitions for UI
 - `constants/ignores.lua` - File/directory ignore patterns
-- `constants/mason_servers.lua` - Centralized tool lists
+- `constants/mason-servers.lua` - Centralized tool lists
 - `get-values-on-os.lua` - OS-specific value resolution
 - `get-dashboard-image.lua` - Time-based dashboard image selector
 - `keymaps_setter.lua` - Buffer-local keymap helper
@@ -151,7 +151,7 @@ Most LSP servers are installed from Mason.
 
 Follow these steps to properly set up the server:
 
-1. Add server name to `lua/utils/constants/mason_servers.lua` in the `lsp` array. Mason will automatically prompt for installation when you restart Neovim.
+1. Add server name to `lua/utils/constants/mason-servers.lua` in the `lsp` array. Mason will automatically prompt for installation when you restart Neovim.
 2. (Optional) Create `lsp/servername.lua` if you need custom server settings. The LSP server will work with defaults if this file is omitted.
 3. Keymaps apply automatically (defined in `lua/lsp-conf/nvim-lspconfig.lua`)
 
@@ -537,7 +537,7 @@ Run comprehensive diagnostics:
 
 ### LSP Optimization
 
-- Disable unused LSP servers in `lua/utils/constants/mason_servers.lua`
+- Disable unused LSP servers in `lua/utils/constants/mason-servers.lua`
 - Configure per-project LSP settings via `.nvim.lua` files
 - Use `vim.lsp.buf.format({ async = true })` for non-blocking formatting
 
@@ -618,7 +618,7 @@ Respects `.editorconfig` files for indentation and formatting preferences.
 
 ### Adding a New Language
 
-1. **Add LSP server** to `lua/utils/constants/mason_servers.lua`
+1. **Add LSP server** to `lua/utils/constants/mason-servers.lua`
 2. **Create LSP config** in `lsp/language.lua` if custom settings needed
 3. **Add treesitter parser** in `lua/editing/treesitter.lua`
 4. **Configure formatter** in `lua/lsp-conf/conform.lua`

@@ -1,4 +1,4 @@
-local servers = require("utils.constants.mason_servers").lsp
+local servers = require("utils.constants.mason-servers").lsp
 
 return {
   "williamboman/mason-lspconfig.nvim", -- Simple to use LSP installer
