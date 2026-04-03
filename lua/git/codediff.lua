@@ -2,6 +2,11 @@ local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 return {
   "esmuellert/codediff.nvim",
   dependencies = { "MunifTanjim/nui.nvim" },
+  opts = {
+    history = {
+      position = "left"
+    }
+  },
   cmd = "CodeDiff",
   keys = {
     vim.tbl_deep_extend("force", {
