@@ -37,31 +37,13 @@ return {
     end,
     opts = {
       preview = {
-        buf_ignore = {},
-        max_buf_length = 1000,
+        max_buf_lines = 1000,
         hybrid_modes = { "n" },
-        filetypes = {
-          "md",
-          "markdown",
-          "norg",
-          "rmd",
-          "org",
-          "vimwiki",
-          "typst",
-          "latex",
-          "quarto",
-          "codecompanion",
-        },
-        ignore_buftypes = {},
-
+        filetypes = { "markdown", "codecompanion" },
+        ignore_buftypes = { "nofile" },
         condition = function(buffer)
-          local ft, bt = vim.bo[buffer].ft, vim.bo[buffer].bt
-
-          if bt == "nofile" and ft == "codecompanion" then
-            return true
-          elseif bt == "nofile" then
-            return false
-          else
+          local ft = vim.bo[buffer].ft
+          if ft == "codecompanion" then
             return true
           end
         end,
