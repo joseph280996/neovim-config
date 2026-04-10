@@ -1,5 +1,3 @@
-local lsp_servers = require("utils.constants.mason-servers").lsp
-
 return {
   "neovim/nvim-lspconfig", -- Native LSP
   dependencies = {
@@ -35,15 +33,9 @@ return {
       },
       {
         "<leader>li",
-        "<cmd>LspInfo<cr>",
+        "<cmd>checkhealth lsp<cr>",
         mode = "n",
         desc = "Open LSP Info",
-      },
-      {
-        "<leader>lI",
-        "<cmd>LspInstallInfo<cr>",
-        mode = "n",
-        desc = "Open LSP Install Info",
       },
       {
         "<leader>ldf",
@@ -54,12 +46,10 @@ return {
         desc = "Open Diagnostic in floating window",
       },
     }
-    for _, server in pairs(lsp_servers) do
-      vim.lsp.enable(server)
-    end
 
     vim.highlight.priorities.semantic_tokens = 95
 
+    -- Autocommand to register LSP keymaps when an LSP client attaches to a buffer
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
@@ -73,6 +63,14 @@ return {
         end
 
         require("which-key").add(universal_keymap)
+      end,
+    })
+
+    -- Autocommand to enable tsserver (tsserver is the LSP server for TypeScript/JavaScript)
+    vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+      pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+      callback = function()
+        vim.lsp.enable({ "ts_ls", "eslint" })
       end,
     })
   end,
