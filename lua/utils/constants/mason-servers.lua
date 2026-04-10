@@ -15,7 +15,18 @@ return {
     "clangd",
     "pyright",
   },
-  dap = { "python", "js" },
-  linters = { "cmakelint", "vale" },
-  formatters = { "stylelua", "prettier", "cmake_format", "clang-format" },
+  dap = {
+    "python",
+    "js",
+  },
+  linters = {
+    "cmakelint",
+    "vale",
+  },
+  formatters = {
+    "stylelua",
+    "prettier",
+    "cmake_format",
+    "clang-format",
+  },
 }
