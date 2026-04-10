@@ -12,7 +12,7 @@ return {
   event = { "BufReadPost", "BufWritePost", "InsertLeave" },
   dependencies = {
     "kyazdani42/nvim-web-devicons",
-    lazy = true,
+    "GustavEikaas/easy-dotnet.nvim",
   },
   opts = {
     options = {
@@ -45,7 +45,6 @@ return {
       },
       lualine_b = {},
       lualine_c = {},
-      lualine_x = { "filesize" },
       lualine_y = { "encoding", "fileformat", "filetype" },
       lualine_z = { "location" },
     },
@@ -56,4 +55,8 @@ return {
       "lazy",
     },
   },
+  config = function(_, opts)
+    opts.sections.lualine_x = { { require("easy-dotnet.ui-modules.jobs").lualine }, "filesize" }
+    require("lualine").setup(opts)
+  end,
 }

@@ -4,7 +4,6 @@ return {
     "ruff",
     "ts_ls",
     "texlab",
-    "omnisharp",
     "sqlls",
     "lua_ls",
     "marksman",
@@ -16,7 +15,7 @@ return {
     "clangd",
     "pyright",
   },
-  dap = { "python", "js", "coreclr" },
+  dap = { "python", "js" },
   linters = { "cmakelint", "vale" },
   formatters = { "stylelua", "prettier", "cmake_format", "clang-format" },
 }

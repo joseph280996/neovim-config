@@ -15,7 +15,6 @@ return -- Unit Tests
     "antoinemadec/FixCursorHold.nvim",
 
     -- [[ LANGUAGE SUPPORTED ]]
-    "Issafalcon/neotest-dotnet",
     "nvim-neotest/neotest-python",
     "nvim-neotest/neotest-jest",
   },
@@ -26,14 +25,10 @@ return -- Unit Tests
           dap = { justMyCode = false },
           runner = "pytest",
         }),
-        require("neotest-dotnet")({
-          dap = { justMyCode = false, adapter_name = "netcoredbg" },
-          discovery_root = "solution",
-        }),
         require("neotest-jest")({
           jestCommand = "npm test --",
           env = { CI = true },
-          cwd = function(path)
+          cwd = function()
             return vim.fn.getcwd()
           end,
         }),
