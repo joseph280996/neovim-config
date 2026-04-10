@@ -1,3 +1,5 @@
+local lsp_servers = require("utils.constants.mason-servers").lsp
+
 return {
   "neovim/nvim-lspconfig", -- Native LSP
   dependencies = {
@@ -46,6 +48,8 @@ return {
         desc = "Open Diagnostic in floating window",
       },
     }
+
+    vim.lsp.enable(lsp_servers)
 
     vim.highlight.priorities.semantic_tokens = 95
 
