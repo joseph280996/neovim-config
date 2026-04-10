@@ -86,9 +86,36 @@ return {
       indent = 2,
       padding = 1,
     },
+    {
+      icon = " ",
+      title = "Projects",
+      section = "projects",
+      indent = 3,
+    },
     function()
       local in_git = Snacks.git.get_root() ~= nil
       local cmds = {
+        {
+          title = "Notifications",
+          cmd = "gh notify -s -a -n5",
+          action = function()
+            vim.ui.open("https://github.com/notifications")
+          end,
+          key = "n",
+          icon = " ",
+          height = 5,
+          enabled = true,
+        },
+        {
+          icon = " ",
+          title = "Open PRs",
+          cmd = "gh pr list -L 3",
+          key = "P",
+          action = function()
+            vim.fn.jobstart("gh pr list --web", { detach = true })
+          end,
+          height = 7,
+        },
         {
           icon = " ",
           title = "Git Status",
@@ -98,6 +125,7 @@ return {
       }
       return vim.tbl_map(function(cmd)
         return vim.tbl_extend("force", {
+          pane = 2,
           section = "terminal",
           enabled = in_git,
           padding = 1,
@@ -107,15 +135,5 @@ return {
       end, cmds)
     end,
     { section = "startup" },
-    {
-      pane = 2,
-      section = "terminal",
-      cmd = "chafa "
-        .. image_getter(IMAGE_PATH)
-        .. " --format symbols --symbols vhalf --size 96x27 --stretch",
-      width = 96,
-      height = 27,
-      padding = 1,
-    },
   },
 }
