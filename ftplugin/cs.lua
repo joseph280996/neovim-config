@@ -1,30 +1,6 @@
 if not vim.g.vscode then
   local keymaps = {
     {
-      "gd",
-      "<cmd>lua require('omnisharp_extended').lsp_definition()<CR>",
-      mode = "n",
-      desc = "Go To Definition",
-    },
-    {
-      "gI",
-      "<cmd>lua require('omnisharp_extended').lsp_implementation()<CR>",
-      mode = "n",
-      desc = "Go To Implementation",
-    },
-    {
-      "gr",
-      "<cmd>lua require('omnisharp_extended').lsp_references()<CR>",
-      mode = "n",
-      desc = "Go To References",
-    },
-    {
-      "gT",
-      "<cmd>lua require('omnisharp_extended').lsp_type_definition()<CR>",
-      mode = "n",
-      desc = "Go To References",
-    },
-    {
       "<leader>lni",
       "<cmd>Dotnet new<cr>",
       mode = "n",
