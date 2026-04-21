@@ -53,3 +53,5 @@ end, {
 })
 
 vim.cmd([[ au TabLeave * let g:lasttab = tabpagenr() ]])
+
+vim.cmd([[ set clipboard=unnamedplus ]])
