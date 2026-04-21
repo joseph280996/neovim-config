@@ -35,10 +35,6 @@ return {
       interactions = {
         -- Change the default chat adapter
         chat = {
-          adapter = {
-            name = "copilot",
-            model = "claude-opus-4.5",
-          },
           slash_commands = {
             ["file"] = {
               opts = {
@@ -58,9 +54,17 @@ return {
             },
           },
         },
-        inline = {
-          adapter = "anthropic",
-        },
+      },
+      adapters = {
+        copilot = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = {
+                default = "claude-sonnet-4.6",
+              },
+            },
+          })
+        end,
       },
       extensions = {
         vectorcode = {
