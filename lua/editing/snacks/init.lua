@@ -1,7 +1,7 @@
-local constants = require("utils.constants")
-local dashboard_conf = require("editing.snacks.dashboard")
+local dashboard_confs = require("editing.snacks.dashboard")
 local picker_confs = require("editing.snacks.picker")
 local scratch_confs = require("editing.snacks.scratch")
+local image_confs = require("editing.snacks.imageconf")
 
 local keys = {}
 
@@ -22,7 +22,7 @@ return {
     -- refer to the configuration section below
     lazygit = { enabled = false },
     bigfile = { enabled = false },
-    dashboard = dashboard_conf,
+    dashboard = dashboard_confs,
     explorer = { enabled = false },
     indent = { enabled = false },
     input = { enabled = false },
@@ -34,6 +34,7 @@ return {
     words = { enabled = false },
     scratch = scratch_conf,
     picker = picker_conf,
+    image = image_confs,
   },
   keys = keys,
 }

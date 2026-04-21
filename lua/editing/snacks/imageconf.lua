@@ -1,0 +1,5 @@
+return {
+  math = {
+    enabled = false,
+  },
+}

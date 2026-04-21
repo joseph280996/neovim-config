@@ -46,10 +46,3 @@ vim.opt.fillchars:append({
   foldclose = icons.ui.ArrowClosed,
   foldopen = icons.ui.ArrowOpen,
 })
-
-vim.g.python3_host_prog = "python"
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.g.lasttab = 1
-
-vim.cmd([[set clipboard=unnamedplus]])
