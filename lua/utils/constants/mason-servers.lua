@@ -28,6 +28,7 @@ return {
   formatters = {
     "stylelua",
     "prettier",
+    "csharpier",
     -- "cmake_format",
     -- "clang-format",
   },

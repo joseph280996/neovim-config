@@ -9,6 +9,7 @@ return {
       css = { "prettierd", "prettier" },
       scss = { "prettierd", "prettier" },
       html = { "prettierd", "prettier", stop_after_first = true },
+      cs = { "csharpier" },
       -- c = { "clang-format" },
       -- cpp = { "clang-format" },
       -- python = { "ruff_format" },
@@ -18,8 +19,8 @@ return {
       typescript = { "prettierd", "prettier", stop_after_first = true },
       markdown = { "prettierd", "prettier", stop_after_first = true },
       sql = { "sqlfluff" },
-      java = { "google-java-format" },
-      tex = { "tex-fmt" },
+      -- java = { "google-java-format" },
+      -- tex = { "tex-fmt" },
     },
     -- Set default options
     default_format_opts = {
