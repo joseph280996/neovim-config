@@ -12,8 +12,10 @@ Neovim configuration supporting Windows, Linux (WSL2), and macOS. Uses **lazy.nv
 
 1. `init.lua` - Loads settings and plugin manager:
    - `lua/settings/options.lua` - Core Neovim options
-   - `lua/settings/commands.lua` - Custom commands
+   - `lua/settings/globals_settings.lua` - Global variables
+   - `lua/settings/usercommands.lua` - Custom commands
    - `lua/settings/keymappings.lua` - Global keymaps
+   - `lua/settings/filetypes.lua` - Custom filetype detection (e.g. Jenkinsfile -> groovy)
    - `lua/plugin-manager.lua` - Lazy.nvim bootstrap and plugin loading
 
 ### Plugin Organization
@@ -26,12 +28,12 @@ Plugins in `lua/` organized by feature category (one plugin per file returning a
 - **debug/** - Debugging tools (nvim-dap with Python, JS, .NET support)
 - **testing/** - Test frameworks (neotest with pytest, jest, .NET adapters, kulala for HTTP)
 - **document-tools/** - Document editing (vimtex, markdown, zk notes)
-- **llms/** - AI integration (codecompanion for Claude, mcphub)
-- **plugins/** - Miscellaneous (colorscheme, whichkey, notify, easy-dotnet, leetcode)
+- **llms/** - AI integration (codecompanion with `claude_code` adapter, mcphub)
+- **plugins/** - Miscellaneous (colorscheme, whichkey, notify, dotnet/easy-dotnet, leetcode)
 
 ### Language Server Configuration
 
-**Central server lists:** `lua/utils/constants/mason-servers.lua` (15 LSP servers, 3 DAP adapters, 4 formatters, 2 linters)
+**Central server lists:** `lua/utils/constants/mason-servers.lua` (LSP servers, DAP adapters, formatters, linters)
 
 **LSP setup flow:**
 
@@ -41,7 +43,7 @@ Plugins in `lua/` organized by feature category (one plugin per file returning a
 4. `lsp/[language].lua` - Language-specific settings (optional)
 5. `ftplugin/[filetype].lua` - Filetype-specific behavior (optional)
 
-**Code formatting:** `lsp-conf/conform.lua` (ruff_format, prettier/prettierd, stylua, clang-format, google-java-format, sqlfluff, tex-fmt)
+**Code formatting:** `lsp-conf/conform.lua` (prettier/prettierd, stylua, csharpier, sqlfluff)
 
 ### Keymap Structure
 
@@ -90,9 +92,9 @@ OS detection via `vim.uv.os_uname().sysname`. Use `require("utils.get-values-on-
 
 ### C#/.NET
 
-- **Files:** `ftplugin/cs.lua`, `lsp/omnisharp.lua`, `lua/plugins/easy-dotnet.lua`
-- OmniSharp LSP with extended navigation
-- Easy-dotnet plugin for .NET project management
+- **Files:** `ftplugin/cs.lua`, `lua/plugins/dotnet.lua`
+- No dedicated LSP server configured (OmniSharp was removed); `easy-dotnet` provides .NET project management
+- Formatting via `csharpier` (see `lsp-conf/conform.lua`)
 - Keymaps: `<leader>lni` (new item), `<leader>lpp` (package popup)
 
 ### Java
@@ -201,11 +203,16 @@ Follow these steps to properly set up the server:
 
 **CodeCompanion** (`lua/llms/codecompanion.lua`):
 
+- Default chat adapter: `claude_code`
 - Chat toggle: `<leader><leader>cc`
 - Command palette: `<leader><leader>cp`
 - History browsing: `gh` keymap in chat
 - Save chat: `sc` keymap in chat
 - Close chat: `<C-x>`
+
+> Note: GitHub Copilot (`copilot.lua`, the `blink-copilot` completion source, and the
+> Copilot CodeCompanion adapter) has been removed. AI completion now relies on LSP and
+> CodeCompanion's `claude_code` adapter.
 
 **MCPHub Extension:** Model Context Protocol integration via mcphub
 
@@ -259,6 +266,13 @@ Follow these steps to properly set up the server:
 
 - **Files:** `lsp/cucumber_language_server.lua`
 - BDD test scenarios with syntax highlighting and LSP support
+
+### Groovy / Jenkinsfile
+
+- **Files:** `lsp/groovyls.lua`, `lua/settings/filetypes.lua`
+- `groovyls` LSP for Groovy sources
+- `npm-groovy-lint` linter wired in `lua/lsp-conf/nvim-lint.lua`
+- `Jenkinsfile` and `Jenkinsfile.*` are detected as `groovy` via `lua/settings/filetypes.lua`
 
 ### Tailwind CSS
 
@@ -629,7 +643,7 @@ Respects `.editorconfig` files for indentation and formatting preferences.
 
 ### Creating Custom Commands
 
-Add to `lua/settings/commands.lua`:
+Add to `lua/settings/usercommands.lua`:
 
 ```lua
 vim.api.nvim_create_user_command("MyCommand", function(opts)
@@ -691,6 +705,6 @@ Integrate with blink-cmp's snippet support:
 
 ---
 
-**Last Updated:** 2026-01-31  
+**Last Updated:** 2026-06-25  
 **Neovim Version:** 0.11.5  
 **Config Version:** See git commit history

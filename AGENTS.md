@@ -58,15 +58,17 @@ lua/
   plugin-manager.lua              lazy.nvim bootstrap; imports all category dirs
   settings/
     options.lua                   vim.opt settings
+    globals_settings.lua          Global variables
     keymappings.lua               Global non-plugin keymaps
-    commands.lua                  Custom :commands
+    usercommands.lua              Custom :commands
+    filetypes.lua                 Custom filetype detection (Jenkinsfile -> groovy)
   editing/                        Editor UI plugins (treesitter, completion, neo-tree…)
   lsp-conf/                       LSP setup (mason, conform, nvim-lspconfig…)
   git/                            Git plugins (gitsigns, neogit, octo, codediff)
   debug/                          DAP adapters (python, js, .NET)
   testing/                        Test runners (neotest, kulala, nvim-coverage)
   document-tools/                 LaTeX, Markdown, Zettelkasten
-  llms/                           AI plugins (codecompanion, mcphub)
+  llms/                           AI plugins (codecompanion [claude_code adapter], mcphub)
   plugins/                        Misc plugins (colorscheme, whichkey, noice…)
   utils/
     constants/
