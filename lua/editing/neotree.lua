@@ -6,7 +6,6 @@ return {
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "kyazdani42/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
     "s1n7ax/nvim-window-picker",
     "saifulapm/neotree-file-nesting-config",

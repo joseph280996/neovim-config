@@ -14,6 +14,7 @@ return {
   dependencies = {
     "kyazdani42/nvim-web-devicons",
     "GustavEikaas/easy-dotnet.nvim",
+    "Mirsmog/real-icons.nvim",
   },
   opts = {
     options = {
@@ -58,6 +59,12 @@ return {
   },
   config = function(_, opts)
     opts.sections.lualine_x = { { require("easy-dotnet.ui-modules.jobs").lualine }, "filesize" }
+    opts.sections.lualine_y = {
+      "encoding",
+      "fileformat",
+      require("real-icons.integrations.lualine").component,
+      "filetype",
+    }
     require("lualine").setup(opts)
   end,
 }
