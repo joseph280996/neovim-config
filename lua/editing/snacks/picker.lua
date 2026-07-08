@@ -69,6 +69,13 @@ return {
     vim.tbl_deep_extend("force", {
       "<leader>xo",
       function()
+        Snacks.picker.smart()
+      end,
+      desc = "Open Smart Explorer",
+    }, KEYBINDING_OPTS),
+    vim.tbl_deep_extend("force", {
+      "<leader>xs",
+      function()
         Snacks.picker.lsp_symbols({
           layout = {
             preset = "right",
@@ -96,7 +103,7 @@ return {
     vim.tbl_deep_extend("force", {
       "<leader>ff",
       function()
-        Snacks.picker.smart()
+        Snacks.picker.files()
       end,
       desc = "Files",
     }, KEYBINDING_OPTS),
