@@ -12,6 +12,7 @@ return {
     -- "spectral",
     -- "jdtls",
     "cucumber_language_server",
+    "groovyls",
     -- "tailwindcss",
     -- "clangd",
     -- "pyright",
@@ -24,6 +25,7 @@ return {
   linters = {
     -- "cmakelint",
     "vale",
+    -- npm-groovy-lint
   },
   formatters = {
     "stylelua",

@@ -11,6 +11,7 @@ return {
       javascript = { "eslint" },
       javascriptreact = { "eslint" },
       markdown = { "vale" },
+      groovy = { "npm-groovy-lint" },
       -- cmake = { "cmakelint" },
     }
   end,
