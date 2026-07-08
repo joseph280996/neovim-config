@@ -33,8 +33,24 @@ return {
         },
       },
       interactions = {
+        background = {
+          chat = {
+            callbacks = {
+              ["on_ready"] = {
+                actions = {
+                  "interactions.background.builtin.chat_make_title",
+                },
+                enabled = false,
+              },
+            },
+            opts = {
+              enabled = true,
+            },
+          },
+        },
         -- Change the default chat adapter
         chat = {
+          adapter = "claude_code",
           slash_commands = {
             ["file"] = {
               opts = {
@@ -53,18 +69,10 @@ return {
               opts = {},
             },
           },
+          opts = {
+            completion_provider = "blink",
+          },
         },
-      },
-      adapters = {
-        copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "claude-sonnet-4.6",
-              },
-            },
-          })
-        end,
       },
       extensions = {
         vectorcode = {
@@ -80,20 +88,11 @@ return {
             keymap = "gh",
             save_chat_keymap = "sc",
             auto_save = true,
+            -- Title generation needs an HTTP adapter; the chat uses the
+            -- claude_code ACP adapter (Bedrock) which can't generate titles.
+            auto_generate_title = false,
             expiration_days = 0,
             picker = "snacks",
-          },
-        },
-        mcphub = {
-          callback = "mcphub.extensions.codecompanion",
-          opts = {
-            make_tools = true,
-            show_server_tools_in_chat = true,
-            add_mcp_prefix_to_tool_names = false,
-            show_result_in_chat = true,
-            format_tool = nil,
-            make_vars = true,
-            make_slash_commands = true,
           },
         },
         agentskills = {
@@ -102,6 +101,17 @@ return {
               { "~/Code/utils/skills/", recursive = true },
             },
           },
+        },
+      },
+      adapters = {
+        acp = {
+          claude_code = function()
+            return require("codecompanion.adapters").extend("claude_code", {
+              defaults = {
+                mcpServers = "inherit_from_config",
+              },
+            })
+          end,
         },
       },
       opts = {

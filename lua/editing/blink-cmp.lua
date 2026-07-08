@@ -6,7 +6,6 @@ return {
       "rafamadriz/friendly-snippets",
       "disrupted/blink-cmp-conventional-commits",
       "erooke/blink-cmp-latex",
-      "fang2hou/blink-copilot"
     },
 
     -- use a release tag to download pre-built binaries
@@ -53,7 +52,7 @@ return {
       },
       sources = {
         -- Remove 'buffer' if you don't want text completions, by default it's only enabled when LSP returns no items
-        default = { "copilot", "lsp", "path", "snippets" },
+        default = { "lsp", "path", "snippets" },
         -- Disable cmdline completions
         per_filetype = {
           tex = { inherit_defaults = true, "latex" },
@@ -81,12 +80,6 @@ return {
               insert_command = false,
             },
           },
-          copilot = {
-            name = "copilot",
-            module = "blink-copilot",
-            score_offset = 100,
-            async = true
-          }
         },
       },
 
