@@ -4,7 +4,6 @@ return {
     -- "ruff",
     "ts_ls",
     -- "texlab",
-    "omnisharp",
     "sqlls",
     "lua_ls",
     "marksman",
