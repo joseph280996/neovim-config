@@ -1,5 +1,6 @@
 {
-	"diagnostics.globals": ["vim", "require", "on", "enable", "pairs", "ipairs", "pcall"],
+	"diagnostics.globals": ["vim", "require", "on", "enable", "pairs", "ipairs", "pcall",
+        "Snacks"],
 	"runtime.version": "LuaJIT",
 	"workspace.checkThirdParty": false,
 	"workspace.library": ["$VIMRUNTIME", "${3rd}/luv/library"]

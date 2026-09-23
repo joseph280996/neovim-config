@@ -20,17 +20,17 @@ Neovim configuration supporting Windows, Linux (WSL2), and macOS. Uses **lazy.nv
 
 ### Plugin Organization
 
+
 Plugins in `lua/` organized by feature category (one plugin per file returning a lazy.nvim spec):
 
-- **editing/** - Editor enhancements (snacks picker/dashboard, blink-cmp completion, neo-tree, treesitter, trouble diagnostics)
+- **editing/** - Editor enhancements (snacks picker/dashboard, blink-cmp completion, neo-tree, treesitter, trouble diagnostics, haunt.nvim bookmarks, nvim-dbee database client, flash.nvim motions, bloocky.nvim calendar)
 - **lsp-conf/** - LSP setup, formatters, linters (mason, conform, nvim-lint)
 - **git/** - Git integration (gitsigns, neogit, codediff, octo)
 - **debug/** - Debugging tools (nvim-dap with Python, JS, .NET support)
-- **testing/** - Test frameworks (neotest with pytest, jest, .NET adapters, kulala for HTTP)
-- **document-tools/** - Document editing (vimtex, markdown, zk notes)
-- **llms/** - AI integration (codecompanion with `claude_code` adapter, mcphub)
+- **llms/** - AI integration (sidekick.nvim for running AI CLI tools like Claude Code)
 - **plugins/** - Miscellaneous (colorscheme, whichkey, notify, dotnet/easy-dotnet, leetcode)
 
+### Language Server Configuration
 ### Language Server Configuration
 
 **Central server lists:** `lua/utils/constants/mason-servers.lua` (LSP servers, DAP adapters, formatters, linters)
@@ -45,18 +45,18 @@ Plugins in `lua/` organized by feature category (one plugin per file returning a
 
 **Code formatting:** `lsp-conf/conform.lua` (prettier/prettierd, stylua, csharpier, sqlfluff)
 
+
 ### Keymap Structure
 
-Leader key is **Space**. Namespaces defined in `lua/plugins/whichkey.lua`:
+Leader key is **Space**. Namespaces defined in `lua/utils/keymaps/native-keymaps.lua`:
 
 | Prefix              | Purpose                           |
 | ------------------- | --------------------------------- |
-| `<leader>b`         | Buffer operations                 |
 | `<leader>f`         | File/text finding (snacks picker) |
 | `<leader>g`         | Git operations                    |
 | `<leader>l`         | LSP operations                    |
 | `<leader>e`         | Editing operations                |
-| `<leader>u`         | Utilities (Kulala, tabs)          |
+| `<leader>u`         | Utilities (Kulala, tabs, markdown preview/render) |
 | `<leader>x`         | Explorer (neotree)                |
 | `<leader>m`         | Molten (Jupyter notebooks)        |
 | `<leader>d`         | Debug                             |
@@ -66,7 +66,10 @@ Leader key is **Space**. Namespaces defined in `lua/plugins/whichkey.lua`:
 | `<leader>z`         | Notes/Zettelkasten                |
 | `<leader>v`         | VimTex                            |
 | `<leader>s`         | Surround                          |
-| `<leader><leader>c` | AI (CodeCompanion)                |
+| `<leader>a`         | AI (Sidekick CLI)                 |
+| `<leader>h`         | Haunt (ghost text bookmarks)      |
+| `<leader>D`         | DBee (database client)            |
+| `<leader>t`         | Bloocky (timeblocking calendar)   |
 
 ### Utilities
 
@@ -78,7 +81,7 @@ Leader key is **Space**. Namespaces defined in `lua/plugins/whichkey.lua`:
 - `constants/mason-servers.lua` - Centralized tool lists
 - `get-values-on-os.lua` - OS-specific value resolution
 - `get-dashboard-image.lua` - Time-based dashboard image selector
-- `keymaps_setter.lua` - Buffer-local keymap helper
+- `lua/utils/keymaps/native-keymaps.lua` - Which-key group + keymap definitions (native Neovim)
 
 ### Multi-OS Support
 
@@ -146,6 +149,11 @@ Do the following steps when adding a new plugin:
 3. Search for recommended lazy.nvim default setup
 4. Apply the setup to the file created in step 1.
 5. Restart Neovim - lazy.nvim auto-installs
+6. **Update this file (`CLAUDE.md`) and `AGENTS.md`:** add the plugin to the relevant
+   category bullet under Plugin Organization, and add/update a dedicated section (with
+   file path and key keymaps) if the plugin is significant enough to warrant one. Do
+   this for every new plugin addition, removal, or meaningful keymap/config change —
+   not just at the end of a session.
 
 ### Adding LSP Server
 
@@ -163,7 +171,7 @@ Follow these steps to properly set up the server:
 | ------------------------------ | --------------------------------------- |
 | `lua/settings/keymappings.lua` | Non-plugin-related keymaps              |
 | Plugin file `keys = {}`        | Plugin-specific keymaps                 |
-| `lua/plugins/whichkey.lua`     | Which-key group and keymaps (Preferred) |
+| `lua/utils/keymaps/native-keymaps.lua` | Which-key group and keymaps (Preferred) |
 | `lsp-conf/nvim-lspconfig.lua`  | LSP keymaps (on_attach)                 |
 | `ftplugin/[filetype].lua`      | Filetype-specific                       |
 
@@ -180,7 +188,8 @@ Follow these steps to properly set up the server:
 | Stage hunk                   | `<leader>gs`              |
 | Neogit UI                    | `<leader>gg`              |
 | Toggle neo-tree              | `<leader>x`               |
-| CodeCompanion chat           | `<leader><leader>cc`      |
+| Sidekick toggle CLI          | `<leader>aa`              |
+| Sidekick focus                | `<leader><leader>a`      |
 
 ## Special Commands
 
@@ -199,26 +208,89 @@ Follow these steps to properly set up the server:
   - Shared constants in `utils/constants/`
   - Utility functions should be in `utils/`
 
+
 ## AI Integration
 
-**CodeCompanion** (`lua/llms/codecompanion.lua`):
+**Sidekick.nvim** (`lua/llms/sidekick.lua`):
 
-- Default chat adapter: `claude_code`
-- Chat toggle: `<leader><leader>cc`
-- Command palette: `<leader><leader>cp`
-- History browsing: `gh` keymap in chat
-- Save chat: `sc` keymap in chat
-- Close chat: `<C-x>`
+- Runs external AI CLI tools (e.g. Claude Code) directly in a terminal split, not
+  through a tmux/zellij multiplexer (`cli.mux.enabled = false`).
+- Next-edit-suggestions (`nes`) disabled.
+- Focus CLI: `<leader><leader>a` (normal, terminal, insert, visual modes)
+- Toggle CLI: `<leader>aa`
+- Select CLI tool: `<leader>as`
+- Detach CLI session: `<leader>ad`
+- Send current context (`{this}`): `<leader>at`
+- Send current file: `<leader>af`
+- Send visual selection: `<leader>av` (visual mode)
+- Select prompt: `<leader>ap`
+- Toggle Claude directly: `<leader>ac`
 
 > Note: GitHub Copilot (`copilot.lua`, the `blink-copilot` completion source, and the
-> Copilot CodeCompanion adapter) has been removed. AI completion now relies on LSP and
-> CodeCompanion's `claude_code` adapter.
+> Copilot CodeCompanion adapter) had already been removed. CodeCompanion and MCPHub
+> (`lua/llms/codecompanion.lua`, `lua/llms/mcphub.lua`) have since been removed in favor
+> of Sidekick. AI completion relies on LSP; AI assistance is now via Sidekick's CLI
+> integration.
 
-**MCPHub Extension:** Model Context Protocol integration via mcphub
+## Bookmarks
+
+**Haunt.nvim** (`lua/editing/haunt.lua`):
+
+- Ghost text (virtual text) code bookmarks with per-branch git scoping.
+- Annotate line: `<leader>ha`
+- Toggle annotation (current line): `<leader>ht`
+- Toggle all annotations: `<leader>hT`
+- Delete bookmark: `<leader>hd`
+- Delete all bookmarks: `<leader>hC`
+- Prev/next bookmark: `<leader>hp` / `<leader>hn`
+- Show picker (snacks/telescope/fzf-lua): `<leader>hl`
+- Send bookmarks to quickfix (all/buffer): `<leader>hq` / `<leader>hQ`
+- Yank bookmark locations (buffer/all): `<leader>hy` / `<leader>hY`
+
+## Motions
+
+**Flash.nvim** (`lua/editing/flash.lua`):
+
+- Fast, treesitter-aware jump/search motions. Uses stock default keymaps (no
+  leader prefix), per repo convention of preferring plugin defaults.
+- Jump: `s` (normal/visual/operator-pending)
+- Treesitter jump: `S` (normal/visual/operator-pending)
+- Remote Flash: `r` (operator-pending)
+- Treesitter search: `R` (operator-pending/visual)
+- Toggle Flash search in command-line mode: `<c-s>`
+
+## Calendar
+
+**Bloocky** (`lua/editing/bloocky.lua`):
+
+- Timeblocking calendar with day/week/month views, `hjkl` navigation. Default config
+  (no calendar sync, no Dooing integration).
+- Toggle calendar (float): `<leader>tb`
+- Toggle calendar (sidebar, day view): `<leader>tB`
+- Inside calendar: `hjkl` navigate, `H`/`L` prev/next month or week, `gd`/`gw`/`gm`
+  switch views, `<Tab>` cycle views, `t` jump to today, `a` create block, `<CR>` edit,
+  `x` delete, `q`/`<Esc>` close
+- Commands: `:Bloocky [day|week|month]`, `:BloockyToggle`, `:BloockySidebar`,
+  `:BloockyAdd`, `:checkhealth bloocky`
+
+## Database Client
+
+**nvim-dbee** (`lua/editing/nvim-dbee.lua`):
+
+- Interactive database client with a Go backend and Lua/nui.nvim UI.
+- Requires `MunifTanjim/nui.nvim`; installs a prebuilt `dbee` binary via `build`
+  (auto-detects curl/wget/go).
+- Open/close/toggle UI: `<leader>Do` / `<leader>Dc` / `<leader>Dt`
+- Connections configured via `require("dbee").setup({ sources = { ... } })`.
+  Two Castle SQL Server connections (Castle02, Castle05) authenticate via Kerberos.
+- Kerberos prerequisite: macOS Heimdal defaults to an `API:` ccache the Go krb5 client
+  can't read, so before connecting run
+  `kinit -c FILE:$HOME/.local/state/krb5/castle.ccache tpham4@EZESOFT.NET`
+  (re-run when the ticket expires). The ccache lives under `~/.local/state` deliberately —
+  `com.apple.tmp_cleaner` deletes files in `/tmp` after 3 days.
 
 ## Dependencies & Requirements
 
-### Core Dependencies
 
 - **Neovim:** Version 0.10+ (0.11+ recommended for latest features)
 - **Git:** Required for lazy.nvim and version control features
@@ -257,13 +329,14 @@ Follow these steps to properly set up the server:
 
 ### Markdown
 
+
 - **Files:** `document-tools/markdown.lua`, `ftplugin/markdown.lua`
 - Marksman LSP for navigation and completion
-- Render-markdown plugin for enhanced preview
+- render-markdown.nvim for in-buffer rendering (lazy-loaded on `markdown` filetype; toggle with `<leader>uM`)
+- markdown-preview.nvim for browser preview (`<leader>um`)
 - Vale linting for prose quality
 
 ### Cucumber/Gherkin
-
 - **Files:** `lsp/cucumber_language_server.lua`
 - BDD test scenarios with syntax highlighting and LSP support
 

@@ -62,14 +62,14 @@ lua/
     keymappings.lua               Global non-plugin keymaps
     usercommands.lua              Custom :commands
     filetypes.lua                 Custom filetype detection (Jenkinsfile -> groovy)
-  editing/                        Editor UI plugins (treesitter, completion, neo-tree…)
+  editing/                        Editor UI plugins (treesitter, completion, neo-tree, haunt.nvim, nvim-dbee, flash.nvim, bloocky.nvim…)
   lsp-conf/                       LSP setup (mason, conform, nvim-lspconfig…)
   git/                            Git plugins (gitsigns, neogit, octo, codediff)
   debug/                          DAP adapters (python, js, .NET)
-  testing/                        Test runners (neotest, kulala, nvim-coverage)
-  document-tools/                 LaTeX, Markdown, Zettelkasten
-  llms/                           AI plugins (codecompanion [claude_code adapter], mcphub)
+  llms/                           AI plugins (sidekick.nvim — runs AI CLI tools like Claude Code)
   plugins/                        Misc plugins (colorscheme, whichkey, noice…)
+  utils/
+    constants/
   utils/
     constants/
       init.lua                    KEYBINDING_OPTS, OS constants, image paths
@@ -77,7 +77,10 @@ lua/
       icons.lua                   Nerd Font glyph aliases
       ignores.lua                 File/dir ignore patterns
     get-values-on-os.lua          OS-conditional value resolver
-    keymaps_setter.lua            Buffer-local bulk keymap helper
+  utils/keymaps/
+    init.lua                     Keymap module entry point
+    native-keymaps.lua           Which-key group + keymap definitions (native Neovim)
+    vscode-keymaps.lua           VSCode-Neovim specific keymaps
 lsp/                              Per-language LSP server configs (plain tables)
 ftplugin/                         Filetype-specific Neovim settings
 stylua.toml                       Lua formatter config
@@ -190,6 +193,11 @@ These are loaded by `lua/lsp-conf/nvim-lspconfig.lua`. Do not call `setup()` ins
 1. Create `lua/[category]/plugin-name.lua` returning a lazy.nvim spec.
 2. No manual registration needed — lazy.nvim scans all files in each category dir.
 3. Prefer default plugin configuration unless there's a specific reason to override.
+4. **Update memory files:** reflect the change in both `CLAUDE.md` and `AGENTS.md` —
+   add the plugin to its category bullet under Repository Structure/Plugin Organization,
+   and add/update a dedicated section describing the plugin's purpose, file path, and
+   key keymaps if it's significant. Apply the same rule when removing a plugin or
+   changing its keymaps/config: update both files in the same change, not later.
 
 ### OS-Conditional Values
 Use the provided utility; do not branch on `vim.uv.os_uname().sysname` inline:
@@ -207,7 +215,7 @@ local viewer = get_values_on_os({
 - **Lua files:** kebab-case (`blink-cmp.lua`, `get-values-on-os.lua`)
 - **Lua modules/variables:** snake_case (`local my_var`, `local get_values_on_os`)
 - **Constants:** UPPER_SNAKE_CASE (`KEYBINDING_OPTS`, `DARWIN`)
-- **Which-key group prefixes:** single letter after `<leader>` (see `lua/plugins/whichkey.lua`)
+- **Which-key group prefixes:** single letter after `<leader>` (see `lua/utils/keymaps/native-keymaps.lua`)
 
 ### Error Handling
 - Wrap optional feature requires in `pcall` when the module may not be present:
@@ -235,16 +243,19 @@ The Lua LSP is configured to recognise these as globals (do not `require` them):
 | `<leader>g` | Git operations |
 | `<leader>l` | LSP operations |
 | `<leader>e` | Editing |
-| `<leader>u` | Utilities |
+| `<leader>u` | Utilities (markdown preview/render, misc) |
 | `<leader>x` | Explorer (neo-tree) |
 | `<leader>d` | Debug (DAP) |
 | `<leader>T` | Testing (neotest) |
-| `<leader>n` / `<leader>z` | Notes / Zettelkasten |
-| `<leader><leader>c` | AI (CodeCompanion) |
+| `<leader>a` | AI (Sidekick CLI) |
+| `<leader>h` | Haunt (ghost text bookmarks) |
+| `<leader>D` | DBee (database client) |
+| `<leader>t` | Bloocky (timeblocking calendar) |
 
-Leader key is **Space**. All groups are registered in `lua/plugins/whichkey.lua`.
+Leader key is **Space**. All groups are registered in `lua/utils/keymaps/native-keymaps.lua`.
 
 ---
+
 
 ## No Cursor or Copilot Rules
 

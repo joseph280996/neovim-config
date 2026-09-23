@@ -16,6 +16,14 @@ If you're using Java, make sure you have these installed on your machine:
 - gson
 - hamcrest
 
+## DBee
+To connect to SQL Server, run the following commands to generate the file
+necessary for making the connection:
+
+```sh
+kinit -c FILE:$HOME/.local/state/krb5/castle.ccache tpham4@EZESOFT.NET
+```
+
 ## FAQ
 
 ### Q: Why do I see telescope require fd after running checkhealth?
