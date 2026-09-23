@@ -2,7 +2,6 @@ return {
   "andythigpen/nvim-coverage",
   version = "*",
   keys = {
-    { "<leader>Tc", group = "Coverage" },
     {
       "<leader>Tcc",
       function()

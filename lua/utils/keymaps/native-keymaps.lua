@@ -9,7 +9,10 @@ return {
   { "<leader>gd", group = "Git Diff" },
   { "<leader>gdf", group = "Git Diff File" },
 
-  { "<leader>h", group = "Hardtime" },
+  { "<leader>h", group = "Haunt" },
+
+  --[[ AI OPs ]]
+  { "<leader>a", group = "AI" },
 
   --[[ LSP OPs ]]
   { "<leader>l", group = "LSP" },
@@ -41,11 +44,17 @@ return {
 
   --[[ UNIT TESTING ]]
   { "<leader>T", group = "Unit Testing" },
-  { "<leader>TR ", group = "Run" },
-  { "<leader>TW ", group = "Watch" },
+  { "<leader>TR", group = "Run" },
+  { "<leader>TW", group = "Watch" },
   { "<leader>Tc", group = "Coverage" },
 
   --[[ DAP OPs ]]
+  --[[ DBee ]]
+  { "<leader>D", group = "DBee" },
+
+  --[[ Bloocky ]]
+  { "<leader>t", group = "Bloocky" },
+
   { "<leader>d", group = "Debug" },
 
   --[[ PACKAGES OPs ]]
@@ -60,5 +69,4 @@ return {
 
   --[[ Layer 2 ]]
   { "<leader><leader>", group = "Layer 2" },
-  { "<leader><leader>c", group = "Layer 2" },
 }

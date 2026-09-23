@@ -28,6 +28,16 @@ return {
         exclude = { "**/*/node_modules/**", "**/*.git/**", "**/package-lock.json" },
       },
       project = {
+        root = {
+          ".git",
+          "*.sln",
+          "package.json",
+          "README.md",
+          "Readme.md",
+          "CLAUDE.md",
+          ".github",
+          ".gitignore",
+        },
         dev = vim.list_extend(
           {
             "~/.confg",
@@ -69,13 +79,6 @@ return {
     vim.tbl_deep_extend("force", {
       "<leader>xo",
       function()
-        Snacks.picker.smart()
-      end,
-      desc = "Open Smart Explorer",
-    }, KEYBINDING_OPTS),
-    vim.tbl_deep_extend("force", {
-      "<leader>xs",
-      function()
         Snacks.picker.lsp_symbols({
           layout = {
             preset = "right",
@@ -103,7 +106,7 @@ return {
     vim.tbl_deep_extend("force", {
       "<leader>ff",
       function()
-        Snacks.picker.files()
+        Snacks.picker.smart()
       end,
       desc = "Files",
     }, KEYBINDING_OPTS),

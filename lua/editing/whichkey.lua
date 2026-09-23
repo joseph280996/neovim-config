@@ -7,7 +7,7 @@ return {
   event = "VeryLazy",
   opts = {
     delay = function(ctx)
-      return ctx.plugin and 0 or 500
+      return ctx.plugin and 0 or 50
     end,
     preset = "modern",
     plugins = {
