@@ -6,7 +6,7 @@ return {
   lazy = false, -- Load on startup (recommended for daily tip feature)
   dependencies = {
     "MunifTanjim/nui.nvim",
-    "OXY2DEV/markview.nvim", -- Rich rendering with advanced features
+    "MeanderingProgrammer/render-markdown.nvim", -- Rich rendering with advanced features
   },
   opts = {
     -- OPTIONAL: Location of user defined tips (default value shown below)

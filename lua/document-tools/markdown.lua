@@ -19,69 +19,40 @@ return {
     },
   },
   {
-    "OXY2DEV/markview.nvim",
-    lazy = false,
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-      "rebelot/kanagawa.nvim",
+      "echasnovski/mini.icons",
     },
-    config = function(_, opts)
-      local presets = require("markview.presets")
-      opts.markdown.headings = presets.headings.slanted
-      opts.markdown.horizontal_rules = presets.horizontal_rules.thin
-      opts.markdown.tables = presets.tables.rounded
-      require("markview").setup(opts)
-    end,
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
     opts = {
-      preview = {
-        max_buf_length = 1000,
-        hybrid_modes = { "n" },
-        filetypes = { "markdown", "codecompanion" },
-        ignore_buftypes = { "nofile" },
-        condition = function(buffer)
-          local ft = vim.bo[buffer].ft
-          if ft == "codecompanion" then
-            return true
-          end
-        end,
+      file_types = { "markdown" },
+      completions = { lsp = { enabled = true } },
+      heading = {
+        width = "block",
+        left_pad = 1,
+        right_pad = 1,
       },
-      markdown = {
-        code_blocks = {
-          enable = true,
-          style = "block",
-          min_width = 60,
-          pad_amount = 3,
-          language_names = {
-            { "py", "python" },
-            { "cpp", "C++" },
-            { "js", "javascript" },
-            { "ts", "typescript" },
-          },
-          label_direction = "left",
-        },
-        headings = {
-          enable = true,
-        },
+      code = {
+        width = "block",
+        min_width = 60,
+        left_pad = 3,
+        right_pad = 3,
+        position = "left",
       },
-      comment = {
-        enable = false,
-      },
-      latex = {
-        enable = false,
-      },
-      latex_static = {
-        enable = false,
-      },
-      html = {
-        enable = false,
-      },
-      yaml = {
-        enable = false,
-      },
-      typst = {
-        enable = false,
-      },
+      pipe_table = { preset = "round" },
+      latex = { enabled = false },
+      html = { enabled = false },
+      yaml = { enabled = false },
+    },
+    keys = {
+      vim.tbl_deep_extend("force", {
+        "<leader>uM",
+        "<cmd>RenderMarkdown toggle<cr>",
+        desc = "Toggle Markdown Render",
+      }, KEYBINDING_OPTS),
     },
   },
 }
