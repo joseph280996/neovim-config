@@ -53,7 +53,7 @@ return {
       dap.configurations[language] = {
         {
           name = "Launch file",
-          type = "node",
+          type = "pwa-node",
           request = "launch",
           program = "${file}",
           cwd = "${workspaceFolder}",
@@ -95,6 +95,15 @@ return {
 
     local install_dir = vim.fn.stdpath("data")
 
+    -- Resolve mason's js-debug-adapter install dir via registry API
+    local function get_js_debug_path()
+      local ok, registry = pcall(require, "mason-registry")
+      if not ok or not registry.is_installed("js-debug-adapter") then
+        return nil
+      end
+      return registry.get_package("js-debug-adapter"):get_install_path()
+    end
+
     -- DAP ADAPTERS CONFIG
     dap.adapters.coreclr = {
       type = "executable",
@@ -102,14 +111,15 @@ return {
       args = { "--interpreter=vscode" },
     }
 
+    local js_debug_path = get_js_debug_path() or (install_dir .. "/mason/packages/js-debug-adapter")
+
     dap.adapters["pwa-node"] = {
       type = "server",
       host = "localhost",
       port = "${port}",
       executable = {
         command = "node",
-        -- 💀 Make sure to update this path to point to your installation
-        args = { install_dir .. "/lazy/vscode-js-debug/dapDebugServer.js", "${port}" },
+        args = { js_debug_path .. "/js-debug/src/dapDebugServer.js", "${port}" },
       },
     }
 

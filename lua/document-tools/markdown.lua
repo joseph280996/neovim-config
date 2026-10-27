@@ -3,18 +3,27 @@ local KEYBINDING_OPTS = require("utils.constants").KEYBINDING_OPTS
 -- Markdown
 return {
   {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    "blackhat-7/vellum.nvim",
+    cmd = { "Vellum" },
     ft = { "markdown" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
+    opts = {},
     keys = {
       vim.tbl_deep_extend("force", {
-        "<leader>um",
-        "<cmd>MarkdownPreview<cr>",
-        desc = "Preview Markdown",
+        "<leader>ump",
+        "<cmd>Vellum<cr>",
+        desc = "Toggle Markdown Preview",
+      }, KEYBINDING_OPTS),
+      vim.tbl_deep_extend("force", {
+        "<leader>umz",
+        function()
+          require("vellum").zoom()
+        end,
+        desc = "Zoom Markdown Image/Diagram",
+      }, KEYBINDING_OPTS),
+      vim.tbl_deep_extend("force", {
+        "<leader>ume",
+        "<cmd>Vellum export<cr>",
+        desc = "Export Markdown to PDF",
       }, KEYBINDING_OPTS),
     },
   },

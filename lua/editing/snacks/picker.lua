@@ -28,16 +28,6 @@ return {
         exclude = { "**/*/node_modules/**", "**/*.git/**", "**/package-lock.json" },
       },
       project = {
-        root = {
-          ".git",
-          "*.sln",
-          "package.json",
-          "README.md",
-          "Readme.md",
-          "CLAUDE.md",
-          ".github",
-          ".gitignore",
-        },
         dev = vim.list_extend(
           {
             "~/.confg",
@@ -51,11 +41,22 @@ return {
             [constants.LINUX] = { "/mnt/d/Notebook/" },
             [constants.DARWIN] = {
               "~/Documents/knowledge-base/",
-              "~/Documents/notes/",
+              "~/notes/",
             },
           }, false)
         ),
-        patterns = { ".git", "lazy-lock.json", "package.json", "Makefile", "README.md", ".zk" },
+        patterns = {
+          ".git",
+          "*.sln",
+          "package.json",
+          "README.md",
+          "Readme.md",
+          "CLAUDE.md",
+          ".github",
+          ".gitignore",
+          "lazy-lock.json",
+          "AGENT.md",
+        },
         layout = custom_layout,
       },
       lsp_definitions = {

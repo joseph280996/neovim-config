@@ -333,7 +333,7 @@ Follow these steps to properly set up the server:
 - **Files:** `document-tools/markdown.lua`, `ftplugin/markdown.lua`
 - Marksman LSP for navigation and completion
 - render-markdown.nvim for in-buffer rendering (lazy-loaded on `markdown` filetype; toggle with `<leader>uM`)
-- markdown-preview.nvim for browser preview (`<leader>um`)
+- vellum.nvim for live split preview with mermaid/math images (`<leader>um` group: `<leader>ump` toggle preview, `<leader>umz` zoom, `<leader>ume` export PDF)
 - Vale linting for prose quality
 
 ### Cucumber/Gherkin

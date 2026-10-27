@@ -1,7 +1,7 @@
 return {
-      --[[ BUFFER OPEARTION ]]
-      { "<leader>b", group = "Buffer" },
-      { "<leader>bx", "<cmd>bdelete!<CR>", desc = "Close Buffer" },
+  --[[ BUFFER OPEARTION ]]
+  { "<leader>b", group = "Buffer" },
+  { "<leader>bx", "<cmd>bdelete!<CR>", desc = "Close Buffer" },
   --[[ FIND OPs ]]
   { "<leader>f", group = "Find" },
   { "<leader>ff", group = "Find Files" },
@@ -12,7 +12,8 @@ return {
   { "<leader>h", group = "Haunt" },
 
   --[[ AI OPs ]]
-  { "<leader>a", group = "AI" },
+  { "<leader>as", group = "AI sidekick" },
+  { "<leader>ah", group = "AI herdr" },
 
   --[[ LSP OPs ]]
   { "<leader>l", group = "LSP" },
@@ -25,6 +26,7 @@ return {
 
   { "<leader>u", group = "Utilities" },
   { "<leader>uk", group = "Kulala" },
+  { "<leader>um", group = "Markdown" },
   { "<leader>ut", group = "Tab Related" },
 
   { "<leader>x", group = "Explorer" },

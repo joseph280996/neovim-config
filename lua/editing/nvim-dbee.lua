@@ -35,6 +35,9 @@ return {
     end
 
     require("dbee").setup({
+      editor = {
+        directory = "~/notes/test-sql-scripts"
+      },
       sources = {
         require("dbee.sources").MemorySource:new({
           {
